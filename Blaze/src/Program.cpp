@@ -4,13 +4,18 @@
 #include <thrift/transport/TSocket.h>
 #include <thrift/transport/TTransportUtils.h>
 
+#include <RCF/RCF.hpp>
+
 #include "FlameService.h"
-#include "../../Visual Studio 2010/VC/include/vector"
 
 using namespace Flame;
 using namespace apache::thrift;
 using namespace apache::thrift::protocol;
 using namespace apache::thrift::transport;
+
+RCF_BEGIN(I_HelloWorld, "I_HelloWorld")
+	RCF_METHOD_V1(void, Print, const std::string &)
+RCF_END(I_HelloWorld)
 
 int main(int argc, char* argv[]) 
 {
