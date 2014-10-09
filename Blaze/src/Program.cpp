@@ -1,52 +1,53 @@
 #include <iostream>
 
-#include <thrift/protocol/TBinaryProtocol.h>
-#include <thrift/transport/TSocket.h>
-#include <thrift/transport/TTransportUtils.h>
+//#include <thrift/protocol/TBinaryProtocol.h>
+//#include <thrift/transport/TSocket.h>
+//#include <thrift/transport/TTransportUtils.h>
+//
+//#include "FlameService.h"
+//
+//using namespace Flame;
+//using namespace apache::thrift;
+//using namespace apache::thrift::protocol;
+//using namespace apache::thrift::transport;
 
-#include <RCF/RCF.hpp>
+#include <gflags/gflags.h>
 
-#include "FlameService.h"
-
-using namespace Flame;
-using namespace apache::thrift;
-using namespace apache::thrift::protocol;
-using namespace apache::thrift::transport;
-
-RCF_BEGIN(I_HelloWorld, "I_HelloWorld")
-	RCF_METHOD_V1(void, Print, const std::string &)
-RCF_END(I_HelloWorld)
+DEFINE_string(testarg, "test default value",
+			  "a test argument to get gflags working");
 
 int main(int argc, char* argv[]) 
 {
-	boost::shared_ptr<TTransport> socket(new TSocket("localhost", 9090));
-	boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
-	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	FlameServiceClient client(protocol);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
-	try {
-		transport->open();
+	//boost::shared_ptr<TTransport> socket(new TSocket("localhost", 9090));
+	//boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
+	//boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
+	//FlameServiceClient client(protocol);
 
-		Spark spark;
-		spark.sparkID = 6;
+	//try {
+	//	transport->open();
 
-		client.DispatchMovementCommand(spark, MovementTypes::Forward);
-		client.DispatchMovementCommand(spark, MovementTypes::Backward);
-		client.DispatchMovementCommand(spark, MovementTypes::Up);
-		client.DispatchMovementCommand(spark, MovementTypes::Down);
-		client.DispatchMovementCommand(spark, MovementTypes::TurnLeft);
-		client.DispatchMovementCommand(spark, MovementTypes::TurnRight);
+	//	Spark spark;
+	//	spark.sparkID = 6;
 
-		std::vector<Spark> allSparks;
-		client.GetAllSparks(allSparks);
+	//	client.DispatchMovementCommand(spark, MovementTypes::Forward);
+	//	client.DispatchMovementCommand(spark, MovementTypes::Backward);
+	//	client.DispatchMovementCommand(spark, MovementTypes::Up);
+	//	client.DispatchMovementCommand(spark, MovementTypes::Down);
+	//	client.DispatchMovementCommand(spark, MovementTypes::TurnLeft);
+	//	client.DispatchMovementCommand(spark, MovementTypes::TurnRight);
 
-		for (int i = 0; i < allSparks.size(); i++) {
-			std::cout << "Spark: " << allSparks[i].sparkID << std::endl;
-		}
+	//	std::vector<Spark> allSparks;
+	//	client.GetAllSparks(allSparks);
 
-	} catch (TException& tx) {
-		std::cout << "ERROR: " << tx.what() << std::endl;
-	}
+	//	for (int i = 0; i < allSparks.size(); i++) {
+	//		std::cout << "Spark: " << allSparks[i].sparkID << std::endl;
+	//	}
+
+	//} catch (TException& tx) {
+	//	std::cout << "ERROR: " << tx.what() << std::endl;
+	//}
 
 	std::cin.ignore();
 	return 0;

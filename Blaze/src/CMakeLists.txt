@@ -24,6 +24,9 @@ ENDIF()
 if (WIN32)
   SET(LIBS_DIRECTORY "${PROJECT_HOME_DIRECTORY}libs/WindowsLib")
   FILE(GLOB THIRD_PARTY_LIBS ${LIBS_DIRECTORY}/Debug/*.lib)
+
+  # Aditional Libs for Windows
+  LIST(APPEND THIRD_PARTY_LIBS shlwapi.lib)
 ENDIF()
 
 
