@@ -1,5 +1,3 @@
-#include <iostream>
-
 //#include <thrift/protocol/TBinaryProtocol.h>
 //#include <thrift/transport/TSocket.h>
 //#include <thrift/transport/TTransportUtils.h>
@@ -11,6 +9,12 @@
 //using namespace apache::thrift::protocol;
 //using namespace apache::thrift::transport;
 
+// Workaround for RCF include order conflict with glog
+#ifdef WIN32
+#include <WinSock2.h>
+#endif
+
+#include <RCF/RCF.hpp>
 #include <gflags/gflags.h>
 #include <glog/logging.h>
 
@@ -19,11 +23,16 @@ DEFINE_string(testarg, "test default value",
 
 int main(int argc, char* argv[]) 
 {
+	// Init Google Flags and Google Logging
+	std::string usage = std::string(argv[0]) + " <args>";
+	gflags::SetUsageMessage(usage);
 	gflags::ParseCommandLineFlags(&argc, &argv, false);
 	google::InitGoogleLogging(argv[0]);
 	FLAGS_logtostderr = 1;
 	FLAGS_colorlogtostderr = 1;
 
+
+	// Hello World
 	LOG(INFO) << "Hello World from Google Log!";
 
 	//boost::shared_ptr<TTransport> socket(new TSocket("localhost", 9090));

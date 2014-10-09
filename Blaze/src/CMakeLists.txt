@@ -55,6 +55,9 @@ if( MSVC )
   add_definitions( /D GOOGLE_GLOG_DLL_DECL= )
 endif()
 
+# Windows already had 'ERROR' defined
+add_definitions( /D GLOG_NO_ABBREVIATED_SEVERITIES )
+
 # Set Include / Lib folders
 INCLUDE_DIRECTORIES(${SRC_DIRECTORY})
 INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORY})

@@ -19,6 +19,11 @@
 #ifndef INCLUDE_RCF_RCF_HPP
 #define INCLUDE_RCF_RCF_HPP
 
+// Workaround for RCF include order conflict with glog
+#ifdef WIN32
+#include <WinSock2.h>
+#endif
+
 #include <RCF/Idl.hpp>
 #include <RCF/IpServerTransport.hpp>
 #include <RCF/RcfServer.hpp>

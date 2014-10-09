@@ -17,6 +17,11 @@ namespace Services {
 class Spark
 {
 public:
+	Spark():
+		SparkID(-1)
+	{
+	}
+
 	Spark(int32_t sparkId):
 		SparkID(sparkId)
 	{
