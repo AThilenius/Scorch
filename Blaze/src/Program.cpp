@@ -12,13 +12,19 @@
 //using namespace apache::thrift::transport;
 
 #include <gflags/gflags.h>
+#include <glog/logging.h>
 
 DEFINE_string(testarg, "test default value",
 			  "a test argument to get gflags working");
 
 int main(int argc, char* argv[]) 
 {
-	gflags::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, false);
+	google::InitGoogleLogging(argv[0]);
+	FLAGS_logtostderr = 1;
+	FLAGS_colorlogtostderr = 1;
+
+	LOG(INFO) << "Hello World from Google Log!";
 
 	//boost::shared_ptr<TTransport> socket(new TSocket("localhost", 9090));
 	//boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));

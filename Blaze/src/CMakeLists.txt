@@ -47,8 +47,12 @@ project(${PROJECT_NAME})
 SET(EXE_NAME ${PROJECT_NAME})
 
 # VS work arounds
-if( MSVC ) # VS2012 doesn't support correctly the tuples yet
+if( MSVC ) 
+  # VS2012 doesn't support correctly the tuples yet
   add_definitions( /D _VARIADIC_MAX=10 )
+
+  # Needed for static linking glog
+  add_definitions( /D GOOGLE_GLOG_DLL_DECL= )
 endif()
 
 # Set Include / Lib folders
