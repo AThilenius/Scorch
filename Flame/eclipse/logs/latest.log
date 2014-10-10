@@ -1,0 +1,33 @@
+[17:21:12] [main/INFO]: Setting user: Player320
+[17:21:12] [Client thread/INFO]: LWJGL Version: 2.9.1
+[17:21:16] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Example Mod, FMLFileResourcePack:Flame
+[17:21:16] [Sound Library Loader/INFO]: Sound engine started
+[17:21:17] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[17:21:17] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[17:21:17] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Example Mod, FMLFileResourcePack:Flame
+[17:21:17] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[17:21:18] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[17:21:18] [Sound Library Loader/INFO]: Sound engine started
+[17:21:21] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[17:21:21] [Server thread/INFO]: Generating keypair
+[17:21:21] [Server thread/INFO]: Preparing start region for level 0
+[17:21:22] [Server thread/INFO]: Changing view distance to 12, from 10
+[17:21:23] [Server thread/INFO]: Player320[local:E:69c6f072] logged in with entity id 365 at (-14.95994441226355, 68.0, -216.88883520881382)
+[17:21:23] [Server thread/INFO]: Player320 joined the game
+[17:21:42] [Server thread/INFO]: Saving and pausing game...
+[17:21:42] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[17:21:43] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[17:21:43] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[17:22:02] [Server thread/INFO]: Player320 has just earned the achievement [Taking Inventory]
+[17:22:02] [Client thread/INFO]: [CHAT] Player320 has just earned the achievement [Taking Inventory]
+[17:24:52] [Server thread/INFO]: Saving and pausing game...
+[17:24:52] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[17:24:52] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[17:24:52] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[17:24:53] [Server thread/INFO]: Stopping server
+[17:24:53] [Server thread/INFO]: Saving players
+[17:24:53] [Server thread/INFO]: Saving worlds
+[17:24:53] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[17:24:53] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[17:24:53] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[17:24:55] [Client thread/INFO]: Stopping!

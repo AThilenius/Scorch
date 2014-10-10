@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.minecraft.server.MinecraftServer"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.eventhandler.SubscribeEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.MinecraftForge"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.FMLCommonHandler"/>
+<fullyQualifiedTypeName name="net.minecraftforge.event.entity.player.PlayerInteractEvent"/>
+<fullyQualifiedTypeName name="net.minecraftforge.event.entity.player.PlayerInteractEvent.Action"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
+<fullyQualifiedTypeName name="net.minecraft.block.BlockGravel"/>
+</qualifiedTypeNameHistroy>
