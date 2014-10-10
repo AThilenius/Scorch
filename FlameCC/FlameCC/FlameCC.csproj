@@ -48,6 +48,7 @@
     <Compile Include="gen-files\FlameService.cs" />
     <Compile Include="gen-files\Location.cs" />
     <Compile Include="gen-files\MovementTypes.cs" />
+    <Compile Include="gen-files\OrientationTypes.cs" />
     <Compile Include="gen-files\Spark.cs" />
     <Compile Include="HTTP\HttpProcessor.cs" />
     <Compile Include="HTTP\HttpServer.cs" />

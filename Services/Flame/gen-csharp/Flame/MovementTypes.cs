@@ -11,9 +11,7 @@ namespace Flame
   {
     Forward = 1,
     Backward = 2,
-    TurnLeft = 3,
-    TurnRight = 4,
-    Up = 5,
-    Down = 6,
+    Up = 3,
+    Down = 4,
   }
 }

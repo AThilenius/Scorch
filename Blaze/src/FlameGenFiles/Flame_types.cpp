@@ -13,20 +13,26 @@ namespace Flame {
 int _kMovementTypesValues[] = {
   MovementTypes::Forward,
   MovementTypes::Backward,
-  MovementTypes::TurnLeft,
-  MovementTypes::TurnRight,
   MovementTypes::Up,
   MovementTypes::Down
 };
 const char* _kMovementTypesNames[] = {
   "Forward",
   "Backward",
-  "TurnLeft",
-  "TurnRight",
   "Up",
   "Down"
 };
-const std::map<int, const char*> _MovementTypes_VALUES_TO_NAMES(::apache::thrift::TEnumIterator(6, _kMovementTypesValues, _kMovementTypesNames), ::apache::thrift::TEnumIterator(-1, NULL, NULL));
+const std::map<int, const char*> _MovementTypes_VALUES_TO_NAMES(::apache::thrift::TEnumIterator(4, _kMovementTypesValues, _kMovementTypesNames), ::apache::thrift::TEnumIterator(-1, NULL, NULL));
+
+int _kOrientationTypesValues[] = {
+  OrientationTypes::TurnLeft,
+  OrientationTypes::TurnRight
+};
+const char* _kOrientationTypesNames[] = {
+  "TurnLeft",
+  "TurnRight"
+};
+const std::map<int, const char*> _OrientationTypes_VALUES_TO_NAMES(::apache::thrift::TEnumIterator(2, _kOrientationTypesValues, _kOrientationTypesNames), ::apache::thrift::TEnumIterator(-1, NULL, NULL));
 
 const char* Spark::ascii_fingerprint = "E86CACEB22240450EDCBEFC3A83970E4";
 const uint8_t Spark::binary_fingerprint[16] = {0xE8,0x6C,0xAC,0xEB,0x22,0x24,0x04,0x50,0xED,0xCB,0xEF,0xC3,0xA8,0x39,0x70,0xE4};

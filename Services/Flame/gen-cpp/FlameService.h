@@ -20,6 +20,7 @@ class FlameServiceIf {
   virtual void RemoveSpark(const Spark& sparkToRemove) = 0;
   virtual void RemoveAllSparks() = 0;
   virtual bool DispatchMovementCommand(const Spark& spark, const MovementTypes::type movementCommand) = 0;
+  virtual void DispatchOrientationCommand(const Spark& spark, const OrientationTypes::type orientationCommand) = 0;
 };
 
 class FlameServiceIfFactory {
@@ -64,6 +65,9 @@ class FlameServiceNull : virtual public FlameServiceIf {
   bool DispatchMovementCommand(const Spark& /* spark */, const MovementTypes::type /* movementCommand */) {
     bool _return = false;
     return _return;
+  }
+  void DispatchOrientationCommand(const Spark& /* spark */, const OrientationTypes::type /* orientationCommand */) {
+    return;
   }
 };
 
@@ -548,6 +552,103 @@ class FlameService_DispatchMovementCommand_presult {
 
 };
 
+typedef struct _FlameService_DispatchOrientationCommand_args__isset {
+  _FlameService_DispatchOrientationCommand_args__isset() : spark(false), orientationCommand(false) {}
+  bool spark;
+  bool orientationCommand;
+} _FlameService_DispatchOrientationCommand_args__isset;
+
+class FlameService_DispatchOrientationCommand_args {
+ public:
+
+  FlameService_DispatchOrientationCommand_args() : orientationCommand((OrientationTypes::type)0) {
+  }
+
+  virtual ~FlameService_DispatchOrientationCommand_args() throw() {}
+
+  Spark spark;
+  OrientationTypes::type orientationCommand;
+
+  _FlameService_DispatchOrientationCommand_args__isset __isset;
+
+  void __set_spark(const Spark& val) {
+    spark = val;
+  }
+
+  void __set_orientationCommand(const OrientationTypes::type val) {
+    orientationCommand = val;
+  }
+
+  bool operator == (const FlameService_DispatchOrientationCommand_args & rhs) const
+  {
+    if (!(spark == rhs.spark))
+      return false;
+    if (!(orientationCommand == rhs.orientationCommand))
+      return false;
+    return true;
+  }
+  bool operator != (const FlameService_DispatchOrientationCommand_args &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const FlameService_DispatchOrientationCommand_args & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class FlameService_DispatchOrientationCommand_pargs {
+ public:
+
+
+  virtual ~FlameService_DispatchOrientationCommand_pargs() throw() {}
+
+  const Spark* spark;
+  const OrientationTypes::type* orientationCommand;
+
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class FlameService_DispatchOrientationCommand_result {
+ public:
+
+  FlameService_DispatchOrientationCommand_result() {
+  }
+
+  virtual ~FlameService_DispatchOrientationCommand_result() throw() {}
+
+
+  bool operator == (const FlameService_DispatchOrientationCommand_result & /* rhs */) const
+  {
+    return true;
+  }
+  bool operator != (const FlameService_DispatchOrientationCommand_result &rhs) const {
+    return !(*this == rhs);
+  }
+
+  bool operator < (const FlameService_DispatchOrientationCommand_result & ) const;
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+  uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
+
+};
+
+
+class FlameService_DispatchOrientationCommand_presult {
+ public:
+
+
+  virtual ~FlameService_DispatchOrientationCommand_presult() throw() {}
+
+
+  uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
+
+};
+
 class FlameServiceClient : virtual public FlameServiceIf {
  public:
   FlameServiceClient(boost::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) :
@@ -583,6 +684,9 @@ class FlameServiceClient : virtual public FlameServiceIf {
   bool DispatchMovementCommand(const Spark& spark, const MovementTypes::type movementCommand);
   void send_DispatchMovementCommand(const Spark& spark, const MovementTypes::type movementCommand);
   bool recv_DispatchMovementCommand();
+  void DispatchOrientationCommand(const Spark& spark, const OrientationTypes::type orientationCommand);
+  void send_DispatchOrientationCommand(const Spark& spark, const OrientationTypes::type orientationCommand);
+  void recv_DispatchOrientationCommand();
  protected:
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> piprot_;
   boost::shared_ptr< ::apache::thrift::protocol::TProtocol> poprot_;
@@ -603,6 +707,7 @@ class FlameServiceProcessor : public ::apache::thrift::TDispatchProcessor {
   void process_RemoveSpark(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_RemoveAllSparks(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
   void process_DispatchMovementCommand(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
+  void process_DispatchOrientationCommand(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
   FlameServiceProcessor(boost::shared_ptr<FlameServiceIf> iface) :
     iface_(iface) {
@@ -611,6 +716,7 @@ class FlameServiceProcessor : public ::apache::thrift::TDispatchProcessor {
     processMap_["RemoveSpark"] = &FlameServiceProcessor::process_RemoveSpark;
     processMap_["RemoveAllSparks"] = &FlameServiceProcessor::process_RemoveAllSparks;
     processMap_["DispatchMovementCommand"] = &FlameServiceProcessor::process_DispatchMovementCommand;
+    processMap_["DispatchOrientationCommand"] = &FlameServiceProcessor::process_DispatchOrientationCommand;
   }
 
   virtual ~FlameServiceProcessor() {}
@@ -684,6 +790,15 @@ class FlameServiceMultiface : virtual public FlameServiceIf {
       ifaces_[i]->DispatchMovementCommand(spark, movementCommand);
     }
     return ifaces_[i]->DispatchMovementCommand(spark, movementCommand);
+  }
+
+  void DispatchOrientationCommand(const Spark& spark, const OrientationTypes::type orientationCommand) {
+    size_t sz = ifaces_.size();
+    size_t i = 0;
+    for (; i < (sz - 1); ++i) {
+      ifaces_[i]->DispatchOrientationCommand(spark, orientationCommand);
+    }
+    ifaces_[i]->DispatchOrientationCommand(spark, orientationCommand);
   }
 
 };

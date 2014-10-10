@@ -34,12 +34,15 @@ struct Location {
 /* Enums                                                                      */
 /******************************************************************************/
 enum MovementTypes {
-  Forward = 1,
-  Backward = 2,
-  TurnLeft = 3,
-  TurnRight = 4,
-  Up = 5,
-  Down = 6
+  Forward   = 1,
+  Backward  = 2,
+  Up        = 3,
+  Down      = 4
+}
+
+enum OrientationTypes {
+  TurnLeft  = 1,
+  TurnRight = 2
 }
 
 
@@ -61,4 +64,6 @@ service FlameService {
    	//===   Movement   =========================================================
    	bool 			DispatchMovementCommand	(1:Spark spark, 
    											 2:MovementTypes movementCommand)
+    void      DispatchOrientationCommand (1:Spark spark,
+                         2:OrientationTypes orientationCommand)
 }

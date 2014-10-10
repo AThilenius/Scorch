@@ -1,28 +1,19 @@
-//#include <thrift/protocol/TBinaryProtocol.h>
-//#include <thrift/transport/TSocket.h>
-//#include <thrift/transport/TTransportUtils.h>
 //
-//#include "FlameService.h"
+//  Program.cpp
+//  Blaze
 //
-//using namespace Flame;
-//using namespace apache::thrift;
-//using namespace apache::thrift::protocol;
-//using namespace apache::thrift::transport;
+//  Created by Alec Thilenius on 10/1/2014.
+//  Copyright (c) 2013 Thilenius. All rights reserved.
+//
+#include "PCH.h"
 
-// Workaround for RCF include order conflict with glog
-#ifdef WIN32
-#include <WinSock2.h>
-#endif
+#include "FlameClient.h"
+#include "SparkServiceImpl.h"
 
-#include <RCF/RCF.hpp>
-#include <gflags/gflags.h>
-#include <glog/logging.h>
+DEFINE_uint64(port, 9091,
+			  "The port number to host the Blaze server on.");
 
-DEFINE_string(testarg, "test default value",
-			  "a test argument to get gflags working");
-
-int main(int argc, char* argv[]) 
-{
+int main(int argc, char* argv[]) {
 	// Init Google Flags and Google Logging
 	std::string usage = std::string(argv[0]) + " <args>";
 	gflags::SetUsageMessage(usage);
@@ -31,39 +22,22 @@ int main(int argc, char* argv[])
 	FLAGS_logtostderr = 1;
 	FLAGS_colorlogtostderr = 1;
 
+	Blaze::Services::FlameClient flameClient;
+	flameClient.Connect();
 
-	// Hello World
-	LOG(INFO) << "Hello World from Google Log!";
+	LOG(INFO) << "Initializing RCF";
+	RCF::RcfInitDeinit rcfInit;
 
-	//boost::shared_ptr<TTransport> socket(new TSocket("localhost", 9090));
-	//boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
-	//boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
-	//FlameServiceClient client(protocol);
+	Blaze::Services::SparkServiceImpl sparkServiceImpl(&flameClient);
+	RCF::RcfServer server(RCF::TcpEndpoint((int) FLAGS_port));
 
-	//try {
-	//	transport->open();
+	LOG(INFO) << "Binding IServiceSpark implementation to server.";
+	server.bind<Blaze::Services::IServiceSpark>(sparkServiceImpl);
 
-	//	Spark spark;
-	//	spark.sparkID = 6;
+	LOG(INFO) << "Starting RCF Blaze service on port: " << FLAGS_port;
+	server.start();
 
-	//	client.DispatchMovementCommand(spark, MovementTypes::Forward);
-	//	client.DispatchMovementCommand(spark, MovementTypes::Backward);
-	//	client.DispatchMovementCommand(spark, MovementTypes::Up);
-	//	client.DispatchMovementCommand(spark, MovementTypes::Down);
-	//	client.DispatchMovementCommand(spark, MovementTypes::TurnLeft);
-	//	client.DispatchMovementCommand(spark, MovementTypes::TurnRight);
-
-	//	std::vector<Spark> allSparks;
-	//	client.GetAllSparks(allSparks);
-
-	//	for (int i = 0; i < allSparks.size(); i++) {
-	//		std::cout << "Spark: " << allSparks[i].sparkID << std::endl;
-	//	}
-
-	//} catch (TException& tx) {
-	//	std::cout << "ERROR: " << tx.what() << std::endl;
-	//}
-
+	LOG(INFO) << "Waiting for any-key to exit.";
 	std::cin.ignore();
 	return 0;
 }

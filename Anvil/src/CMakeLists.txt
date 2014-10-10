@@ -24,6 +24,9 @@ ENDIF()
 if (WIN32)
   SET(LIBS_DIRECTORY "${PROJECT_HOME_DIRECTORY}libs/WindowsLib")
   FILE(GLOB THIRD_PARTY_LIBS ${LIBS_DIRECTORY}/Debug/*.lib)
+
+  # Aditional Libs for Windows
+  LIST(APPEND THIRD_PARTY_LIBS shlwapi.lib)
 ENDIF()
 
 
@@ -44,9 +47,16 @@ project(${PROJECT_NAME})
 SET(EXE_NAME ${PROJECT_NAME})
 
 # VS work arounds
-if( MSVC ) # VS2012 doesn't support correctly the tuples yet
+if( MSVC ) 
+  # VS2012 doesn't support correctly the tuples yet
   add_definitions( /D _VARIADIC_MAX=10 )
+
+  # Needed for static linking glog
+  add_definitions( /D GOOGLE_GLOG_DLL_DECL= )
 endif()
+
+# Windows already had 'ERROR' defined
+add_definitions( /D GLOG_NO_ABBREVIATED_SEVERITIES )
 
 # Set Include / Lib folders
 INCLUDE_DIRECTORIES(${SRC_DIRECTORY})

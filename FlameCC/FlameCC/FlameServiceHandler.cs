@@ -12,9 +12,14 @@ namespace Flame
             { MovementTypes.Forward,    "return turtle.forward()" },
             { MovementTypes.Backward,   "return turtle.back()" },
             { MovementTypes.Up,         "return turtle.up()" },
-            { MovementTypes.Down,       "return turtle.down()" },
-            { MovementTypes.TurnLeft,   "return turtle.turnLeft()" },
-            { MovementTypes.TurnRight,  "return turtle.turnRight()" }
+            { MovementTypes.Down,       "return turtle.down()" }
+        };
+
+        private Dictionary<OrientationTypes, String> m_orientationCommandLookup
+             = new Dictionary<OrientationTypes, String>
+        {
+            { OrientationTypes.TurnLeft,   "return turtle.turnLeft()" },
+            { OrientationTypes.TurnRight,  "return turtle.turnRight()" }
         };
 
         public FlameServiceHandler(QueueHttpServer httpServer) : base()
@@ -50,6 +55,16 @@ namespace Flame
             return retValue;
         }
 
+        public void DispatchOrientationCommand(Spark spark, OrientationTypes orientationCommand)
+        {
+            try
+            {
+                String retString = m_httpServer
+                    .RunCommand(spark.SparkID, m_orientationCommandLookup[orientationCommand]);
+            }
+            catch (Exception ex) { }
+        }
+
         #region Not Suported By FlameCC
 
         public Spark CreateSpark(Location worldLocation)
@@ -68,5 +83,6 @@ namespace Flame
         }
 
         #endregion
+
     }
 }

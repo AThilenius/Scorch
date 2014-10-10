@@ -13,19 +13,19 @@
 namespace Blaze {
 namespace Services {
 
-class SparkServiceImpl
-{
-public:
-	SparkServiceImpl();
-	~SparkServiceImpl();
+class FlameClient;
 
-	void Start();
+class SparkServiceImpl {
+public:
+	SparkServiceImpl(FlameClient* flameClient);
+	~SparkServiceImpl();
 
 	bool DispatchMovement( const Spark& spark, const MovementTypes& movementType );
 	void DispatchOrientation( const Spark& spark, const OrientationTypes& orientationType );
 
 private:
 	RCF::RcfServer* m_server;
+	FlameClient* m_flameClient;
 };
 
 } // namespace Services

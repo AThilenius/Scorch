@@ -5,11 +5,15 @@
  *  @generated
  */
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
+using System.IO;
 using Thrift;
+using Thrift.Collections;
+using System.Runtime.Serialization;
 using Thrift.Protocol;
+using Thrift.Transport;
 
 namespace Flame
 {
@@ -39,6 +43,11 @@ namespace Flame
       #if SILVERLIGHT
       IAsyncResult Begin_DispatchMovementCommand(AsyncCallback callback, object state, Spark spark, MovementTypes movementCommand);
       bool End_DispatchMovementCommand(IAsyncResult asyncResult);
+      #endif
+      void DispatchOrientationCommand(Spark spark, OrientationTypes orientationCommand);
+      #if SILVERLIGHT
+      IAsyncResult Begin_DispatchOrientationCommand(AsyncCallback callback, object state, Spark spark, OrientationTypes orientationCommand);
+      void End_DispatchOrientationCommand(IAsyncResult asyncResult);
       #endif
     }
 
@@ -401,6 +410,66 @@ namespace Flame
         throw new TApplicationException(TApplicationException.ExceptionType.MissingResult, "DispatchMovementCommand failed: unknown result");
       }
 
+      
+      #if SILVERLIGHT
+      public IAsyncResult Begin_DispatchOrientationCommand(AsyncCallback callback, object state, Spark spark, OrientationTypes orientationCommand)
+      {
+        return send_DispatchOrientationCommand(callback, state, spark, orientationCommand);
+      }
+
+      public void End_DispatchOrientationCommand(IAsyncResult asyncResult)
+      {
+        oprot_.Transport.EndFlush(asyncResult);
+        recv_DispatchOrientationCommand();
+      }
+
+      #endif
+
+      public void DispatchOrientationCommand(Spark spark, OrientationTypes orientationCommand)
+      {
+        #if !SILVERLIGHT
+        send_DispatchOrientationCommand(spark, orientationCommand);
+        recv_DispatchOrientationCommand();
+
+        #else
+        var asyncResult = Begin_DispatchOrientationCommand(null, null, spark, orientationCommand);
+        End_DispatchOrientationCommand(asyncResult);
+
+        #endif
+      }
+      #if SILVERLIGHT
+      public IAsyncResult send_DispatchOrientationCommand(AsyncCallback callback, object state, Spark spark, OrientationTypes orientationCommand)
+      #else
+      public void send_DispatchOrientationCommand(Spark spark, OrientationTypes orientationCommand)
+      #endif
+      {
+        oprot_.WriteMessageBegin(new TMessage("DispatchOrientationCommand", TMessageType.Call, seqid_));
+        DispatchOrientationCommand_args args = new DispatchOrientationCommand_args();
+        args.Spark = spark;
+        args.OrientationCommand = orientationCommand;
+        args.Write(oprot_);
+        oprot_.WriteMessageEnd();
+        #if SILVERLIGHT
+        return oprot_.Transport.BeginFlush(callback, state);
+        #else
+        oprot_.Transport.Flush();
+        #endif
+      }
+
+      public void recv_DispatchOrientationCommand()
+      {
+        TMessage msg = iprot_.ReadMessageBegin();
+        if (msg.Type == TMessageType.Exception) {
+          TApplicationException x = TApplicationException.Read(iprot_);
+          iprot_.ReadMessageEnd();
+          throw x;
+        }
+        DispatchOrientationCommand_result result = new DispatchOrientationCommand_result();
+        result.Read(iprot_);
+        iprot_.ReadMessageEnd();
+        return;
+      }
+
     }
     public class Processor : TProcessor {
       public Processor(Iface iface)
@@ -411,6 +480,7 @@ namespace Flame
         processMap_["RemoveSpark"] = RemoveSpark_Process;
         processMap_["RemoveAllSparks"] = RemoveAllSparks_Process;
         processMap_["DispatchMovementCommand"] = DispatchMovementCommand_Process;
+        processMap_["DispatchOrientationCommand"] = DispatchOrientationCommand_Process;
       }
 
       protected delegate void ProcessFunction(int seqid, TProtocol iprot, TProtocol oprot);
@@ -503,6 +573,19 @@ namespace Flame
         DispatchMovementCommand_result result = new DispatchMovementCommand_result();
         result.Success = iface_.DispatchMovementCommand(args.Spark, args.MovementCommand);
         oprot.WriteMessageBegin(new TMessage("DispatchMovementCommand", TMessageType.Reply, seqid)); 
+        result.Write(oprot);
+        oprot.WriteMessageEnd();
+        oprot.Transport.Flush();
+      }
+
+      public void DispatchOrientationCommand_Process(int seqid, TProtocol iprot, TProtocol oprot)
+      {
+        DispatchOrientationCommand_args args = new DispatchOrientationCommand_args();
+        args.Read(iprot);
+        iprot.ReadMessageEnd();
+        DispatchOrientationCommand_result result = new DispatchOrientationCommand_result();
+        iface_.DispatchOrientationCommand(args.Spark, args.OrientationCommand);
+        oprot.WriteMessageBegin(new TMessage("DispatchOrientationCommand", TMessageType.Reply, seqid)); 
         result.Write(oprot);
         oprot.WriteMessageEnd();
         oprot.Transport.Flush();
@@ -1277,6 +1360,177 @@ namespace Flame
         StringBuilder sb = new StringBuilder("DispatchMovementCommand_result(");
         sb.Append("Success: ");
         sb.Append(Success);
+        sb.Append(")");
+        return sb.ToString();
+      }
+
+    }
+
+
+    #if !SILVERLIGHT
+    [Serializable]
+    #endif
+    public partial class DispatchOrientationCommand_args : TBase
+    {
+      private Spark _spark;
+      private OrientationTypes _orientationCommand;
+
+      public Spark Spark
+      {
+        get
+        {
+          return _spark;
+        }
+        set
+        {
+          __isset.spark = true;
+          this._spark = value;
+        }
+      }
+
+      /// <summary>
+      /// 
+      /// <seealso cref="OrientationTypes"/>
+      /// </summary>
+      public OrientationTypes OrientationCommand
+      {
+        get
+        {
+          return _orientationCommand;
+        }
+        set
+        {
+          __isset.orientationCommand = true;
+          this._orientationCommand = value;
+        }
+      }
+
+
+      public Isset __isset;
+      #if !SILVERLIGHT
+      [Serializable]
+      #endif
+      public struct Isset {
+        public bool spark;
+        public bool orientationCommand;
+      }
+
+      public DispatchOrientationCommand_args() {
+      }
+
+      public void Read (TProtocol iprot)
+      {
+        TField field;
+        iprot.ReadStructBegin();
+        while (true)
+        {
+          field = iprot.ReadFieldBegin();
+          if (field.Type == TType.Stop) { 
+            break;
+          }
+          switch (field.ID)
+          {
+            case 1:
+              if (field.Type == TType.Struct) {
+                Spark = new Spark();
+                Spark.Read(iprot);
+              } else { 
+                TProtocolUtil.Skip(iprot, field.Type);
+              }
+              break;
+            case 2:
+              if (field.Type == TType.I32) {
+                OrientationCommand = (OrientationTypes)iprot.ReadI32();
+              } else { 
+                TProtocolUtil.Skip(iprot, field.Type);
+              }
+              break;
+            default: 
+              TProtocolUtil.Skip(iprot, field.Type);
+              break;
+          }
+          iprot.ReadFieldEnd();
+        }
+        iprot.ReadStructEnd();
+      }
+
+      public void Write(TProtocol oprot) {
+        TStruct struc = new TStruct("DispatchOrientationCommand_args");
+        oprot.WriteStructBegin(struc);
+        TField field = new TField();
+        if (Spark != null && __isset.spark) {
+          field.Name = "spark";
+          field.Type = TType.Struct;
+          field.ID = 1;
+          oprot.WriteFieldBegin(field);
+          Spark.Write(oprot);
+          oprot.WriteFieldEnd();
+        }
+        if (__isset.orientationCommand) {
+          field.Name = "orientationCommand";
+          field.Type = TType.I32;
+          field.ID = 2;
+          oprot.WriteFieldBegin(field);
+          oprot.WriteI32((int)OrientationCommand);
+          oprot.WriteFieldEnd();
+        }
+        oprot.WriteFieldStop();
+        oprot.WriteStructEnd();
+      }
+
+      public override string ToString() {
+        StringBuilder sb = new StringBuilder("DispatchOrientationCommand_args(");
+        sb.Append("Spark: ");
+        sb.Append(Spark== null ? "<null>" : Spark.ToString());
+        sb.Append(",OrientationCommand: ");
+        sb.Append(OrientationCommand);
+        sb.Append(")");
+        return sb.ToString();
+      }
+
+    }
+
+
+    #if !SILVERLIGHT
+    [Serializable]
+    #endif
+    public partial class DispatchOrientationCommand_result : TBase
+    {
+
+      public DispatchOrientationCommand_result() {
+      }
+
+      public void Read (TProtocol iprot)
+      {
+        TField field;
+        iprot.ReadStructBegin();
+        while (true)
+        {
+          field = iprot.ReadFieldBegin();
+          if (field.Type == TType.Stop) { 
+            break;
+          }
+          switch (field.ID)
+          {
+            default: 
+              TProtocolUtil.Skip(iprot, field.Type);
+              break;
+          }
+          iprot.ReadFieldEnd();
+        }
+        iprot.ReadStructEnd();
+      }
+
+      public void Write(TProtocol oprot) {
+        TStruct struc = new TStruct("DispatchOrientationCommand_result");
+        oprot.WriteStructBegin(struc);
+
+        oprot.WriteFieldStop();
+        oprot.WriteStructEnd();
+      }
+
+      public override string ToString() {
+        StringBuilder sb = new StringBuilder("DispatchOrientationCommand_result(");
         sb.Append(")");
         return sb.ToString();
       }

@@ -21,14 +21,21 @@ struct MovementTypes {
   enum type {
     Forward = 1,
     Backward = 2,
-    TurnLeft = 3,
-    TurnRight = 4,
-    Up = 5,
-    Down = 6
+    Up = 3,
+    Down = 4
   };
 };
 
 extern const std::map<int, const char*> _MovementTypes_VALUES_TO_NAMES;
+
+struct OrientationTypes {
+  enum type {
+    TurnLeft = 1,
+    TurnRight = 2
+  };
+};
+
+extern const std::map<int, const char*> _OrientationTypes_VALUES_TO_NAMES;
 
 typedef struct _Spark__isset {
   _Spark__isset() : sparkID(false) {}
