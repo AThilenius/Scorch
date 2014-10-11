@@ -14,6 +14,7 @@
  */
 namespace cpp Flame
 namespace csharp Flame
+namespace java com.thilenius.flame.service.thrift.genfiles
 
 
 /******************************************************************************/

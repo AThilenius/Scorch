@@ -1,5 +1,7 @@
 package com.thilenius.flame;
 
+import com.thilenius.flame.service.thrift.FlameServiceServer;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockGravel;
 import net.minecraft.item.Item;
@@ -30,6 +32,8 @@ public class Flame {
 
 	@SidedProxy(clientSide = "com.thilenius.flame.client.ClientProxy", serverSide = "com.thilenius.flame.CommonProxy")
 	public static CommonProxy proxy;
+	
+	public static FlameServiceServer FlameService;
 
 	public static Item spark;
 
@@ -39,6 +43,9 @@ public class Flame {
 		GameRegistry.registerItem(spark, "flameSpark");
 		MinecraftForge.EVENT_BUS.register(this);
 		FMLCommonHandler.instance().bus().register(this);
+		
+		// Bring a Thrift FlameServiceServer online
+		FlameService = new FlameServiceServer();
 	}
 
 	@EventHandler

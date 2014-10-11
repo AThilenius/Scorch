@@ -11,4 +11,11 @@
 <fullyQualifiedTypeName name="net.minecraftforge.event.entity.player.PlayerInteractEvent.Action"/>
 <fullyQualifiedTypeName name="net.minecraft.block.Block"/>
 <fullyQualifiedTypeName name="net.minecraft.block.BlockGravel"/>
+<fullyQualifiedTypeName name="com.thilenius.flame.service.thrift.genfiles.FlameService.Iface"/>
+<fullyQualifiedTypeName name="com.thilenius.flame.service.thrift.genfiles.FlameService"/>
+<fullyQualifiedTypeName name="com.thilenius.flame.service.thrift.genfiles.FlameService.Processor"/>
+<fullyQualifiedTypeName name="org.apache.thrift.transport.TServerTransport"/>
+<fullyQualifiedTypeName name="org.apache.thrift.server.TServer"/>
+<fullyQualifiedTypeName name="org.apache.thrift.transport.TServerSocket"/>
+<fullyQualifiedTypeName name="com.thilenius.flame.service.thrift.FlameServiceServer"/>
 </qualifiedTypeNameHistroy>

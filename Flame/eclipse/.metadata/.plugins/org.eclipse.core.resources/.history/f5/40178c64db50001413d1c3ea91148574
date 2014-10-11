@@ -1,0 +1,7 @@
+package com.thilenius.flame.service.thrift;
+
+public class FlameServiceServer {
+	public FlameServiceServer() {
+		
+	}
+}
