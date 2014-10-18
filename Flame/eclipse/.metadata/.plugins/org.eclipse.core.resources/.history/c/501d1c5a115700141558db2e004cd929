@@ -1,0 +1,38 @@
+package com.thilenius.flame;
+
+import java.util.ArrayList;
+
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+public class SparkTileEntity extends TileEntity {
+	public ArrayList<String> playerHistory = new ArrayList<String>();
+
+	public void addPlayer(String playerName) {
+		playerHistory.add(playerName);
+	}
+
+	public Object[] getPlayerHistory(World par1World, int x, int y, int z) {
+		SparkTileEntity teg = (SparkTileEntity)par1World.getTileEntity(x, y, z);
+
+		for(int i=teg.playerHistory.size();i <= 0;i--) {
+			System.out.println(teg.playerHistory.get(i) + " has passed through this door before.");
+		}
+
+		return teg.playerHistory.toArray();
+	}
+
+	public void writeToNBT(NBTTagCompound var1)
+	{
+		//var1.setInteger("theNameOfTheVariable", this.whateverYourSaving);
+		super.writeToNBT(var1);
+	}
+
+	public void readFromNBT(NBTTagCompound var1)
+	{
+		//this.whateverYourSaving = var1.getInteger("theNameOfTheVariable");
+		super.readFromNBT(var1);
+	}
+
+}

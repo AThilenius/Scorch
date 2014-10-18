@@ -1,0 +1,26 @@
+package com.thilenius.flame;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.minecraft.tileentity.TileEntity;
+
+public class SparkTileEntity extends TileEntity {
+	public List<String> playerHistory = new ArrayList<String>();
+
+	public void addPlayer(String playerName) {
+		playerHistory.add(playerName);
+	}
+
+	public object[] getPlayerHistory(World par1World, int x, int y, int z) {
+		TileEntityGateway teg = (TileEntityGateway)par1World.getBlockTileEntity(x, y, z);
+
+		for(int i=teg.playerHistory.size();i <= 0;i--) {
+			System.out.println(teg.playerHistory[i] + " has passed through this door before.");
+		}
+
+		return teg.playerHistory.toArray();
+	}
+
+
+}

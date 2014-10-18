@@ -1,7 +1,0 @@
-package com.thilenius.flame.service.thrift;
-
-import com.thilenius.flame.service.thrift.genfiles.*;
-
-public class FlameServiceHandler implements FlameService.Iface {
-	
-}

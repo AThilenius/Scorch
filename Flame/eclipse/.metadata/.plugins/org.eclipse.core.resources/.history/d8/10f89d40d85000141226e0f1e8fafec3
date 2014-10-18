@@ -1,5 +1,0 @@
-package com.thilenius.flame.service.thrift;
-
-public class FlameServiceHandler {
-
-}

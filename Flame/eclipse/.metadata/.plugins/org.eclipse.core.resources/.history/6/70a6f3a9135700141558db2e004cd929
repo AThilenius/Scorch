@@ -1,0 +1,12 @@
+package com.thilenius.flame;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class SparkBlock extends Block 
+{
+	public SparkBlock (Material material) 
+	{
+		super(material);
+	}
+}

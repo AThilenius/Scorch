@@ -1,0 +1,505 @@
+[15:26:32] [main/INFO]: Setting user: Player86
+[15:26:33] [Client thread/INFO]: LWJGL Version: 2.9.1
+[15:26:37] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:26:37] [Sound Library Loader/INFO]: Sound engine started
+[15:26:38] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:26:38] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:26:38] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:26:38] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:26:38] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:26:39] [Sound Library Loader/INFO]: Sound engine started
+[15:26:41] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[15:26:41] [Server thread/INFO]: Generating keypair
+[15:26:42] [Server thread/INFO]: Preparing start region for level 0
+[15:26:43] [Server thread/INFO]: Changing view distance to 12, from 10
+[15:26:43] [Server thread/INFO]: Player86[local:E:94dd260e] logged in with entity id 339 at (-11.70437838354081, 68.0, -221.50914560593435)
+[15:26:43] [Server thread/INFO]: Player86 joined the game
+[15:27:13] [Server thread/INFO]: Player86 has just earned the achievement [Taking Inventory]
+[15:27:13] [Client thread/INFO]: [CHAT] Player86 has just earned the achievement [Taking Inventory]
+[15:27:35] [Server thread/INFO]: Saving and pausing game...
+[15:27:35] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[15:27:35] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[15:27:35] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[15:27:37] [Server thread/INFO]: Stopping server
+[15:27:37] [Server thread/INFO]: Saving players
+[15:27:37] [Server thread/INFO]: Saving worlds
+[15:27:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[15:27:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[15:27:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[15:33:30] [main/INFO]: Setting user: Player386
+[15:33:30] [Client thread/INFO]: LWJGL Version: 2.9.1
+[15:33:34] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:33:35] [Sound Library Loader/INFO]: Sound engine started
+[15:33:35] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:33:35] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:33:36] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:33:36] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:33:36] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:33:37] [Sound Library Loader/INFO]: Sound engine started
+[15:33:46] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[15:33:46] [Server thread/INFO]: Generating keypair
+[15:33:46] [Server thread/INFO]: Preparing start region for level 0
+[15:33:47] [Server thread/INFO]: Changing view distance to 12, from 10
+[15:33:48] [Server thread/INFO]: Player386[local:E:cf297bc2] logged in with entity id 329 at (-17.788162574925586, 68.0, -219.15394964382946)
+[15:33:48] [Server thread/INFO]: Player386 joined the game
+[15:33:53] [Server thread/INFO]: Player386 has just earned the achievement [Taking Inventory]
+[15:33:53] [Client thread/INFO]: [CHAT] Player386 has just earned the achievement [Taking Inventory]
+[15:34:10] [Server thread/INFO]: Stopping server
+[15:34:10] [Server thread/INFO]: Saving players
+[15:34:10] [Server thread/INFO]: Saving worlds
+[15:34:10] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[15:34:10] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[15:34:10] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[15:34:11] [Client thread/FATAL]: Reported exception thrown!
+net.minecraft.util.ReportedException: Rendering entity in world
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:346) ~[RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) ~[RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) ~[RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) ~[RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) ~[EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) ~[EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) ~[Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+Caused by: java.lang.ClassCastException: com.thilenius.flame.SparkEntity cannot be cast to net.minecraft.entity.EntityLiving
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) ~[RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) ~[RenderManager.class:?]
+	... 21 more
+[15:35:24] [main/INFO]: Setting user: Player783
+[15:35:25] [Client thread/INFO]: LWJGL Version: 2.9.1
+[15:35:28] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:35:29] [Sound Library Loader/INFO]: Sound engine started
+[15:35:30] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:35:30] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:35:30] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[15:35:30] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[15:35:30] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[15:35:31] [Sound Library Loader/INFO]: Sound engine started
+[15:35:40] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[15:35:40] [Server thread/INFO]: Generating keypair
+[15:35:40] [Server thread/INFO]: Preparing start region for level 0
+[15:35:41] [Server thread/INFO]: Changing view distance to 12, from 10
+[15:35:41] [Server thread/INFO]: Player783[local:E:061e8b9f] logged in with entity id 332 at (-22.79245051339809, 68.1707870772188, -222.68699491657756)
+[15:35:41] [Server thread/INFO]: Player783 joined the game
+[15:35:44] [Client thread/WARN]: Failed to load texture: flame:sparkItem
+java.io.FileNotFoundException: flame:sparkItem
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindTexture(Render.java:60) [Render.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindEntityTexture(Render.java:55) [Render.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.renderModel(RendererLivingEntity.java:305) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.doRender(RendererLivingEntity.java:165) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RenderLiving.doRender(RenderLiving.java:36) [RenderLiving.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:174) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) [RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) [RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) [EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[15:36:15] [Server thread/INFO]: Player783 has just earned the achievement [Taking Inventory]
+[15:36:15] [Client thread/INFO]: [CHAT] Player783 has just earned the achievement [Taking Inventory]
+[15:36:37] [Server thread/INFO]: Saving and pausing game...
+[15:36:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[15:36:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[15:36:37] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[15:36:38] [Client thread/INFO]: Stopping!
+[15:36:38] [Server thread/INFO]: Stopping server
+[15:36:38] [Server thread/INFO]: Saving players
+[15:36:38] [Server thread/INFO]: Saving worlds
+[15:36:38] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[15:36:38] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[15:36:38] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:15:04] [main/INFO]: Setting user: Player889
+[16:15:05] [Client thread/INFO]: LWJGL Version: 2.9.1
+[16:15:08] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:15:09] [Sound Library Loader/INFO]: Sound engine started
+[16:15:10] [Client thread/ERROR]: Using missing texture, unable to load flame:textures/blocks/sparkItem.png
+java.io.FileNotFoundException: flame:textures/blocks/sparkItem.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:126) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTexture(TextureMap.java:91) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTickableTexture(TextureManager.java:71) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTextureMap(TextureManager.java:58) [TextureManager.class:?]
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:582) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:931) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:15:10] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:15:10] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:15:10] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:15:10] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:15:10] [Client thread/ERROR]: Using missing texture, unable to load flame:textures/blocks/sparkItem.png
+java.io.FileNotFoundException: flame:textures/blocks/sparkItem.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:126) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTexture(TextureMap.java:91) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.onResourceManagerReload(TextureManager.java:170) [TextureManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.notifyReloadListeners(SimpleReloadableResourceManager.java:134) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.reloadResources(SimpleReloadableResourceManager.java:118) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.refreshResources(Minecraft.java:643) [Minecraft.class:?]
+	at cpw.mods.fml.client.FMLClientHandler.finishMinecraftLoading(FMLClientHandler.java:303) [FMLClientHandler.class:?]
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:586) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:931) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:15:10] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:15:11] [Sound Library Loader/INFO]: Sound engine started
+[16:16:37] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[16:16:37] [Server thread/INFO]: Generating keypair
+[16:16:38] [Server thread/INFO]: Preparing start region for level 0
+[16:16:39] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:16:39] [Server thread/INFO]: Player889[local:E:83773444] logged in with entity id 332 at (-12.978866607355615, 68.0, -227.67121925647754)
+[16:16:39] [Server thread/INFO]: Player889 joined the game
+[16:16:40] [Client thread/WARN]: Failed to load texture: flame:sparkItem
+java.io.FileNotFoundException: flame:sparkItem
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindTexture(Render.java:60) [Render.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindEntityTexture(Render.java:55) [Render.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.renderModel(RendererLivingEntity.java:305) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.doRender(RendererLivingEntity.java:165) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RenderLiving.doRender(RenderLiving.java:36) [RenderLiving.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:174) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) [RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) [RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) [EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:16:46] [Server thread/INFO]: Player889 has just earned the achievement [Taking Inventory]
+[16:16:46] [Client thread/INFO]: [CHAT] Player889 has just earned the achievement [Taking Inventory]
+[16:17:22] [Server thread/INFO]: Saving and pausing game...
+[16:17:22] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:17:22] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:17:22] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:17:23] [Server thread/INFO]: Stopping server
+[16:17:23] [Server thread/INFO]: Saving players
+[16:17:23] [Server thread/INFO]: Saving worlds
+[16:17:23] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:17:23] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:17:23] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:17:25] [Client thread/INFO]: Stopping!
+[16:19:32] [main/INFO]: Setting user: Player354
+[16:19:32] [Client thread/INFO]: LWJGL Version: 2.9.1
+[16:19:36] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:19:37] [Sound Library Loader/INFO]: Sound engine started
+[16:19:37] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:19:37] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:19:37] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:19:37] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:19:38] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:19:38] [Sound Library Loader/INFO]: Sound engine started
+[16:19:41] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[16:19:41] [Server thread/INFO]: Generating keypair
+[16:19:42] [Server thread/INFO]: Preparing start region for level 0
+[16:19:43] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:19:43] [Server thread/INFO]: Player354[local:E:fa6a0de2] logged in with entity id 335 at (-14.311406512773347, 68.0, -223.2319369756886)
+[16:19:43] [Server thread/INFO]: Player354 joined the game
+[16:19:44] [Client thread/WARN]: Failed to load texture: flame:sparkItem
+java.io.FileNotFoundException: flame:sparkItem
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindTexture(Render.java:60) [Render.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindEntityTexture(Render.java:55) [Render.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.renderModel(RendererLivingEntity.java:305) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.doRender(RendererLivingEntity.java:165) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RenderLiving.doRender(RenderLiving.java:36) [RenderLiving.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:174) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) [RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) [RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) [EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:19:49] [Server thread/INFO]: Saving and pausing game...
+[16:19:49] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:19:49] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:19:49] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:19:50] [Client thread/INFO]: Stopping!
+[16:19:50] [Server thread/INFO]: Stopping server
+[16:19:50] [Server thread/INFO]: Saving players
+[16:19:50] [Server thread/INFO]: Saving worlds
+[16:19:50] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:19:50] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:19:50] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:21:02] [main/INFO]: Setting user: Player622
+[16:21:03] [Client thread/INFO]: LWJGL Version: 2.9.1
+[16:21:06] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:21:07] [Sound Library Loader/INFO]: Sound engine started
+[16:21:08] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:21:08] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:21:08] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:21:08] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:21:08] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:21:09] [Sound Library Loader/INFO]: Sound engine started
+[16:21:12] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[16:21:12] [Server thread/INFO]: Generating keypair
+[16:21:12] [Server thread/INFO]: Preparing start region for level 0
+[16:21:13] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:21:13] [Server thread/INFO]: Player622[local:E:9024f45f] logged in with entity id 335 at (-12.582010236281466, 69.0, -223.95428359177635)
+[16:21:13] [Server thread/INFO]: Player622 joined the game
+[16:21:14] [Client thread/WARN]: Failed to load texture: flame:sparkItem
+java.io.FileNotFoundException: flame:sparkItem
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindTexture(Render.java:60) [Render.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindEntityTexture(Render.java:55) [Render.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.renderModel(RendererLivingEntity.java:305) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.doRender(RendererLivingEntity.java:165) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RenderLiving.doRender(RenderLiving.java:36) [RenderLiving.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:174) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) [RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) [RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) [EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:21:20] [Server thread/INFO]: Saving and pausing game...
+[16:21:20] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:21:20] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:21:20] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:21:21] [Server thread/INFO]: Stopping server
+[16:21:21] [Server thread/INFO]: Saving players
+[16:21:21] [Server thread/INFO]: Saving worlds
+[16:21:21] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:21:21] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:21:21] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:21:21] [Client thread/INFO]: Stopping!
+[16:25:08] [main/INFO]: Setting user: Player181
+[16:25:09] [Client thread/INFO]: LWJGL Version: 2.9.1
+[16:25:13] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:25:14] [Sound Library Loader/INFO]: Sound engine started
+[16:25:14] [Client thread/ERROR]: Using missing texture, unable to load minecraft:textures/blocks/MISSING_ICON_BLOCK_165_sparkBlock.png
+java.io.FileNotFoundException: minecraft:textures/blocks/MISSING_ICON_BLOCK_165_sparkBlock.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:126) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTexture(TextureMap.java:91) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTickableTexture(TextureManager.java:71) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTextureMap(TextureManager.java:58) [TextureManager.class:?]
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:582) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:931) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:25:14] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:25:14] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:25:14] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Flame
+[16:25:14] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[16:25:14] [Client thread/ERROR]: Using missing texture, unable to load minecraft:textures/blocks/MISSING_ICON_BLOCK_165_sparkBlock.png
+java.io.FileNotFoundException: minecraft:textures/blocks/MISSING_ICON_BLOCK_165_sparkBlock.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:126) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureMap.loadTexture(TextureMap.java:91) [TextureMap.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.onResourceManagerReload(TextureManager.java:170) [TextureManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.notifyReloadListeners(SimpleReloadableResourceManager.java:134) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.reloadResources(SimpleReloadableResourceManager.java:118) [SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.Minecraft.refreshResources(Minecraft.java:643) [Minecraft.class:?]
+	at cpw.mods.fml.client.FMLClientHandler.finishMinecraftLoading(FMLClientHandler.java:303) [FMLClientHandler.class:?]
+	at net.minecraft.client.Minecraft.startGame(Minecraft.java:586) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:931) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:25:15] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[16:25:15] [Sound Library Loader/INFO]: Sound engine started
+[16:25:18] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[16:25:18] [Server thread/INFO]: Generating keypair
+[16:25:18] [Server thread/INFO]: Preparing start region for level 0
+[16:25:19] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:25:19] [Server thread/INFO]: Player181[local:E:088eb436] logged in with entity id 335 at (-12.663123236926705, 68.0, -224.21599495961044)
+[16:25:19] [Server thread/INFO]: Player181 joined the game
+[16:25:20] [Client thread/WARN]: Failed to load texture: flame:sparkItem
+java.io.FileNotFoundException: flame:sparkItem
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindTexture(Render.java:60) [Render.class:?]
+	at net.minecraft.client.renderer.entity.Render.bindEntityTexture(Render.java:55) [Render.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.renderModel(RendererLivingEntity.java:305) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RendererLivingEntity.doRender(RendererLivingEntity.java:165) [RendererLivingEntity.class:?]
+	at net.minecraft.client.renderer.entity.RenderLiving.doRender(RenderLiving.java:36) [RenderLiving.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:174) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderBiped.doRender(RenderBiped.java:392) [RenderBiped.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278) [RenderManager.class:?]
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251) [RenderManager.class:?]
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527) [RenderGlobal.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300) [EntityRenderer.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_67]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:1.7.0_67]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:1.7.0_67]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[16:25:24] [Server thread/INFO]: Saving and pausing game...
+[16:25:24] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:25:24] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:25:24] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:25:25] [Server thread/INFO]: Stopping server
+[16:25:25] [Server thread/INFO]: Saving players
+[16:25:25] [Server thread/INFO]: Saving worlds
+[16:25:25] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Overworld
+[16:25:25] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/Nether
+[16:25:25] [Server thread/INFO]: Saving chunks for level 'CreativeWorld'/The End
+[16:25:26] [Client thread/INFO]: Stopping!

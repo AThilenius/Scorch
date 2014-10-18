@@ -25,6 +25,8 @@
 		<item value="600" key="width"/>
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item value="735" key="size.x"/>
+		<item value="1762" key="size.y"/>
 	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>

@@ -1,0 +1,14 @@
+package com.thilenius.flame;
+
+import java.util.List;
+import net.minecraft.tileentity;
+
+import net.minecraft.tileentity.TileEntity;
+
+public class SparkTileEntity extends TileEntity {
+    public List<String> playerHistory = new List<String>();
+
+    public void addPlayer(string playerName) {
+         playerHistory.add(playerName);
+    }
+}
