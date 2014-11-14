@@ -19,4 +19,23 @@ public class Location3D {
         Z = z;
     }
 
+    public Location3D(String commaDelimString) {
+
+        if (commaDelimString == null || commaDelimString == "")
+            return;
+
+        String[] tokens = commaDelimString.split(",");
+
+        if (tokens.length != 3)
+            return;
+
+        X = Integer.parseInt(tokens[0].trim());
+        Y = Integer.parseInt(tokens[1].trim());
+        Z = Integer.parseInt(tokens[2].trim());
+    }
+
+    @Override public String toString() {
+        return X + ", " + Y + ", " + Z;
+    }
+
 }

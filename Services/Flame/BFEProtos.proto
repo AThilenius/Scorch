@@ -1,0 +1,25 @@
+package Thilenius.BFEProtos;
+option java_package = "com.thilenius.blaze.frontend.protos";
+option java_outer_classname = "BFEProtos";
+
+message BFEMessage {
+  extensions 100 to max;
+}
+
+message BFEAuthRequest {
+  extend BFEMessage {
+    optional BFEAuthRequest BFEAuthRequest_ext = 100;
+  }
+
+  required string username = 1;
+  required string password = 2;
+}
+
+message BFEAuthResponse {
+  extend BFEMessage {
+    optional BFEAuthResponse BFEAuthResponse_ext = 101;
+  }
+
+  optional string auth_token = 1;
+  optional string experation_time = 2;
+}

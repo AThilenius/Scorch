@@ -1,9 +1,0 @@
-package com.thilenius.flame;
-
-public class TileEntityGateway extends TileEntity {
-    public List<string> playerHistory = new List<string>();
-
-    public void addPlayer(string playerName) {
-         playerHistory.add(playerName);
-    }
-}

@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -12,31 +13,48 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class SparkRenderer extends TileEntitySpecialRenderer{
+public class SparkRenderer extends TileEntitySpecialRenderer {
 
-	private ModelSpark model = new ModelSpark();
+	private ModelSparkSmall model = new ModelSparkSmall();
 
 	public SparkRenderer() {
-
-	}
-
-	private void adjustRotatePivotViaMeta(World world, int x, int y, int z) {
-		int meta = world.getBlockMetadata(x, y, z);
-		GL11.glPushMatrix();
-		GL11.glRotatef(meta * (-90), 0.0F, 0.0F, 1.0F);
-		GL11.glPopMatrix();
+		
 	}
 
 	@Override
-	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float deltaTime) {
+		
+		SparkTileEntity spark = (SparkTileEntity) te;
+		
+        spark.displace += deltaTime * 0.01F;
+        
+        if (spark.displace > 1.0f) {
+			spark.getWorldObj().setBlock(spark.xCoord, spark.yCoord, spark.zCoord - 1, spark.getBlockType(), spark.getBlockMetadata(), 0);
+        	spark.getWorldObj().removeTileEntity(spark.xCoord, spark.yCoord, spark.zCoord);
+        	spark.getWorldObj().setBlockToAir(spark.xCoord, spark.yCoord, spark.zCoord);
+        	return;
+        }
+		
+        // Open model matrix
 		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x, (float) y + 1.0F, (float) z);
-		ResourceLocation textures = (new ResourceLocation("flame:sparkBlock")); 
-		Minecraft.getMinecraft().renderEngine.bindTexture(textures);
-		GL11.glPushMatrix();
-		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+		
+		// Translate
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.45F, (float) z + 0.5F - spark.displace);
+		
+		// Rotate
+		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+		
+		// Rotate Y
+		//GL11.glRotatef(yRotationAngle, 0.0f, 1.0f, 0.0f);
+		
+		// Texture
+		ResourceLocation textures = (new ResourceLocation("flame", "textures/entity/spark")); 
+		this.bindTexture(textures);
+		
+		// Draw Objects
 		model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
-		GL11.glPopMatrix();
+		
+		// Close model matrix
 		GL11.glPopMatrix();
 	}
 
@@ -52,4 +70,5 @@ public class SparkRenderer extends TileEntitySpecialRenderer{
 //		tess.setColorOpaque_F(brightness, brightness, brightness);
 //		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit,  (float) modulousModifier,  divModifier);
 //	}
+	
 }
