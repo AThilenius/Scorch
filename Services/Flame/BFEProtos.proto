@@ -6,6 +6,9 @@ message BFEMessage {
   extensions 100 to max;
 }
 
+/******************************************************************************/
+/* Authentication                                                             */
+/******************************************************************************/
 message BFEAuthRequest {
   extend BFEMessage {
     optional BFEAuthRequest BFEAuthRequest_ext = 100;
@@ -20,6 +23,43 @@ message BFEAuthResponse {
     optional BFEAuthResponse BFEAuthResponse_ext = 101;
   }
 
-  optional string auth_token = 1;
-  optional string experation_time = 2;
+  required string auth_token = 1;
+  optional string failure_reason = 2;
+}
+
+/******************************************************************************/
+/* Spark Control                                                              */
+/******************************************************************************/
+message BFESparkCommand {
+  extend BFEMessage {
+    optional BFESparkCommand BFESparkCommand_ext = 102;
+  }
+
+  enum CommandType {
+    MOVE_FORWARD     = 0;
+    MOVE_BACKWARD    = 1;
+    MOVE_UP          = 2;
+    MOVE_DOWN        = 3;
+    TURN_LEFT        = 4;
+    TURN_RIGHT       = 5;
+  }
+
+  required CommandType command = 1;
+  required int32 spark_id = 2;
+  required string auth_token = 3;
+
+  optional string pipline_token = 4;
+}
+
+message BFESparkResponse {
+  extend BFEMessage {
+    optional BFESparkResponse BFESparkResponse_ext = 103;
+  }
+
+  optional string pipline_token = 1;
+  optional string failure_reson = 2;
+  optional bool response_bool = 3;
+  optional int32 response_int = 4;
+  optional float response_float = 5;
+  optional bytes response_bytes = 6;
 }

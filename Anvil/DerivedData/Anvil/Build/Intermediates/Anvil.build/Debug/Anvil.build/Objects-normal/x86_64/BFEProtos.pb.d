@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc \
-  /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h \
+  /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/gen-files/BFEProtos.pb.cc \
+  /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/gen-files/BFEProtos.pb.h \
   /usr/local/include/google/protobuf/stubs/common.h \
   /usr/local/include/google/protobuf/generated_message_util.h \
   /usr/local/include/google/protobuf/repeated_field.h \

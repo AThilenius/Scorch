@@ -19,7 +19,6 @@ public class BFESocketServer implements Runnable {
     private InetAddress hostAddress;
     private int port;
     private Selector selector;
-    private ByteBuffer readBuffer = ByteBuffer.allocate(8192);
     private final List changeRequests = new LinkedList();
     private final Map pendingData = new HashMap();
     private final List receiveQueue = new LinkedList();
@@ -134,43 +133,6 @@ public class BFESocketServer implements Runnable {
         System.out.println("Accepting Connection");
     }
 
-    private void read(SelectionKey key) throws IOException {
-        SocketChannel socketChannel = (SocketChannel) key.channel();
-
-        // Clear out our read buffer so it's ready for new data
-        this.readBuffer.clear();
-
-        // Attempt to read off the channel
-        int numRead;
-        try {
-            numRead = socketChannel.read(this.readBuffer);
-        } catch (IOException e) {
-            // The remote forcibly closed the connection, cancel
-            // the selection key and close the channel.
-            key.cancel();
-            socketChannel.close();
-            return;
-        }
-
-        if (numRead == -1) {
-            // Remote entity shut the socket down cleanly. Do the
-            // same from our end and cancel the channel.
-            key.channel().close();
-            key.cancel();
-            return;
-        }
-
-        // Enqueue the received data
-        byte[] data = this.readBuffer.array();
-        byte[] dataCopy = new byte[numRead];
-        System.arraycopy(data, 0, dataCopy, 0, numRead);
-
-        synchronized(receiveQueue) {
-            receiveQueue.add(new SocketRequest(dataCopy, socketChannel));
-            receiveQueue.notify();
-        }
-    }
-
     public void send(SocketChannel socket, byte[] data) {
         synchronized (this.changeRequests) {
             // Indicate we want the interest ops set changed
@@ -183,12 +145,38 @@ public class BFESocketServer implements Runnable {
                     queue = new ArrayList();
                     this.pendingData.put(socket, queue);
                 }
-                queue.add(ByteBuffer.wrap(data));
+                queue.add(data);
             }
         }
 
         // Finally, wake up our selecting thread so it can make the required changes
         this.selector.wakeup();
+    }
+
+    private void read(SelectionKey key) throws IOException {
+
+        SocketChannel socketChannel = (SocketChannel) key.channel();
+
+        ByteBuffer sizeBuffer = ByteBuffer.allocate(4);
+        if (!readComplete(sizeBuffer, socketChannel)) {
+            key.channel().close();
+            key.cancel();
+            return;
+        }
+        int size = (int)((long)sizeBuffer.getInt(0) & 0xffffffffL);
+
+        ByteBuffer dataBuffer = ByteBuffer.allocate(size);
+        if (!readComplete(dataBuffer, socketChannel)) {
+            key.channel().close();
+            key.cancel();
+            return;
+        }
+
+        // Enqueue the received data
+        synchronized(receiveQueue) {
+            receiveQueue.add(new SocketRequest(dataBuffer.array(), socketChannel));
+            receiveQueue.notify();
+        }
     }
 
     private void write(SelectionKey key) throws IOException {
@@ -199,10 +187,19 @@ public class BFESocketServer implements Runnable {
 
             // Write until there's not more data ...
             while (!queue.isEmpty()) {
-                ByteBuffer buf = (ByteBuffer) queue.get(0);
-                socketChannel.write(buf);
-                if (buf.remaining() > 0) {
+                byte[] buf = (byte[]) queue.get(0);
+
+                // Write out size
+                System.out.println("Writing " + buf.length + " bytes.");
+                ByteBuffer writeBuffer = ByteBuffer.allocate(4 + buf.length);
+                writeBuffer.putInt(buf.length);
+                writeBuffer.put(buf);
+                writeBuffer.rewind();
+
+                // Write out data
+                if (!writeComplete(writeBuffer, socketChannel)) {
                     // ... or the socket's buffer fills up
+                    // I think this is a problem...?
                     break;
                 }
                 queue.remove(0);
@@ -215,6 +212,35 @@ public class BFESocketServer implements Runnable {
                 key.interestOps(SelectionKey.OP_READ);
             }
         }
+    }
+
+    private boolean readComplete(ByteBuffer buffer, SocketChannel socket) {
+        try {
+            while (buffer.remaining() > 0) {
+                if (socket.read(buffer) == -1) {
+                    return false;
+                }
+            }
+        } catch (IOException ex) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean writeComplete(ByteBuffer buffer, SocketChannel socket) {
+        try {
+            int writtenCount = 0;
+            while (writtenCount < buffer.limit()) {
+                int writeCount = socket.write(buffer);
+                writtenCount += writeCount;
+                if (writeCount == -1) {
+                    return false;
+                }
+            }
+        } catch (IOException ex) {
+            return false;
+        }
+        return true;
     }
 
 
