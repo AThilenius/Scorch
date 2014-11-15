@@ -1,7 +1,7 @@
 package com.thilenius.blaze.player;
 
-import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.BlazeWorld;
+import com.thilenius.blaze.redis.RedisArena;
 import com.thilenius.utilities.types.Location2D;
 import net.minecraft.init.Blocks;
 
@@ -12,28 +12,25 @@ public class PlayerArena {
 
     public static final int Size = 30;
 
-    private String m_redisPrefix;
+    public RedisArena ArenaData;
+
     private BlazeWorld m_world;
     private BlazePlayer m_player;
-    private Location2D m_location;
 
-    public PlayerArena(BlazeWorld world, String username) {
-        m_redisPrefix = "arena_[" + player.getUserName() + "]_";
+    public PlayerArena(BlazeWorld world, BlazePlayer player) {
         m_world = world;
         m_player = player;
-        m_location = new Location2D(Blaze.RedisInstance.get(m_redisPrefix + "location"));
-    }
-
-    public Location2D getLocation() {
-        return m_location;
+        ArenaData = new RedisArena(player.PlayerData.getDisplayName());
     }
 
     public void ResetArena() {
 
+        Location2D location = ArenaData.getLocation();
+
         // Hard coded for now.
         // Clear everything in the column
-        for (int x = m_location.X; x < m_location.X + Size; x++) {
-            for (int z = m_location.Y; z < m_location.Y + Size; z++) {
+        for (int x = location.X; x < location.X + Size; x++) {
+            for (int z = location.Y; z < location.Y + Size; z++) {
 
                 // Bedrock
                 m_world.MinecraftWorld.setBlock(x, 0, z, Blocks.bedrock);
@@ -51,14 +48,13 @@ public class PlayerArena {
                 }
 
                 // Border
-                if ( (x == m_location.X || x == m_location.X + Size - 1) ||
-                     (z == m_location.Y || z == m_location.Y + Size - 1) ) {
+                if ( (x == location.X || x == location.X + Size - 1) ||
+                     (z == location.Y || z == location.Y + Size - 1) ) {
                     m_world.MinecraftWorld.setBlock(x, 10, z, Blocks.glass);
                 }
             }
         }
 
-        //Player.MinecraftPlayer.setPosition(StartLocation.X + 10, 50, StartLocation.Y + 10);
     }
 
 }

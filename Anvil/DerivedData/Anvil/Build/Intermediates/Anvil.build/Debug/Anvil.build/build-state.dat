@@ -1,999 +1,0 @@
-TAnvil
-v6
-r1
-cCheck dependencies
-cCompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil normal x86_64
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-c00000000530295C100000000000000AA
-t1392678337
-s170
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
-c0000000053E3A058000000000000044C
-t1407426648
-s1100
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
-c0000000053E3A05800000000000001DE
-t1407426648
-s478
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
-c0000000053E3A05B000000000000681C
-t1407426651
-s26652
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
-c0000000053E3A05B000000000006E8B0
-t1407426651
-s452784
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libz.dylib
-c0000000053E3A05B00000000000044B8
-t1407426651
-s17592
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
-c0000000053E3A05B0000000000004734
-t1407426651
-s18228
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
-c0000000053E3A05B000000000000FC6C
-t1407426651
-s64620
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
-c0000000053E3A05B000000000000F6A0
-t1407426651
-s63136
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
-c0000000053E3A05B0000000000006254
-t1407426651
-s25172
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
-c0000000053E3A05B000000000000E0F8
-t1407426651
-s57592
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
-c0000000053E3A05B000000000000D6DC
-t1407426651
-s55004
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
-c0000000053E3A05B0000000000006308
-t1407426651
-s25352
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
-c0000000053E3A05B0000000000004050
-t1407426651
-s16464
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
-c0000000053E3A05B0000000000008570
-t1407426651
-s34160
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
-c0000000053E3A05B0000000000005EA0
-t1407426651
-s24224
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
-c0000000053E3A05B0000000000005FAC
-t1407426651
-s24492
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
-c0000000053E3A05B0000000000004440
-t1407426651
-s17472
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
-c0000000053E3A05B000000000000AA28
-t1407426651
-s43560
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
-c0000000053E3A05B0000000000003E2C
-t1407426651
-s15916
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
-c0000000053E3A05B0000000000030B04
-t1407426651
-s199428
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
-c0000000053E3A05B0000000000005E54
-t1407426651
-s24148
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
-c0000000053E3A05B0000000000006A90
-t1407426651
-s27280
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
-c0000000053E3A05B00000000000178AC
-t1407426651
-s96428
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
-c0000000053E3A05B000000000001ADC8
-t1407426651
-s110024
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
-c0000000053E3A05B000000000001028C
-t1407426651
-s66188
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
-c0000000053E3A05B0000000000008800
-t1407426651
-s34816
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
-c0000000053E3A05B0000000000011090
-t1407426651
-s69776
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
-c0000000053E3A05B000000000000882C
-t1407426651
-s34860
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
-c0000000053E3A05B00000000000067AC
-t1407426651
-s26540
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
-c0000000053E3A05B0000000000008DEC
-t1407426651
-s36332
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
-c0000000053E3A05B0000000000004C08
-t1407426651
-s19464
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_stats.dylib
-c0000000053E3A05B0000000000002428
-t1407426651
-s9256
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
-c0000000053E3A05B000000000000439C
-t1407426651
-s17308
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
-c0000000053E3A05B0000000000006768
-t1407426651
-s26472
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-c0000000053E3A05B00000000000172F4
-t1407426651
-s94964
-
-N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include/module.map
-c0000000053E3A05F0000000000000ADC
-t1407426655
-s2780
-
-N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
-c0000000053E3A05F0000000000001770
-t1407426655
-s6000
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp
-c0000000054655672000000000000044E
-t1415927410
-s1102
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil.LinkFileList
-c0000000054654A780000000000000128
-t1415924344
-s296
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o
-t1415926890
-s534208
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o
-t1415927418
-s232316
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil
-t1415927418
-s108568
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Config.hpp
-c0000000051F3865B00000000000012A9
-t1374914139
-s4777
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network.hpp
-c0000000051F3865B00000000000007A6
-t1374914139
-s1958
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Export.hpp
-c0000000051F3865B000000000000068B
-t1374914139
-s1675
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Ftp.hpp
-c0000000051F3865B0000000000005E4D
-t1374914139
-s24141
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Http.hpp
-c0000000051F3865B0000000000004D25
-t1374914139
-s19749
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/IpAddress.hpp
-c0000000051F3865B00000000000032B6
-t1374914139
-s12982
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Packet.hpp
-c0000000051F3865B000000000000370A
-t1374914139
-s14090
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Socket.hpp
-c0000000051F3865B0000000000001EB6
-t1374914139
-s7862
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/SocketHandle.hpp
-c0000000051F3865B0000000000000727
-t1374914139
-s1831
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/SocketSelector.hpp
-c0000000051F3865B000000000000256A
-t1374914139
-s9578
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/TcpListener.hpp
-c0000000051F3865B000000000000159A
-t1374914139
-s5530
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/TcpSocket.hpp
-c0000000051F3865B000000000000296F
-t1374914139
-s10607
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/UdpSocket.hpp
-c0000000051F3865B0000000000002B0E
-t1374914139
-s11022
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System.hpp
-c0000000051F3865B000000000000088A
-t1374914139
-s2186
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Clock.hpp
-c0000000051F3865B0000000000000EF9
-t1374914139
-s3833
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Err.hpp
-c0000000051F3865B0000000000000A53
-t1374914139
-s2643
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Export.hpp
-c0000000051F3865B0000000000000685
-t1374914139
-s1669
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/InputStream.hpp
-c0000000051F3865B00000000000012D5
-t1374914139
-s4821
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Lock.hpp
-c0000000051F3865B000000000000112C
-t1374914139
-s4396
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Mutex.hpp
-c0000000051F3865B0000000000001404
-t1374914139
-s5124
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/NonCopyable.hpp
-c0000000051F3865B000000000000114A
-t1374914139
-s4426
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Sleep.hpp
-c0000000051F3865B0000000000000752
-t1374914139
-s1874
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/String.hpp
-c0000000051F3865B000000000000512D
-t1374914139
-s20781
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Thread.hpp
-c0000000051F3865B000000000000252B
-t1374914139
-s9515
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Thread.inl
-c0000000051F3865B0000000000000B33
-t1374914139
-s2867
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocal.hpp
-c0000000051F3865B0000000000000DC0
-t1374914139
-s3520
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocalPtr.hpp
-c0000000051F3865B00000000000013F6
-t1374914139
-s5110
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocalPtr.inl
-c0000000051F3865B00000000000008F0
-t1374914139
-s2288
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Time.hpp
-c0000000051F3865B00000000000039F9
-t1374914139
-s14841
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Utf.hpp
-c0000000051F3865B0000000000008DC7
-t1374914139
-s36295
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Utf.inl
-c0000000051F3865B00000000000056F9
-t1374914139
-s22265
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector2.hpp
-c0000000051F3865B000000000000275E
-t1374914139
-s10078
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector2.inl
-c0000000051F3865B00000000000010E0
-t1374914139
-s4320
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector3.hpp
-c0000000051F3865B0000000000002766
-t1374914139
-s10086
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector3.inl
-c0000000051F3865B00000000000011F5
-t1374914139
-s4597
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Config.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/Export.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/Ftp.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/Http.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/IpAddress.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/Packet.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/Socket.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/SocketHandle.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/SocketSelector.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/TcpListener.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/TcpSocket.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/Network/UdpSocket.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Clock.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Err.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Export.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/InputStream.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Lock.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Mutex.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/NonCopyable.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Sleep.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/String.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Thread.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Thread.inl
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/ThreadLocal.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/ThreadLocalPtr.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/ThreadLocalPtr.inl
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Time.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Utf.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Utf.inl
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Vector2.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Vector2.inl
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Vector3.hpp
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/Headers/System/Vector3.inl
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/SFML.framework/SFML
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/freetype.framework/freetype
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-audio.2.1.dylib
-c0000000051F3865B0000000000026AC4
-t1374914139
-s158404
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-graphics.2.1.dylib
-c0000000051F3865B0000000000165FB4
-t1374914139
-s1466292
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-network.2.1.dylib
-c0000000051F3865B0000000000033824
-t1374914139
-s210980
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-system.2.1.dylib
-c0000000051F3865B0000000000019478
-t1374914139
-s103544
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-window.2.1.dylib
-c0000000051F3865B000000000004E974
-t1374914139
-s321908
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/sfml-network.framework/sfml-network
-c0000000051F385F2000000000004D740
-t1374914034
-s317248
-
-N/Users/Alec/Documents/Development/Scorch/Anvil/lib/sndfile.framework/sndfile
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc
-c000000005465519A000000000000765A
-t1415926170
-s30298
-
-N/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h
-c000000005465519A0000000000004ACF
-t1415926170
-s19151
-
-N/usr/local/include/google/protobuf/descriptor.h
-c0000000054654D98000000000000E77C
-t1415925144
-s59260
-
-N/usr/local/include/google/protobuf/descriptor.pb.h
-c0000000054654D98000000000002EDC5
-t1415925144
-s191941
-
-N/usr/local/include/google/protobuf/extension_set.h
-c0000000054654D98000000000000AC75
-t1415925144
-s44149
-
-N/usr/local/include/google/protobuf/generated_message_reflection.h
-c0000000054654D980000000000005182
-t1415925144
-s20866
-
-N/usr/local/include/google/protobuf/generated_message_util.h
-c0000000054654D980000000000000BDE
-t1415925144
-s3038
-
-N/usr/local/include/google/protobuf/io/coded_stream.h
-c0000000054654D98000000000000AE83
-t1415925144
-s44675
-
-N/usr/local/include/google/protobuf/message.h
-c0000000054654D980000000000007DFB
-t1415925144
-s32251
-
-N/usr/local/include/google/protobuf/message_lite.h
-c0000000054654D980000000000002D33
-t1415925144
-s11571
-
-N/usr/local/include/google/protobuf/reflection_ops.h
-c0000000054654D980000000000000D94
-t1415925144
-s3476
-
-N/usr/local/include/google/protobuf/repeated_field.h
-c0000000054654D98000000000000A2F6
-t1415925144
-s41718
-
-N/usr/local/include/google/protobuf/stubs/common.h
-c0000000054654D980000000000009F2D
-t1415925144
-s40749
-
-N/usr/local/include/google/protobuf/stubs/once.h
-c0000000054654D98000000000000120D
-t1415925144
-s4621
-
-N/usr/local/include/google/protobuf/unknown_field_set.h
-c0000000054654D9800000000000022D5
-t1415925144
-s8917
-
-N/usr/local/include/google/protobuf/wire_format.h
-c0000000054654D980000000000002EC5
-t1415925144
-s11973
-
-N/usr/local/include/google/protobuf/wire_format_lite.h
-c0000000054654D980000000000006591
-t1415925144
-s26001
-
-N/usr/local/include/google/protobuf/wire_format_lite_inl.h
-c0000000054654D980000000000008086
-t1415925144
-s32902
-
-N/usr/local/lib/libprotobuf.a
-c0000000054654D9800000000001930C0
-t1415925144
-s1650880
-
-N/usr/local/lib/libprotobuf.dylib
-c0000000054654D9900000000000D8D78
-t1415925145
-s888184
-
-CBuild AST from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp
-r0
-
-CBuild AST from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc
-r0
-
-CCheck dependencies
-r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies26a736258f15ba41^bdfc36258f15ba41^-284"OS X deployment target '10.10' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.9' for the OS X 10.9 SDK.OS X deployment target '10.10' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.9' for the OS X 10.9 SDK.2(21%IDEActivityLogMessage2@141"OS X deployment target '10.10' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.9' for the OS X 10.9 SDK.-437620517#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--2@141"OS X deployment target '10.10' for architecture 'x86_64' and variant 'normal' is greater than the maximum value '10.9' for the OS X 10.9 SDK.-437620517#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#1#--18"Check dependencies36"5BCFEF2A-60AC-43E4-961A-D1B1801417C6-
-
-CCompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s437619689.797525
-e437619690.603412
-r1
-xCompileC
-xDerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o
-x/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc
-xnormal
-xx86_64
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc
-d/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h
-d/usr/local/include/google/protobuf/stubs/common.h
-d/usr/local/include/google/protobuf/generated_message_util.h
-d/usr/local/include/google/protobuf/repeated_field.h
-d/usr/local/include/google/protobuf/message_lite.h
-d/usr/local/include/google/protobuf/io/coded_stream.h
-d/usr/local/include/google/protobuf/extension_set.h
-d/usr/local/include/google/protobuf/generated_message_reflection.h
-d/usr/local/include/google/protobuf/message.h
-d/usr/local/include/google/protobuf/unknown_field_set.h
-d/usr/local/include/google/protobuf/stubs/once.h
-d/usr/local/include/google/protobuf/wire_format_lite_inl.h
-d/usr/local/include/google/protobuf/wire_format_lite.h
-d/usr/local/include/google/protobuf/descriptor.h
-d/usr/local/include/google/protobuf/reflection_ops.h
-d/usr/local/include/google/protobuf/wire_format.h
-d/usr/local/include/google/protobuf/descriptor.pb.h
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:23:
-oIn file included from /usr/local/include/google/protobuf/repeated_field.h:52:
-oIn file included from /usr/local/include/google/protobuf/message_lite.h:43:
-o/usr/local/include/google/protobuf/io/coded_stream.h:872:23: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  *size = buffer_end_ - buffer_;
-o        ~ ~~~~~~~~~~~~^~~~~~~~~
-o/usr/local/include/google/protobuf/io/coded_stream.h:1042:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  return buffer_end_ - buffer_;
-o  ~~~~~~ ~~~~~~~~~~~~^~~~~~~~~
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:25:
-oIn file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:
-o/usr/local/include/google/protobuf/unknown_field_set.h:118:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o    return ParseFromArray(data.data(), data.size());
-o           ~~~~~~~~~~~~~~              ^~~~~~~~~~~
-o/usr/local/include/google/protobuf/unknown_field_set.h:200:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o  return (fields_ == NULL) ? 0 : fields_->size();
-o  ~~~~~~                         ^~~~~~~~~~~~~~~
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:664:56: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]
-o  target = io::CodedOutputStream::WriteVarint32ToArray(value.size(), target);
-o           ~~                                          ^~~~~~~~~~~~
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:671:56: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]
-o  target = io::CodedOutputStream::WriteVarint32ToArray(value.size(), target);
-o           ~~                                          ^~~~~~~~~~~~
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:739:60: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
-o  return io::CodedOutputStream::VarintSize32(value.size()) +
-o  ~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:739:46: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]
-o  return io::CodedOutputStream::VarintSize32(value.size()) +
-o         ~~                                  ^~~~~~~~~~~~
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:743:60: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]
-o  return io::CodedOutputStream::VarintSize32(value.size()) +
-o  ~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-o/usr/local/include/google/protobuf/wire_format_lite_inl.h:743:46: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]
-o  return io::CodedOutputStream::VarintSize32(value.size()) +
-o         ~~                                  ^~~~~~~~~~~~
-oIn file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:
-o/usr/local/include/google/protobuf/descriptor.h:1309:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - containing_type_->fields_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1311:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - extension_scope_->extensions_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1313:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - file_->extensions_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1319:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - file_->message_types_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1321:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - containing_type_->nested_types_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1327:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - file_->enum_types_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1329:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o    return this - containing_type_->enum_types_;
-o    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1334:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  return this - type_->values_;
-o  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1338:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  return this - file_->services_;
-o  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~
-o/usr/local/include/google/protobuf/descriptor.h:1342:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  return this - service_->methods_;
-o  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:435:38: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o            this->username().data(), this->username().length(),
-o                                     ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:452:38: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o            this->password().data(), this->password().length(),
-o                                     ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:482:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->username().data(), this->username().length(),
-o                               ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:491:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->password().data(), this->password().length(),
-o                               ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:508:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->username().data(), this->username().length(),
-o                               ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:518:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->password().data(), this->password().length(),
-o                               ^~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:723:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o            this->auth_token().data(), this->auth_token().length(),
-o                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:740:45: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o            this->experation_time().data(), this->experation_time().length(),
-o                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:770:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->auth_token().data(), this->auth_token().length(),
-o                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:779:39: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->experation_time().data(), this->experation_time().length(),
-o                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:796:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->auth_token().data(), this->auth_token().length(),
-o                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:806:39: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o      this->experation_time().data(), this->experation_time().length(),
-o                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-o32 warnings generated.
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc255"CompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler603bcce98b15ba41^8e789aea8b15ba41^-10141"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:23:In file included from /usr/local/include/google/protobuf/repeated_field.h:52:In file included from /usr/local/include/google/protobuf/message_lite.h:43:/usr/local/include/google/protobuf/io/coded_stream.h:872:23: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  *size = buffer_end_ - buffer_;        ~ ~~~~~~~~~~~~^~~~~~~~~/usr/local/include/google/protobuf/io/coded_stream.h:1042:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return buffer_end_ - buffer_;  ~~~~~~ ~~~~~~~~~~~~^~~~~~~~~In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:25:In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:/usr/local/include/google/protobuf/unknown_field_set.h:118:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]    return ParseFromArray(data.data(), data.size());           ~~~~~~~~~~~~~~              ^~~~~~~~~~~/usr/local/include/google/protobuf/unknown_field_set.h:200:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]  return (fields_ == NULL) ? 0 : fields_->size();  ~~~~~~                         ^~~~~~~~~~~~~~~In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:/usr/local/include/google/protobuf/wire_format_lite_inl.h:664:56: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]  target = io::CodedOutputStream::WriteVarint32ToArray(value.size(), target);           ~~                                          ^~~~~~~~~~~~/usr/local/include/google/protobuf/wire_format_lite_inl.h:671:56: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]  target = io::CodedOutputStream::WriteVarint32ToArray(value.size(), target);           ~~                                          ^~~~~~~~~~~~/usr/local/include/google/protobuf/wire_format_lite_inl.h:739:60: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]  return io::CodedOutputStream::VarintSize32(value.size()) +  ~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^/usr/local/include/google/protobuf/wire_format_lite_inl.h:739:46: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]  return io::CodedOutputStream::VarintSize32(value.size()) +         ~~                                  ^~~~~~~~~~~~/usr/local/include/google/protobuf/wire_format_lite_inl.h:743:60: warning: implicit conversion loses integer precision: 'unsigned long' to 'int' [-Wshorten-64-to-32]  return io::CodedOutputStream::VarintSize32(value.size()) +  ~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^/usr/local/include/google/protobuf/wire_format_lite_inl.h:743:46: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int') [-Wshorten-64-to-32]  return io::CodedOutputStream::VarintSize32(value.size()) +         ~~                                  ^~~~~~~~~~~~In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:/usr/local/include/google/protobuf/descriptor.h:1309:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - containing_type_->fields_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1311:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - extension_scope_->extensions_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1313:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - file_->extensions_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1319:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - file_->message_types_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1321:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - containing_type_->nested_types_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1327:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - file_->enum_types_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1329:17: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]    return this - containing_type_->enum_types_;    ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1334:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return this - type_->values_;  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1338:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return this - file_->services_;  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~/usr/local/include/google/protobuf/descriptor.h:1342:15: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return this - service_->methods_;  ~~~~~~ ~~~~~^~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:435:38: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]            this->username().data(), this->username().length(),                                     ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:452:38: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]            this->password().data(), this->password().length(),                                     ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:482:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->username().data(), this->username().length(),                               ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:491:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->password().data(), this->password().length(),                               ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:508:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->username().data(), this->username().length(),                               ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:518:32: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->password().data(), this->password().length(),                               ^~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:723:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]            this->auth_token().data(), this->auth_token().length(),                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:740:45: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]            this->experation_time().data(), this->experation_time().length(),                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:770:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->auth_token().data(), this->auth_token().length(),                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:779:39: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->experation_time().data(), this->experation_time().length(),                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:796:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->auth_token().data(), this->auth_token().length(),                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:806:39: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]      this->experation_time().data(), this->experation_time().length(),                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~32 warnings generated.32(36%IDEClangDiagnosticActivityLogMessage2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#4(2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^3#9#3#9#123#0#21"Apple LLVM 5.0 Notice--2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:23:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^22#9#22#9#757#0#21"Apple LLVM 5.0 Notice--2@77"In file included from /usr/local/include/google/protobuf/repeated_field.h:52:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file:///usr/local/include/google/protobuf/repeated_field.h0000000000000000^51#9#51#9#2550#0#21"Apple LLVM 5.0 Notice--2@75"In file included from /usr/local/include/google/protobuf/message_lite.h:43:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@56"file:///usr/local/include/google/protobuf/message_lite.h0000000000000000^42#9#42#9#2082#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#22#871#22#38084#0#22"Value Conversion Issue2(3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#10#871#31#38072#14#3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#8#871#9#38070#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#4(2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^3#9#3#9#123#0#21"Apple LLVM 5.0 Notice--2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:23:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^22#9#22#9#757#0#21"Apple LLVM 5.0 Notice--2@77"In file included from /usr/local/include/google/protobuf/repeated_field.h:52:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file:///usr/local/include/google/protobuf/repeated_field.h0000000000000000^51#9#51#9#2550#0#21"Apple LLVM 5.0 Notice--2@75"In file included from /usr/local/include/google/protobuf/message_lite.h:43:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@56"file:///usr/local/include/google/protobuf/message_lite.h0000000000000000^42#9#42#9#2082#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#21#1041#21#42939#0#22"Value Conversion Issue2(3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#9#1041#30#42927#14#3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#2#1041#8#42920#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#3(2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^3#9#3#9#123#0#21"Apple LLVM 5.0 Notice--2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:25:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^24#9#24#9#844#0#21"Apple LLVM 5.0 Notice--2@91"In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@72"file:///usr/local/include/google/protobuf/generated_message_reflection.h0000000000000000^43#9#43#9#2141#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#39#117#39#5020#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#39#117#50#5020#10#3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#11#117#25#4992#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#3(2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:4:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^3#9#3#9#123#0#21"Apple LLVM 5.0 Notice--2@104"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h:25:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^24#9#24#9#844#0#21"Apple LLVM 5.0 Notice--2@91"In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@72"file:///usr/local/include/google/protobuf/generated_message_reflection.h0000000000000000^43#9#43#9#2141#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#33#199#33#6971#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#33#199#48#6971#14#3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#2#199#8#6940#0#-2@111"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int')-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^663#55#663#55#28262#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^663#55#663#67#28262#11#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^663#11#663#13#28218#0#-2@111"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int')-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^670#55#670#55#28686#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^670#55#670#67#28686#11#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^670#11#670#13#28642#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#59#738#59#31724#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#9#739#21#31674#72#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#2#738#8#31667#0#-2@111"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int')-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#45#738#45#31710#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#45#738#57#31710#11#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^738#9#738#11#31674#0#-2@69"Implicit conversion loses integer precision: 'unsigned long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#59#742#59#31870#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#9#743#21#31820#72#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#2#742#8#31813#0#-2@111"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'uint32' (aka 'unsigned int')-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:10:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^9#9#9#9#257#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#45#742#45#31856#0#22"Value Conversion Issue2(3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#45#742#57#31856#11#3@64"file:///usr/local/include/google/protobuf/wire_format_lite_inl.h0000000000000000^742#9#742#11#31820#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1308#16#1308#16#57763#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1308#11#1308#43#57758#25#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1308#4#1308#10#57751#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1310#16#1310#16#57849#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1310#11#1310#47#57844#25#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1310#4#1310#10#57837#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1312#16#1312#16#57909#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1312#11#1312#36#57904#14#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1312#4#1312#10#57897#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1318#16#1318#16#58027#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1318#11#1318#39#58022#14#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1318#4#1318#10#58015#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1320#16#1320#16#58079#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1320#11#1320#49#58074#25#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1320#4#1320#10#58067#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1326#16#1326#16#58214#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1326#11#1326#36#58209#14#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1326#4#1326#10#58202#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1328#16#1328#16#58263#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1328#11#1328#47#58258#25#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1328#4#1328#10#58251#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1333#14#1333#14#58365#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1333#9#1333#30#58360#14#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1333#2#1333#8#58353#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1337#14#1337#14#58446#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1337#9#1337#32#58441#14#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1337#2#1337#8#58434#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437619690#18446744073709551615#0#1(2@105"In file included from /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc:11:-437619690#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^10#9#10#9#307#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1341#14#1341#14#58528#0#22"Value Conversion Issue2(3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1341#9#1341#34#58523#17#3@54"file:///usr/local/include/google/protobuf/descriptor.h0000000000000000^1341#2#1341#8#58516#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^434#37#434#37#14838#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^434#37#434#62#14838#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^433#10#433#12#14741#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^451#37#451#37#15554#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^451#37#451#62#15554#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^450#10#450#12#15457#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^481#31#481#31#16468#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^481#31#481#56#16468#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^480#4#480#6#16377#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^490#31#490#31#16815#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^490#31#490#56#16815#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^489#4#489#6#16724#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^507#31#507#31#17432#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^507#31#507#56#17432#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^506#4#506#6#17341#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^517#31#517#31#17803#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^517#31#517#56#17803#24#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^516#4#516#6#17712#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^722#39#722#39#24120#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^722#39#722#66#24120#26#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^721#10#721#12#24021#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^739#44#739#44#24873#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^739#44#739#76#24873#31#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^738#10#738#12#24769#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^769#33#769#33#25801#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^769#33#769#60#25801#26#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^768#4#768#6#25708#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^778#38#778#38#26173#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^778#38#778#70#26173#31#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^777#4#777#6#26075#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^795#33#795#33#26811#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^795#33#795#60#26811#26#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^794#4#794#6#26718#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437619690#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^805#38#805#38#27207#0#22"Value Conversion Issue2(3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^805#38#805#70#27207#31#3@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^804#4#804#6#27109#0#-0#0#1#-19%DVTDocumentLocation4@86"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc0000000000000000^3390"CompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alec/Documents/Development/Scorch/Anvil    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.10 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-generated-files.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-own-target-headers.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-all-target-headers.hmap -iquote /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-project-headers.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -Iinclude -I/usr/local/include -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/DerivedSources/x86_64 -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/DerivedSources -F/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug -F/Users/Alec/Documents/Development/Scorch/Anvil/lib -MMD -MT dependencies -MF /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.d --serialize-diagnostics /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.dia -c /Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.cc -o /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o36"964F9E92-E4F3-464F-96BA-43C2444B7C10-
-b3F94780C-C60C-4217-A026-56BC4EA573E3
-
-CCompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
-s437620218.296808
-e437620218.905231
-r1
-xCompileC
-xDerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o
-x/Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp
-xnormal
-xx86_64
-xc++
-xcom.apple.compilers.llvm.clang.1_0.compiler
-d/Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Config.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Clock.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Export.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Time.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Err.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/InputStream.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Lock.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/NonCopyable.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Mutex.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Sleep.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/String.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Thread.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Thread.inl
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocal.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocalPtr.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/ThreadLocalPtr.inl
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Utf.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Utf.inl
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector2.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector2.inl
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector3.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/System/Vector3.inl
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Ftp.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Export.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/TcpSocket.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Socket.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/SocketHandle.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Http.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/IpAddress.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/Packet.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/SocketSelector.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/TcpListener.hpp
-d/Users/Alec/Documents/Development/Scorch/Anvil/include/SFML/Network/UdpSocket.hpp
-d/Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h
-d/usr/local/include/google/protobuf/stubs/common.h
-d/usr/local/include/google/protobuf/generated_message_util.h
-d/usr/local/include/google/protobuf/repeated_field.h
-d/usr/local/include/google/protobuf/message_lite.h
-d/usr/local/include/google/protobuf/io/coded_stream.h
-d/usr/local/include/google/protobuf/extension_set.h
-d/usr/local/include/google/protobuf/generated_message_reflection.h
-d/usr/local/include/google/protobuf/message.h
-d/usr/local/include/google/protobuf/unknown_field_set.h
-oIn file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:
-oIn file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:23:
-oIn file included from /usr/local/include/google/protobuf/repeated_field.h:52:
-oIn file included from /usr/local/include/google/protobuf/message_lite.h:43:
-o/usr/local/include/google/protobuf/io/coded_stream.h:872:23: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  *size = buffer_end_ - buffer_;
-o        ~ ~~~~~~~~~~~~^~~~~~~~~
-o/usr/local/include/google/protobuf/io/coded_stream.h:1042:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]
-o  return buffer_end_ - buffer_;
-o  ~~~~~~ ~~~~~~~~~~~~^~~~~~~~~
-oIn file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:
-oIn file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:25:
-oIn file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:
-o/usr/local/include/google/protobuf/unknown_field_set.h:118:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o    return ParseFromArray(data.data(), data.size());
-o           ~~~~~~~~~~~~~~              ^~~~~~~~~~~
-o/usr/local/include/google/protobuf/unknown_field_set.h:200:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]
-o  return (fields_ == NULL) ? 0 : fields_->size();
-o  ~~~~~~                         ^~~~~~~~~~~~~~~
-o/Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:18:19: warning: unused variable 'address' [-Wunused-variable]
-o    sf::IpAddress address = sf::IpAddress::LocalHost;
-o                  ^
-o5 warnings generated.
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"Compile /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp182"CompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o Anvil/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compilerbb0f4cfa8d15ba41^06bde7fa8d15ba41^-1886"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:23:In file included from /usr/local/include/google/protobuf/repeated_field.h:52:In file included from /usr/local/include/google/protobuf/message_lite.h:43:/usr/local/include/google/protobuf/io/coded_stream.h:872:23: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  *size = buffer_end_ - buffer_;        ~ ~~~~~~~~~~~~^~~~~~~~~/usr/local/include/google/protobuf/io/coded_stream.h:1042:22: warning: implicit conversion loses integer precision: 'long' to 'int' [-Wshorten-64-to-32]  return buffer_end_ - buffer_;  ~~~~~~ ~~~~~~~~~~~~^~~~~~~~~In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:25:In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:/usr/local/include/google/protobuf/unknown_field_set.h:118:40: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]    return ParseFromArray(data.data(), data.size());           ~~~~~~~~~~~~~~              ^~~~~~~~~~~/usr/local/include/google/protobuf/unknown_field_set.h:200:34: warning: implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int' [-Wshorten-64-to-32]  return (fields_ == NULL) ? 0 : fields_->size();  ~~~~~~                         ^~~~~~~~~~~~~~~/Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:18:19: warning: unused variable 'address' [-Wunused-variable]    sf::IpAddress address = sf::IpAddress::LocalHost;                  ^5 warnings generated.5(36%IDEClangDiagnosticActivityLogMessage2@60"Implicit conversion loses integer precision: 'long' to 'int'-437620218#18446744073709551615#0#4(2@87"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^10#9#10#9#193#0#21"Apple LLVM 5.0 Notice--2@122"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:23:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^22#9#22#9#757#0#21"Apple LLVM 5.0 Notice--2@77"In file included from /usr/local/include/google/protobuf/repeated_field.h:52:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file:///usr/local/include/google/protobuf/repeated_field.h0000000000000000^51#9#51#9#2550#0#21"Apple LLVM 5.0 Notice--2@75"In file included from /usr/local/include/google/protobuf/message_lite.h:43:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@56"file:///usr/local/include/google/protobuf/message_lite.h0000000000000000^42#9#42#9#2082#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#22#871#22#38084#0#22"Value Conversion Issue2(3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#10#871#31#38072#14#3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^871#8#871#9#38070#0#-2@60"Implicit conversion loses integer precision: 'long' to 'int'-437620218#18446744073709551615#0#4(2@87"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^10#9#10#9#193#0#21"Apple LLVM 5.0 Notice--2@122"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:23:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^22#9#22#9#757#0#21"Apple LLVM 5.0 Notice--2@77"In file included from /usr/local/include/google/protobuf/repeated_field.h:52:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@58"file:///usr/local/include/google/protobuf/repeated_field.h0000000000000000^51#9#51#9#2550#0#21"Apple LLVM 5.0 Notice--2@75"In file included from /usr/local/include/google/protobuf/message_lite.h:43:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@56"file:///usr/local/include/google/protobuf/message_lite.h0000000000000000^42#9#42#9#2082#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#21#1041#21#42939#0#22"Value Conversion Issue2(3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#9#1041#30#42927#14#3@59"file:///usr/local/include/google/protobuf/io/coded_stream.h0000000000000000^1041#2#1041#8#42920#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437620218#18446744073709551615#0#3(2@87"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^10#9#10#9#193#0#21"Apple LLVM 5.0 Notice--2@122"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:25:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^24#9#24#9#844#0#21"Apple LLVM 5.0 Notice--2@91"In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@72"file:///usr/local/include/google/protobuf/generated_message_reflection.h0000000000000000^43#9#43#9#2141#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#39#117#39#5020#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#39#117#50#5020#10#3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^117#11#117#25#4992#0#-2@87"Implicit conversion loses integer precision: 'size_type' (aka 'unsigned long') to 'int'-437620218#18446744073709551615#0#3(2@87"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp:11:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^10#9#10#9#193#0#21"Apple LLVM 5.0 Notice--2@122"In file included from /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/../../Services/Flame/cpp-gen/BFEProtos.pb.h:25:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@85"file:///Users/Alec/Documents/Development/Scorch/Services/Flame/cpp-gen/BFEProtos.pb.h0000000000000000^24#9#24#9#844#0#21"Apple LLVM 5.0 Notice--2@91"In file included from /usr/local/include/google/protobuf/generated_message_reflection.h:44:-437620218#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@72"file:///usr/local/include/google/protobuf/generated_message_reflection.h0000000000000000^43#9#43#9#2141#0#21"Apple LLVM 5.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#33#199#33#6971#0#22"Value Conversion Issue2(3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#33#199#48#6971#14#3@61"file:///usr/local/include/google/protobuf/unknown_field_set.h0000000000000000^199#2#199#8#6940#0#-2@25"Unused variable 'address'-437620218#18446744073709551615#0#-1#27"com.apple.dt.IDE.diagnostic3@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^17#18#17#18#347#0#19"Unused Entity Issue--0#0#1#-19%DVTDocumentLocation4@68"file:///Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp0000000000000000^3275"CompileC DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o Anvil/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alec/Documents/Development/Scorch/Anvil    export LANG=en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=gnu++11 -stdlib=libc++ -fmodules -fmodules-cache-path=/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/ModuleCache -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Werror=return-type -Werror=deprecated-objc-isa-usage -Werror=objc-root-class -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wconditional-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wbool-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.10 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-generated-files.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-own-target-headers.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-all-target-headers.hmap -iquote /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-project-headers.hmap -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -Iinclude -I/usr/local/include -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/DerivedSources/x86_64 -I/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/DerivedSources -F/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug -F/Users/Alec/Documents/Development/Scorch/Anvil/lib -MMD -MT dependencies -MF /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.dia -c /Users/Alec/Documents/Development/Scorch/Anvil/Anvil/main.cpp -o /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o36"5E7E1E63-A51A-4B93-A751-F3BB3E8DBD4A-
-bB6D86EF0-7B23-4537-81ED-FBCC3A0DC28D
-
-CLd /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil normal x86_64
-s437620218.906297
-e437620218.927429
-r1
-xLd
-x/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil
-xnormal
-xx86_64
-d/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil.LinkFileList
-d/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.o
-d/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/BFEProtos.pb.o
-d/usr/local/lib/libprotobuf.dylib
-d/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-audio.2.1.dylib
-d/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-graphics.2.1.dylib
-d/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-network.2.1.dylib
-d/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-system.2.1.dylib
-d/Users/Alec/Documents/Development/Scorch/Anvil/lib/libsfml-window.2.1.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libc++.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libSystem.dylib
-d/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/lib/darwin/libclang_rt.osx.a
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcache.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcommonCrypto.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcompiler_rt.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcopyfile.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libcorecrypto.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdispatch.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libdyld.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libkeymgr.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/liblaunch.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libmacho.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libquarantine.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libremovefile.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_asl.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_blocks.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_c.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_configuration.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_dnssd.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_info.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_kernel.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_m.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_malloc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_network.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_notify.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_platform.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_pthread.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_sandbox.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libsystem_stats.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunc.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libunwind.dylib
-d/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/system/libxpc.dylib
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Link /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil61"Ld DerivedData/Anvil/Build/Products/Debug/Anvil normal x86_644110e8fa8d15ba41^696eedfa8d15ba41^---0#0#1#--1288"Ld DerivedData/Anvil/Build/Products/Debug/Anvil normal x86_64    cd /Users/Alec/Documents/Development/Scorch/Anvil    export MACOSX_DEPLOYMENT_TARGET=10.10    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug -Llib -L/Users/Alec/Documents/Development/Scorch/Anvil/lib -L/usr/local/lib -F/Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug -F/Users/Alec/Documents/Development/Scorch/Anvil/lib -filelist /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil.LinkFileList -mmacosx-version-min=10.10 -stdlib=libc++ -lprotobuf -lsfml-audio.2.1 -lsfml-graphics.2.1 -lsfml-network.2.1 -lsfml-system.2.1 -lsfml-window.2.1 -Xlinker -dependency_info -Xlinker /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil_dependency_info.dat -o /Users/Alec/Documents/Development/Scorch/Anvil/DerivedData/Anvil/Build/Products/Debug/Anvil36"0C1C51A7-8AA0-4CE7-8049-FC17C543E6B0-
-bB6D86EF0-7B23-4537-81ED-FBCC3A0DC28D
-

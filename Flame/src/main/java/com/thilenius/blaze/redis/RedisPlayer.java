@@ -66,9 +66,10 @@ public class RedisPlayer {
         if (token == null || token.isEmpty()) {
             token = java.util.UUID.randomUUID().toString();
             Blaze.RedisInstance.set(m_redisPrefix + "authToken", token);
-            Blaze.RedisInstance.expire(m_redisPrefix + "authToken", TIMEOUT_SECONDS);
         }
 
+        // Set or update expiration time.
+        Blaze.RedisInstance.expire(m_redisPrefix + "authToken", TIMEOUT_SECONDS);
         return token;
     }
 

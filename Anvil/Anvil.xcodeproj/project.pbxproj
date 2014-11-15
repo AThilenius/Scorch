@@ -14,7 +14,7 @@
 		70541CCC1A15596E00D37EF2 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70541CC71A15596E00D37EF2 /* libsfml-system.2.1.dylib */; };
 		70541CCD1A15596E00D37EF2 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70541CC81A15596E00D37EF2 /* libsfml-window.2.1.dylib */; };
 		70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
-		70A4C8741A15892F00DC9093 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70A4C8721A15892F00DC9093 /* BFEProtos.pb.cc */; };
+		70A4C8771A16DA4700DC9093 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70A4C8751A16DA4700DC9093 /* BFEProtos.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,8 +38,8 @@
 		70541CC71A15596E00D37EF2 /* libsfml-system.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.1.dylib"; path = "lib/libsfml-system.2.1.dylib"; sourceTree = "<group>"; };
 		70541CC81A15596E00D37EF2 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
 		70A4C8701A15886B00DC9093 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = /usr/local/lib/libprotobuf.a; sourceTree = "<absolute>"; };
-		70A4C8721A15892F00DC9093 /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "../../Services/Flame/cpp-gen/BFEProtos.pb.cc"; sourceTree = "<group>"; };
-		70A4C8731A15892F00DC9093 /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "../../Services/Flame/cpp-gen/BFEProtos.pb.h"; sourceTree = "<group>"; };
+		70A4C8751A16DA4700DC9093 /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "../../Services/Flame/cpp-gen/BFEProtos.pb.cc"; sourceTree = "<group>"; };
+		70A4C8761A16DA4700DC9093 /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "../../Services/Flame/cpp-gen/BFEProtos.pb.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 		70541CD41A1581AD00D37EF2 /* gen-files */ = {
 			isa = PBXGroup;
 			children = (
-				70A4C8721A15892F00DC9093 /* BFEProtos.pb.cc */,
-				70A4C8731A15892F00DC9093 /* BFEProtos.pb.h */,
+				70A4C8751A16DA4700DC9093 /* BFEProtos.pb.cc */,
+				70A4C8761A16DA4700DC9093 /* BFEProtos.pb.h */,
 			);
 			name = "gen-files";
 			sourceTree = "<group>";
@@ -159,7 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70541CB81A15537000D37EF2 /* main.cpp in Sources */,
-				70A4C8741A15892F00DC9093 /* BFEProtos.pb.cc in Sources */,
+				70A4C8771A16DA4700DC9093 /* BFEProtos.pb.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

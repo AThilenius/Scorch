@@ -2,8 +2,10 @@ package com.thilenius.blaze.frontend;
 
 import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
+import com.thilenius.blaze.frontend.tcp.BFESocketServer;
+import com.thilenius.blaze.player.BlazePlayer;
 
-import java.util.UUID;
+import java.nio.channels.SocketChannel;
 
 /**
  * Created by Alec on 11/13/14.
@@ -19,17 +21,33 @@ public class AuthenticationServer {
         m_socketServer = socketServer;
     }
 
-    public void Handle(BFEProtos.BFEAuthRequest authRequest) {
-        // Look up login an password in REDIS
+    public void Handle(SocketChannel socketChannel, BFEProtos.BFEAuthRequest authRequest) {
 
-        return Blaze.RedisInstance.getSet(m_redisPrefix + "authToken", UUID.randomUUID().toString());
-        Blaze.RedisInstance.get()
-        Blaze.RedisInstance.expire()
-        // Create an expiring auth-token
-        // Return to user
-        BFEProtos.BFEAuthResponse response = BFEProtos.BFEAuthResponse.newBuilder()
-                .setAuthToken(UUID.randomUUID().toString())
+        // Look up login an password in REDIS
+        BlazePlayer player = Blaze.World.BlazePlayersByUsername.get(authRequest.getUsername());
+        BFEProtos.BFEAuthResponse response = null;
+
+        if (player != null && authRequest.getPassword().equals(player.PlayerData.getPassword())) {
+            // Return the players Auth token (will also generate a new one if needed)
+            response = BFEProtos.BFEAuthResponse.newBuilder()
+                    .setAuthToken(player.PlayerData.getAuthToken())
+                    .build();
+
+            System.out.println("User authenticated, returning token: " + player.PlayerData.getAuthToken());
+        } else {
+            response = BFEProtos.BFEAuthResponse.newBuilder()
+                    .setAuthToken("INVALID USERNAME OR PASSWORD")
+                    .build();
+
+            System.out.println("User failed authentication");
+        }
+
+        BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                .setExtension(BFEProtos.BFEAuthResponse.bFEAuthResponseExt, response)
                 .build();
+
+        byte[] buffer = message.toByteArray();
+        m_socketServer.send(socketChannel, buffer);
 
     }
 }
