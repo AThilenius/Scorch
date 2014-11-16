@@ -11,13 +11,13 @@ import java.nio.channels.SocketChannel;
  * Created by Alec on 11/13/14.
  * User Lookup: login_[ <playerName> ]
  */
-public class AuthenticationServer {
+public class BFEAuthenticationServer {
 
     private static final String REDIS_PREFIX = "auth_";
 
     private BFESocketServer m_socketServer;
 
-    public AuthenticationServer (BFESocketServer socketServer) {
+    public BFEAuthenticationServer(BFESocketServer socketServer) {
         m_socketServer = socketServer;
     }
 

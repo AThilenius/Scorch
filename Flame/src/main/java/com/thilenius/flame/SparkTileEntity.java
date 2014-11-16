@@ -2,6 +2,7 @@ package com.thilenius.flame;
 
 import java.util.ArrayList;
 
+import com.thilenius.utilities.types.Location3D;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
@@ -18,7 +19,6 @@ public class SparkTileEntity extends TileEntity {
     }
 	
 	public SparkTileEntity() {
-		System.out.println("Creating Spark: " + this.xCoord + ", " + this.yCoord + ", " + this.zCoord);
 	}
 	
 //	public void writeToNBT(NBTTagCompound var1)

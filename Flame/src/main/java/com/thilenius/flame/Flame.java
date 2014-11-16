@@ -1,13 +1,6 @@
 package com.thilenius.flame;
 
 import com.thilenius.blaze.Blaze;
-
-import cpw.mods.fml.common.gameevent.PlayerEvent;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -18,8 +11,14 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.WorldEvent;
 
 @Mod(modid = "flame", name = "Flame", version = "0.0.1")
@@ -71,9 +70,9 @@ public class Flame {
     // Fuck this piece of shit Minecraft/Forge code!!!
     @SubscribeEvent
     public void entityJoinEvent(EntityJoinWorldEvent event) {
-        if ((Object)event.entity instanceof SparkTileEntity) {
-            event.setCanceled(true);
-        }
+//        if ((Object)event.entity instanceof SparkTileEntity) {
+//            event.setCanceled(true);
+//        }
     }
 
 	@SubscribeEvent
@@ -88,18 +87,18 @@ public class Flame {
     @SubscribeEvent
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
         // On Player Join
-        BlazeInstance.OnPlayerJoin(event);
+        BlazeInstance.onPlayerJoin(event);
     }
 
     @SubscribeEvent
     public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
         // On Player Leave
-        BlazeInstance.OnPlayerLeave(event);
+        BlazeInstance.onPlayerLeave(event);
     }
 
     @SubscribeEvent
     public void onNameFormat(net.minecraftforge.event.entity.player.PlayerEvent.NameFormat event) {
-        //event.displayname = BlazeInstance.Players.get(0).DisplayName;
+        event.displayname = BlazeInstance.onFormatName(event.username);
     }
 
 	@SubscribeEvent

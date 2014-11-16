@@ -12,11 +12,11 @@ public class PlayerArena {
 
     public RedisArena ArenaData;
 
-    public BlazeWorld MinecraftWorld;
+    public BlazeWorld BlazeWorld;
     public BlazePlayer BlazePlayer;
 
     public PlayerArena(BlazeWorld world, BlazePlayer player) {
-        MinecraftWorld = world;
+        BlazeWorld = world;
         BlazePlayer = player;
         ArenaData = new RedisArena(player.PlayerData.getDisplayName());
     }

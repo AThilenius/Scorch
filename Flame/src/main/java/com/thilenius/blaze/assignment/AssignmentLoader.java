@@ -11,28 +11,35 @@ import java.util.HashMap;
  */
 public class AssignmentLoader {
 
-    private HashMap<String, BlazeAssignment> m_loadedAssignments = new HashMap<String, BlazeAssignment>();
+    private HashMap<String, BlazeAssignment> m_loadedAssignmentsByUsername = new HashMap<String, BlazeAssignment>();
 
     public AssignmentLoader() {
 
     }
 
-    public BlazeAssignment LoadAssignment (String name, BlazePlayer player) {
+    public BlazeLevel LoadLevel (BlazePlayer player, String assignmentName, int levelNumber) {
 
-        String key = name + "|" + player.PlayerData.getUserName();
-        BlazeAssignment assignment = m_loadedAssignments.get(key);
+        // Does the user already has a loaded assignment?
+        BlazeAssignment assignment = m_loadedAssignmentsByUsername.get(player.PlayerData.getUserName());
         if (assignment != null) {
-            return assignment;
+            // Same assignment?
+            if (assignment.getClass().getCanonicalName().equals(assignmentName)) {
+                // Same assignment, just load the new level
+                return assignment.loadLevel(levelNumber);
+            }
+
+            // Different assignment. Unload the old one
+            assignment.unload();
         }
 
         Class<?> clazz = null;
         try {
-            clazz = Class.forName(name);
+            clazz = Class.forName(assignmentName);
             Constructor<?> constructor = clazz.getConstructor(BlazePlayer.class);
             Object instance = constructor.newInstance(player);
             if (instance != null && instance instanceof BlazeAssignment) {
-                m_loadedAssignments.put(key, (BlazeAssignment) instance);
-                return (BlazeAssignment) instance;
+                m_loadedAssignmentsByUsername.put(player.PlayerData.getUserName(), (BlazeAssignment) instance);
+                return ((BlazeAssignment)instance).loadLevel(levelNumber);
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -47,6 +54,15 @@ public class AssignmentLoader {
         }
 
         return null;
+    }
+
+    public BlazeLevel getActiveLevelForUsername(String username) {
+        BlazeAssignment assignment = m_loadedAssignmentsByUsername.get(username);
+        if (assignment == null) {
+            return null;
+        } else {
+            return assignment.getActiveLevel();
+        }
     }
 
 }

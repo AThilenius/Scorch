@@ -19,8 +19,18 @@ public class DemoAssignment extends BlazeAssignment {
     }
 
     @Override
-    public BlazeLevel[] getAllLevels() {
-        return new BlazeLevel[]{m_levelOne, m_levelTwo};
+    public int getLevelsCount() {
+        return 2;
+    }
+
+    @Override
+    protected BlazeLevel getLevel(int number) {
+        switch (number)
+        {
+            case 0: return m_levelOne;
+            case 1: return m_levelTwo;
+            default: return null;
+        }
     }
 
 }

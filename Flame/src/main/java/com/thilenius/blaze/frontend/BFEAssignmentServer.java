@@ -13,12 +13,12 @@ import java.nio.channels.SocketChannel;
 /**
  * Created by Alec on 11/15/14.
  */
-public class AssignmentServer {
+public class BFEAssignmentServer {
 
     private BFESocketServer m_socketServer;
     private AssignmentLoader m_assignmentLoader;
 
-    public AssignmentServer(BFESocketServer socketServer) {
+    public BFEAssignmentServer(BFESocketServer socketServer) {
         m_socketServer = socketServer;
         m_assignmentLoader = new AssignmentLoader();
     }
@@ -33,20 +33,14 @@ public class AssignmentServer {
                     .setFailureReason("Invalid Authentication Token")
                     .build();
         } else {
-            BlazeAssignment assignment = m_assignmentLoader.LoadAssignment(request.getAssignmentName(), player);
+            BlazeLevel level = m_assignmentLoader.LoadLevel(player, request.getAssignmentName(),
+                    request.getLevelNumber());
 
-            if (assignment == null) {
+            if (level == null) {
                 response = BFEProtos.BFELoadLevelResponse.newBuilder()
-                        .setFailureReason("Invalid Assignment Name")
-                        .build();
-            } else if (assignment.getAllLevels().length <= request.getLevelNumber()) {
-                response = BFEProtos.BFELoadLevelResponse.newBuilder()
-                        .setFailureReason("Invalid Level Number")
+                        .setFailureReason("Invalid Assignment Name or Level Number")
                         .build();
             } else {
-                // All Good
-                BlazeLevel level = assignment.getAllLevels()[request.getLevelNumber()];
-                level.load();
                 response = BFEProtos.BFELoadLevelResponse.newBuilder()
                         .setSparkCount(level.getSparks().length)
                         .build();
@@ -58,6 +52,10 @@ public class AssignmentServer {
                 .build();
 
         m_socketServer.send(socketChannel, message.toByteArray());
+    }
+
+    public BlazeLevel getActiveLevelForPlayer(BlazePlayer player) {
+        return m_assignmentLoader.getActiveLevelForUsername(player.PlayerData.getUserName());
     }
 
 }

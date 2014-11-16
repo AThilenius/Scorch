@@ -9,19 +9,21 @@ import com.thilenius.blaze.frontend.tcp.SocketRequest;
 /**
  * Created by Alec on 11/13/14.
  */
-public class RequestDispatcher implements Runnable{
+public class BFERequestDispatcher implements Runnable{
 
-    public AuthenticationServer AuthServer;
-    public AssignmentServer LevelServer;
+    public BFEAuthenticationServer AuthServer;
+    public BFEAssignmentServer LevelServer;
+    public BFESparkServer SparkServer;
 
     private BFESocketServer m_server;
 
 
-    public RequestDispatcher(BFESocketServer socketServer) {
+    public BFERequestDispatcher(BFESocketServer socketServer) {
         m_server = socketServer;
 
-        AuthServer = new AuthenticationServer(socketServer);
-        LevelServer = new AssignmentServer(socketServer);
+        AuthServer = new BFEAuthenticationServer(socketServer);
+        LevelServer = new BFEAssignmentServer(socketServer);
+        SparkServer = new BFESparkServer(socketServer, LevelServer);
     }
 
     public void startServer() {
@@ -40,7 +42,7 @@ public class RequestDispatcher implements Runnable{
             // Poll the next buffer off the Queue
             SocketRequest request = m_server.readNext();
 
-            // Thread shutdown, prevent exit errors
+            // Thread shutdown
             if (request == null) {
                 return;
             }
@@ -52,7 +54,8 @@ public class RequestDispatcher implements Runnable{
 
                 System.out.println("Dispatching message... ");
                 if (message.hasExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt)) {
-                    BFEProtos.BFEAuthRequest authRequest = message.getExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt);
+                    BFEProtos.BFEAuthRequest authRequest
+                            = message.getExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt);
                     System.out.println("Message dispatched to Authentication server.");
                     AuthServer.Handle(request.Channel, authRequest);
                 } else if (message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
@@ -60,6 +63,11 @@ public class RequestDispatcher implements Runnable{
                             = message.getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
                     System.out.println("Message dispatched to Assignment server.");
                     LevelServer.Handle(request.Channel, loadRequest);
+                } else if (message.hasExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt)) {
+                    BFEProtos.BFESparkCommand sparkRequest
+                            = message.getExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt);
+                    System.out.println("Message dispatched to Spark server.");
+                    SparkServer.Handle(request.Channel, sparkRequest);
                 } else {
                     System.out.println("Invalid packet type. Can not dispatch.");
                 }

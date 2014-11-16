@@ -1,6 +1,7 @@
 package com.thilenius.blaze;
 
 import com.thilenius.blaze.frontend.BFEServer;
+import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.server.MinecraftServer;
@@ -24,12 +25,22 @@ public class Blaze {
         FrontEndServer.startServer();
     }
 
-    public void OnPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {
+    public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {
         World.OnPlayerJoinWorld(joinEvent.player);
     }
 
-    public void OnPlayerLeave(PlayerEvent.PlayerLoggedOutEvent leaveEvent) {
+    public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent leaveEvent) {
 
+    }
+
+    public String onFormatName (String username) {
+        BlazePlayer player = World.BlazePlayersByUsername.get(username);
+
+        if (player != null) {
+            return player.PlayerData.getDisplayName();
+        } else {
+            return username;
+        }
     }
 
 }

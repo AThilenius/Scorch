@@ -15,12 +15,12 @@ public class SparkBlock extends BlockContainer
         this.setCreativeTab(CreativeTabs.tabMisc);
 	}
 	
-	@Override
-	public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
-    {
-		System.out.println("==== onBlockPlaced: " + x + ", " + y + ", " + z);
-		return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
-    }
+//	@Override
+//	public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
+//    {
+//		System.out.println("==== onBlockPlaced: " + x + ", " + y + ", " + z);
+//		return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
+//    }
 	
 
 	@Override

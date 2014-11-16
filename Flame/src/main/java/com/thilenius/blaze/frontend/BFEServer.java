@@ -9,13 +9,13 @@ import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 public class BFEServer {
 
     private BFESocketServer m_socketServer;
-    private RequestDispatcher m_reqDispatch;
+    private BFERequestDispatcher m_reqDispatch;
 
     public void startServer() {
         m_socketServer = new BFESocketServer(5529);
         m_socketServer.startServer();
 
-        m_reqDispatch = new RequestDispatcher(m_socketServer);
+        m_reqDispatch = new BFERequestDispatcher(m_socketServer);
         m_reqDispatch.startServer();
     }
 }

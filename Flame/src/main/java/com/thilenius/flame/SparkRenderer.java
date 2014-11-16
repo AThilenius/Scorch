@@ -26,14 +26,14 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		
 		SparkTileEntity spark = (SparkTileEntity) te;
 		
-        spark.displace += deltaTime * 0.01F;
+        //spark.displace += deltaTime * 0.01F;
         
-        if (spark.displace > 1.0f) {
-			spark.getWorldObj().setBlock(spark.xCoord, spark.yCoord, spark.zCoord - 1, spark.getBlockType(), spark.getBlockMetadata(), 0);
-        	spark.getWorldObj().removeTileEntity(spark.xCoord, spark.yCoord, spark.zCoord);
-        	spark.getWorldObj().setBlockToAir(spark.xCoord, spark.yCoord, spark.zCoord);
-        	return;
-        }
+//        if (spark.displace > 1.0f) {
+//			spark.getWorldObj().setBlock(spark.xCoord, spark.yCoord, spark.zCoord - 1, spark.getBlockType(), spark.getBlockMetadata(), 0);
+//        	spark.getWorldObj().removeTileEntity(spark.xCoord, spark.yCoord, spark.zCoord);
+//        	spark.getWorldObj().setBlockToAir(spark.xCoord, spark.yCoord, spark.zCoord);
+//        	return;
+//        }
 		
         // Open model matrix
 		GL11.glPushMatrix();
@@ -43,9 +43,6 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		
 		// Rotate
 		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
-		
-		// Rotate Y
-		//GL11.glRotatef(yRotationAngle, 0.0f, 1.0f, 0.0f);
 		
 		// Texture
 		ResourceLocation textures = (new ResourceLocation("flame", "textures/entity/spark")); 
