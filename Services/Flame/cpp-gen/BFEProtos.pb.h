@@ -36,6 +36,8 @@ void protobuf_ShutdownFile_BFEProtos_2eproto();
 class BFEMessage;
 class BFEAuthRequest;
 class BFEAuthResponse;
+class BFELoadLevelRequest;
+class BFELoadLevelResponse;
 class BFESparkCommand;
 class BFESparkResponse;
 
@@ -347,6 +349,220 @@ class BFEAuthResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class BFELoadLevelRequest : public ::google::protobuf::Message {
+ public:
+  BFELoadLevelRequest();
+  virtual ~BFELoadLevelRequest();
+  
+  BFELoadLevelRequest(const BFELoadLevelRequest& from);
+  
+  inline BFELoadLevelRequest& operator=(const BFELoadLevelRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BFELoadLevelRequest& default_instance();
+  
+  void Swap(BFELoadLevelRequest* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFELoadLevelRequest* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BFELoadLevelRequest& from);
+  void MergeFrom(const BFELoadLevelRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string auth_token = 1;
+  inline bool has_auth_token() const;
+  inline void clear_auth_token();
+  static const int kAuthTokenFieldNumber = 1;
+  inline const ::std::string& auth_token() const;
+  inline void set_auth_token(const ::std::string& value);
+  inline void set_auth_token(const char* value);
+  inline void set_auth_token(const char* value, size_t size);
+  inline ::std::string* mutable_auth_token();
+  inline ::std::string* release_auth_token();
+  
+  // required string assignmentName = 2;
+  inline bool has_assignmentname() const;
+  inline void clear_assignmentname();
+  static const int kAssignmentNameFieldNumber = 2;
+  inline const ::std::string& assignmentname() const;
+  inline void set_assignmentname(const ::std::string& value);
+  inline void set_assignmentname(const char* value);
+  inline void set_assignmentname(const char* value, size_t size);
+  inline ::std::string* mutable_assignmentname();
+  inline ::std::string* release_assignmentname();
+  
+  // required int32 levelNumber = 3;
+  inline bool has_levelnumber() const;
+  inline void clear_levelnumber();
+  static const int kLevelNumberFieldNumber = 3;
+  inline ::google::protobuf::int32 levelnumber() const;
+  inline void set_levelnumber(::google::protobuf::int32 value);
+  
+  static const int kBFELoadLevelRequestExtFieldNumber = 102;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelRequest >, 11, false >
+    BFELoadLevelRequest_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFELoadLevelRequest)
+ private:
+  inline void set_has_auth_token();
+  inline void clear_has_auth_token();
+  inline void set_has_assignmentname();
+  inline void clear_has_assignmentname();
+  inline void set_has_levelnumber();
+  inline void clear_has_levelnumber();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* auth_token_;
+  ::std::string* assignmentname_;
+  ::google::protobuf::int32 levelnumber_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFELoadLevelRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFELoadLevelResponse : public ::google::protobuf::Message {
+ public:
+  BFELoadLevelResponse();
+  virtual ~BFELoadLevelResponse();
+  
+  BFELoadLevelResponse(const BFELoadLevelResponse& from);
+  
+  inline BFELoadLevelResponse& operator=(const BFELoadLevelResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BFELoadLevelResponse& default_instance();
+  
+  void Swap(BFELoadLevelResponse* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFELoadLevelResponse* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BFELoadLevelResponse& from);
+  void MergeFrom(const BFELoadLevelResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string failure_reason = 1;
+  inline bool has_failure_reason() const;
+  inline void clear_failure_reason();
+  static const int kFailureReasonFieldNumber = 1;
+  inline const ::std::string& failure_reason() const;
+  inline void set_failure_reason(const ::std::string& value);
+  inline void set_failure_reason(const char* value);
+  inline void set_failure_reason(const char* value, size_t size);
+  inline ::std::string* mutable_failure_reason();
+  inline ::std::string* release_failure_reason();
+  
+  // optional int32 spark_count = 2;
+  inline bool has_spark_count() const;
+  inline void clear_spark_count();
+  static const int kSparkCountFieldNumber = 2;
+  inline ::google::protobuf::int32 spark_count() const;
+  inline void set_spark_count(::google::protobuf::int32 value);
+  
+  static const int kBFELoadLevelResponseExtFieldNumber = 103;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelResponse >, 11, false >
+    BFELoadLevelResponse_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFELoadLevelResponse)
+ private:
+  inline void set_has_failure_reason();
+  inline void clear_has_failure_reason();
+  inline void set_has_spark_count();
+  inline void clear_has_spark_count();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::std::string* failure_reason_;
+  ::google::protobuf::int32 spark_count_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFELoadLevelResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class BFESparkCommand : public ::google::protobuf::Message {
  public:
   BFESparkCommand();
@@ -465,7 +681,7 @@ class BFESparkCommand : public ::google::protobuf::Message {
   inline ::std::string* mutable_pipline_token();
   inline ::std::string* release_pipline_token();
   
-  static const int kBFESparkCommandExtFieldNumber = 102;
+  static const int kBFESparkCommandExtFieldNumber = 104;
   static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
       ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFESparkCommand >, 11, false >
     BFESparkCommand_ext;
@@ -564,16 +780,16 @@ class BFESparkResponse : public ::google::protobuf::Message {
   inline ::std::string* mutable_pipline_token();
   inline ::std::string* release_pipline_token();
   
-  // optional string failure_reson = 2;
-  inline bool has_failure_reson() const;
-  inline void clear_failure_reson();
-  static const int kFailureResonFieldNumber = 2;
-  inline const ::std::string& failure_reson() const;
-  inline void set_failure_reson(const ::std::string& value);
-  inline void set_failure_reson(const char* value);
-  inline void set_failure_reson(const char* value, size_t size);
-  inline ::std::string* mutable_failure_reson();
-  inline ::std::string* release_failure_reson();
+  // optional string failure_reason = 2;
+  inline bool has_failure_reason() const;
+  inline void clear_failure_reason();
+  static const int kFailureReasonFieldNumber = 2;
+  inline const ::std::string& failure_reason() const;
+  inline void set_failure_reason(const ::std::string& value);
+  inline void set_failure_reason(const char* value);
+  inline void set_failure_reason(const char* value, size_t size);
+  inline ::std::string* mutable_failure_reason();
+  inline ::std::string* release_failure_reason();
   
   // optional bool response_bool = 3;
   inline bool has_response_bool() const;
@@ -607,7 +823,7 @@ class BFESparkResponse : public ::google::protobuf::Message {
   inline ::std::string* mutable_response_bytes();
   inline ::std::string* release_response_bytes();
   
-  static const int kBFESparkResponseExtFieldNumber = 103;
+  static const int kBFESparkResponseExtFieldNumber = 105;
   static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
       ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFESparkResponse >, 11, false >
     BFESparkResponse_ext;
@@ -615,8 +831,8 @@ class BFESparkResponse : public ::google::protobuf::Message {
  private:
   inline void set_has_pipline_token();
   inline void clear_has_pipline_token();
-  inline void set_has_failure_reson();
-  inline void clear_has_failure_reson();
+  inline void set_has_failure_reason();
+  inline void clear_has_failure_reason();
   inline void set_has_response_bool();
   inline void clear_has_response_bool();
   inline void set_has_response_int();
@@ -629,7 +845,7 @@ class BFESparkResponse : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::std::string* pipline_token_;
-  ::std::string* failure_reson_;
+  ::std::string* failure_reason_;
   bool response_bool_;
   ::google::protobuf::int32 response_int_;
   ::std::string* response_bytes_;
@@ -894,6 +1110,232 @@ inline ::std::string* BFEAuthResponse::release_failure_reason() {
 
 // -------------------------------------------------------------------
 
+// BFELoadLevelRequest
+
+// required string auth_token = 1;
+inline bool BFELoadLevelRequest::has_auth_token() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFELoadLevelRequest::set_has_auth_token() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFELoadLevelRequest::clear_has_auth_token() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFELoadLevelRequest::clear_auth_token() {
+  if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+    auth_token_->clear();
+  }
+  clear_has_auth_token();
+}
+inline const ::std::string& BFELoadLevelRequest::auth_token() const {
+  return *auth_token_;
+}
+inline void BFELoadLevelRequest::set_auth_token(const ::std::string& value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFELoadLevelRequest::set_auth_token(const char* value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFELoadLevelRequest::set_auth_token(const char* value, size_t size) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFELoadLevelRequest::mutable_auth_token() {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  return auth_token_;
+}
+inline ::std::string* BFELoadLevelRequest::release_auth_token() {
+  clear_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = auth_token_;
+    auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required string assignmentName = 2;
+inline bool BFELoadLevelRequest::has_assignmentname() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BFELoadLevelRequest::set_has_assignmentname() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BFELoadLevelRequest::clear_has_assignmentname() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BFELoadLevelRequest::clear_assignmentname() {
+  if (assignmentname_ != &::google::protobuf::internal::kEmptyString) {
+    assignmentname_->clear();
+  }
+  clear_has_assignmentname();
+}
+inline const ::std::string& BFELoadLevelRequest::assignmentname() const {
+  return *assignmentname_;
+}
+inline void BFELoadLevelRequest::set_assignmentname(const ::std::string& value) {
+  set_has_assignmentname();
+  if (assignmentname_ == &::google::protobuf::internal::kEmptyString) {
+    assignmentname_ = new ::std::string;
+  }
+  assignmentname_->assign(value);
+}
+inline void BFELoadLevelRequest::set_assignmentname(const char* value) {
+  set_has_assignmentname();
+  if (assignmentname_ == &::google::protobuf::internal::kEmptyString) {
+    assignmentname_ = new ::std::string;
+  }
+  assignmentname_->assign(value);
+}
+inline void BFELoadLevelRequest::set_assignmentname(const char* value, size_t size) {
+  set_has_assignmentname();
+  if (assignmentname_ == &::google::protobuf::internal::kEmptyString) {
+    assignmentname_ = new ::std::string;
+  }
+  assignmentname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFELoadLevelRequest::mutable_assignmentname() {
+  set_has_assignmentname();
+  if (assignmentname_ == &::google::protobuf::internal::kEmptyString) {
+    assignmentname_ = new ::std::string;
+  }
+  return assignmentname_;
+}
+inline ::std::string* BFELoadLevelRequest::release_assignmentname() {
+  clear_has_assignmentname();
+  if (assignmentname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = assignmentname_;
+    assignmentname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required int32 levelNumber = 3;
+inline bool BFELoadLevelRequest::has_levelnumber() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BFELoadLevelRequest::set_has_levelnumber() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BFELoadLevelRequest::clear_has_levelnumber() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BFELoadLevelRequest::clear_levelnumber() {
+  levelnumber_ = 0;
+  clear_has_levelnumber();
+}
+inline ::google::protobuf::int32 BFELoadLevelRequest::levelnumber() const {
+  return levelnumber_;
+}
+inline void BFELoadLevelRequest::set_levelnumber(::google::protobuf::int32 value) {
+  set_has_levelnumber();
+  levelnumber_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BFELoadLevelResponse
+
+// optional string failure_reason = 1;
+inline bool BFELoadLevelResponse::has_failure_reason() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFELoadLevelResponse::set_has_failure_reason() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFELoadLevelResponse::clear_has_failure_reason() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFELoadLevelResponse::clear_failure_reason() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    failure_reason_->clear();
+  }
+  clear_has_failure_reason();
+}
+inline const ::std::string& BFELoadLevelResponse::failure_reason() const {
+  return *failure_reason_;
+}
+inline void BFELoadLevelResponse::set_failure_reason(const ::std::string& value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFELoadLevelResponse::set_failure_reason(const char* value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFELoadLevelResponse::set_failure_reason(const char* value, size_t size) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFELoadLevelResponse::mutable_failure_reason() {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  return failure_reason_;
+}
+inline ::std::string* BFELoadLevelResponse::release_failure_reason() {
+  clear_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = failure_reason_;
+    failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional int32 spark_count = 2;
+inline bool BFELoadLevelResponse::has_spark_count() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BFELoadLevelResponse::set_has_spark_count() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BFELoadLevelResponse::clear_has_spark_count() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BFELoadLevelResponse::clear_spark_count() {
+  spark_count_ = 0;
+  clear_has_spark_count();
+}
+inline ::google::protobuf::int32 BFELoadLevelResponse::spark_count() const {
+  return spark_count_;
+}
+inline void BFELoadLevelResponse::set_spark_count(::google::protobuf::int32 value) {
+  set_has_spark_count();
+  spark_count_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // BFESparkCommand
 
 // required .Thilenius.BFEProtos.BFESparkCommand.CommandType command = 1;
@@ -1119,60 +1561,60 @@ inline ::std::string* BFESparkResponse::release_pipline_token() {
   }
 }
 
-// optional string failure_reson = 2;
-inline bool BFESparkResponse::has_failure_reson() const {
+// optional string failure_reason = 2;
+inline bool BFESparkResponse::has_failure_reason() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void BFESparkResponse::set_has_failure_reson() {
+inline void BFESparkResponse::set_has_failure_reason() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void BFESparkResponse::clear_has_failure_reson() {
+inline void BFESparkResponse::clear_has_failure_reason() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void BFESparkResponse::clear_failure_reson() {
-  if (failure_reson_ != &::google::protobuf::internal::kEmptyString) {
-    failure_reson_->clear();
+inline void BFESparkResponse::clear_failure_reason() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    failure_reason_->clear();
   }
-  clear_has_failure_reson();
+  clear_has_failure_reason();
 }
-inline const ::std::string& BFESparkResponse::failure_reson() const {
-  return *failure_reson_;
+inline const ::std::string& BFESparkResponse::failure_reason() const {
+  return *failure_reason_;
 }
-inline void BFESparkResponse::set_failure_reson(const ::std::string& value) {
-  set_has_failure_reson();
-  if (failure_reson_ == &::google::protobuf::internal::kEmptyString) {
-    failure_reson_ = new ::std::string;
+inline void BFESparkResponse::set_failure_reason(const ::std::string& value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
   }
-  failure_reson_->assign(value);
+  failure_reason_->assign(value);
 }
-inline void BFESparkResponse::set_failure_reson(const char* value) {
-  set_has_failure_reson();
-  if (failure_reson_ == &::google::protobuf::internal::kEmptyString) {
-    failure_reson_ = new ::std::string;
+inline void BFESparkResponse::set_failure_reason(const char* value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
   }
-  failure_reson_->assign(value);
+  failure_reason_->assign(value);
 }
-inline void BFESparkResponse::set_failure_reson(const char* value, size_t size) {
-  set_has_failure_reson();
-  if (failure_reson_ == &::google::protobuf::internal::kEmptyString) {
-    failure_reson_ = new ::std::string;
+inline void BFESparkResponse::set_failure_reason(const char* value, size_t size) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
   }
-  failure_reson_->assign(reinterpret_cast<const char*>(value), size);
+  failure_reason_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* BFESparkResponse::mutable_failure_reson() {
-  set_has_failure_reson();
-  if (failure_reson_ == &::google::protobuf::internal::kEmptyString) {
-    failure_reson_ = new ::std::string;
+inline ::std::string* BFESparkResponse::mutable_failure_reason() {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
   }
-  return failure_reson_;
+  return failure_reason_;
 }
-inline ::std::string* BFESparkResponse::release_failure_reson() {
-  clear_has_failure_reson();
-  if (failure_reson_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* BFESparkResponse::release_failure_reason() {
+  clear_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = failure_reson_;
-    failure_reson_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = failure_reason_;
+    failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }

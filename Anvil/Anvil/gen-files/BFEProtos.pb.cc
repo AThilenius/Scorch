@@ -27,6 +27,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BFEAuthResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BFEAuthResponse_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BFELoadLevelRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BFELoadLevelRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BFELoadLevelResponse_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BFELoadLevelResponse_reflection_ = NULL;
 const ::google::protobuf::Descriptor* BFESparkCommand_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BFESparkCommand_reflection_ = NULL;
@@ -90,7 +96,40 @@ void protobuf_AssignDesc_BFEProtos_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BFEAuthResponse));
-  BFESparkCommand_descriptor_ = file->message_type(3);
+  BFELoadLevelRequest_descriptor_ = file->message_type(3);
+  static const int BFELoadLevelRequest_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, auth_token_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, assignmentname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, levelnumber_),
+  };
+  BFELoadLevelRequest_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BFELoadLevelRequest_descriptor_,
+      BFELoadLevelRequest::default_instance_,
+      BFELoadLevelRequest_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BFELoadLevelRequest));
+  BFELoadLevelResponse_descriptor_ = file->message_type(4);
+  static const int BFELoadLevelResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelResponse, failure_reason_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelResponse, spark_count_),
+  };
+  BFELoadLevelResponse_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BFELoadLevelResponse_descriptor_,
+      BFELoadLevelResponse::default_instance_,
+      BFELoadLevelResponse_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelResponse, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelResponse, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BFELoadLevelResponse));
+  BFESparkCommand_descriptor_ = file->message_type(5);
   static const int BFESparkCommand_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkCommand, command_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkCommand, spark_id_),
@@ -109,10 +148,10 @@ void protobuf_AssignDesc_BFEProtos_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BFESparkCommand));
   BFESparkCommand_CommandType_descriptor_ = BFESparkCommand_descriptor_->enum_type(0);
-  BFESparkResponse_descriptor_ = file->message_type(4);
+  BFESparkResponse_descriptor_ = file->message_type(6);
   static const int BFESparkResponse_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, pipline_token_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, failure_reson_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, failure_reason_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, response_bool_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, response_int_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFESparkResponse, response_float_),
@@ -148,6 +187,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BFEAuthResponse_descriptor_, &BFEAuthResponse::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BFELoadLevelRequest_descriptor_, &BFELoadLevelRequest::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BFELoadLevelResponse_descriptor_, &BFELoadLevelResponse::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BFESparkCommand_descriptor_, &BFESparkCommand::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BFESparkResponse_descriptor_, &BFESparkResponse::default_instance());
@@ -162,6 +205,10 @@ void protobuf_ShutdownFile_BFEProtos_2eproto() {
   delete BFEAuthRequest_reflection_;
   delete BFEAuthResponse::default_instance_;
   delete BFEAuthResponse_reflection_;
+  delete BFELoadLevelRequest::default_instance_;
+  delete BFELoadLevelRequest_reflection_;
+  delete BFELoadLevelResponse::default_instance_;
+  delete BFELoadLevelResponse_reflection_;
   delete BFESparkCommand::default_instance_;
   delete BFESparkCommand_reflection_;
   delete BFESparkResponse::default_instance_;
@@ -184,29 +231,40 @@ void protobuf_AddDesc_BFEProtos_2eproto() {
     "uth_token\030\001 \002(\t\022\026\n\016failure_reason\030\002 \001(\t2"
     "b\n\023BFEAuthResponse_ext\022\037.Thilenius.BFEPr"
     "otos.BFEMessage\030e \001(\0132$.Thilenius.BFEPro"
-    "tos.BFEAuthResponse\"\344\002\n\017BFESparkCommand\022"
-    "A\n\007command\030\001 \002(\01620.Thilenius.BFEProtos.B"
-    "FESparkCommand.CommandType\022\020\n\010spark_id\030\002"
-    " \002(\005\022\022\n\nauth_token\030\003 \002(\t\022\025\n\rpipline_toke"
-    "n\030\004 \001(\t\"m\n\013CommandType\022\020\n\014MOVE_FORWARD\020\000"
-    "\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007MOVE_UP\020\002\022\r\n\tMOVE"
-    "_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022\016\n\nTURN_RIGHT\020\0052b"
-    "\n\023BFESparkCommand_ext\022\037.Thilenius.BFEPro"
-    "tos.BFEMessage\030f \001(\0132$.Thilenius.BFEProt"
-    "os.BFESparkCommand\"\203\002\n\020BFESparkResponse\022"
-    "\025\n\rpipline_token\030\001 \001(\t\022\025\n\rfailure_reson\030"
-    "\002 \001(\t\022\025\n\rresponse_bool\030\003 \001(\010\022\024\n\014response"
-    "_int\030\004 \001(\005\022\026\n\016response_float\030\005 \001(\002\022\026\n\016re"
-    "sponse_bytes\030\006 \001(\0142d\n\024BFESparkResponse_e"
-    "xt\022\037.Thilenius.BFEProtos.BFEMessage\030g \001("
-    "\0132%.Thilenius.BFEProtos.BFESparkResponse"
-    "B0\n#com.thilenius.blaze.frontend.protosB"
-    "\tBFEProtos", 1050);
+    "tos.BFEAuthResponse\"\302\001\n\023BFELoadLevelRequ"
+    "est\022\022\n\nauth_token\030\001 \002(\t\022\026\n\016assignmentNam"
+    "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\0052j\n\027BFELoadL"
+    "evelRequest_ext\022\037.Thilenius.BFEProtos.BF"
+    "EMessage\030f \001(\0132(.Thilenius.BFEProtos.BFE"
+    "LoadLevelRequest\"\261\001\n\024BFELoadLevelRespons"
+    "e\022\026\n\016failure_reason\030\001 \001(\t\022\023\n\013spark_count"
+    "\030\002 \001(\0052l\n\030BFELoadLevelResponse_ext\022\037.Thi"
+    "lenius.BFEProtos.BFEMessage\030g \001(\0132).Thil"
+    "enius.BFEProtos.BFELoadLevelResponse\"\344\002\n"
+    "\017BFESparkCommand\022A\n\007command\030\001 \002(\01620.Thil"
+    "enius.BFEProtos.BFESparkCommand.CommandT"
+    "ype\022\020\n\010spark_id\030\002 \002(\005\022\022\n\nauth_token\030\003 \002("
+    "\t\022\025\n\rpipline_token\030\004 \001(\t\"m\n\013CommandType\022"
+    "\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007"
+    "MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022"
+    "\016\n\nTURN_RIGHT\020\0052b\n\023BFESparkCommand_ext\022\037"
+    ".Thilenius.BFEProtos.BFEMessage\030h \001(\0132$."
+    "Thilenius.BFEProtos.BFESparkCommand\"\204\002\n\020"
+    "BFESparkResponse\022\025\n\rpipline_token\030\001 \001(\t\022"
+    "\026\n\016failure_reason\030\002 \001(\t\022\025\n\rresponse_bool"
+    "\030\003 \001(\010\022\024\n\014response_int\030\004 \001(\005\022\026\n\016response"
+    "_float\030\005 \001(\002\022\026\n\016response_bytes\030\006 \001(\0142d\n\024"
+    "BFESparkResponse_ext\022\037.Thilenius.BFEProt"
+    "os.BFEMessage\030i \001(\0132%.Thilenius.BFEProto"
+    "s.BFESparkResponseB0\n#com.thilenius.blaz"
+    "e.frontend.protosB\tBFEProtos", 1428);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "BFEProtos.proto", &protobuf_RegisterTypes);
   BFEMessage::default_instance_ = new BFEMessage();
   BFEAuthRequest::default_instance_ = new BFEAuthRequest();
   BFEAuthResponse::default_instance_ = new BFEAuthResponse();
+  BFELoadLevelRequest::default_instance_ = new BFELoadLevelRequest();
+  BFELoadLevelResponse::default_instance_ = new BFELoadLevelResponse();
   BFESparkCommand::default_instance_ = new BFESparkCommand();
   BFESparkResponse::default_instance_ = new BFESparkResponse();
   BFEMessage::default_instance_->InitAsDefaultInstance();
@@ -220,15 +278,25 @@ void protobuf_AddDesc_BFEProtos_2eproto() {
     &::Thilenius::BFEProtos::BFEMessage::default_instance(),
     101, 11, false, false,
     &::Thilenius::BFEProtos::BFEAuthResponse::default_instance());
-  BFESparkCommand::default_instance_->InitAsDefaultInstance();
+  BFELoadLevelRequest::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::Thilenius::BFEProtos::BFEMessage::default_instance(),
     102, 11, false, false,
+    &::Thilenius::BFEProtos::BFELoadLevelRequest::default_instance());
+  BFELoadLevelResponse::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
+    &::Thilenius::BFEProtos::BFEMessage::default_instance(),
+    103, 11, false, false,
+    &::Thilenius::BFEProtos::BFELoadLevelResponse::default_instance());
+  BFESparkCommand::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
+    &::Thilenius::BFEProtos::BFEMessage::default_instance(),
+    104, 11, false, false,
     &::Thilenius::BFEProtos::BFESparkCommand::default_instance());
   BFESparkResponse::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     &::Thilenius::BFEProtos::BFEMessage::default_instance(),
-    103, 11, false, false,
+    105, 11, false, false,
     &::Thilenius::BFEProtos::BFESparkResponse::default_instance());
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_BFEProtos_2eproto);
 }
@@ -993,6 +1061,604 @@ void BFEAuthResponse::Swap(BFEAuthResponse* other) {
 
 // ===================================================================
 
+#ifndef _MSC_VER
+const int BFELoadLevelRequest::kAuthTokenFieldNumber;
+const int BFELoadLevelRequest::kAssignmentNameFieldNumber;
+const int BFELoadLevelRequest::kLevelNumberFieldNumber;
+#endif  // !_MSC_VER
+
+#ifndef _MSC_VER
+const int BFELoadLevelRequest::kBFELoadLevelRequestExtFieldNumber;
+#endif
+::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+    ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelRequest >, 11, false >
+  BFELoadLevelRequest::BFELoadLevelRequest_ext(kBFELoadLevelRequestExtFieldNumber, ::Thilenius::BFEProtos::BFELoadLevelRequest::default_instance());
+BFELoadLevelRequest::BFELoadLevelRequest()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BFELoadLevelRequest::InitAsDefaultInstance() {
+}
+
+BFELoadLevelRequest::BFELoadLevelRequest(const BFELoadLevelRequest& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BFELoadLevelRequest::SharedCtor() {
+  _cached_size_ = 0;
+  auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  assignmentname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  levelnumber_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BFELoadLevelRequest::~BFELoadLevelRequest() {
+  SharedDtor();
+}
+
+void BFELoadLevelRequest::SharedDtor() {
+  if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+    delete auth_token_;
+  }
+  if (assignmentname_ != &::google::protobuf::internal::kEmptyString) {
+    delete assignmentname_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BFELoadLevelRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BFELoadLevelRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BFELoadLevelRequest_descriptor_;
+}
+
+const BFELoadLevelRequest& BFELoadLevelRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+BFELoadLevelRequest* BFELoadLevelRequest::default_instance_ = NULL;
+
+BFELoadLevelRequest* BFELoadLevelRequest::New() const {
+  return new BFELoadLevelRequest;
+}
+
+void BFELoadLevelRequest::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_auth_token()) {
+      if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+        auth_token_->clear();
+      }
+    }
+    if (has_assignmentname()) {
+      if (assignmentname_ != &::google::protobuf::internal::kEmptyString) {
+        assignmentname_->clear();
+      }
+    }
+    levelnumber_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BFELoadLevelRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string auth_token = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_auth_token()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->auth_token().data(), this->auth_token().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_assignmentName;
+        break;
+      }
+      
+      // required string assignmentName = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_assignmentName:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_assignmentname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->assignmentname().data(), this->assignmentname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_levelNumber;
+        break;
+      }
+      
+      // required int32 levelNumber = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_levelNumber:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &levelnumber_)));
+          set_has_levelnumber();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BFELoadLevelRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string auth_token = 1;
+  if (has_auth_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->auth_token().data(), this->auth_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->auth_token(), output);
+  }
+  
+  // required string assignmentName = 2;
+  if (has_assignmentname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->assignmentname().data(), this->assignmentname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->assignmentname(), output);
+  }
+  
+  // required int32 levelNumber = 3;
+  if (has_levelnumber()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->levelnumber(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BFELoadLevelRequest::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required string auth_token = 1;
+  if (has_auth_token()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->auth_token().data(), this->auth_token().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->auth_token(), target);
+  }
+  
+  // required string assignmentName = 2;
+  if (has_assignmentname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->assignmentname().data(), this->assignmentname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->assignmentname(), target);
+  }
+  
+  // required int32 levelNumber = 3;
+  if (has_levelnumber()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->levelnumber(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BFELoadLevelRequest::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string auth_token = 1;
+    if (has_auth_token()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->auth_token());
+    }
+    
+    // required string assignmentName = 2;
+    if (has_assignmentname()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->assignmentname());
+    }
+    
+    // required int32 levelNumber = 3;
+    if (has_levelnumber()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->levelnumber());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BFELoadLevelRequest::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BFELoadLevelRequest* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BFELoadLevelRequest*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BFELoadLevelRequest::MergeFrom(const BFELoadLevelRequest& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_auth_token()) {
+      set_auth_token(from.auth_token());
+    }
+    if (from.has_assignmentname()) {
+      set_assignmentname(from.assignmentname());
+    }
+    if (from.has_levelnumber()) {
+      set_levelnumber(from.levelnumber());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BFELoadLevelRequest::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BFELoadLevelRequest::CopyFrom(const BFELoadLevelRequest& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BFELoadLevelRequest::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  
+  return true;
+}
+
+void BFELoadLevelRequest::Swap(BFELoadLevelRequest* other) {
+  if (other != this) {
+    std::swap(auth_token_, other->auth_token_);
+    std::swap(assignmentname_, other->assignmentname_);
+    std::swap(levelnumber_, other->levelnumber_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BFELoadLevelRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BFELoadLevelRequest_descriptor_;
+  metadata.reflection = BFELoadLevelRequest_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BFELoadLevelResponse::kFailureReasonFieldNumber;
+const int BFELoadLevelResponse::kSparkCountFieldNumber;
+#endif  // !_MSC_VER
+
+#ifndef _MSC_VER
+const int BFELoadLevelResponse::kBFELoadLevelResponseExtFieldNumber;
+#endif
+::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+    ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelResponse >, 11, false >
+  BFELoadLevelResponse::BFELoadLevelResponse_ext(kBFELoadLevelResponseExtFieldNumber, ::Thilenius::BFEProtos::BFELoadLevelResponse::default_instance());
+BFELoadLevelResponse::BFELoadLevelResponse()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BFELoadLevelResponse::InitAsDefaultInstance() {
+}
+
+BFELoadLevelResponse::BFELoadLevelResponse(const BFELoadLevelResponse& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BFELoadLevelResponse::SharedCtor() {
+  _cached_size_ = 0;
+  failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  spark_count_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BFELoadLevelResponse::~BFELoadLevelResponse() {
+  SharedDtor();
+}
+
+void BFELoadLevelResponse::SharedDtor() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    delete failure_reason_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BFELoadLevelResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BFELoadLevelResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BFELoadLevelResponse_descriptor_;
+}
+
+const BFELoadLevelResponse& BFELoadLevelResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+BFELoadLevelResponse* BFELoadLevelResponse::default_instance_ = NULL;
+
+BFELoadLevelResponse* BFELoadLevelResponse::New() const {
+  return new BFELoadLevelResponse;
+}
+
+void BFELoadLevelResponse::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_failure_reason()) {
+      if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+        failure_reason_->clear();
+      }
+    }
+    spark_count_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BFELoadLevelResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string failure_reason = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_failure_reason()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->failure_reason().data(), this->failure_reason().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_spark_count;
+        break;
+      }
+      
+      // optional int32 spark_count = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_spark_count:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &spark_count_)));
+          set_has_spark_count();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BFELoadLevelResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string failure_reason = 1;
+  if (has_failure_reason()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->failure_reason().data(), this->failure_reason().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->failure_reason(), output);
+  }
+  
+  // optional int32 spark_count = 2;
+  if (has_spark_count()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->spark_count(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BFELoadLevelResponse::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional string failure_reason = 1;
+  if (has_failure_reason()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->failure_reason().data(), this->failure_reason().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->failure_reason(), target);
+  }
+  
+  // optional int32 spark_count = 2;
+  if (has_spark_count()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->spark_count(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BFELoadLevelResponse::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string failure_reason = 1;
+    if (has_failure_reason()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->failure_reason());
+    }
+    
+    // optional int32 spark_count = 2;
+    if (has_spark_count()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->spark_count());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BFELoadLevelResponse::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BFELoadLevelResponse* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BFELoadLevelResponse*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BFELoadLevelResponse::MergeFrom(const BFELoadLevelResponse& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_failure_reason()) {
+      set_failure_reason(from.failure_reason());
+    }
+    if (from.has_spark_count()) {
+      set_spark_count(from.spark_count());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BFELoadLevelResponse::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BFELoadLevelResponse::CopyFrom(const BFELoadLevelResponse& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BFELoadLevelResponse::IsInitialized() const {
+  
+  return true;
+}
+
+void BFELoadLevelResponse::Swap(BFELoadLevelResponse* other) {
+  if (other != this) {
+    std::swap(failure_reason_, other->failure_reason_);
+    std::swap(spark_count_, other->spark_count_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BFELoadLevelResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BFELoadLevelResponse_descriptor_;
+  metadata.reflection = BFELoadLevelResponse_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
 const ::google::protobuf::EnumDescriptor* BFESparkCommand_CommandType_descriptor() {
   protobuf_AssignDescriptorsOnce();
   return BFESparkCommand_CommandType_descriptor_;
@@ -1398,7 +2064,7 @@ void BFESparkCommand::Swap(BFESparkCommand* other) {
 
 #ifndef _MSC_VER
 const int BFESparkResponse::kPiplineTokenFieldNumber;
-const int BFESparkResponse::kFailureResonFieldNumber;
+const int BFESparkResponse::kFailureReasonFieldNumber;
 const int BFESparkResponse::kResponseBoolFieldNumber;
 const int BFESparkResponse::kResponseIntFieldNumber;
 const int BFESparkResponse::kResponseFloatFieldNumber;
@@ -1428,7 +2094,7 @@ BFESparkResponse::BFESparkResponse(const BFESparkResponse& from)
 void BFESparkResponse::SharedCtor() {
   _cached_size_ = 0;
   pipline_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  failure_reson_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   response_bool_ = false;
   response_int_ = 0;
   response_float_ = 0;
@@ -1444,8 +2110,8 @@ void BFESparkResponse::SharedDtor() {
   if (pipline_token_ != &::google::protobuf::internal::kEmptyString) {
     delete pipline_token_;
   }
-  if (failure_reson_ != &::google::protobuf::internal::kEmptyString) {
-    delete failure_reson_;
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    delete failure_reason_;
   }
   if (response_bytes_ != &::google::protobuf::internal::kEmptyString) {
     delete response_bytes_;
@@ -1481,9 +2147,9 @@ void BFESparkResponse::Clear() {
         pipline_token_->clear();
       }
     }
-    if (has_failure_reson()) {
-      if (failure_reson_ != &::google::protobuf::internal::kEmptyString) {
-        failure_reson_->clear();
+    if (has_failure_reason()) {
+      if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+        failure_reason_->clear();
       }
     }
     response_bool_ = false;
@@ -1517,19 +2183,19 @@ bool BFESparkResponse::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_failure_reson;
+        if (input->ExpectTag(18)) goto parse_failure_reason;
         break;
       }
       
-      // optional string failure_reson = 2;
+      // optional string failure_reason = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_failure_reson:
+         parse_failure_reason:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_failure_reson()));
+                input, this->mutable_failure_reason()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->failure_reson().data(), this->failure_reson().length(),
+            this->failure_reason().data(), this->failure_reason().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
@@ -1627,13 +2293,13 @@ void BFESparkResponse::SerializeWithCachedSizes(
       1, this->pipline_token(), output);
   }
   
-  // optional string failure_reson = 2;
-  if (has_failure_reson()) {
+  // optional string failure_reason = 2;
+  if (has_failure_reason()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->failure_reson().data(), this->failure_reson().length(),
+      this->failure_reason().data(), this->failure_reason().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->failure_reson(), output);
+      2, this->failure_reason(), output);
   }
   
   // optional bool response_bool = 3;
@@ -1675,14 +2341,14 @@ void BFESparkResponse::SerializeWithCachedSizes(
         1, this->pipline_token(), target);
   }
   
-  // optional string failure_reson = 2;
-  if (has_failure_reson()) {
+  // optional string failure_reason = 2;
+  if (has_failure_reason()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->failure_reson().data(), this->failure_reson().length(),
+      this->failure_reason().data(), this->failure_reason().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->failure_reson(), target);
+        2, this->failure_reason(), target);
   }
   
   // optional bool response_bool = 3;
@@ -1725,11 +2391,11 @@ int BFESparkResponse::ByteSize() const {
           this->pipline_token());
     }
     
-    // optional string failure_reson = 2;
-    if (has_failure_reson()) {
+    // optional string failure_reason = 2;
+    if (has_failure_reason()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->failure_reson());
+          this->failure_reason());
     }
     
     // optional bool response_bool = 3;
@@ -1786,8 +2452,8 @@ void BFESparkResponse::MergeFrom(const BFESparkResponse& from) {
     if (from.has_pipline_token()) {
       set_pipline_token(from.pipline_token());
     }
-    if (from.has_failure_reson()) {
-      set_failure_reson(from.failure_reson());
+    if (from.has_failure_reason()) {
+      set_failure_reason(from.failure_reason());
     }
     if (from.has_response_bool()) {
       set_response_bool(from.response_bool());
@@ -1825,7 +2491,7 @@ bool BFESparkResponse::IsInitialized() const {
 void BFESparkResponse::Swap(BFESparkResponse* other) {
   if (other != this) {
     std::swap(pipline_token_, other->pipline_token_);
-    std::swap(failure_reson_, other->failure_reson_);
+    std::swap(failure_reason_, other->failure_reason_);
     std::swap(response_bool_, other->response_bool_);
     std::swap(response_int_, other->response_int_);
     std::swap(response_float_, other->response_float_);

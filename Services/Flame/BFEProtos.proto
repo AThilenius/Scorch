@@ -28,11 +28,33 @@ message BFEAuthResponse {
 }
 
 /******************************************************************************/
+/* Level Control                                                              */
+/******************************************************************************/
+message BFELoadLevelRequest {
+  extend BFEMessage {
+    optional BFELoadLevelRequest BFELoadLevelRequest_ext = 102;
+  }
+
+  required string auth_token = 1;
+  required string assignmentName = 2;
+  required int32 levelNumber = 3;
+}
+
+message BFELoadLevelResponse {
+  extend BFEMessage {
+    optional BFELoadLevelResponse BFELoadLevelResponse_ext = 103;
+  }
+
+  optional string failure_reason = 1;
+  optional int32 spark_count = 2;
+}
+
+/******************************************************************************/
 /* Spark Control                                                              */
 /******************************************************************************/
 message BFESparkCommand {
   extend BFEMessage {
-    optional BFESparkCommand BFESparkCommand_ext = 102;
+    optional BFESparkCommand BFESparkCommand_ext = 104;
   }
 
   enum CommandType {
@@ -53,11 +75,11 @@ message BFESparkCommand {
 
 message BFESparkResponse {
   extend BFEMessage {
-    optional BFESparkResponse BFESparkResponse_ext = 103;
+    optional BFESparkResponse BFESparkResponse_ext = 105;
   }
 
   optional string pipline_token = 1;
-  optional string failure_reson = 2;
+  optional string failure_reason = 2;
   optional bool response_bool = 3;
   optional int32 response_int = 4;
   optional float response_float = 5;

@@ -25,6 +25,7 @@ public class BlazeWorld {
         for (String playerName : RedisPlayer.getAllUserNames()) {
             BlazePlayer player = new BlazePlayer(playerName);
             PlayerArena arena = new PlayerArena(this, player);
+            player.Arena = arena;
             BlazePlayersByUsername.put(playerName, player);
             ArenasByPlayer.put(player, arena);
         }
@@ -43,6 +44,14 @@ public class BlazeWorld {
                 return;
             }
         }
+    }
+
+    public BlazePlayer getPlayerByAuthToken(String token) {
+        String username = RedisPlayer.getPlayerByAuthToken(token);
+        if (username == null || username.isEmpty()) {
+            return null;
+        }
+        return BlazePlayersByUsername.get(username);
     }
 
 }

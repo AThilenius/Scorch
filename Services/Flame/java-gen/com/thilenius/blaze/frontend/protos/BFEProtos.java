@@ -9,6 +9,8 @@ public final class BFEProtos {
       com.google.protobuf.ExtensionRegistry registry) {
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFEAuthRequest.bFEAuthRequestExt);
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFEAuthResponse.bFEAuthResponseExt);
+    registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
+    registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt);
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkCommand.bFESparkCommandExt);
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkResponse.bFESparkResponseExt);
   }
@@ -1285,6 +1287,1008 @@ public final class BFEProtos {
           com.thilenius.blaze.frontend.protos.BFEProtos.BFEAuthResponse.getDefaultInstance());
   }
   
+  public interface BFELoadLevelRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // required string auth_token = 1;
+    boolean hasAuthToken();
+    String getAuthToken();
+    
+    // required string assignmentName = 2;
+    boolean hasAssignmentName();
+    String getAssignmentName();
+    
+    // required int32 levelNumber = 3;
+    boolean hasLevelNumber();
+    int getLevelNumber();
+  }
+  public static final class BFELoadLevelRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements BFELoadLevelRequestOrBuilder {
+    // Use BFELoadLevelRequest.newBuilder() to construct.
+    private BFELoadLevelRequest(Builder builder) {
+      super(builder);
+    }
+    private BFELoadLevelRequest(boolean noInit) {}
+    
+    private static final BFELoadLevelRequest defaultInstance;
+    public static BFELoadLevelRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public BFELoadLevelRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // required string auth_token = 1;
+    public static final int AUTH_TOKEN_FIELD_NUMBER = 1;
+    private java.lang.Object authToken_;
+    public boolean hasAuthToken() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getAuthToken() {
+      java.lang.Object ref = authToken_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          authToken_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getAuthTokenBytes() {
+      java.lang.Object ref = authToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        authToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // required string assignmentName = 2;
+    public static final int ASSIGNMENTNAME_FIELD_NUMBER = 2;
+    private java.lang.Object assignmentName_;
+    public boolean hasAssignmentName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getAssignmentName() {
+      java.lang.Object ref = assignmentName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          assignmentName_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getAssignmentNameBytes() {
+      java.lang.Object ref = assignmentName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        assignmentName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // required int32 levelNumber = 3;
+    public static final int LEVELNUMBER_FIELD_NUMBER = 3;
+    private int levelNumber_;
+    public boolean hasLevelNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    public int getLevelNumber() {
+      return levelNumber_;
+    }
+    
+    private void initFields() {
+      authToken_ = "";
+      assignmentName_ = "";
+      levelNumber_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasAuthToken()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAssignmentName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLevelNumber()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getAuthTokenBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getAssignmentNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, levelNumber_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getAuthTokenBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getAssignmentNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, levelNumber_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_fieldAccessorTable;
+      }
+      
+      // Construct using com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        authToken_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        assignmentName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        levelNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.getDescriptor();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest getDefaultInstanceForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.getDefaultInstance();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest build() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest buildPartial() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest result = new com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.authToken_ = authToken_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.assignmentName_ = assignmentName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.levelNumber_ = levelNumber_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest) {
+          return mergeFrom((com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest other) {
+        if (other == com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.getDefaultInstance()) return this;
+        if (other.hasAuthToken()) {
+          setAuthToken(other.getAuthToken());
+        }
+        if (other.hasAssignmentName()) {
+          setAssignmentName(other.getAssignmentName());
+        }
+        if (other.hasLevelNumber()) {
+          setLevelNumber(other.getLevelNumber());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasAuthToken()) {
+          
+          return false;
+        }
+        if (!hasAssignmentName()) {
+          
+          return false;
+        }
+        if (!hasLevelNumber()) {
+          
+          return false;
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              authToken_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              assignmentName_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              levelNumber_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // required string auth_token = 1;
+      private java.lang.Object authToken_ = "";
+      public boolean hasAuthToken() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getAuthToken() {
+        java.lang.Object ref = authToken_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          authToken_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setAuthToken(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        authToken_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearAuthToken() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        authToken_ = getDefaultInstance().getAuthToken();
+        onChanged();
+        return this;
+      }
+      void setAuthToken(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        authToken_ = value;
+        onChanged();
+      }
+      
+      // required string assignmentName = 2;
+      private java.lang.Object assignmentName_ = "";
+      public boolean hasAssignmentName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getAssignmentName() {
+        java.lang.Object ref = assignmentName_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          assignmentName_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setAssignmentName(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        assignmentName_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearAssignmentName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        assignmentName_ = getDefaultInstance().getAssignmentName();
+        onChanged();
+        return this;
+      }
+      void setAssignmentName(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        assignmentName_ = value;
+        onChanged();
+      }
+      
+      // required int32 levelNumber = 3;
+      private int levelNumber_ ;
+      public boolean hasLevelNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      public int getLevelNumber() {
+        return levelNumber_;
+      }
+      public Builder setLevelNumber(int value) {
+        bitField0_ |= 0x00000004;
+        levelNumber_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearLevelNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        levelNumber_ = 0;
+        onChanged();
+        return this;
+      }
+      
+      // @@protoc_insertion_point(builder_scope:Thilenius.BFEProtos.BFELoadLevelRequest)
+    }
+    
+    static {
+      defaultInstance = new BFELoadLevelRequest(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFELoadLevelRequest)
+    public static final int BFELOADLEVELREQUEST_EXT_FIELD_NUMBER = 102;
+    public static final
+      com.google.protobuf.GeneratedMessage.GeneratedExtension<
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest> bFELoadLevelRequestExt = com.google.protobuf.GeneratedMessage
+            .newMessageScopedGeneratedExtension(
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.getDefaultInstance(),
+          0,
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.class,
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.getDefaultInstance());
+  }
+  
+  public interface BFELoadLevelResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+    
+    // optional string failure_reason = 1;
+    boolean hasFailureReason();
+    String getFailureReason();
+    
+    // optional int32 spark_count = 2;
+    boolean hasSparkCount();
+    int getSparkCount();
+  }
+  public static final class BFELoadLevelResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements BFELoadLevelResponseOrBuilder {
+    // Use BFELoadLevelResponse.newBuilder() to construct.
+    private BFELoadLevelResponse(Builder builder) {
+      super(builder);
+    }
+    private BFELoadLevelResponse(boolean noInit) {}
+    
+    private static final BFELoadLevelResponse defaultInstance;
+    public static BFELoadLevelResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public BFELoadLevelResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_fieldAccessorTable;
+    }
+    
+    private int bitField0_;
+    // optional string failure_reason = 1;
+    public static final int FAILURE_REASON_FIELD_NUMBER = 1;
+    private java.lang.Object failureReason_;
+    public boolean hasFailureReason() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getFailureReason() {
+      java.lang.Object ref = failureReason_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          failureReason_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getFailureReasonBytes() {
+      java.lang.Object ref = failureReason_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        failureReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional int32 spark_count = 2;
+    public static final int SPARK_COUNT_FIELD_NUMBER = 2;
+    private int sparkCount_;
+    public boolean hasSparkCount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public int getSparkCount() {
+      return sparkCount_;
+    }
+    
+    private void initFields() {
+      failureReason_ = "";
+      sparkCount_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFailureReasonBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, sparkCount_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFailureReasonBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, sparkCount_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_fieldAccessorTable;
+      }
+      
+      // Construct using com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private Builder(BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        failureReason_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        sparkCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.getDescriptor();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse getDefaultInstanceForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.getDefaultInstance();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse build() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse buildPartial() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse result = new com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.failureReason_ = failureReason_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.sparkCount_ = sparkCount_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse) {
+          return mergeFrom((com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
+      public Builder mergeFrom(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse other) {
+        if (other == com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.getDefaultInstance()) return this;
+        if (other.hasFailureReason()) {
+          setFailureReason(other.getFailureReason());
+        }
+        if (other.hasSparkCount()) {
+          setSparkCount(other.getSparkCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              this.setUnknownFields(unknownFields.build());
+              onChanged();
+              return this;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
+                onChanged();
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              failureReason_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              sparkCount_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // optional string failure_reason = 1;
+      private java.lang.Object failureReason_ = "";
+      public boolean hasFailureReason() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getFailureReason() {
+        java.lang.Object ref = failureReason_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          failureReason_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setFailureReason(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        failureReason_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearFailureReason() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        failureReason_ = getDefaultInstance().getFailureReason();
+        onChanged();
+        return this;
+      }
+      void setFailureReason(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        failureReason_ = value;
+        onChanged();
+      }
+      
+      // optional int32 spark_count = 2;
+      private int sparkCount_ ;
+      public boolean hasSparkCount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public int getSparkCount() {
+        return sparkCount_;
+      }
+      public Builder setSparkCount(int value) {
+        bitField0_ |= 0x00000002;
+        sparkCount_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearSparkCount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sparkCount_ = 0;
+        onChanged();
+        return this;
+      }
+      
+      // @@protoc_insertion_point(builder_scope:Thilenius.BFEProtos.BFELoadLevelResponse)
+    }
+    
+    static {
+      defaultInstance = new BFELoadLevelResponse(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFELoadLevelResponse)
+    public static final int BFELOADLEVELRESPONSE_EXT_FIELD_NUMBER = 103;
+    public static final
+      com.google.protobuf.GeneratedMessage.GeneratedExtension<
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse> bFELoadLevelResponseExt = com.google.protobuf.GeneratedMessage
+            .newMessageScopedGeneratedExtension(
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.getDefaultInstance(),
+          0,
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.class,
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.getDefaultInstance());
+  }
+  
   public interface BFESparkCommandOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
     
@@ -1980,7 +2984,7 @@ public final class BFEProtos {
     }
     
     // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFESparkCommand)
-    public static final int BFESPARKCOMMAND_EXT_FIELD_NUMBER = 102;
+    public static final int BFESPARKCOMMAND_EXT_FIELD_NUMBER = 104;
     public static final
       com.google.protobuf.GeneratedMessage.GeneratedExtension<
         com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
@@ -1999,9 +3003,9 @@ public final class BFEProtos {
     boolean hasPiplineToken();
     String getPiplineToken();
     
-    // optional string failure_reson = 2;
-    boolean hasFailureReson();
-    String getFailureReson();
+    // optional string failure_reason = 2;
+    boolean hasFailureReason();
+    String getFailureReason();
     
     // optional bool response_bool = 3;
     boolean hasResponseBool();
@@ -2080,14 +3084,14 @@ public final class BFEProtos {
       }
     }
     
-    // optional string failure_reson = 2;
-    public static final int FAILURE_RESON_FIELD_NUMBER = 2;
-    private java.lang.Object failureReson_;
-    public boolean hasFailureReson() {
+    // optional string failure_reason = 2;
+    public static final int FAILURE_REASON_FIELD_NUMBER = 2;
+    private java.lang.Object failureReason_;
+    public boolean hasFailureReason() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-    public String getFailureReson() {
-      java.lang.Object ref = failureReson_;
+    public String getFailureReason() {
+      java.lang.Object ref = failureReason_;
       if (ref instanceof String) {
         return (String) ref;
       } else {
@@ -2095,17 +3099,17 @@ public final class BFEProtos {
             (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         if (com.google.protobuf.Internal.isValidUtf8(bs)) {
-          failureReson_ = s;
+          failureReason_ = s;
         }
         return s;
       }
     }
-    private com.google.protobuf.ByteString getFailureResonBytes() {
-      java.lang.Object ref = failureReson_;
+    private com.google.protobuf.ByteString getFailureReasonBytes() {
+      java.lang.Object ref = failureReason_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8((String) ref);
-        failureReson_ = b;
+        failureReason_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2154,7 +3158,7 @@ public final class BFEProtos {
     
     private void initFields() {
       piplineToken_ = "";
-      failureReson_ = "";
+      failureReason_ = "";
       responseBool_ = false;
       responseInt_ = 0;
       responseFloat_ = 0F;
@@ -2176,7 +3180,7 @@ public final class BFEProtos {
         output.writeBytes(1, getPiplineTokenBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getFailureResonBytes());
+        output.writeBytes(2, getFailureReasonBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(3, responseBool_);
@@ -2205,7 +3209,7 @@ public final class BFEProtos {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getFailureResonBytes());
+          .computeBytesSize(2, getFailureReasonBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2349,7 +3353,7 @@ public final class BFEProtos {
         super.clear();
         piplineToken_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        failureReson_ = "";
+        failureReason_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         responseBool_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -2404,7 +3408,7 @@ public final class BFEProtos {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.failureReson_ = failureReson_;
+        result.failureReason_ = failureReason_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -2440,8 +3444,8 @@ public final class BFEProtos {
         if (other.hasPiplineToken()) {
           setPiplineToken(other.getPiplineToken());
         }
-        if (other.hasFailureReson()) {
-          setFailureReson(other.getFailureReson());
+        if (other.hasFailureReason()) {
+          setFailureReason(other.getFailureReason());
         }
         if (other.hasResponseBool()) {
           setResponseBool(other.getResponseBool());
@@ -2493,7 +3497,7 @@ public final class BFEProtos {
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              failureReson_ = input.readBytes();
+              failureReason_ = input.readBytes();
               break;
             }
             case 24: {
@@ -2558,39 +3562,39 @@ public final class BFEProtos {
         onChanged();
       }
       
-      // optional string failure_reson = 2;
-      private java.lang.Object failureReson_ = "";
-      public boolean hasFailureReson() {
+      // optional string failure_reason = 2;
+      private java.lang.Object failureReason_ = "";
+      public boolean hasFailureReason() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-      public String getFailureReson() {
-        java.lang.Object ref = failureReson_;
+      public String getFailureReason() {
+        java.lang.Object ref = failureReason_;
         if (!(ref instanceof String)) {
           String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
-          failureReson_ = s;
+          failureReason_ = s;
           return s;
         } else {
           return (String) ref;
         }
       }
-      public Builder setFailureReson(String value) {
+      public Builder setFailureReason(String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        failureReson_ = value;
+        failureReason_ = value;
         onChanged();
         return this;
       }
-      public Builder clearFailureReson() {
+      public Builder clearFailureReason() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        failureReson_ = getDefaultInstance().getFailureReson();
+        failureReason_ = getDefaultInstance().getFailureReason();
         onChanged();
         return this;
       }
-      void setFailureReson(com.google.protobuf.ByteString value) {
+      void setFailureReason(com.google.protobuf.ByteString value) {
         bitField0_ |= 0x00000002;
-        failureReson_ = value;
+        failureReason_ = value;
         onChanged();
       }
       
@@ -2690,7 +3694,7 @@ public final class BFEProtos {
     }
     
     // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFESparkResponse)
-    public static final int BFESPARKRESPONSE_EXT_FIELD_NUMBER = 103;
+    public static final int BFESPARKRESPONSE_EXT_FIELD_NUMBER = 105;
     public static final
       com.google.protobuf.GeneratedMessage.GeneratedExtension<
         com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
@@ -2717,6 +3721,16 @@ public final class BFEProtos {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Thilenius_BFEProtos_BFEAuthResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_Thilenius_BFEProtos_BFESparkCommand_descriptor;
   private static
@@ -2745,24 +3759,33 @@ public final class BFEProtos {
       "uth_token\030\001 \002(\t\022\026\n\016failure_reason\030\002 \001(\t2" +
       "b\n\023BFEAuthResponse_ext\022\037.Thilenius.BFEPr" +
       "otos.BFEMessage\030e \001(\0132$.Thilenius.BFEPro" +
-      "tos.BFEAuthResponse\"\344\002\n\017BFESparkCommand\022",
-      "A\n\007command\030\001 \002(\01620.Thilenius.BFEProtos.B" +
-      "FESparkCommand.CommandType\022\020\n\010spark_id\030\002" +
-      " \002(\005\022\022\n\nauth_token\030\003 \002(\t\022\025\n\rpipline_toke" +
-      "n\030\004 \001(\t\"m\n\013CommandType\022\020\n\014MOVE_FORWARD\020\000" +
-      "\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007MOVE_UP\020\002\022\r\n\tMOVE" +
-      "_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022\016\n\nTURN_RIGHT\020\0052b" +
-      "\n\023BFESparkCommand_ext\022\037.Thilenius.BFEPro" +
-      "tos.BFEMessage\030f \001(\0132$.Thilenius.BFEProt" +
-      "os.BFESparkCommand\"\203\002\n\020BFESparkResponse\022" +
-      "\025\n\rpipline_token\030\001 \001(\t\022\025\n\rfailure_reson\030",
-      "\002 \001(\t\022\025\n\rresponse_bool\030\003 \001(\010\022\024\n\014response" +
-      "_int\030\004 \001(\005\022\026\n\016response_float\030\005 \001(\002\022\026\n\016re" +
-      "sponse_bytes\030\006 \001(\0142d\n\024BFESparkResponse_e" +
-      "xt\022\037.Thilenius.BFEProtos.BFEMessage\030g \001(" +
-      "\0132%.Thilenius.BFEProtos.BFESparkResponse" +
-      "B0\n#com.thilenius.blaze.frontend.protosB" +
-      "\tBFEProtos"
+      "tos.BFEAuthResponse\"\302\001\n\023BFELoadLevelRequ",
+      "est\022\022\n\nauth_token\030\001 \002(\t\022\026\n\016assignmentNam" +
+      "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\0052j\n\027BFELoadL" +
+      "evelRequest_ext\022\037.Thilenius.BFEProtos.BF" +
+      "EMessage\030f \001(\0132(.Thilenius.BFEProtos.BFE" +
+      "LoadLevelRequest\"\261\001\n\024BFELoadLevelRespons" +
+      "e\022\026\n\016failure_reason\030\001 \001(\t\022\023\n\013spark_count" +
+      "\030\002 \001(\0052l\n\030BFELoadLevelResponse_ext\022\037.Thi" +
+      "lenius.BFEProtos.BFEMessage\030g \001(\0132).Thil" +
+      "enius.BFEProtos.BFELoadLevelResponse\"\344\002\n" +
+      "\017BFESparkCommand\022A\n\007command\030\001 \002(\01620.Thil",
+      "enius.BFEProtos.BFESparkCommand.CommandT" +
+      "ype\022\020\n\010spark_id\030\002 \002(\005\022\022\n\nauth_token\030\003 \002(" +
+      "\t\022\025\n\rpipline_token\030\004 \001(\t\"m\n\013CommandType\022" +
+      "\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007" +
+      "MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022" +
+      "\016\n\nTURN_RIGHT\020\0052b\n\023BFESparkCommand_ext\022\037" +
+      ".Thilenius.BFEProtos.BFEMessage\030h \001(\0132$." +
+      "Thilenius.BFEProtos.BFESparkCommand\"\204\002\n\020" +
+      "BFESparkResponse\022\025\n\rpipline_token\030\001 \001(\t\022" +
+      "\026\n\016failure_reason\030\002 \001(\t\022\025\n\rresponse_bool",
+      "\030\003 \001(\010\022\024\n\014response_int\030\004 \001(\005\022\026\n\016response" +
+      "_float\030\005 \001(\002\022\026\n\016response_bytes\030\006 \001(\0142d\n\024" +
+      "BFESparkResponse_ext\022\037.Thilenius.BFEProt" +
+      "os.BFEMessage\030i \001(\0132%.Thilenius.BFEProto" +
+      "s.BFESparkResponseB0\n#com.thilenius.blaz" +
+      "e.frontend.protosB\tBFEProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2793,8 +3816,24 @@ public final class BFEProtos {
               new java.lang.String[] { "AuthToken", "FailureReason", },
               com.thilenius.blaze.frontend.protos.BFEProtos.BFEAuthResponse.class,
               com.thilenius.blaze.frontend.protos.BFEProtos.BFEAuthResponse.Builder.class);
-          internal_static_Thilenius_BFEProtos_BFESparkCommand_descriptor =
+          internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor =
             getDescriptor().getMessageTypes().get(3);
+          internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor,
+              new java.lang.String[] { "AuthToken", "AssignmentName", "LevelNumber", },
+              com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.class,
+              com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.Builder.class);
+          internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor,
+              new java.lang.String[] { "FailureReason", "SparkCount", },
+              com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.class,
+              com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.Builder.class);
+          internal_static_Thilenius_BFEProtos_BFESparkCommand_descriptor =
+            getDescriptor().getMessageTypes().get(5);
           internal_static_Thilenius_BFEProtos_BFESparkCommand_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Thilenius_BFEProtos_BFESparkCommand_descriptor,
@@ -2802,11 +3841,11 @@ public final class BFEProtos {
               com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkCommand.class,
               com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkCommand.Builder.class);
           internal_static_Thilenius_BFEProtos_BFESparkResponse_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_Thilenius_BFEProtos_BFESparkResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Thilenius_BFEProtos_BFESparkResponse_descriptor,
-              new java.lang.String[] { "PiplineToken", "FailureReson", "ResponseBool", "ResponseInt", "ResponseFloat", "ResponseBytes", },
+              new java.lang.String[] { "PiplineToken", "FailureReason", "ResponseBool", "ResponseInt", "ResponseFloat", "ResponseBytes", },
               com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkResponse.class,
               com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkResponse.Builder.class);
           return null;

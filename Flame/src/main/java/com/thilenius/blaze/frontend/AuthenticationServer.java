@@ -46,8 +46,6 @@ public class AuthenticationServer {
                 .setExtension(BFEProtos.BFEAuthResponse.bFEAuthResponseExt, response)
                 .build();
 
-        byte[] buffer = message.toByteArray();
-        m_socketServer.send(socketChannel, buffer);
-
+        m_socketServer.send(socketChannel, message.toByteArray());
     }
 }

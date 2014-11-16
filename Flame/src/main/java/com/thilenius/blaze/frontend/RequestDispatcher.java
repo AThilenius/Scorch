@@ -12,6 +12,7 @@ import com.thilenius.blaze.frontend.tcp.SocketRequest;
 public class RequestDispatcher implements Runnable{
 
     public AuthenticationServer AuthServer;
+    public AssignmentServer LevelServer;
 
     private BFESocketServer m_server;
 
@@ -20,6 +21,7 @@ public class RequestDispatcher implements Runnable{
         m_server = socketServer;
 
         AuthServer = new AuthenticationServer(socketServer);
+        LevelServer = new AssignmentServer(socketServer);
     }
 
     public void startServer() {
@@ -53,6 +55,11 @@ public class RequestDispatcher implements Runnable{
                     BFEProtos.BFEAuthRequest authRequest = message.getExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt);
                     System.out.println("Message dispatched to Authentication server.");
                     AuthServer.Handle(request.Channel, authRequest);
+                } else if (message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
+                    BFEProtos.BFELoadLevelRequest loadRequest
+                            = message.getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
+                    System.out.println("Message dispatched to Assignment server.");
+                    LevelServer.Handle(request.Channel, loadRequest);
                 } else {
                     System.out.println("Invalid packet type. Can not dispatch.");
                 }

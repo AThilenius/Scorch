@@ -11,6 +11,7 @@ public class BlazePlayer {
 
     public EntityPlayer MinecraftPlayer;
     public RedisPlayer PlayerData;
+    public PlayerArena Arena;
 
     public BlazePlayer(String username) {
         PlayerData = new RedisPlayer(username);
