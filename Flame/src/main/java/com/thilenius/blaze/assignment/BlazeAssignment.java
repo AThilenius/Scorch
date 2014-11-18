@@ -18,7 +18,7 @@ public abstract class BlazeAssignment {
     protected abstract BlazeLevel getLevel(int number);
 
 
-    public BlazeLevel loadLevel (int number) {
+    public BlazeLevel loadLevel (int number, int seed) {
         if (number >= getLevelsCount()) {
             return null;
         }
@@ -28,7 +28,7 @@ public abstract class BlazeAssignment {
         }
 
         m_activeLevel = getLevel(number);
-        m_activeLevel.load();
+        m_activeLevel.load(seed);
         return m_activeLevel;
     }
 

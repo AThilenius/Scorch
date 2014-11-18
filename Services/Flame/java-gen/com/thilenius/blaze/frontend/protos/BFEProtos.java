@@ -1301,6 +1301,10 @@ public final class BFEProtos {
     // required int32 levelNumber = 3;
     boolean hasLevelNumber();
     int getLevelNumber();
+    
+    // optional int32 seed = 4;
+    boolean hasSeed();
+    int getSeed();
   }
   public static final class BFELoadLevelRequest extends
       com.google.protobuf.GeneratedMessage
@@ -1405,10 +1409,21 @@ public final class BFEProtos {
       return levelNumber_;
     }
     
+    // optional int32 seed = 4;
+    public static final int SEED_FIELD_NUMBER = 4;
+    private int seed_;
+    public boolean hasSeed() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    public int getSeed() {
+      return seed_;
+    }
+    
     private void initFields() {
       authToken_ = "";
       assignmentName_ = "";
       levelNumber_ = 0;
+      seed_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1443,6 +1458,9 @@ public final class BFEProtos {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, levelNumber_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, seed_);
+      }
       getUnknownFields().writeTo(output);
     }
     
@@ -1463,6 +1481,10 @@ public final class BFEProtos {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, levelNumber_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, seed_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1594,6 +1616,8 @@ public final class BFEProtos {
         bitField0_ = (bitField0_ & ~0x00000002);
         levelNumber_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        seed_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       
@@ -1644,6 +1668,10 @@ public final class BFEProtos {
           to_bitField0_ |= 0x00000004;
         }
         result.levelNumber_ = levelNumber_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.seed_ = seed_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1668,6 +1696,9 @@ public final class BFEProtos {
         }
         if (other.hasLevelNumber()) {
           setLevelNumber(other.getLevelNumber());
+        }
+        if (other.hasSeed()) {
+          setSeed(other.getSeed());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1725,6 +1756,11 @@ public final class BFEProtos {
             case 24: {
               bitField0_ |= 0x00000004;
               levelNumber_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              seed_ = input.readInt32();
               break;
             }
           }
@@ -1822,6 +1858,27 @@ public final class BFEProtos {
       public Builder clearLevelNumber() {
         bitField0_ = (bitField0_ & ~0x00000004);
         levelNumber_ = 0;
+        onChanged();
+        return this;
+      }
+      
+      // optional int32 seed = 4;
+      private int seed_ ;
+      public boolean hasSeed() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      public int getSeed() {
+        return seed_;
+      }
+      public Builder setSeed(int value) {
+        bitField0_ |= 0x00000008;
+        seed_ = value;
+        onChanged();
+        return this;
+      }
+      public Builder clearSeed() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        seed_ = 0;
         onChanged();
         return this;
       }
@@ -3759,33 +3816,34 @@ public final class BFEProtos {
       "uth_token\030\001 \002(\t\022\026\n\016failure_reason\030\002 \001(\t2" +
       "b\n\023BFEAuthResponse_ext\022\037.Thilenius.BFEPr" +
       "otos.BFEMessage\030e \001(\0132$.Thilenius.BFEPro" +
-      "tos.BFEAuthResponse\"\302\001\n\023BFELoadLevelRequ",
+      "tos.BFEAuthResponse\"\320\001\n\023BFELoadLevelRequ",
       "est\022\022\n\nauth_token\030\001 \002(\t\022\026\n\016assignmentNam" +
-      "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\0052j\n\027BFELoadL" +
-      "evelRequest_ext\022\037.Thilenius.BFEProtos.BF" +
-      "EMessage\030f \001(\0132(.Thilenius.BFEProtos.BFE" +
-      "LoadLevelRequest\"\261\001\n\024BFELoadLevelRespons" +
-      "e\022\026\n\016failure_reason\030\001 \001(\t\022\023\n\013spark_count" +
-      "\030\002 \001(\0052l\n\030BFELoadLevelResponse_ext\022\037.Thi" +
-      "lenius.BFEProtos.BFEMessage\030g \001(\0132).Thil" +
-      "enius.BFEProtos.BFELoadLevelResponse\"\344\002\n" +
-      "\017BFESparkCommand\022A\n\007command\030\001 \002(\01620.Thil",
-      "enius.BFEProtos.BFESparkCommand.CommandT" +
-      "ype\022\020\n\010spark_id\030\002 \002(\005\022\022\n\nauth_token\030\003 \002(" +
-      "\t\022\025\n\rpipline_token\030\004 \001(\t\"m\n\013CommandType\022" +
-      "\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007" +
-      "MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022" +
-      "\016\n\nTURN_RIGHT\020\0052b\n\023BFESparkCommand_ext\022\037" +
-      ".Thilenius.BFEProtos.BFEMessage\030h \001(\0132$." +
-      "Thilenius.BFEProtos.BFESparkCommand\"\204\002\n\020" +
-      "BFESparkResponse\022\025\n\rpipline_token\030\001 \001(\t\022" +
-      "\026\n\016failure_reason\030\002 \001(\t\022\025\n\rresponse_bool",
-      "\030\003 \001(\010\022\024\n\014response_int\030\004 \001(\005\022\026\n\016response" +
-      "_float\030\005 \001(\002\022\026\n\016response_bytes\030\006 \001(\0142d\n\024" +
-      "BFESparkResponse_ext\022\037.Thilenius.BFEProt" +
-      "os.BFEMessage\030i \001(\0132%.Thilenius.BFEProto" +
-      "s.BFESparkResponseB0\n#com.thilenius.blaz" +
-      "e.frontend.protosB\tBFEProtos"
+      "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\005\022\014\n\004seed\030\004 \001" +
+      "(\0052j\n\027BFELoadLevelRequest_ext\022\037.Thileniu" +
+      "s.BFEProtos.BFEMessage\030f \001(\0132(.Thilenius" +
+      ".BFEProtos.BFELoadLevelRequest\"\261\001\n\024BFELo" +
+      "adLevelResponse\022\026\n\016failure_reason\030\001 \001(\t\022" +
+      "\023\n\013spark_count\030\002 \001(\0052l\n\030BFELoadLevelResp" +
+      "onse_ext\022\037.Thilenius.BFEProtos.BFEMessag" +
+      "e\030g \001(\0132).Thilenius.BFEProtos.BFELoadLev" +
+      "elResponse\"\344\002\n\017BFESparkCommand\022A\n\007comman",
+      "d\030\001 \002(\01620.Thilenius.BFEProtos.BFESparkCo" +
+      "mmand.CommandType\022\020\n\010spark_id\030\002 \002(\005\022\022\n\na" +
+      "uth_token\030\003 \002(\t\022\025\n\rpipline_token\030\004 \001(\t\"m" +
+      "\n\013CommandType\022\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_" +
+      "BACKWARD\020\001\022\013\n\007MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r" +
+      "\n\tTURN_LEFT\020\004\022\016\n\nTURN_RIGHT\020\0052b\n\023BFESpar" +
+      "kCommand_ext\022\037.Thilenius.BFEProtos.BFEMe" +
+      "ssage\030h \001(\0132$.Thilenius.BFEProtos.BFESpa" +
+      "rkCommand\"\204\002\n\020BFESparkResponse\022\025\n\rpiplin" +
+      "e_token\030\001 \001(\t\022\026\n\016failure_reason\030\002 \001(\t\022\025\n",
+      "\rresponse_bool\030\003 \001(\010\022\024\n\014response_int\030\004 \001" +
+      "(\005\022\026\n\016response_float\030\005 \001(\002\022\026\n\016response_b" +
+      "ytes\030\006 \001(\0142d\n\024BFESparkResponse_ext\022\037.Thi" +
+      "lenius.BFEProtos.BFEMessage\030i \001(\0132%.Thil" +
+      "enius.BFEProtos.BFESparkResponseB0\n#com." +
+      "thilenius.blaze.frontend.protosB\tBFEProt" +
+      "os"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3821,7 +3879,7 @@ public final class BFEProtos {
           internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_Thilenius_BFEProtos_BFELoadLevelRequest_descriptor,
-              new java.lang.String[] { "AuthToken", "AssignmentName", "LevelNumber", },
+              new java.lang.String[] { "AuthToken", "AssignmentName", "LevelNumber", "Seed", },
               com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.class,
               com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelRequest.Builder.class);
           internal_static_Thilenius_BFEProtos_BFELoadLevelResponse_descriptor =

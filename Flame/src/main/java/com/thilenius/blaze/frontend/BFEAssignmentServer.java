@@ -7,8 +7,10 @@ import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import com.thilenius.blaze.player.BlazePlayer;
+import sun.jvm.hotspot.debugger.remote.amd64.RemoteAMD64Thread;
 
 import java.nio.channels.SocketChannel;
+import java.util.Random;
 
 /**
  * Created by Alec on 11/15/14.
@@ -17,6 +19,7 @@ public class BFEAssignmentServer {
 
     private BFESocketServer m_socketServer;
     private AssignmentLoader m_assignmentLoader;
+    private Random m_random = new Random();
 
     public BFEAssignmentServer(BFESocketServer socketServer) {
         m_socketServer = socketServer;
@@ -33,8 +36,14 @@ public class BFEAssignmentServer {
                     .setFailureReason("Invalid Authentication Token")
                     .build();
         } else {
-            BlazeLevel level = m_assignmentLoader.LoadLevel(player, request.getAssignmentName(),
-                    request.getLevelNumber());
+            BlazeLevel level = null;
+            if (request.hasSeed()) {
+                level = m_assignmentLoader.LoadLevel(player, request.getAssignmentName(),
+                        request.getLevelNumber(), request.getSeed());
+            } else {
+                level = m_assignmentLoader.LoadLevel(player, request.getAssignmentName(),
+                        request.getLevelNumber(), m_random.nextInt());
+            }
 
             if (level == null) {
                 response = BFEProtos.BFELoadLevelResponse.newBuilder()

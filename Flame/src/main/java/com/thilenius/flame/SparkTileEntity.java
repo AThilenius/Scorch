@@ -41,7 +41,6 @@ public class SparkTileEntity extends TileEntity {
     }
 	
 	public SparkTileEntity() {
-        BFESparkServer.DebugInstance.KnownTileEntities.add(this);
 	}
 
     public Location3D getBlockFromAction(AnimationTypes animation) {
@@ -173,10 +172,9 @@ public class SparkTileEntity extends TileEntity {
         super.readFromNBT(nbt);
 
         m_currentFaceDir = FaceDirections.valueOf(nbt.getString("faceDir"));
-        animate(AnimationTypes.valueOf(nbt.getString("animation")), 1.0f);
+        animate(AnimationTypes.valueOf(nbt.getString("animation")), 0.5f);
     }
 
-    //Why not encode the enum using myEnumValue.name() (and decode via ReportTypeEnum.valueOf(s)) instead?
     @Override
     public Packet getDescriptionPacket()
     {

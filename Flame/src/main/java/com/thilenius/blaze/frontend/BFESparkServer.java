@@ -16,16 +16,12 @@ import java.util.HashSet;
  */
 public class BFESparkServer {
 
-    public static BFESparkServer DebugInstance;
-    public HashSet<SparkTileEntity> KnownTileEntities = new HashSet<SparkTileEntity>();
-
     private BFESocketServer m_socketServer;
     private BFEAssignmentServer m_assignmentServer;
 
     public BFESparkServer(BFESocketServer socketServer, BFEAssignmentServer assignmentServer) {
         m_socketServer = socketServer;
         m_assignmentServer = assignmentServer;
-        DebugInstance = this;
     }
 
     public void Handle(SocketChannel socketChannel, BFEProtos.BFESparkCommand request) {

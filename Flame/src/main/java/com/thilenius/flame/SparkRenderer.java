@@ -27,9 +27,6 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float deltaTime) {
-
-        HashSet<SparkTileEntity> known = BFESparkServer.DebugInstance.KnownTileEntities;
-
 		SparkTileEntity spark = (SparkTileEntity) te;
         float rotation = spark.getRotation();
         LocationF3D offset = spark.getOffset();
@@ -47,7 +44,7 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
         GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		
 		// Texture
-		ResourceLocation textures = (new ResourceLocation("flame", "textures/entity/spark")); 
+		ResourceLocation textures = (new ResourceLocation("flame:textures/model/spark.png"));
 		this.bindTexture(textures);
 		
 		// Draw Objects

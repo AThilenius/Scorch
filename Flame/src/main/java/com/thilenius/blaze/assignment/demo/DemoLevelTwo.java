@@ -19,7 +19,7 @@ public class DemoLevelTwo extends BlazeLevel {
     }
 
     @Override
-    public void load() {
+    public void load(int seed) {
 
     }
 

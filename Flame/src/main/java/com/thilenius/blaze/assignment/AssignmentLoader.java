@@ -17,7 +17,7 @@ public class AssignmentLoader {
 
     }
 
-    public BlazeLevel LoadLevel (BlazePlayer player, String assignmentName, int levelNumber) {
+    public BlazeLevel LoadLevel (BlazePlayer player, String assignmentName, int levelNumber, int seed) {
 
         // Does the user already has a loaded assignment?
         BlazeAssignment assignment = m_loadedAssignmentsByUsername.get(player.PlayerData.getUserName());
@@ -25,7 +25,7 @@ public class AssignmentLoader {
             // Same assignment?
             if (assignment.getClass().getCanonicalName().equals(assignmentName)) {
                 // Same assignment, just load the new level
-                return assignment.loadLevel(levelNumber);
+                return assignment.loadLevel(levelNumber, seed);
             }
 
             // Different assignment. Unload the old one
@@ -39,7 +39,7 @@ public class AssignmentLoader {
             Object instance = constructor.newInstance(player);
             if (instance != null && instance instanceof BlazeAssignment) {
                 m_loadedAssignmentsByUsername.put(player.PlayerData.getUserName(), (BlazeAssignment) instance);
-                return ((BlazeAssignment)instance).loadLevel(levelNumber);
+                return ((BlazeAssignment)instance).loadLevel(levelNumber, seed);
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

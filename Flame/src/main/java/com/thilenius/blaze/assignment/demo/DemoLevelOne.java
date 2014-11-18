@@ -27,7 +27,7 @@ public class DemoLevelOne extends BlazeLevel {
     }
 
     @Override
-    public void load() {
+    public void load(int seed) {
         Location2D location = m_arena.ArenaData.getLocation();
 
         // Hard coded for now.
@@ -67,8 +67,6 @@ public class DemoLevelOne extends BlazeLevel {
                 3,
                 location.Y + (m_arena.Size / 2));
         m_spark = new BlazeSpark(sparkLocation);
-        m_spark.m_sparkTileEntity.animateClients(SparkTileEntity.AnimationTypes.Forward);
-        BFESparkServer.DebugInstance.KnownTileEntities.add(m_spark.m_sparkTileEntity);
     }
 
     @Override

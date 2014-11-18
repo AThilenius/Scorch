@@ -97,10 +97,11 @@ void protobuf_AssignDesc_BFEProtos_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BFEAuthResponse));
   BFELoadLevelRequest_descriptor_ = file->message_type(3);
-  static const int BFELoadLevelRequest_offsets_[3] = {
+  static const int BFELoadLevelRequest_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, auth_token_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, assignmentname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, levelnumber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BFELoadLevelRequest, seed_),
   };
   BFELoadLevelRequest_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -231,33 +232,34 @@ void protobuf_AddDesc_BFEProtos_2eproto() {
     "uth_token\030\001 \002(\t\022\026\n\016failure_reason\030\002 \001(\t2"
     "b\n\023BFEAuthResponse_ext\022\037.Thilenius.BFEPr"
     "otos.BFEMessage\030e \001(\0132$.Thilenius.BFEPro"
-    "tos.BFEAuthResponse\"\302\001\n\023BFELoadLevelRequ"
+    "tos.BFEAuthResponse\"\320\001\n\023BFELoadLevelRequ"
     "est\022\022\n\nauth_token\030\001 \002(\t\022\026\n\016assignmentNam"
-    "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\0052j\n\027BFELoadL"
-    "evelRequest_ext\022\037.Thilenius.BFEProtos.BF"
-    "EMessage\030f \001(\0132(.Thilenius.BFEProtos.BFE"
-    "LoadLevelRequest\"\261\001\n\024BFELoadLevelRespons"
-    "e\022\026\n\016failure_reason\030\001 \001(\t\022\023\n\013spark_count"
-    "\030\002 \001(\0052l\n\030BFELoadLevelResponse_ext\022\037.Thi"
-    "lenius.BFEProtos.BFEMessage\030g \001(\0132).Thil"
-    "enius.BFEProtos.BFELoadLevelResponse\"\344\002\n"
-    "\017BFESparkCommand\022A\n\007command\030\001 \002(\01620.Thil"
-    "enius.BFEProtos.BFESparkCommand.CommandT"
-    "ype\022\020\n\010spark_id\030\002 \002(\005\022\022\n\nauth_token\030\003 \002("
-    "\t\022\025\n\rpipline_token\030\004 \001(\t\"m\n\013CommandType\022"
-    "\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_BACKWARD\020\001\022\013\n\007"
-    "MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r\n\tTURN_LEFT\020\004\022"
-    "\016\n\nTURN_RIGHT\020\0052b\n\023BFESparkCommand_ext\022\037"
-    ".Thilenius.BFEProtos.BFEMessage\030h \001(\0132$."
-    "Thilenius.BFEProtos.BFESparkCommand\"\204\002\n\020"
-    "BFESparkResponse\022\025\n\rpipline_token\030\001 \001(\t\022"
-    "\026\n\016failure_reason\030\002 \001(\t\022\025\n\rresponse_bool"
-    "\030\003 \001(\010\022\024\n\014response_int\030\004 \001(\005\022\026\n\016response"
-    "_float\030\005 \001(\002\022\026\n\016response_bytes\030\006 \001(\0142d\n\024"
-    "BFESparkResponse_ext\022\037.Thilenius.BFEProt"
-    "os.BFEMessage\030i \001(\0132%.Thilenius.BFEProto"
-    "s.BFESparkResponseB0\n#com.thilenius.blaz"
-    "e.frontend.protosB\tBFEProtos", 1428);
+    "e\030\002 \002(\t\022\023\n\013levelNumber\030\003 \002(\005\022\014\n\004seed\030\004 \001"
+    "(\0052j\n\027BFELoadLevelRequest_ext\022\037.Thileniu"
+    "s.BFEProtos.BFEMessage\030f \001(\0132(.Thilenius"
+    ".BFEProtos.BFELoadLevelRequest\"\261\001\n\024BFELo"
+    "adLevelResponse\022\026\n\016failure_reason\030\001 \001(\t\022"
+    "\023\n\013spark_count\030\002 \001(\0052l\n\030BFELoadLevelResp"
+    "onse_ext\022\037.Thilenius.BFEProtos.BFEMessag"
+    "e\030g \001(\0132).Thilenius.BFEProtos.BFELoadLev"
+    "elResponse\"\344\002\n\017BFESparkCommand\022A\n\007comman"
+    "d\030\001 \002(\01620.Thilenius.BFEProtos.BFESparkCo"
+    "mmand.CommandType\022\020\n\010spark_id\030\002 \002(\005\022\022\n\na"
+    "uth_token\030\003 \002(\t\022\025\n\rpipline_token\030\004 \001(\t\"m"
+    "\n\013CommandType\022\020\n\014MOVE_FORWARD\020\000\022\021\n\rMOVE_"
+    "BACKWARD\020\001\022\013\n\007MOVE_UP\020\002\022\r\n\tMOVE_DOWN\020\003\022\r"
+    "\n\tTURN_LEFT\020\004\022\016\n\nTURN_RIGHT\020\0052b\n\023BFESpar"
+    "kCommand_ext\022\037.Thilenius.BFEProtos.BFEMe"
+    "ssage\030h \001(\0132$.Thilenius.BFEProtos.BFESpa"
+    "rkCommand\"\204\002\n\020BFESparkResponse\022\025\n\rpiplin"
+    "e_token\030\001 \001(\t\022\026\n\016failure_reason\030\002 \001(\t\022\025\n"
+    "\rresponse_bool\030\003 \001(\010\022\024\n\014response_int\030\004 \001"
+    "(\005\022\026\n\016response_float\030\005 \001(\002\022\026\n\016response_b"
+    "ytes\030\006 \001(\0142d\n\024BFESparkResponse_ext\022\037.Thi"
+    "lenius.BFEProtos.BFEMessage\030i \001(\0132%.Thil"
+    "enius.BFEProtos.BFESparkResponseB0\n#com."
+    "thilenius.blaze.frontend.protosB\tBFEProt"
+    "os", 1442);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "BFEProtos.proto", &protobuf_RegisterTypes);
   BFEMessage::default_instance_ = new BFEMessage();
@@ -1065,6 +1067,7 @@ void BFEAuthResponse::Swap(BFEAuthResponse* other) {
 const int BFELoadLevelRequest::kAuthTokenFieldNumber;
 const int BFELoadLevelRequest::kAssignmentNameFieldNumber;
 const int BFELoadLevelRequest::kLevelNumberFieldNumber;
+const int BFELoadLevelRequest::kSeedFieldNumber;
 #endif  // !_MSC_VER
 
 #ifndef _MSC_VER
@@ -1092,6 +1095,7 @@ void BFELoadLevelRequest::SharedCtor() {
   auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   assignmentname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   levelnumber_ = 0;
+  seed_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1143,6 +1147,7 @@ void BFELoadLevelRequest::Clear() {
       }
     }
     levelnumber_ = 0;
+    seed_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1199,6 +1204,22 @@ bool BFELoadLevelRequest::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(32)) goto parse_seed;
+        break;
+      }
+      
+      // optional int32 seed = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_seed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &seed_)));
+          set_has_seed();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1244,6 +1265,11 @@ void BFELoadLevelRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->levelnumber(), output);
   }
   
+  // optional int32 seed = 4;
+  if (has_seed()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->seed(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1277,6 +1303,11 @@ void BFELoadLevelRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->levelnumber(), target);
   }
   
+  // optional int32 seed = 4;
+  if (has_seed()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->seed(), target);
+  }
+  
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -1307,6 +1338,13 @@ int BFELoadLevelRequest::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->levelnumber());
+    }
+    
+    // optional int32 seed = 4;
+    if (has_seed()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->seed());
     }
     
   }
@@ -1345,6 +1383,9 @@ void BFELoadLevelRequest::MergeFrom(const BFELoadLevelRequest& from) {
     if (from.has_levelnumber()) {
       set_levelnumber(from.levelnumber());
     }
+    if (from.has_seed()) {
+      set_seed(from.seed());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1372,6 +1413,7 @@ void BFELoadLevelRequest::Swap(BFELoadLevelRequest* other) {
     std::swap(auth_token_, other->auth_token_);
     std::swap(assignmentname_, other->assignmentname_);
     std::swap(levelnumber_, other->levelnumber_);
+    std::swap(seed_, other->seed_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

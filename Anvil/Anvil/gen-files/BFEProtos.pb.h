@@ -432,6 +432,13 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 levelnumber() const;
   inline void set_levelnumber(::google::protobuf::int32 value);
   
+  // optional int32 seed = 4;
+  inline bool has_seed() const;
+  inline void clear_seed();
+  static const int kSeedFieldNumber = 4;
+  inline ::google::protobuf::int32 seed() const;
+  inline void set_seed(::google::protobuf::int32 value);
+  
   static const int kBFELoadLevelRequestExtFieldNumber = 102;
   static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
       ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelRequest >, 11, false >
@@ -444,15 +451,18 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   inline void clear_has_assignmentname();
   inline void set_has_levelnumber();
   inline void clear_has_levelnumber();
+  inline void set_has_seed();
+  inline void clear_has_seed();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::std::string* auth_token_;
   ::std::string* assignmentname_;
   ::google::protobuf::int32 levelnumber_;
+  ::google::protobuf::int32 seed_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
   
   friend void  protobuf_AddDesc_BFEProtos_2eproto();
   friend void protobuf_AssignDesc_BFEProtos_2eproto();
@@ -1248,6 +1258,28 @@ inline ::google::protobuf::int32 BFELoadLevelRequest::levelnumber() const {
 inline void BFELoadLevelRequest::set_levelnumber(::google::protobuf::int32 value) {
   set_has_levelnumber();
   levelnumber_ = value;
+}
+
+// optional int32 seed = 4;
+inline bool BFELoadLevelRequest::has_seed() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void BFELoadLevelRequest::set_has_seed() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void BFELoadLevelRequest::clear_has_seed() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void BFELoadLevelRequest::clear_seed() {
+  seed_ = 0;
+  clear_has_seed();
+}
+inline ::google::protobuf::int32 BFELoadLevelRequest::seed() const {
+  return seed_;
+}
+inline void BFELoadLevelRequest::set_seed(::google::protobuf::int32 value) {
+  set_has_seed();
+  seed_ = value;
 }
 
 // -------------------------------------------------------------------

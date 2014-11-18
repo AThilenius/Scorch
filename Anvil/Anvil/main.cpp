@@ -79,6 +79,7 @@ int main(int argc, const char * argv[]) {
         request->set_auth_token(authToken);
         request->set_assignmentname("com.thilenius.blaze.assignment.demo.DemoAssignment");
         request->set_levelnumber(0);
+        request->set_seed(1234);
         
         int size = message.ByteSize();
         void* buffer = malloc(size);

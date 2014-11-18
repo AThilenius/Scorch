@@ -38,6 +38,7 @@ message BFELoadLevelRequest {
   required string auth_token = 1;
   required string assignmentName = 2;
   required int32 levelNumber = 3;
+  optional int32 seed = 4;
 }
 
 message BFELoadLevelResponse {
@@ -69,7 +70,6 @@ message BFESparkCommand {
   required CommandType command = 1;
   required int32 spark_id = 2;
   required string auth_token = 3;
-
   optional string pipline_token = 4;
 }
 
