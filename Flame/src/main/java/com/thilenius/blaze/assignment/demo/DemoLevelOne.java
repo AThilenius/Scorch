@@ -58,6 +58,9 @@ public class DemoLevelOne extends BlazeLevel {
             }
         }
 
+        // Set debug block
+        m_arena.BlazeWorld.MinecraftWorld.setBlock(location.X, 3, location.Y, Blocks.diamond_block);
+
         // Spawn a single Spark
         Location3D sparkLocation = new Location3D(
                 location.X + (m_arena.Size / 2),

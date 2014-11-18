@@ -106,83 +106,65 @@ int main(int argc, const char * argv[]) {
             std::cout << "Got LOAD response: " << response.DebugString() << std::endl;
         }
     }
+    
     while (true) {
-    std::cout << "Waiting to move spark 0..." << std::endl;
-    std::cin.ignore();
-    
-    // Forward
-    {
-        BFEMessage message;
-        BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
-        request->set_command(BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
-        request->set_spark_id(0);
-        request->set_auth_token(authToken);
+        std::string input;
+        getline(std::cin, input);
         
-        int size = message.ByteSize();
-        void* buffer = malloc(size);
-        message.SerializeToArray(buffer, size);
+        BFESparkCommand_CommandType command;
         
-        if (!socket.Write(buffer, size)) {
-            std::cout << "Failed to send spark command request" << std::endl;
-            return 0;
+        if (input == "f") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD;
+        } else if (input == "b") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_BACKWARD;
+        } else if (input == "u") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_UP;
+        } else if (input == "d") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_DOWN;
+        } else if (input == "tl") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_LEFT;
+        } else if (input == "tr") {
+            command = BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_RIGHT;
+        } else {
+            std::cout << "Invalid command." << std::endl;
+            continue;
+        }
+        
+        // dispatch
+        {
+            BFEMessage message;
+            BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
+            request->set_command(command);
+            request->set_spark_id(0);
+            request->set_auth_token(authToken);
+            
+            int size = message.ByteSize();
+            void* buffer = malloc(size);
+            message.SerializeToArray(buffer, size);
+            
+            if (!socket.Write(buffer, size)) {
+                std::cout << "Failed to send spark command request" << std::endl;
+                return 0;
+            }
+        }
+        
+        // Pull response
+        {
+            TcpMessagePtr response = socket.Read();
+            if (response == nullptr) {
+                std::cout << "Failed to get response from server for Spark Command" << std::endl;
+                return 0;
+            }
+            
+            BFEMessage message;
+            message.ParseFromArray(response->Data, response->Count);
+            
+            if (message.HasExtension(BFESparkResponse::BFESparkResponse_ext)) {
+                BFESparkResponse response = message.GetExtension(BFESparkResponse::BFESparkResponse_ext);
+                std::cout << "Got SPARK response: " << response.DebugString() << std::endl;
+            }
         }
     }
     
-    // Pull response
-    {
-        TcpMessagePtr response = socket.Read();
-        if (response == nullptr) {
-            std::cout << "Failed to get response from server for Spark Command" << std::endl;
-            return 0;
-        }
-        
-        BFEMessage message;
-        message.ParseFromArray(response->Data, response->Count);
-        
-        if (message.HasExtension(BFESparkResponse::BFESparkResponse_ext)) {
-            BFESparkResponse response = message.GetExtension(BFESparkResponse::BFESparkResponse_ext);
-            std::cout << "Got SPARK response: " << response.DebugString() << std::endl;
-        }
-    }
-    }
     
-    std::cout << "Waiting to turn spark 0..." << std::endl;
-    std::cin.ignore();
-    
-    // Turn Right
-    {
-        BFEMessage message;
-        BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
-        request->set_command(BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_RIGHT);
-        request->set_spark_id(0);
-        request->set_auth_token(authToken);
-        
-        int size = message.ByteSize();
-        void* buffer = malloc(size);
-        message.SerializeToArray(buffer, size);
-        
-        if (!socket.Write(buffer, size)) {
-            std::cout << "Failed to send spark command request" << std::endl;
-            return 0;
-        }
-    }
-    
-    // Pull response
-    {
-        TcpMessagePtr response = socket.Read();
-        if (response == nullptr) {
-            std::cout << "Failed to get response from server for Spark Command" << std::endl;
-            return 0;
-        }
-        
-        BFEMessage message;
-        message.ParseFromArray(response->Data, response->Count);
-        
-        if (message.HasExtension(BFESparkResponse::BFESparkResponse_ext)) {
-            BFESparkResponse response = message.GetExtension(BFESparkResponse::BFESparkResponse_ext);
-            std::cout << "Got SPARK response: " << response.DebugString() << std::endl;
-        }
-    }
-    
-    return 0;
 }

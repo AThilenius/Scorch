@@ -44,7 +44,7 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
 
         // Rotate around the Y
-        GL11.glRotatef(180.0f + rotation, 0.0f, 1.0f, 0.0f);
+        GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		
 		// Texture
 		ResourceLocation textures = (new ResourceLocation("flame", "textures/entity/spark")); 

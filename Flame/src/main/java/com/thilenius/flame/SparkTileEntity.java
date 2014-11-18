@@ -44,59 +44,40 @@ public class SparkTileEntity extends TileEntity {
         BFESparkServer.DebugInstance.KnownTileEntities.add(this);
 	}
 
-//    public Location3D getNewLocationForAction(AnimationTypes animation) {
-//        // Construct faceDir vector (inverse because we are animating in reverse)
-//        LocationF3D facingDirection = new LocationF3D();
-//        float forward = m_currenAnimation == AnimationTypes.Forward ? 1.0f : -1.0f;
-//        switch (m_currentFaceDir) {
-//            case North:
-//                facingDirection = new LocationF3D(0.0f, 0.0f, -forward);
-//                break;
-//            case East:
-//                facingDirection = new LocationF3D(forward, 0.0f, 0.0f);
-//                break;
-//            case South:
-//                facingDirection = new LocationF3D(0.0f, 0.0f, forward);
-//                break;
-//            case West:
-//                facingDirection = new LocationF3D(-forward, 0.0f, 0.0f);
-//                break;
-//        }
-//    }
-
     public Location3D getBlockFromAction(AnimationTypes animation) {
         // Moving forward backward
         if (animation == AnimationTypes.Forward || animation == AnimationTypes.Backward) {
             // Construct faceDir vector
             LocationF3D facingDirection = getRotationVector();
-            if (m_currenAnimation == AnimationTypes.Forward) {
+            if (animation == AnimationTypes.Backward) {
                 facingDirection = facingDirection.scale(-1.0f);
             }
 
             // Multiple each component by fractionTime
             return new Location3D(xCoord + Math.round(facingDirection.X), yCoord + Math.round(facingDirection.Y),
                     zCoord + Math.round(facingDirection.Z));
+        } else if (animation == AnimationTypes.Up || animation == AnimationTypes.Down) {
+            int up = animation == AnimationTypes.Up ? 1 : -1;
+            return new Location3D(xCoord, yCoord + up, zCoord);
+        } else {
+            return new Location3D(xCoord, yCoord, zCoord);
         }
-
-        // Up/Down
-        int up = animation == AnimationTypes.Up ? 1 : -1;
-        return new Location3D(xCoord, yCoord + up, zCoord);
     }
 
     public float getRotation() {
         float faceOffself = 0.0f;
         switch (m_currentFaceDir) {
             case North:
-                faceOffself += 0.0f;
+                faceOffself = 0.0f;
                 break;
             case East:
-                faceOffself += 90.0f;
+                faceOffself = 90.0f;
                 break;
             case South:
-                faceOffself += 180.0f;
+                faceOffself = 180.0f;
                 break;
             case West:
-                faceOffself += 270.0f;
+                faceOffself = 270.0f;
                 break;
         }
 
@@ -121,6 +102,8 @@ public class SparkTileEntity extends TileEntity {
 
     public void animateClients(AnimationTypes animationType) {
         m_currenAnimation = animationType;
+        // Still need to handle rotation on the server side
+        rotateByAnimation(animationType);
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
     }
 
@@ -133,20 +116,21 @@ public class SparkTileEntity extends TileEntity {
 
         // Moving forward backward
         if (m_currenAnimation == AnimationTypes.Forward || m_currenAnimation == AnimationTypes.Backward) {
-
-            // Construct faceDir vector (inverse because we are animating in reverse)
             LocationF3D facingDirection = getRotationVector();
+            // Reverse the rotation vector, because we are animating backward
+            facingDirection = facingDirection.scale(-1.0f);
             if (m_currenAnimation == AnimationTypes.Backward) {
                 facingDirection = facingDirection.scale(-1.0f);
             }
 
             // Multiple each component by fractionTime
             return facingDirection.scale(fractionTime);
+        } else if (m_currenAnimation == AnimationTypes.Up || m_currenAnimation == AnimationTypes.Down) {
+            float up = m_currenAnimation == AnimationTypes.Up ? -1.0f : 1.0f;
+            return new LocationF3D(0.0f, up, 0.0f).scale(fractionTime);
+        } else {
+            return new LocationF3D();
         }
-
-        // Up/Down
-        float up = m_currenAnimation == AnimationTypes.Up ? 1.0f : -1.0f;
-        return new LocationF3D(0.0f, up, 0.0f);
     }
 
     public LocationF3D getRotationVector() {
@@ -166,6 +150,12 @@ public class SparkTileEntity extends TileEntity {
                 break;
         }
         return facingDirection;
+    }
+
+    public void copyFrom(SparkTileEntity sparkTileEntity) {
+        // Copy things that should persist AFTER the spark has been moved.
+        // Aka. don't, copy things like location
+        m_currentFaceDir = sparkTileEntity.m_currentFaceDir;
     }
 
     @Override
@@ -204,14 +194,16 @@ public class SparkTileEntity extends TileEntity {
     private void animate(AnimationTypes animation, float duration) {
         m_currenAnimation = animation;
         m_animationTimer = new CountdownTimer(duration);
+    }
 
+    private void rotateByAnimation(AnimationTypes animation) {
         // If rotating, change face dir first
         switch (animation) {
             case TurnLeft:
                 switch (m_currentFaceDir) {
                     case North: m_currentFaceDir = FaceDirections.West; break;
                     case East: m_currentFaceDir = FaceDirections.North; break;
-                    case South: m_currentFaceDir = FaceDirections.West; break;
+                    case South: m_currentFaceDir = FaceDirections.East; break;
                     case West: m_currentFaceDir = FaceDirections.South; break;
                 }
                 break;
