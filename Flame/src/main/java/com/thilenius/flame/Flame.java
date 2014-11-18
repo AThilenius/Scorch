@@ -77,7 +77,7 @@ public class Flame {
 
 	@SubscribeEvent
 	public void onRenderTick(ServerTickEvent event) {
-		// On Server Tick (Working)
+		Blaze.onTick();
 	}
 
     @SubscribeEvent

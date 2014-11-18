@@ -6,49 +6,37 @@ import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import com.thilenius.blaze.frontend.tcp.SocketRequest;
 
+import java.util.List;
+
 /**
  * Created by Alec on 11/13/14.
  */
-public class BFERequestDispatcher implements Runnable{
+public class BFERequestDispatcher {
 
     public BFEAuthenticationServer AuthServer;
     public BFEAssignmentServer LevelServer;
     public BFESparkServer SparkServer;
 
     private BFESocketServer m_server;
-
+    private ExtensionRegistry m_extensionRegistry;
 
     public BFERequestDispatcher(BFESocketServer socketServer) {
         m_server = socketServer;
+        m_extensionRegistry = ExtensionRegistry.newInstance();
+        BFEProtos.registerAllExtensions(m_extensionRegistry);
 
         AuthServer = new BFEAuthenticationServer(socketServer);
         LevelServer = new BFEAssignmentServer(socketServer);
         SparkServer = new BFESparkServer(socketServer, LevelServer);
     }
 
-    public void startServer() {
-        new Thread(this).start();
-    }
+    public void onTick() {
+        List<SocketRequest> pendingRequests = m_server.getAllWaiting();
 
-    @Override
-    public void run() {
-        System.out.println("Request Dispatch starting.");
-
-        // Build out the extension registry
-        ExtensionRegistry extensionRegistry = ExtensionRegistry.newInstance();
-        BFEProtos.registerAllExtensions(extensionRegistry);
-
-        while (true) {
-            // Poll the next buffer off the Queue
-            SocketRequest request = m_server.readNext();
-
-            // Thread shutdown
-            if (request == null) {
-                return;
-            }
-
+        while (!pendingRequests.isEmpty()) {
             try {
-                BFEProtos.BFEMessage message = BFEProtos.BFEMessage.parseFrom(request.Payload, extensionRegistry);
+                SocketRequest request = pendingRequests.remove(0);
+                BFEProtos.BFEMessage message = BFEProtos.BFEMessage.parseFrom(request.Payload, m_extensionRegistry);
 
                 System.out.println("Got message: " + message.toString());
 
@@ -75,8 +63,6 @@ public class BFERequestDispatcher implements Runnable{
                 System.err.println("Failed to parse Protocol Buffer:");
                 e.printStackTrace();
             }
-
         }
     }
-
 }

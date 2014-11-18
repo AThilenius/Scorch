@@ -6,13 +6,18 @@ import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.spark.BlazeSpark;
+import com.thilenius.flame.SparkTileEntity;
 
 import java.nio.channels.SocketChannel;
+import java.util.HashSet;
 
 /**
  * Created by Alec on 11/16/14.
  */
 public class BFESparkServer {
+
+    public static BFESparkServer DebugInstance;
+    public HashSet<SparkTileEntity> KnownTileEntities = new HashSet<SparkTileEntity>();
 
     private BFESocketServer m_socketServer;
     private BFEAssignmentServer m_assignmentServer;
@@ -20,6 +25,7 @@ public class BFESparkServer {
     public BFESparkServer(BFESocketServer socketServer, BFEAssignmentServer assignmentServer) {
         m_socketServer = socketServer;
         m_assignmentServer = assignmentServer;
+        DebugInstance = this;
     }
 
     public void Handle(SocketChannel socketChannel, BFEProtos.BFESparkCommand request) {

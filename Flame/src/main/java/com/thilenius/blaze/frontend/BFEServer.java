@@ -16,6 +16,10 @@ public class BFEServer {
         m_socketServer.startServer();
 
         m_reqDispatch = new BFERequestDispatcher(m_socketServer);
-        m_reqDispatch.startServer();
+        // Tick based
+    }
+
+    public void onTick() {
+        m_reqDispatch.onTick();
     }
 }

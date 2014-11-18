@@ -1,9 +1,11 @@
 package com.thilenius.blaze.assignment.demo;
 
 import com.thilenius.blaze.assignment.BlazeLevel;
+import com.thilenius.blaze.frontend.BFESparkServer;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.player.PlayerArena;
 import com.thilenius.blaze.spark.BlazeSpark;
+import com.thilenius.flame.SparkTileEntity;
 import com.thilenius.utilities.types.Location2D;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.init.Blocks;
@@ -61,7 +63,9 @@ public class DemoLevelOne extends BlazeLevel {
                 location.X + (m_arena.Size / 2),
                 3,
                 location.Y + (m_arena.Size / 2));
-        m_spark = new BlazeSpark(m_arena.BlazeWorld, sparkLocation);
+        m_spark = new BlazeSpark(sparkLocation);
+        m_spark.m_sparkTileEntity.animateClients(SparkTileEntity.AnimationTypes.Forward);
+        BFESparkServer.DebugInstance.KnownTileEntities.add(m_spark.m_sparkTileEntity);
     }
 
     @Override

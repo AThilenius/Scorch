@@ -86,17 +86,16 @@ public class BFESocketServer implements Runnable {
         }
     }
 
-    public SocketRequest readNext() {
+    public List<SocketRequest> getAllWaiting() {
+        List<SocketRequest> retList = new LinkedList<SocketRequest>();
+
         synchronized(receiveQueue) {
-            while(receiveQueue.isEmpty()) {
-                try {
-                    receiveQueue.wait();
-                } catch (InterruptedException e) {
-                    return null;
-                }
+            while(!receiveQueue.isEmpty()) {
+                retList.add((SocketRequest)receiveQueue.remove(0));
             }
-            return (SocketRequest) receiveQueue.remove(0);
         }
+
+        return retList;
     }
 
     private Selector initSelector() throws IOException {

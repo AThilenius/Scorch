@@ -1,5 +1,7 @@
 package com.thilenius.flame;
 
+import com.thilenius.blaze.frontend.BFESparkServer;
+import com.thilenius.utilities.types.LocationF3D;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.block.Block;
@@ -13,6 +15,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
+import java.util.HashSet;
+
 public class SparkRenderer extends TileEntitySpecialRenderer {
 
 	private ModelSparkSmall model = new ModelSparkSmall();
@@ -23,26 +27,24 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float deltaTime) {
-		
+
+        HashSet<SparkTileEntity> known = BFESparkServer.DebugInstance.KnownTileEntities;
+
 		SparkTileEntity spark = (SparkTileEntity) te;
-		
-        //spark.displace += deltaTime * 0.01F;
-        
-//        if (spark.displace > 1.0f) {
-//			spark.getWorldObj().setBlock(spark.xCoord, spark.yCoord, spark.zCoord - 1, spark.getBlockType(), spark.getBlockMetadata(), 0);
-//        	spark.getWorldObj().removeTileEntity(spark.xCoord, spark.yCoord, spark.zCoord);
-//        	spark.getWorldObj().setBlockToAir(spark.xCoord, spark.yCoord, spark.zCoord);
-//        	return;
-//        }
+        float rotation = spark.getRotation();
+        LocationF3D offset = spark.getOffset();
 		
         // Open model matrix
 		GL11.glPushMatrix();
 		
 		// Translate
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 0.45F, (float) z + 0.5F - spark.displace);
+		GL11.glTranslatef((float) x + 0.5f + offset.X, (float) y + 0.45f + offset.Y, (float) z + 0.5f + offset.Z);
 		
-		// Rotate
+		// Rotate him upside down
 		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+
+        // Rotate around the Y
+        GL11.glRotatef(180.0f + rotation, 0.0f, 1.0f, 0.0f);
 		
 		// Texture
 		ResourceLocation textures = (new ResourceLocation("flame", "textures/entity/spark")); 

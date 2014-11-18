@@ -1,36 +1,238 @@
 package com.thilenius.flame;
 
-import java.util.ArrayList;
-
+import com.thilenius.blaze.frontend.BFESparkServer;
+import com.thilenius.utilities.types.CountdownTimer;
 import com.thilenius.utilities.types.Location3D;
+import com.thilenius.utilities.types.LocationF3D;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.world.World;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class SparkTileEntity extends TileEntity {
 
-	private int offset;
-	public float displace;
+    public enum FaceDirections {
+        North,
+        East,
+        South,
+        West
+    }
+
+    public enum AnimationTypes {
+        Idle,
+        TurnLeft,
+        TurnRight,
+        Forward,
+        Backward,
+        Up,
+        Down
+    }
+
+    // Saved by NBT
+    private FaceDirections m_currentFaceDir = FaceDirections.North;
+    private AnimationTypes m_currenAnimation = AnimationTypes.Idle;
+
+    // Used only by client
+    private CountdownTimer m_animationTimer = null;
 	
-	static
-    {
+	static {
         addMapping(SparkTileEntity.class, "Spark");
     }
 	
 	public SparkTileEntity() {
+        BFESparkServer.DebugInstance.KnownTileEntities.add(this);
 	}
-	
-//	public void writeToNBT(NBTTagCompound var1)
-//	{
-//		//var1.setInteger("theNameOfTheVariable", this.whateverYourSaving);
-//		super.writeToNBT(var1);
-//	}
-//
-//	public void readFromNBT(NBTTagCompound var1)
-//	{
-//		//this.whateverYourSaving = var1.getInteger("theNameOfTheVariable");
-//		super.readFromNBT(var1);
-//	}
+
+//    public Location3D getNewLocationForAction(AnimationTypes animation) {
+//        // Construct faceDir vector (inverse because we are animating in reverse)
+//        LocationF3D facingDirection = new LocationF3D();
+//        float forward = m_currenAnimation == AnimationTypes.Forward ? 1.0f : -1.0f;
+//        switch (m_currentFaceDir) {
+//            case North:
+//                facingDirection = new LocationF3D(0.0f, 0.0f, -forward);
+//                break;
+//            case East:
+//                facingDirection = new LocationF3D(forward, 0.0f, 0.0f);
+//                break;
+//            case South:
+//                facingDirection = new LocationF3D(0.0f, 0.0f, forward);
+//                break;
+//            case West:
+//                facingDirection = new LocationF3D(-forward, 0.0f, 0.0f);
+//                break;
+//        }
+//    }
+
+    public Location3D getBlockFromAction(AnimationTypes animation) {
+        // Moving forward backward
+        if (animation == AnimationTypes.Forward || animation == AnimationTypes.Backward) {
+            // Construct faceDir vector
+            LocationF3D facingDirection = getRotationVector();
+            if (m_currenAnimation == AnimationTypes.Forward) {
+                facingDirection = facingDirection.scale(-1.0f);
+            }
+
+            // Multiple each component by fractionTime
+            return new Location3D(xCoord + Math.round(facingDirection.X), yCoord + Math.round(facingDirection.Y),
+                    zCoord + Math.round(facingDirection.Z));
+        }
+
+        // Up/Down
+        int up = animation == AnimationTypes.Up ? 1 : -1;
+        return new Location3D(xCoord, yCoord + up, zCoord);
+    }
+
+    public float getRotation() {
+        float faceOffself = 0.0f;
+        switch (m_currentFaceDir) {
+            case North:
+                faceOffself += 0.0f;
+                break;
+            case East:
+                faceOffself += 90.0f;
+                break;
+            case South:
+                faceOffself += 180.0f;
+                break;
+            case West:
+                faceOffself += 270.0f;
+                break;
+        }
+
+        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
+
+        if (fractionTime < 0.0f) {
+            return faceOffself;
+        }
+
+        switch (m_currenAnimation) {
+            case TurnLeft:
+                faceOffself += lerp(0.0f, 90.0f, fractionTime);
+                break;
+            case TurnRight:
+                faceOffself += lerp(0.0f, -90.0f, fractionTime);
+                break;
+        }
+
+        // Let getOffset handle the m_isAnimating flag
+        return faceOffself;
+    }
+
+    public void animateClients(AnimationTypes animationType) {
+        m_currenAnimation = animationType;
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    public LocationF3D getOffset() {
+        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
+
+        if (fractionTime < 0.0f) {
+            return new LocationF3D();
+        }
+
+        // Moving forward backward
+        if (m_currenAnimation == AnimationTypes.Forward || m_currenAnimation == AnimationTypes.Backward) {
+
+            // Construct faceDir vector (inverse because we are animating in reverse)
+            LocationF3D facingDirection = getRotationVector();
+            if (m_currenAnimation == AnimationTypes.Backward) {
+                facingDirection = facingDirection.scale(-1.0f);
+            }
+
+            // Multiple each component by fractionTime
+            return facingDirection.scale(fractionTime);
+        }
+
+        // Up/Down
+        float up = m_currenAnimation == AnimationTypes.Up ? 1.0f : -1.0f;
+        return new LocationF3D(0.0f, up, 0.0f);
+    }
+
+    public LocationF3D getRotationVector() {
+        LocationF3D facingDirection = new LocationF3D();
+        switch (m_currentFaceDir) {
+            case North:
+                facingDirection = new LocationF3D(0.0f, 0.0f, -1.0f);
+                break;
+            case East:
+                facingDirection = new LocationF3D(1.0f, 0.0f, 0.0f);
+                break;
+            case South:
+                facingDirection = new LocationF3D(0.0f, 0.0f, 1.0f);
+                break;
+            case West:
+                facingDirection = new LocationF3D(-1.0f, 0.0f, 0.0f);
+                break;
+        }
+        return facingDirection;
+    }
+
+    @Override
+    public void writeToNBT(NBTTagCompound nbt)
+    {
+        super.writeToNBT(nbt);
+
+        nbt.setString("faceDir", m_currentFaceDir.name());
+        nbt.setString("animation", m_currenAnimation.name());
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+        super.readFromNBT(nbt);
+
+        m_currentFaceDir = FaceDirections.valueOf(nbt.getString("faceDir"));
+        animate(AnimationTypes.valueOf(nbt.getString("animation")), 1.0f);
+    }
+
+    //Why not encode the enum using myEnumValue.name() (and decode via ReportTypeEnum.valueOf(s)) instead?
+    @Override
+    public Packet getDescriptionPacket()
+    {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbt);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
+    {
+        this.readFromNBT(pkt.func_148857_g());
+    }
+
+    private void animate(AnimationTypes animation, float duration) {
+        m_currenAnimation = animation;
+        m_animationTimer = new CountdownTimer(duration);
+
+        // If rotating, change face dir first
+        switch (animation) {
+            case TurnLeft:
+                switch (m_currentFaceDir) {
+                    case North: m_currentFaceDir = FaceDirections.West; break;
+                    case East: m_currentFaceDir = FaceDirections.North; break;
+                    case South: m_currentFaceDir = FaceDirections.West; break;
+                    case West: m_currentFaceDir = FaceDirections.South; break;
+                }
+                break;
+            case TurnRight:
+                switch (m_currentFaceDir) {
+                    case North: m_currentFaceDir = FaceDirections.East; break;
+                    case East: m_currentFaceDir = FaceDirections.South; break;
+                    case South: m_currentFaceDir = FaceDirections.West; break;
+                    case West: m_currentFaceDir = FaceDirections.North; break;
+                }
+                break;
+        }
+    }
+
+    private float lerp(float a, float b, float f)
+    {
+        return a + f * (b - a);
+    }
+
+    private float nanoToSeconds(long nano) {
+        return (float)((double)nano / 1000000000.0);
+    }
 
 }

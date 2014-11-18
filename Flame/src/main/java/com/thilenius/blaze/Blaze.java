@@ -43,4 +43,9 @@ public class Blaze {
         }
     }
 
+    public static void onTick() {
+        if (FrontEndServer != null) {
+            FrontEndServer.onTick();
+        }
+    }
 }

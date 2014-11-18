@@ -53,5 +53,4 @@ public class BlazeWorld {
         }
         return BlazePlayersByUsername.get(username);
     }
-
 }

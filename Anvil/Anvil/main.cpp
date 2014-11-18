@@ -106,15 +106,54 @@ int main(int argc, const char * argv[]) {
             std::cout << "Got LOAD response: " << response.DebugString() << std::endl;
         }
     }
-    
+    while (true) {
     std::cout << "Waiting to move spark 0..." << std::endl;
     std::cin.ignore();
     
-    // Send a spark command
+    // Forward
     {
         BFEMessage message;
         BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
         request->set_command(BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
+        request->set_spark_id(0);
+        request->set_auth_token(authToken);
+        
+        int size = message.ByteSize();
+        void* buffer = malloc(size);
+        message.SerializeToArray(buffer, size);
+        
+        if (!socket.Write(buffer, size)) {
+            std::cout << "Failed to send spark command request" << std::endl;
+            return 0;
+        }
+    }
+    
+    // Pull response
+    {
+        TcpMessagePtr response = socket.Read();
+        if (response == nullptr) {
+            std::cout << "Failed to get response from server for Spark Command" << std::endl;
+            return 0;
+        }
+        
+        BFEMessage message;
+        message.ParseFromArray(response->Data, response->Count);
+        
+        if (message.HasExtension(BFESparkResponse::BFESparkResponse_ext)) {
+            BFESparkResponse response = message.GetExtension(BFESparkResponse::BFESparkResponse_ext);
+            std::cout << "Got SPARK response: " << response.DebugString() << std::endl;
+        }
+    }
+    }
+    
+    std::cout << "Waiting to turn spark 0..." << std::endl;
+    std::cin.ignore();
+    
+    // Turn Right
+    {
+        BFEMessage message;
+        BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
+        request->set_command(BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_RIGHT);
         request->set_spark_id(0);
         request->set_auth_token(authToken);
         
