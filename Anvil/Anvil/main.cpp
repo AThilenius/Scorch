@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
         BFEMessage message;
         BFEAuthRequest* request = message.MutableExtension(BFEAuthRequest::BFEAuthRequest_ext);
         request->set_username("athilenius");
-        request->set_password("qwe123");
+        request->set_password("1234");
         message.PrintDebugString();
         request->PrintDebugString();
         
