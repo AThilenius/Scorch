@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include "BFEProtos.pb.h"
+#include <SFML/Network.hpp>
 
 #include "TcpSocket.h"
 #include "TcpMessage.h"
@@ -24,14 +25,13 @@ using Thilenius::BFEProtos::BFESparkCommand;
 using Thilenius::BFEProtos::BFESparkResponse;
 using Thilenius::BFEProtos::BFESparkCommand_CommandType;
 
-int main(int argc, const char * argv[]) {
-    
+void doMinecraftThingy() {
     std::string authToken;
-
+    
     TcpSocket socket;
     if (!socket.Connect("127.0.0.0", 5529)) {
         std::cout << "Failed to connect to localhost on port 5529." << std::endl;
-        return 0;
+        return;
     }
     
     // Write out
@@ -46,11 +46,11 @@ int main(int argc, const char * argv[]) {
         int size = message.ByteSize();
         void *buffer = malloc(size);
         message.SerializeToArray(buffer, size);
-    
+        
         // Send test request
         if (!socket.Write(buffer, size)) {
             std::cout << "Failed to send test data" << std::endl;
-            return 0;
+            return;
         }
     }
     
@@ -59,12 +59,12 @@ int main(int argc, const char * argv[]) {
         TcpMessagePtr response = socket.Read();
         if (response == nullptr) {
             std::cout << "Failed to recieve response" << std::endl;
-            return 0;
+            return;
         }
         
         BFEMessage responseMessage;
         responseMessage.ParseFromArray(response->Data, response->Count);
-
+        
         if (responseMessage.HasExtension(BFEAuthResponse::BFEAuthResponse_ext)) {
             BFEAuthResponse response = responseMessage.GetExtension(BFEAuthResponse::BFEAuthResponse_ext);
             std::cout << "Got AUTH response: " << response.DebugString() << std::endl;
@@ -87,7 +87,7 @@ int main(int argc, const char * argv[]) {
         
         if (!socket.Write(buffer, size)) {
             std::cout << "Failed to send load level request" << std::endl;
-            return 0;
+            return;
         }
     }
     
@@ -96,7 +96,7 @@ int main(int argc, const char * argv[]) {
         TcpMessagePtr response = socket.Read();
         if (response == nullptr) {
             std::cout << "Failed to get response from server for LoadLevelRequest" << std::endl;
-            return 0;
+            return;
         }
         
         BFEMessage message;
@@ -145,7 +145,7 @@ int main(int argc, const char * argv[]) {
             
             if (!socket.Write(buffer, size)) {
                 std::cout << "Failed to send spark command request" << std::endl;
-                return 0;
+                return;
             }
         }
         
@@ -154,7 +154,7 @@ int main(int argc, const char * argv[]) {
             TcpMessagePtr response = socket.Read();
             if (response == nullptr) {
                 std::cout << "Failed to get response from server for Spark Command" << std::endl;
-                return 0;
+                return;
             }
             
             BFEMessage message;
@@ -166,6 +166,24 @@ int main(int argc, const char * argv[]) {
             }
         }
     }
+
+}
+
+void doHttpThingy() {
+    sf::Http http ("http://localhost/", 3000);
+    sf::Http::Request request;
     
+    request.setMethod(sf::Http::Request::Get);
+    request.setUri("/");
+    request.setHttpVersion(1, 1);
     
+    sf::Http::Response response = http.sendRequest(request);
+    std::cout << "status: " << response.getStatus() << std::endl;
+    std::cout << "HTTP version: " << response.getMajorHttpVersion() << "." << response.getMinorHttpVersion() << std::endl;
+    std::cout << "Content-Type header:" << response.getField("Content-Type") << std::endl;
+    std::cout << "body: " << response.getBody() << std::endl;
+}
+
+int main(int argc, const char * argv[]) {
+    doHttpThingy();
 }

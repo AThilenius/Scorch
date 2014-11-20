@@ -7,13 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		70329A391A1705B100778C80 /* Blaze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70329A371A1705B100778C80 /* Blaze.cpp */; };
-		70329A3D1A17076B00778C80 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70329A3B1A17076B00778C80 /* Level.cpp */; };
-		70329A401A17094B00778C80 /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70329A3E1A17094B00778C80 /* TcpSocket.cpp */; };
-		70541CB81A15537000D37EF2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70541CB71A15537000D37EF2 /* main.cpp */; };
-		70773D121A17C7CE0050483B /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70773D101A17C7CE0050483B /* TcpMessage.cpp */; };
+		702F1BF71A1D4A4E00200224 /* Blaze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BED1A1D4A4E00200224 /* Blaze.cpp */; };
+		702F1BF81A1D4A4E00200224 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BEF1A1D4A4E00200224 /* Level.cpp */; };
+		702F1BF91A1D4A4E00200224 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
+		702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
+		702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */; };
+		702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */; };
+		702F1C161A1D50F500200224 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C051A1D50F500200224 /* freetype.framework */; };
+		702F1C171A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C061A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
+		702F1C181A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C071A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
+		702F1C191A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C081A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
+		702F1C1A1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C091A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
+		702F1C1B1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0A1A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
+		702F1C1C1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0B1A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
+		702F1C1D1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0C1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
+		702F1C1E1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0D1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
+		702F1C1F1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0E1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
+		702F1C201A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0F1A1D50F500200224 /* libsfml-system.2.1.dylib */; };
+		702F1C211A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C101A1D50F500200224 /* libsfml-system.2.1.dylib */; };
+		702F1C221A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C111A1D50F500200224 /* libsfml-system.2.1.dylib */; };
+		702F1C231A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C121A1D50F500200224 /* libsfml-window.2.1.dylib */; };
+		702F1C241A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C131A1D50F500200224 /* libsfml-window.2.1.dylib */; };
+		702F1C251A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C141A1D50F500200224 /* libsfml-window.2.1.dylib */; };
+		702F1C261A1D50F500200224 /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C151A1D50F500200224 /* sndfile.framework */; };
 		70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
-		70A4C87A1A16F10200DC9093 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70A4C8781A16F10200DC9093 /* BFEProtos.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +38,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "../Services/Flame/cpp-gen";
-			dstSubfolderSpec = 0;
+			dstSubfolderSpec = 10;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,20 +46,37 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		70329A371A1705B100778C80 /* Blaze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blaze.cpp; sourceTree = "<group>"; };
-		70329A381A1705B100778C80 /* Blaze.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Blaze.h; sourceTree = "<group>"; };
-		70329A3A1A1705D600778C80 /* PrefixHeader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; path = PrefixHeader.h; sourceTree = "<group>"; };
-		70329A3B1A17076B00778C80 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
-		70329A3C1A17076B00778C80 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
-		70329A3E1A17094B00778C80 /* TcpSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpSocket.cpp; sourceTree = "<group>"; };
-		70329A3F1A17094B00778C80 /* TcpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpSocket.h; sourceTree = "<group>"; };
+		702F1BED1A1D4A4E00200224 /* Blaze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blaze.cpp; sourceTree = "<group>"; };
+		702F1BEE1A1D4A4E00200224 /* Blaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blaze.h; sourceTree = "<group>"; };
+		702F1BEF1A1D4A4E00200224 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
+		702F1BF01A1D4A4E00200224 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		702F1BF11A1D4A4E00200224 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		702F1BF21A1D4A4E00200224 /* PrefixHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
+		702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpMessage.cpp; sourceTree = "<group>"; };
+		702F1BF41A1D4A4E00200224 /* TcpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpMessage.h; sourceTree = "<group>"; };
+		702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpSocket.cpp; sourceTree = "<group>"; };
+		702F1BF61A1D4A4E00200224 /* TcpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpSocket.h; sourceTree = "<group>"; };
+		702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "gen-files/BFEProtos.pb.cc"; sourceTree = "<group>"; };
+		702F1BFE1A1D4A7A00200224 /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "gen-files/BFEProtos.pb.h"; sourceTree = "<group>"; };
+		702F1C051A1D50F500200224 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = freetype.framework; path = lib/freetype.framework; sourceTree = "<group>"; };
+		702F1C061A1D50F500200224 /* libsfml-audio.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.1.dylib"; path = "lib/libsfml-audio.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C071A1D50F500200224 /* libsfml-audio.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.1.dylib"; path = "lib/libsfml-audio.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C081A1D50F500200224 /* libsfml-audio.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.1.dylib"; path = "lib/libsfml-audio.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C091A1D50F500200224 /* libsfml-graphics.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.1.dylib"; path = "lib/libsfml-graphics.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0A1A1D50F500200224 /* libsfml-graphics.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.1.dylib"; path = "lib/libsfml-graphics.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0B1A1D50F500200224 /* libsfml-graphics.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.1.dylib"; path = "lib/libsfml-graphics.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0C1A1D50F500200224 /* libsfml-network.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.1.dylib"; path = "lib/libsfml-network.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0D1A1D50F500200224 /* libsfml-network.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.1.dylib"; path = "lib/libsfml-network.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0E1A1D50F500200224 /* libsfml-network.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.1.dylib"; path = "lib/libsfml-network.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C0F1A1D50F500200224 /* libsfml-system.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.1.dylib"; path = "lib/libsfml-system.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C101A1D50F500200224 /* libsfml-system.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.1.dylib"; path = "lib/libsfml-system.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C111A1D50F500200224 /* libsfml-system.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.1.dylib"; path = "lib/libsfml-system.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C121A1D50F500200224 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C131A1D50F500200224 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C141A1D50F500200224 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
+		702F1C151A1D50F500200224 /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = lib/sndfile.framework; sourceTree = "<group>"; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
-		70541CB71A15537000D37EF2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		70773D101A17C7CE0050483B /* TcpMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpMessage.cpp; sourceTree = "<group>"; };
-		70773D111A17C7CE0050483B /* TcpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpMessage.h; sourceTree = "<group>"; };
 		70A4C8701A15886B00DC9093 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = /usr/local/lib/libprotobuf.a; sourceTree = "<absolute>"; };
-		70A4C8781A16F10200DC9093 /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "gen-files/BFEProtos.pb.cc"; sourceTree = "<group>"; };
-		70A4C8791A16F10200DC9093 /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "gen-files/BFEProtos.pb.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				702F1C181A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
+				702F1C1F1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
+				702F1C161A1D50F500200224 /* freetype.framework in Frameworks */,
+				702F1C251A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
+				702F1C1E1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
+				702F1C201A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
+				702F1C1C1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
+				702F1C221A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
+				702F1C261A1D50F500200224 /* sndfile.framework in Frameworks */,
+				702F1C241A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
+				702F1C1A1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
+				702F1C211A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
+				702F1C171A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
+				702F1C1D1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
+				702F1C191A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
+				702F1C231A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
+				702F1C1B1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
 				70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +108,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		702F1BFC1A1D4A5700200224 /* gen-files */ = {
+			isa = PBXGroup;
+			children = (
+				702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */,
+				702F1BFE1A1D4A7A00200224 /* BFEProtos.pb.h */,
+			);
+			name = "gen-files";
+			sourceTree = "<group>";
+		};
+		702F1C001A1D4AC800200224 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */,
+				702F1BF41A1D4A4E00200224 /* TcpMessage.h */,
+				702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */,
+				702F1BF61A1D4A4E00200224 /* TcpSocket.h */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
 		70541CAB1A15537000D37EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -77,14 +148,15 @@
 		70541CB61A15537000D37EF2 /* Anvil */ = {
 			isa = PBXGroup;
 			children = (
+				702F1C001A1D4AC800200224 /* Socket */,
+				702F1BFC1A1D4A5700200224 /* gen-files */,
+				702F1BED1A1D4A4E00200224 /* Blaze.cpp */,
+				702F1BEE1A1D4A4E00200224 /* Blaze.h */,
+				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
+				702F1BF01A1D4A4E00200224 /* Level.h */,
+				702F1BF11A1D4A4E00200224 /* main.cpp */,
+				702F1BF21A1D4A4E00200224 /* PrefixHeader.h */,
 				70541CD41A1581AD00D37EF2 /* gen-files */,
-				70773D0F1A1716CF0050483B /* Socket */,
-				70329A371A1705B100778C80 /* Blaze.cpp */,
-				70329A381A1705B100778C80 /* Blaze.h */,
-				70329A3A1A1705D600778C80 /* PrefixHeader.h */,
-				70541CB71A15537000D37EF2 /* main.cpp */,
-				70329A3B1A17076B00778C80 /* Level.cpp */,
-				70329A3C1A17076B00778C80 /* Level.h */,
 			);
 			path = Anvil;
 			sourceTree = "<group>";
@@ -92,6 +164,23 @@
 		70541CCE1A15598600D37EF2 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				702F1C051A1D50F500200224 /* freetype.framework */,
+				702F1C061A1D50F500200224 /* libsfml-audio.2.1.dylib */,
+				702F1C071A1D50F500200224 /* libsfml-audio.2.1.dylib */,
+				702F1C081A1D50F500200224 /* libsfml-audio.2.1.dylib */,
+				702F1C091A1D50F500200224 /* libsfml-graphics.2.1.dylib */,
+				702F1C0A1A1D50F500200224 /* libsfml-graphics.2.1.dylib */,
+				702F1C0B1A1D50F500200224 /* libsfml-graphics.2.1.dylib */,
+				702F1C0C1A1D50F500200224 /* libsfml-network.2.1.dylib */,
+				702F1C0D1A1D50F500200224 /* libsfml-network.2.1.dylib */,
+				702F1C0E1A1D50F500200224 /* libsfml-network.2.1.dylib */,
+				702F1C0F1A1D50F500200224 /* libsfml-system.2.1.dylib */,
+				702F1C101A1D50F500200224 /* libsfml-system.2.1.dylib */,
+				702F1C111A1D50F500200224 /* libsfml-system.2.1.dylib */,
+				702F1C121A1D50F500200224 /* libsfml-window.2.1.dylib */,
+				702F1C131A1D50F500200224 /* libsfml-window.2.1.dylib */,
+				702F1C141A1D50F500200224 /* libsfml-window.2.1.dylib */,
+				702F1C151A1D50F500200224 /* sndfile.framework */,
 				70A4C8701A15886B00DC9093 /* libprotobuf.a */,
 			);
 			name = Libs;
@@ -100,21 +189,8 @@
 		70541CD41A1581AD00D37EF2 /* gen-files */ = {
 			isa = PBXGroup;
 			children = (
-				70A4C8781A16F10200DC9093 /* BFEProtos.pb.cc */,
-				70A4C8791A16F10200DC9093 /* BFEProtos.pb.h */,
 			);
 			name = "gen-files";
-			sourceTree = "<group>";
-		};
-		70773D0F1A1716CF0050483B /* Socket */ = {
-			isa = PBXGroup;
-			children = (
-				70329A3E1A17094B00778C80 /* TcpSocket.cpp */,
-				70329A3F1A17094B00778C80 /* TcpSocket.h */,
-				70773D101A17C7CE0050483B /* TcpMessage.cpp */,
-				70773D111A17C7CE0050483B /* TcpMessage.h */,
-			);
-			name = Socket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,12 +244,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70329A391A1705B100778C80 /* Blaze.cpp in Sources */,
-				70329A3D1A17076B00778C80 /* Level.cpp in Sources */,
-				70541CB81A15537000D37EF2 /* main.cpp in Sources */,
-				70773D121A17C7CE0050483B /* TcpMessage.cpp in Sources */,
-				70A4C87A1A16F10200DC9093 /* BFEProtos.pb.cc in Sources */,
-				70329A401A17094B00778C80 /* TcpSocket.cpp in Sources */,
+				702F1BF81A1D4A4E00200224 /* Level.cpp in Sources */,
+				702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */,
+				702F1BF71A1D4A4E00200224 /* Blaze.cpp in Sources */,
+				702F1BF91A1D4A4E00200224 /* main.cpp in Sources */,
+				702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */,
+				702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

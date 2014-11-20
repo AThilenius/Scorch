@@ -1,6 +1,6 @@
 package com.thilenius.blaze;
 
-import com.thilenius.blaze.frontend.BFEServer;
+import com.thilenius.blaze.frontend.BlazeFrontEnd;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -15,13 +15,13 @@ public class Blaze {
     public static Jedis RedisInstance;
     public static BlazeWorld World;
     public static Flame FlameInstance;
-    public static BFEServer FrontEndServer;
+    public static BlazeFrontEnd FrontEndServer;
 
     public Blaze (Flame flame) {
         RedisInstance = new Jedis("localhost");
         FlameInstance = flame;
         World = new BlazeWorld(MinecraftServer.getServer().worldServers[0]);
-        FrontEndServer = new BFEServer();
+        FrontEndServer = new BlazeFrontEnd();
         FrontEndServer.startServer();
     }
 
