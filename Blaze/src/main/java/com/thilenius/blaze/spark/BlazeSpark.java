@@ -3,7 +3,7 @@ package com.thilenius.blaze.spark;
 import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.flame.Flame;
-import com.thilenius.flame.SparkTileEntity;
+import com.thilenius.flame.spark.SparkTileEntity;
 import com.thilenius.utilities.types.Location3D;
 
 /**

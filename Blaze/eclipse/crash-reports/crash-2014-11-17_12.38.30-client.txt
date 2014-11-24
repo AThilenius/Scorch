@@ -5,8 +5,8 @@ Time: 11/17/14 12:38 PM
 Description: Rendering Block Entity
 
 java.lang.NullPointerException: Rendering Block Entity
-	at com.thilenius.flame.SparkTileEntity.getRotation(SparkTileEntity.java:75)
-	at com.thilenius.flame.SparkRenderer.renderTileEntityAt(SparkRenderer.java:29)
+	at com.thilenius.flame.spark.SparkTileEntity.getRotation(SparkTileEntity.java:75)
+	at com.thilenius.flame.spark.SparkRenderer.renderTileEntityAt(SparkRenderer.java:29)
 	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntityAt(TileEntityRendererDispatcher.java:141)
 	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntity(TileEntityRendererDispatcher.java:126)
 	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:539)
@@ -40,16 +40,16 @@ A detailed walkthrough of the error, its code path and all known details is as f
 
 -- Head --
 Stacktrace:
-	at com.thilenius.flame.SparkTileEntity.getRotation(SparkTileEntity.java:75)
-	at com.thilenius.flame.SparkRenderer.renderTileEntityAt(SparkRenderer.java:29)
+	at com.thilenius.flame.spark.SparkTileEntity.getRotation(SparkTileEntity.java:75)
+	at com.thilenius.flame.spark.SparkRenderer.renderTileEntityAt(SparkRenderer.java:29)
 
 -- Block Entity Details --
 Details:
-	Name: Spark // com.thilenius.flame.SparkTileEntity
-	Block type: ID #165 (tile.null // com.thilenius.flame.SparkBlock)
+	Name: Spark // com.thilenius.flame.spark.SparkTileEntity
+	Block type: ID #165 (tile.null // com.thilenius.flame.spark.SparkBlock)
 	Block data value: 0 / 0x0 / 0b0000
 	Block location: World: (16,3,16), Chunk: (at 0,0,0 in 1,1; contains blocks 16,0,16 to 31,255,31), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
-	Actual block type: ID #165 (tile.null // com.thilenius.flame.SparkBlock)
+	Actual block type: ID #165 (tile.null // com.thilenius.flame.spark.SparkBlock)
 	Actual block data value: 0 / 0x0 / 0b0000
 Stacktrace:
 	at net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher.renderTileEntityAt(TileEntityRendererDispatcher.java:141)

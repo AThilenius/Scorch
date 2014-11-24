@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+  include SessionHelper
+
   def site_name
     "Forge"
   end
@@ -28,10 +30,47 @@ module ApplicationHelper
   # Returns the full title on a per-page basis.
   # No need to change any of this we set page_title and site_name elsewhere.
   def full_title(page_title)
-    if page_title.empty?
-      site_name
+    if sessionIsLoggedIn
+      "#{site_name} - #{sessionGetUser.lastName}"
     else
-      "#{page_title} | #{site_name}"
+      site_name
+    end
+  end
+
+  # attr_accessor for Redis
+  def redis_accessor(prefix, *args)
+    args.each do |arg|
+      self.class_eval(%Q{
+        def #{arg}
+          return $redis.get("#{prefix}#{arg}")
+        end
+        })
+      self.class_eval(%Q{
+        def #{arg}=(val)
+          $redis.set("#{prefix}#{arg}", val)
+        end
+        })
+    end
+  end
+
+  def redis_getter(prefix, *args)
+    args.each do |arg|
+      self.class_eval(%Q{
+        def #{arg}
+          return $redis.get("#{prefix}_[#{@username}]_#{arg}")
+        end
+        })
+    end
+  end
+
+    # attr_accessor for Redis
+  def redis_setter(prefix, *args)
+    args.each do |arg|
+      self.class_eval(%Q{
+        def #{arg}=(val)
+          $redis.set("#{prefix}_[#{@username}]_#{arg}", val)
+        end
+        })
     end
   end
 

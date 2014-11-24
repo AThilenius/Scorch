@@ -1,6 +1,5 @@
-package com.thilenius.flame;
+package com.thilenius.flame.spark;
 
-import com.thilenius.blaze.frontend.BFESparkServer;
 import com.thilenius.utilities.types.CountdownTimer;
 import com.thilenius.utilities.types.Location3D;
 import com.thilenius.utilities.types.LocationF3D;

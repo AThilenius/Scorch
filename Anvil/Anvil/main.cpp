@@ -39,7 +39,7 @@ void doMinecraftThingy() {
         BFEMessage message;
         BFEAuthRequest* request = message.MutableExtension(BFEAuthRequest::BFEAuthRequest_ext);
         request->set_username("athilenius");
-        request->set_password("1234");
+        request->set_password("qwe123");
         message.PrintDebugString();
         request->PrintDebugString();
         
@@ -185,5 +185,6 @@ void doHttpThingy() {
 }
 
 int main(int argc, const char * argv[]) {
-    doHttpThingy();
+    //doHttpThingy();
+    doMinecraftThingy();
 }

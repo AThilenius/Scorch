@@ -1,21 +1,13 @@
-package com.thilenius.flame;
+package com.thilenius.flame.spark;
 
-import com.thilenius.blaze.frontend.BFESparkServer;
 import com.thilenius.utilities.types.LocationF3D;
+import net.minecraft.client.gui.FontRenderer;
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-
-import java.util.HashSet;
 
 public class SparkRenderer extends TileEntitySpecialRenderer {
 
@@ -52,7 +44,27 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		
 		// Close model matrix
 		GL11.glPopMatrix();
-	}
+
+
+
+        // Render Text (TEST)
+        GL11.glPushMatrix();
+
+        GL11.glTranslatef((float)x + 16.0f, (float)y + 5.0f, (float)z);
+        GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+
+        // Rotate him upside down
+        //GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+
+        // Scale down text
+        GL11.glScalef(0.3f, 0.3f, 0.3f);
+
+        FontRenderer fontrenderer = this.func_147498_b();
+        fontrenderer.drawString("Hello World", 0, 0, 0xFFFFFFFF);
+
+        // End Render Text (TEST)
+        GL11.glPopMatrix();
+    }
 
 //	//Set the lighting stuff, so it changes it's brightness properly.       
 //	private void adjustLightFixture(World world, int i, int j, int k, Block block) {

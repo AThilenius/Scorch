@@ -1,4 +1,4 @@
-package com.thilenius.flame;
+package com.thilenius.flame.spark;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

@@ -6,10 +6,8 @@ import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.spark.BlazeSpark;
-import com.thilenius.flame.SparkTileEntity;
 
 import java.nio.channels.SocketChannel;
-import java.util.HashSet;
 
 /**
  * Created by Alec on 11/16/14.

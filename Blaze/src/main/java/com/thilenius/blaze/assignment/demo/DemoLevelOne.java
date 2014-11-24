@@ -1,16 +1,12 @@
 package com.thilenius.blaze.assignment.demo;
 
 import com.thilenius.blaze.assignment.BlazeLevel;
-import com.thilenius.blaze.frontend.BFESparkServer;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.player.PlayerArena;
 import com.thilenius.blaze.spark.BlazeSpark;
-import com.thilenius.flame.SparkTileEntity;
 import com.thilenius.utilities.types.Location2D;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.init.Blocks;
-
-import java.util.ArrayList;
 
 /**
  * Created by Alec on 11/15/14.

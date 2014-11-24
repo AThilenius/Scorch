@@ -1,6 +1,8 @@
 package com.thilenius.flame;
 
 import com.thilenius.blaze.Blaze;
+import com.thilenius.flame.spark.SparkBlock;
+import com.thilenius.flame.spark.SparkTileEntity;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
