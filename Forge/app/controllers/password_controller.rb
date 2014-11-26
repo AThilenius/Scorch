@@ -3,11 +3,11 @@ class PasswordController < ApplicationController
 	include SessionHelper
 
   def show
-  	sessionActiveCheck
+  	return if sessionAdminCheckFailed
   end
 
   def change
-  	sessionActiveCheck
+  	return if sessionAdminCheckFailed
 
   	currentUser = sessionGetUser
   	user = User.fromUsername(params[:username]);

@@ -26,25 +26,15 @@ body {
 }
 
 /* Override Bootstrap 3 font location */
-@font-face {
+/*@font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/glyphicons-halflings-regular.eot');
   src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
        url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
+}*/
 
 .autoWidth {
 	width:100%;
-}
-
-.loginLink {color:#8F0808;}      /* unvisited link */
-.loginLink:visited {color:#8F0808;}  /* visited link */
-.loginLink:hover {color:#8F0808;}  /* mouse over link */
-.loginLink:active {color:#8F0808;}  /* selected link */
-
-.red .active a,
-.red .active a:hover {
-    background-color: red;
 }

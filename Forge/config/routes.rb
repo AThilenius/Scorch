@@ -1,19 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'students/list'
   get 'account' => 'account#show'
   get 'assignments/list'
   get 'assignments/show'
   get 'blaze' => 'blaze#show'
   get 'login' => 'session#show'
+  get 'minecraft_accounts/create'
   get 'minecraft_accounts/list'
-  get 'minecraft_accounts/show'
+  get 'minecraft_accounts/new'
   get 'password' => 'password#show'
   get 'password_change' => 'password#change'
   get 'session_login' => 'session#login'
   get 'session_logout' => 'session#logout'
-  get 'students/list'
-  get 'students/show'
   post 'anvil/login'
+
+  resources :minecraft_accounts, :only => [:show], param: :mcusername
+  resources :students, :only => [:show], param: :username
 
   #get 'home_page/index'
 

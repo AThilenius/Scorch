@@ -1,0 +1,5 @@
+class RedisJsonRecord
+
+
+
+end
