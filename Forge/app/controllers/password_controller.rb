@@ -10,7 +10,7 @@ class PasswordController < ApplicationController
   	return if sessionAdminCheckFailed
 
   	currentUser = sessionGetUser
-  	user = User.fromUsername(params[:username]);
+  	user = User.get(params[:username]);
   	didPass = true
   	failureString = ''
 

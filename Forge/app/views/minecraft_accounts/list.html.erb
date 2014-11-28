@@ -1,60 +1,52 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-		<h3 class="panel-title">Statistics</h3>
+    <h3 class="panel-title">Statistics</h3>
 
-	</div>
+  </div>
   <div class="panel-body">
-  	<div class="progress">
-		  <div class="progress-bar progress-bar-danger" style="width: 70%">
-		    <span class="">Allocated</span>
-		  </div>
-		  <div class="progress-bar progress-bar-success" style="width: 30%">
-		    <span class="">Free</span>
-		  </div>
-		</div>
-  	  	
+    <div class="progress">
+      <div class="progress-bar progress-bar-danger" style="width: 70%">
+        <span class="">Allocated</span>
+      </div>
+      <div class="progress-bar progress-bar-success" style="width: 30%">
+        <span class="">Free</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <div class="panel panel-default">
   <div class="panel-heading">
-		<h3 class="panel-title">Accounts
+    <h3 class="panel-title">Accounts
 
-				<div class="btn-group btn-group-xs pull-right">
-				  <a type="button" class="btn btn-default" href=<%=minecraft_accounts_new_path%>>Add</a>
-				  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-				  	Filter
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Free</a></li>
-				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Allocated</a></li>
-				  </ul>
-				</div>
+      <div class="btn-group btn-group-xs pull-right">
+        <a type="button" class="btn btn-default" href=<%=minecraft_accounts_new_path%>>Add</a>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+          Filter
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Free</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Allocated</a></li>
+        </ul>
+      </div>
 
-		</h3>
+    </h3>
 
-	</div>
+  </div>
   <div class="panel-body">
 
-  	<ul class="list-group">
-  		<% MinecraftAccount.getAll do |mcAccount| %>
+    <ul class="list-group">
+      <% MinecraftAccount.getAll do |mcAccount| %>
 
-<!--   			<% if not mcAccount.assignedUser.nil? and not mcAccount.assignedUser.empty? %>
-			  	<a class="list-group-item active" href=<%= minecraft_accounts_path(mcAccount.username) %>>
-			  <% else %> -->
-			  	<a class="list-group-item" href=<%= minecraft_account_path(mcAccount.username) %>>
-<!-- 			  <% end %> -->
-			    <div class="row">
-	  				<div class="col-md-2">
-			    		<%= mcAccount.username.upcase %>
-			    	</div>
-	  			</div>
-			  </a>
+          <a class="list-group-item" href=<%= minecraft_account_path(mcAccount.key) %>>
+            <%= mcAccount.key.upcase %>
+          </a>
 
-			<% end %>
-		</ul>
-  	  	
+      <% end %>
+    </ul>
+
   </div>
 </div>

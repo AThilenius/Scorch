@@ -7,7 +7,6 @@ import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import com.thilenius.blaze.player.BlazePlayer;
-import sun.jvm.hotspot.debugger.remote.amd64.RemoteAMD64Thread;
 
 import java.nio.channels.SocketChannel;
 import java.util.Random;

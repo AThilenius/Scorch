@@ -3,7 +3,7 @@ class SessionController < ApplicationController
 	include SessionHelper
 
 	def login
-		user = User.fromUsername(params[:username]);
+		user = User.get(params[:username]);
 
 		if user == nil
 			flash[:error] = "Wrong user name or password!"

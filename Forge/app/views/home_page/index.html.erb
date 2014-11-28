@@ -2,12 +2,11 @@
   <!-- Example row of columns -->
 
 	<h3>Known users:</h3>
-	<% User.getAllUsersFromMeta do |user| %>
+	<% User.all.each do |user| %>
 		<div class="well">
-	  	<h4><%= user.displayName %></h4>
-	  	<p>Username: <%= user.username %></p>
+	  	<h4><%= "#{user.firstName} #{user.lastName}" %></h4>
+	  	<p>Username: <%= user.key %></p>
 	  	<p>Password: <%= user.password %></p>
-	  	<p>Spawn Location: <%= user.spawnLocation %></p>
-	  	<p>Auth Token: <%= user.authToken %></p>
 		</div>
 	<% end %>
+</div>

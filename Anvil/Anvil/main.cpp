@@ -26,15 +26,81 @@ using Thilenius::BFEProtos::BFESparkResponse;
 using Thilenius::BFEProtos::BFESparkCommand_CommandType;
 
 void doMinecraftThingy() {
+    
+    // Dictionary<UserUUID, User>
+    
+    // class User:
+    //   FirstName, LastName, StudentID, ...
+    //   Dictionary<AssignmentDescription, AssignmentStatus>
+    //   Dictionary<AssignmentDescription, RecordedAssignemtRuns>
+    
+    
+    // class AssignmentDescription:
+    //   Name, Description, Due Date, ...
+    //   Download ZIP path (OSX and WIN)
+    //   JarPath
+    //   Dictionary<LevelID, Level>
+    
+    // class Level:
+    //   Name, Desciption, ...
+    //   Points Possible
+    
+    
+    // class AssignmentStatus:
+    //   AuthToken
+    //   Dictionary<LevelID, LevelStatus>
+    
+    // class RecordedAssignemtRuns:
+    //   Dictionary<LevelID, RecordedLevelRuns>
+    
+    // class RecordedLevelRuns:
+    //   List<RunList>
+    
+    
+    
+    //=User
+    // user_meta:all
+    // user:<CU ID>:FirstName
+    // user:<CU ID>:LastName
+    // user:<CU ID>:StudentID
+    // user:<CU ID>:Permissions
+    
+    //=MinecraftPlayer
+    // minecraft_player:<CU ID>:Allocated MC Account Username
+    // minecraft_player:<CU ID>:Spawn Location
+    
+    
+    //=AssignmentDescription
+    // assignment_description_meta:all
+    // assignment_description:<assignment name>:Descritpion
+    // assignment_description:<assignment name>:Due Date
+    // assignment_description:<assignment name>:Download ZIP Path
+    // assignment_description:<assignment name>:Jar Path
+    // assignment_description:<assignment name>:Levels [SET]
+    //=LevelDescription
+    // level_description:<assignment name>_<level name>:Description
+    // level_description:<assignment name>_<level name>:Possible Points
+    
+    
+    //=UserAssignment
+    // UserAssignment:<CU ID>_<assignment name>:auth_token
+    //=UserLevel
+    // userLevel:<CU ID>_<assignment name>_<level name>:IsFinished
+    
+    
+    
     std::string authToken;
     
+    // Anvil.Authenticate( "authToken" [from Forge] );
+    // BlazeLevel level = Anvil.GetLevel( level = 2, submit = false );
     TcpSocket socket;
+    std::cout << "Trying to connect" << std::endl;
     if (!socket.Connect("127.0.0.0", 5529)) {
         std::cout << "Failed to connect to localhost on port 5529." << std::endl;
         return;
     }
     
-    // Write out
+    // Write out [NOT USED]
     {
         BFEMessage message;
         BFEAuthRequest* request = message.MutableExtension(BFEAuthRequest::BFEAuthRequest_ext);
@@ -54,7 +120,7 @@ void doMinecraftThingy() {
         }
     }
     
-    // Read back
+    // Read back [NOT USED]
     {
         TcpMessagePtr response = socket.Read();
         if (response == nullptr) {

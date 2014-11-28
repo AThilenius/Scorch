@@ -1,44 +1,49 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Minecraft Account: <%= @mcAccount.username %></h3>
+    <h3 class="panel-title">
+      Minecraft Account: <%= @mcAccount.key %>
+    </h3>
   </div>
   <div class="panel-body">
-  	<div class="row">
-	  <div class="col-md-4">
-	  	<img height="250" width="250" src=<%=asset_path('MinecraftCube.png')%> />
-	  </div>
-	  <div class="col-md-4">
+    <div class="row">
+      <div class="col-md-4">
+        <img height="250" width="250" src=<%=asset_path('MinecraftCube.png')%> />
+      </div>
+      <div class="col-md-4">
 
-	  <dl class="dl-horizontal">
-		  <dt>User Name:</dt>
-		  <dd><%= @mcAccount.username %></dd>
-      </dl>
+        <dl class="dl-horizontal">
+          <dt>User Name:</dt>
+          <dd><%= @mcAccount.key %></dd>
+        </dl>
 
-	  <dl class="dl-horizontal">
-		  <dt>Password:</dt>
-		  <dd><a href=<%= password_path %>>Change</a></dd>
-		</dl>
+        <dl class="dl-horizontal">
+          <dt>Password:</dt>
+          <dd><a href=<%= password_path %>>Change</a></dd>
+        </dl>
 
-	  <dl class="dl-horizontal">
-		  <dt>Client Token:</dt>
-		  <% if @mcAccount.clientToken.nil? or @mcAccount.clientToken.empty? %>
-		  	<dd><span class="label label-default">Expired</span></dd>
-		  <% else %>
-		  	<dd><span class="label label-default"><%= @mcAccount.clientToken %></span></dd>
-		  <% end %>
-		</dl>
+        <dl class="dl-horizontal">
+          <dt>Client Token:</dt>
+          <% if @mcAccount.clientToken.nil? or @mcAccount.clientToken.empty? %>
+              <dd><span class="label label-default">Expired</span></dd>
+          <% else %>
+              <dd><span class="label label-default"><%= @mcAccount.clientToken %></span></dd>
+          <% end %>
+        </dl>
 
-	  <dl class="dl-horizontal">
-		  <dt>Assigned User:</dt>
-		  <% if @mcAccount.assignedUser.nil? or @mcAccount.assignedUser.empty? %>
-		  	<dd><span class="label label-default">None</span></dd>
-		  <% else %>
-		  	<dd><span class="label label-default"><%= @mcAccount.assignedUser %></span></dd>
-		  <% end %>
-		</dl>
+        <dl class="dl-horizontal">
+          <dt>Assigned User:</dt>
+          <% if @mcAccount.assignedUser.nil? or @mcAccount.assignedUser.empty? %>
+              <dd><span class="label label-default">None</span></dd>
+          <% else %>
+              <dd><span class="label label-default"><%= @mcAccount.assignedUser %></span></dd>
+          <% end %>
+        </dl>
 
-	  </div>
-	</div>
-  	
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Delete Account", minecraft_account_path(@mcAccount.key), :class => 'btn btn-danger autoWidth', :method => :delete %>
+      </div>
+    </div>
+
   </div>
 </div>

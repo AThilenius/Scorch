@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   def show
   	return if sessionAdminCheckFailed
 
-  	@student = User.fromUsername(params[:username])
+  	@student = User.get(params[:username])
     if @student.nil?
       flash[:error] = "Cannot find find a student with that username: #{params[:username]}"
       redirect_to students_list_path

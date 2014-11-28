@@ -16,14 +16,26 @@ class MinecraftAccount
 	#   delete
 	#   where (named params)
 
+	# Key types:
+	#   Fields:
+	#     password: MinecraftAccount:deathsshado0:password
+	#	  Meta:
+	#     All:  MinecraftAccount:deathsshado0:meta:all
 
-	attr_accessor :username, :password, :clientToken, :assignedUser
+	key = :username
+	thisClassName = :MinecraftAccount
+	fields = [:password, :clientToken, :assignedUser]
 
-	def self.getAll
-		$redis.smembers("minecraft_account_meta_all").sort.each do |name| 
-			yield MinecraftAccount.get(name)
+	def all
+		setKey = :MinecraftAccount.to_s + ':' + :username.to_s + ':meta:all'
+		setData = []
+		$redis.smembers(setKey).each do |key|
+			setData << MinecraftAccount.getFromRedisKey(name)
 		end
+
+		return setData
 	end
+
 
 	def self.get(username)
 		if username.nil? or username.empty?
@@ -40,6 +52,34 @@ class MinecraftAccount
 
 		return MinecraftAccount.new(jsonData)
 	end
+
+	def self.getFromRedisKey(key)
+
+	end
+
+
+	def delete
+
+	end
+
+
+	private_class_method :getFromRedisKey
+
+
+
+
+
+
+
+	attr_accessor :username, :password, :clientToken, :assignedUser
+
+	def self.getAll
+		$redis.smembers("minecraft_account_meta_all").sort.each do |name| 
+			yield MinecraftAccount.get(name)
+		end
+	end
+
+
 
 	def self.create(username, password)
 		return MinecraftAccount.new({:username => username, :password => password}.to_json)

@@ -2,36 +2,56 @@ class User
 
 	include ApplicationHelper
 
-	def self.getAllUsersFromMeta
-		$redis.smembers("player_meta_all_players").each do |name| 
-			yield User.new(name)
+	#=User
+	# user_meta:all
+	# user:<CU ID>:firstName
+	# user:<CU ID>:lastName
+	# user:<CU ID>:password
+	# user:<CU ID>:studentID
+	# user:<CU ID>:permissions
+
+	@@classTypeName = 'User'
+
+	def self.all
+		setData = []
+		$redis.smembers(@@classTypeName + '_meta:all').each do |key|
+			setData << new(name)
 		end
+
+		return setData
 	end
 
-	def self.fromUsername(username)
-		if username == nil or username == ""
+	def self.get(key)
+		thisKey = @@classTypeName + '_meta:all'
+		if not $redis.sismember(@@classTypeName + '_meta:all', key)
 			return nil
 		end
 
-		# Verify existance by display name
-		displayName = $redis.get("player_[#{username}]_displayName")
-		if displayName == nil or displayName == ""
+		return new(key)
+	end
+
+	def self.create(key)
+		if $redis.sismember(@@classTypeName + '_meta:all', key)
 			return nil
 		end
 
-		return User.new(username)
+		# Add it to the all list
+		$redis.sadd(@@classTypeName + '_meta:all', key)
+		return new(key)
 	end
 
-	def initialize(username)
-		@username = username
-
-		redis_accessor "player_[#{username}]_", :displayName, :password, :spawnLocation,
-			:authToken, :firstName, :lastName, :permissions
+	def initialize(key)
+		@key = key
+		redis_accessor @@classTypeName + ':' + key + ':', :firstName, :lastName, :password, :studentID, :permissions
 	end
 
-	# User Name
-	def username
-		return @username
+	def delete
+		# simply remove it from the set
+		$redis.srem(@@classTypeName + '_meta:all', @key)
 	end
-	
+
+	def key
+		return @key
+	end
+
 end

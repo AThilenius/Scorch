@@ -9,11 +9,11 @@ module SessionHelper
 	end
 
 	def sessionGetUser
-		return User.new(session[:username])
+		return User.get(session[:username])
 	end
 
 	def sessionLogin(user)
-		session[:username] = user.username
+		session[:username] = user.key
 	end
 
 	def sessionLogout

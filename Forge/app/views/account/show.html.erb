@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= sessionGetUser.displayName %></h3>
+    <h3 class="panel-title"><%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %></h3>
   </div>
   <div class="panel-body">
   	<div class="row">
@@ -16,25 +16,17 @@
 		  <dt>Last Name:</dt>
 		  <dd><%= sessionGetUser.lastName %></dd>
 		</dl>
-	  	<dl class="dl-horizontal">
-		  <dt>User Name:</dt>
-		  <dd><%= sessionGetUser.username %></dd>
-		</dl>
+        <dl class="dl-horizontal">
+          <dt>User Name:</dt>
+          <dd><%= sessionGetUser.key %></dd>
+        </dl>
+        <dl class="dl-horizontal">
+          <dt>Student ID:</dt>
+          <dd><%= sessionGetUser.studentID %></dd>
+        </dl>
 	  	<dl class="dl-horizontal">
 		  <dt>Password:</dt>
 		  <dd><a href=<%= password_path %>>Change</a></dd>
-		</dl>
-	  	<dl class="dl-horizontal">
-		  <dt>Spawn Location:</dt>
-		  <dd><span class="label label-default"><%= sessionGetUser.spawnLocation %></span></dd>
-		</dl>
-	  	<dl class="dl-horizontal">
-		  <dt>Auth Token:</dt>
-		  <% if sessionGetUser.authToken == nil or sessionGetUser.authToken == "" %>
-		  	<dd><span class="label label-default">Expired</span></dd>
-		  <% else %>
-		  	<dd><span class="label label-default"><%= sessionGetUser.authToken %></span></dd>
-		  <% end %>
 		</dl>
 		<dl class="dl-horizontal">
 		  <dt>Role:</dt>

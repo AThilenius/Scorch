@@ -5,7 +5,21 @@ class MinecraftAccountsController < ApplicationController
   def list
   	return if sessionAdminCheckFailed
 
-  end
+	end
+
+	def destroy
+		return if sessionAdminCheckFailed
+
+		@mcAccount = MinecraftAccount.get(params[:mcusername])
+		if @mcAccount.nil?
+			flash[:error] = "Cannot find find the minecraft account: #{params[:mcusername]}"
+		else
+			@mcAccount.delete
+			flash[:notice] = "Account #{@mcAccount.key} deleted successfully."
+		end
+
+		redirect_to minecraft_accounts_list_path
+	end
 
   def show
   	return if sessionAdminCheckFailed
