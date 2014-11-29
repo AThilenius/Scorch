@@ -15,7 +15,7 @@ class MinecraftAccountsController < ApplicationController
 			flash[:error] = "Cannot find find the minecraft account: #{params[:mcusername]}"
 		else
 			@mcAccount.delete
-			flash[:notice] = "Account #{@mcAccount.key} deleted successfully."
+			flash[:notice] = "Account #{@mcAccount.username} deleted successfully."
 		end
 
 		redirect_to minecraft_accounts_list_path
@@ -33,7 +33,6 @@ class MinecraftAccountsController < ApplicationController
 
   def new
   	return if sessionAdminCheckFailed
-
   end
 
   def create
@@ -42,27 +41,25 @@ class MinecraftAccountsController < ApplicationController
   	failureString = ""
 
   	if params[:mcpassword].nil? or params[:mcpassword].empty?
-			failureString += "Zero length password. "
+			failureString += 'Zero length password. '
 			didPass = false
 		end
 
 		if params[:mcusername].nil? or params[:mcusername].empty?
-			failureString += "Zero length user name. "
+			failureString += 'Zero length user name. '
 			didPass = false
 		end
 
   	# Check existence
   	if didPass
-  		account = MinecraftAccount.get(params[:mcusername])
-  		if account != nil
-				failureString += "An account with this user name already exists. "
-				didPass = false
-			else
-				# All good, we can create it
-				MinecraftAccount.create(params[:mcusername], params[:mcpassword]).save()
-				flash[:notice] = "Account Created Successfully."
-				redirect_to minecraft_accounts_list_path
-			end
+			# Generate a UUID for the account
+			account = MinecraftAccount.create(SecureRandom.uuid)
+			account.username = params[:mcusername]
+			account.password = params[:mcpassword]
+			account.state = 'free'
+
+			flash[:notice] = "Account #{account.username} Created Successfully."
+			redirect_to minecraft_accounts_list_path
   	end
   	
 		if not didPass

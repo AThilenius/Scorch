@@ -65,14 +65,20 @@ void doMinecraftThingy() {
     // user:<CU ID>:StudentID
     // user:<CU ID>:Permissions
     
-    //=MinecraftPlayer
-    // minecraft_player:<CU ID>:Allocated MC Account Username
-    // minecraft_player:<CU ID>:Spawn Location
+    //=Minecraft User [1:1 mapping with User, in Minecraft envinroment]
+    // minecraft_user:<CU ID>:Allocated MC Account Username
+    // minecraft_user:<CU ID>:Spawn Location
     
+    //=Minecraft Account
+    // minecraft_account_meta:all
+    // minecraft_account:<account UUID>:login
+    // minecraft_account:<account UUID>:password
+    // minecraft_account:<account UUID>:client_token
+    // minecraft_account:<account UUID>:state [allocated/free/suspended/private]
     
     //=AssignmentDescription
     // assignment_description_meta:all
-    // assignment_description:<assignment name>:Descritpion
+    // assignment_description:<assignment name>:Descritpion Markdown
     // assignment_description:<assignment name>:Due Date
     // assignment_description:<assignment name>:Download ZIP Path
     // assignment_description:<assignment name>:Jar Path

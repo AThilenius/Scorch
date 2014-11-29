@@ -39,10 +39,10 @@
   <div class="panel-body">
 
     <ul class="list-group">
-      <% MinecraftAccount.getAll do |mcAccount| %>
+      <% MinecraftAccount.all.each do |mcAccount| %>
 
           <a class="list-group-item" href=<%= minecraft_account_path(mcAccount.key) %>>
-            <%= mcAccount.key.upcase %>
+            <%= mcAccount.username.upcase %> - <%= mcAccount.key %>
           </a>
 
       <% end %>

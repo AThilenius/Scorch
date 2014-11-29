@@ -15,7 +15,7 @@ class User
 	def self.all
 		setData = []
 		$redis.smembers(@@classTypeName + '_meta:all').each do |key|
-			setData << new(name)
+			setData << new(key)
 		end
 
 		return setData
@@ -52,6 +52,20 @@ class User
 
 	def key
 		return @key
+	end
+
+	#=Assignment Handling
+	# UserAssignment:<CU ID><assignment name>:authToken
+	def getUserAssignment(assignmentKey)
+		userAssignment = UserAssignment.get("#{@key}#{assignmentKey}")
+
+		if userAssignment.nil?
+			# Create one if it doesn't exist.
+			userAssignment = UserAssignment.create("#{@key}#{assignmentKey}")
+			userAssignment.authToken = SecureRandom.uuid
+		end
+
+		return userAssignment
 	end
 
 end

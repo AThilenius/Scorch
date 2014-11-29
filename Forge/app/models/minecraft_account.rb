@@ -2,113 +2,55 @@ class MinecraftAccount
 
 	include ApplicationHelper
 
-	# key :username
-	#  Define things like @redis_key_prefix = ...
+	#=Minecraft Account
+	# MinecraftAccount_meta:all
+	# MinecraftAccount:<account UUID>:username
+	# MinecraftAccount:<account UUID>:password
+	# MinecraftAccount:<account UUID>:clientToken
+	# MinecraftAccount:<account UUID>:state [allocated/free/suspended/private]
 
-	# field :password, :clientToken, :assignedUser
+	@@classTypeName = 'MinecraftAccount'
 
-	# Defines:
-
-	# Static:
-	# 	User[] all
-	# 	User get (username)
-	#   User create (username)
-	#   delete
-	#   where (named params)
-
-	# Key types:
-	#   Fields:
-	#     password: MinecraftAccount:deathsshado0:password
-	#	  Meta:
-	#     All:  MinecraftAccount:deathsshado0:meta:all
-
-	key = :username
-	thisClassName = :MinecraftAccount
-	fields = [:password, :clientToken, :assignedUser]
-
-	def all
-		setKey = :MinecraftAccount.to_s + ':' + :username.to_s + ':meta:all'
+	def self.all
 		setData = []
-		$redis.smembers(setKey).each do |key|
-			setData << MinecraftAccount.getFromRedisKey(name)
+		$redis.smembers(@@classTypeName + '_meta:all').each do |key|
+			setData << new(key)
 		end
 
 		return setData
 	end
 
-
-	def self.get(username)
-		if username.nil? or username.empty?
+	def self.get(key)
+		thisKey = @@classTypeName + '_meta:all'
+		if not $redis.sismember(@@classTypeName + '_meta:all', key)
 			return nil
 		end
 
-		# Load from Redis
-		jsonData = $redis.get("minecraft_account_[#{username}]")
+		return new(key)
+	end
 
-		# DNE Check
-		if jsonData.nil?or jsonData.empty?
+	def self.create(key)
+		if $redis.sismember(@@classTypeName + '_meta:all', key)
 			return nil
 		end
 
-		return MinecraftAccount.new(jsonData)
+		# Add it to the all list
+		$redis.sadd(@@classTypeName + '_meta:all', key)
+		return new(key)
 	end
 
-	def self.getFromRedisKey(key)
-
+	def initialize(key)
+		@key = key
+		redis_accessor @@classTypeName + ':' + key + ':', :username, :password, :clientToken, :state
 	end
-
 
 	def delete
-
+		# simply remove it from the set
+		$redis.srem(@@classTypeName + '_meta:all', @key)
 	end
 
-
-	private_class_method :getFromRedisKey
-
-
-
-
-
-
-
-	attr_accessor :username, :password, :clientToken, :assignedUser
-
-	def self.getAll
-		$redis.smembers("minecraft_account_meta_all").sort.each do |name| 
-			yield MinecraftAccount.get(name)
-		end
-	end
-
-
-
-	def self.create(username, password)
-		return MinecraftAccount.new({:username => username, :password => password}.to_json)
-	end
-
-	def initialize(json)
-		dataHash = JSON.parse(json)
-		@username = dataHash["username"]
-		@password = dataHash["password"]
-		@clientToken = dataHash["clientToken"]
-		@assignedUser = dataHash["assignedUser"]
-	end
-
-	def save
-		if @username.nil? or @username.empty?
-			return
-		end
-
-		# Save it to meta
-		$redis.sadd("minecraft_account_meta_all", @username)
-
-		#Safe JSON
-		jsonData = 
-		 {:username => @username,
-			:password => @password,
-			:clientToken => @clientToken,
-			:assignedUser => @assignedUser}.to_json
-
-		$redis.set("minecraft_account_[#{@username}]", jsonData)
+	def key
+		return @key
 	end
 
 end

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'students/create'
   get 'students/list'
+  get 'students/new'
   get 'account' => 'account#show'
+  get 'assignments/create'
+  get 'assignments/createLevel'
   get 'assignments/list'
-  get 'assignments/show'
+  get 'assignments/new'
   get 'blaze' => 'blaze#show'
   get 'login' => 'session#show'
   get 'minecraft_accounts/create'
@@ -16,7 +20,8 @@ Rails.application.routes.draw do
   post 'anvil/login'
 
   resources :minecraft_accounts, :only => [:show, :destroy], param: :mcusername
-  resources :students, :only => [:show], param: :username
+  resources :students, :only => [:show, :destroy], param: :username
+  resources :assignments, :only => [:show, :destroy], param: :name
 
   #get 'home_page/index'
 

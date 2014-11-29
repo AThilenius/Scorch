@@ -2,6 +2,34 @@ module ApplicationHelper
 
   include SessionHelper
 
+  def markdown(text)
+    options = {
+        filter_html:      false,
+        hard_wrap:        true,
+        prettify:         true,
+        link_attributes:  true
+    }
+
+    extensions = {
+        autolink:           true,
+        superscript:        true,
+        fenced_code_blocks: true,
+        underline:          true,
+        highlight:          true,
+        quote:              true,
+        footnotes:          true,
+        lax_spacing:        true,
+        strikethrough:      true,
+        tables:             true
+
+    }
+
+    renderer = Redcarpet::Render::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(renderer, extensions)
+
+    markdown.render(text).html_safe
+  end
+
   def site_name
     "Forge"
   end
