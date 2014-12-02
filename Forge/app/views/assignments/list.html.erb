@@ -21,10 +21,10 @@
   <div class="panel-body">
 
     <ul class="list-group">
-      <% AssignmentDescription.all.each do |assignment| %>
+      <% AssignmentDescription.find_each.each do |assignment| %>
 
-          <a class="list-group-item" href=<%= assignment_path(assignment.key) %>>
-            <%= assignment.key %>
+          <a class="list-group-item" href=<%= assignment_path(assignment.id) %>>
+            <%= assignment.name %>
           </a>
 
       <% end %>

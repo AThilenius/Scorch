@@ -11,7 +11,7 @@ import com.thilenius.utilities.types.Location3D;
  */
 public class BlazeSpark {
 
-    public SparkTileEntity m_sparkTileEntity;
+    public SparkTileEntity TileEntity;
 
     public BlazeSpark(Location3D location) {
         CreateMinecraftSpark(location);
@@ -21,18 +21,18 @@ public class BlazeSpark {
         BFEProtos.BFESparkResponse response;
 
         SparkTileEntity.AnimationTypes animationAction = toAnimationType(commandType);
-        Location3D newLocation = m_sparkTileEntity.getBlockFromAction(animationAction);
-        SparkTileEntity oldSpark = m_sparkTileEntity;
+        Location3D newLocation = TileEntity.getBlockFromAction(animationAction);
+        SparkTileEntity oldSpark = TileEntity;
 
-        if (newLocation.X != m_sparkTileEntity.xCoord ||
-                newLocation.Y != m_sparkTileEntity.yCoord ||
-                newLocation.Z != m_sparkTileEntity.zCoord) {
+        if (newLocation.X != TileEntity.xCoord ||
+                newLocation.Y != TileEntity.yCoord ||
+                newLocation.Z != TileEntity.zCoord) {
             // Check if we can move to the new spot
             if (Blaze.World.MinecraftWorld.isAirBlock(newLocation.X, newLocation.Y, newLocation.Z)) {
                 CreateMinecraftSpark(newLocation);
-                m_sparkTileEntity.copyFrom(oldSpark);
+                TileEntity.copyFrom(oldSpark);
                 Blaze.World.MinecraftWorld.setBlockToAir(oldSpark.xCoord, oldSpark.yCoord, oldSpark.zCoord);
-                m_sparkTileEntity.animateClients(animationAction);
+                TileEntity.animateClients(animationAction);
                 return BFEProtos.BFESparkResponse.newBuilder()
                         .setResponseBool(true)
                         .build();
@@ -43,11 +43,15 @@ public class BlazeSpark {
             }
         } else {
             // Simply animate and return true
-            m_sparkTileEntity.animateClients(animationAction);
+            TileEntity.animateClients(animationAction);
             return BFEProtos.BFESparkResponse.newBuilder()
                     .setResponseBool(true)
                     .build();
         }
+    }
+
+    public Location3D getLocation() {
+        return new Location3D(TileEntity.xCoord, TileEntity.yCoord, TileEntity.zCoord);
     }
 
     private static SparkTileEntity.AnimationTypes toAnimationType(BFEProtos.BFESparkCommand.CommandType command) {
@@ -65,9 +69,9 @@ public class BlazeSpark {
 
     private void CreateMinecraftSpark(Location3D location) {
         if(Blaze.World.MinecraftWorld.setBlock(location.X, location.Y, location.Z, Flame.sparkBlock)) {
-            m_sparkTileEntity = (SparkTileEntity)Blaze.World.MinecraftWorld
+            TileEntity = (SparkTileEntity)Blaze.World.MinecraftWorld
                     .getTileEntity(location.X, location.Y, location.Z);
-            System.out.println("Spark created: " + m_sparkTileEntity.toString());
+            System.out.println("Spark created: " + TileEntity.toString());
         } else {
             System.err.println("Failed to create spark at: " + location.toString());
         }

@@ -13,7 +13,6 @@ import java.util.List;
  */
 public class BFERequestDispatcher {
 
-    public BFEAuthenticationServer AuthServer;
     public BFEAssignmentServer LevelServer;
     public BFESparkServer SparkServer;
 
@@ -25,7 +24,6 @@ public class BFERequestDispatcher {
         m_extensionRegistry = ExtensionRegistry.newInstance();
         BFEProtos.registerAllExtensions(m_extensionRegistry);
 
-        AuthServer = new BFEAuthenticationServer(socketServer);
         LevelServer = new BFEAssignmentServer(socketServer);
         SparkServer = new BFESparkServer(socketServer, LevelServer);
     }
@@ -38,26 +36,17 @@ public class BFERequestDispatcher {
                 SocketRequest request = pendingRequests.remove(0);
                 BFEProtos.BFEMessage message = BFEProtos.BFEMessage.parseFrom(request.Payload, m_extensionRegistry);
 
-                System.out.println("Got message: " + message.toString());
-
-                System.out.println("Dispatching message... ");
-                if (message.hasExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt)) {
-                    BFEProtos.BFEAuthRequest authRequest
-                            = message.getExtension(BFEProtos.BFEAuthRequest.bFEAuthRequestExt);
-                    System.out.println("Message dispatched to Authentication server.");
-                    AuthServer.Handle(request.Channel, authRequest);
-                } else if (message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
+                System.out.println("Processing Proto: " + message.toString());
+                if (message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
                     BFEProtos.BFELoadLevelRequest loadRequest
                             = message.getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
-                    System.out.println("Message dispatched to Assignment server.");
                     LevelServer.Handle(request.Channel, loadRequest);
                 } else if (message.hasExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt)) {
                     BFEProtos.BFESparkCommand sparkRequest
                             = message.getExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt);
-                    System.out.println("Message dispatched to Spark server.");
                     SparkServer.Handle(request.Channel, sparkRequest);
                 } else {
-                    System.out.println("Invalid packet type. Can not dispatch.");
+                    System.out.println("Invalid packet type. Can not dispatch!");
                 }
             } catch (InvalidProtocolBufferException e) {
                 System.err.println("Failed to parse Protocol Buffer:");

@@ -1,28 +1,28 @@
 module SessionHelper
 
 	def sessionIsLoggedIn
-		return (session[:username] != nil and session[:username] != "")
+		return (session[:id] != nil and session[:id] != 0)
 	end
 
 	def sessionIsAdmin
-		return (sessionIsLoggedIn and sessionGetUser.permissions == 'admin')
+		return (sessionIsLoggedIn and (sessionGetUser.permissions == 'super' or sessionGetUser.permissions == 'teacher'))
 	end
 
 	def sessionGetUser
-		return User.get(session[:username])
+		return User.find(session[:id])
 	end
 
 	def sessionLogin(user)
-		session[:username] = user.key
+		session[:id] = user.id
 	end
 
 	def sessionLogout
-		session[:username] = nil
+		session[:id] = nil
 	end
 
 	def sessionActiveCheckFailed
 		if not sessionIsLoggedIn
-			flash[:error] = "Please sign into Forge first."
+			flash[:error] = 'Please sign into Forge first.'
 			redirect_to login_path
 			return true
 		end
@@ -31,7 +31,7 @@ module SessionHelper
 
 	def sessionAdminCheckFailed
 		if not sessionIsLoggedIn or not sessionIsAdmin
-			flash[:error] = "You must be signed into a teacher account to perform this action."
+			flash[:error] = 'You must be signed into a teacher account to perform this action.'
 			redirect_to login_path
 			return true
 		end

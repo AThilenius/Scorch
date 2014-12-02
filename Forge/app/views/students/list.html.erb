@@ -21,9 +21,9 @@
   <div class="panel-body">
 
     <ul class="list-group">
-      <% User.all.select{|s| s.permissions=='student'}.each do |user| %>
+      <% @students.each do |user| %>
 
-          <a class="list-group-item" href=<%= student_path(user.key) %>>
+          <a class="list-group-item" href=<%= student_path(user.id) %>>
             <%= "#{user.firstName} #{user.lastName}" %>
           </a>
 

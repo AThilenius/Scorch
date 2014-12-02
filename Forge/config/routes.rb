@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get 'session_logout' => 'session#logout'
   post 'anvil/login'
 
-  resources :minecraft_accounts, :only => [:show, :destroy], param: :mcusername
-  resources :students, :only => [:show, :destroy], param: :username
-  resources :assignments, :only => [:show, :destroy], param: :name
+  resources :minecraft_accounts, :only => [:show, :destroy]
+  resources :students, :only => [:show, :destroy]
+  resources :assignments, :only => [:show, :destroy]
 
   #get 'home_page/index'
 

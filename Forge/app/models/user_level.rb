@@ -1,50 +1,16 @@
-class UserLevel
-  include ApplicationHelper
+class UserLevel < ActiveRecord::Base
+  belongs_to :user_assignment
 
-  #=UserLevel
-  # UserLevel:<CU ID>_<assignment name>_<level name>:isCompleted
-
-  @@classTypeName = 'UserLevel'
-
-  def self.all
-    setData = []
-    $redis.smembers(@@classTypeName + '_meta:all').each do |key|
-      setData << new(key)
+  def self.find_or_create(userAssignmentID, levelDescriptionID)
+    userLevel = UserLevel.find_by user_assignment_id: userAssignmentID,
+                                  level_description_id: levelDescriptionID
+    if userLevel.nil?
+      userLevel = UserLevel.create(user_assignment_id: userAssignmentID,
+                                   level_description_id: levelDescriptionID,
+                                   points: 0)
     end
 
-    return setData
+    return userLevel
   end
 
-  def self.get(key)
-    thisKey = @@classTypeName + '_meta:all'
-    if not $redis.sismember(@@classTypeName + '_meta:all', key)
-      return nil
-    end
-
-    return new(key)
-  end
-
-  def self.create(key)
-    if $redis.sismember(@@classTypeName + '_meta:all', key)
-      return nil
-    end
-
-    # Add it to the all list
-    $redis.sadd(@@classTypeName + '_meta:all', key)
-    return new(key)
-  end
-
-  def initialize(key)
-    @key = key
-    redis_accessor @@classTypeName + ':' + key + ':', :isCompleted
-  end
-
-  def delete
-    # simply remove it from the set
-    $redis.srem(@@classTypeName + '_meta:all', @key)
-  end
-
-  def key
-    return @key
-  end
 end

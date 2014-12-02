@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Minecraft Account: <%= @mcAccount.key %>
+      Minecraft Account: <%= @mcAccount.username %>
     </h3>
   </div>
   <div class="panel-body">
@@ -22,22 +22,13 @@
         </dl>
 
         <dl class="dl-horizontal">
-          <dt>Client Token:</dt>
-          <% if @mcAccount.clientToken.nil? or @mcAccount.clientToken.empty? %>
-              <dd><span class="label label-default">Expired</span></dd>
-          <% else %>
-              <dd><span class="label label-default"><%= @mcAccount.clientToken %></span></dd>
-          <% end %>
-        </dl>
-
-        <dl class="dl-horizontal">
           <dt>State:</dt>
           <dd><%= @mcAccount.state %></dd>
         </dl>
 
       </div>
       <div class="col-md-4">
-        <%= link_to "Delete Account", minecraft_account_path(@mcAccount.key), :class => 'btn btn-danger autoWidth', :method => :delete %>
+        <%= link_to "Delete Account", minecraft_account_path(@mcAccount.id), :class => 'btn btn-danger autoWidth', :method => :delete %>
       </div>
     </div>
 

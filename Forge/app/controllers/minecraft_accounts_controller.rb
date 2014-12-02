@@ -10,12 +10,12 @@ class MinecraftAccountsController < ApplicationController
 	def destroy
 		return if sessionAdminCheckFailed
 
-		@mcAccount = MinecraftAccount.get(params[:mcusername])
+		@mcAccount = MinecraftAccount.find(params[:id])
 		if @mcAccount.nil?
-			flash[:error] = "Cannot find find the minecraft account: #{params[:mcusername]}"
+			flash[:error] = "Cannot find find the minecraft account ID: #{params[:id]}"
 		else
-			@mcAccount.delete
 			flash[:notice] = "Account #{@mcAccount.username} deleted successfully."
+			@mcAccount.delete!
 		end
 
 		redirect_to minecraft_accounts_list_path
@@ -24,9 +24,9 @@ class MinecraftAccountsController < ApplicationController
   def show
   	return if sessionAdminCheckFailed
 
-    @mcAccount = MinecraftAccount.get(params[:mcusername])
+    @mcAccount = MinecraftAccount.find(params[:id])
     if @mcAccount.nil?
-      flash[:error] = "Cannot find find the minecraft account: #{params[:mcusername]}"
+      flash[:error] = "Cannot find find the minecraft account ID: #{params[:id]}"
       redirect_to minecraft_accounts_list_path
     end
   end
@@ -53,10 +53,9 @@ class MinecraftAccountsController < ApplicationController
   	# Check existence
   	if didPass
 			# Generate a UUID for the account
-			account = MinecraftAccount.create(SecureRandom.uuid)
-			account.username = params[:mcusername]
-			account.password = params[:mcpassword]
-			account.state = 'free'
+			account = MinecraftAccount.create(username: params[:mcusername],
+																				password: params[:mcpassword],
+																				state: 'free')
 
 			flash[:notice] = "Account #{account.username} Created Successfully."
 			redirect_to minecraft_accounts_list_path

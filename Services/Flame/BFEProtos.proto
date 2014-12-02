@@ -7,43 +7,21 @@ message BFEMessage {
 }
 
 /******************************************************************************/
-/* Authentication                                                             */
-/******************************************************************************/
-message BFEAuthRequest {
-  extend BFEMessage {
-    optional BFEAuthRequest BFEAuthRequest_ext = 100;
-  }
-
-  required string username = 1;
-  required string password = 2;
-}
-
-message BFEAuthResponse {
-  extend BFEMessage {
-    optional BFEAuthResponse BFEAuthResponse_ext = 101;
-  }
-
-  required string auth_token = 1;
-  optional string failure_reason = 2;
-}
-
-/******************************************************************************/
 /* Level Control                                                              */
 /******************************************************************************/
 message BFELoadLevelRequest {
   extend BFEMessage {
-    optional BFELoadLevelRequest BFELoadLevelRequest_ext = 102;
+    optional BFELoadLevelRequest BFELoadLevelRequest_ext = 100;
   }
 
   required string auth_token = 1;
-  required string assignmentName = 2;
-  required int32 levelNumber = 3;
-  optional int32 seed = 4;
+  required int32 levelNumber = 2;
+  optional int32 seed = 3;
 }
 
 message BFELoadLevelResponse {
   extend BFEMessage {
-    optional BFELoadLevelResponse BFELoadLevelResponse_ext = 103;
+    optional BFELoadLevelResponse BFELoadLevelResponse_ext = 101;
   }
 
   optional string failure_reason = 1;
@@ -55,7 +33,7 @@ message BFELoadLevelResponse {
 /******************************************************************************/
 message BFESparkCommand {
   extend BFEMessage {
-    optional BFESparkCommand BFESparkCommand_ext = 104;
+    optional BFESparkCommand BFESparkCommand_ext = 102;
   }
 
   enum CommandType {
@@ -75,7 +53,7 @@ message BFESparkCommand {
 
 message BFESparkResponse {
   extend BFEMessage {
-    optional BFESparkResponse BFESparkResponse_ext = 105;
+    optional BFESparkResponse BFESparkResponse_ext = 103;
   }
 
   optional string pipline_token = 1;

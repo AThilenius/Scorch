@@ -34,6 +34,16 @@ public class Location3D {
         Z = Integer.parseInt(tokens[2].trim());
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Location3D) {
+            Location3D otherLoc = (Location3D) other;
+            return X == otherLoc.X && Y == otherLoc.Y && Z == otherLoc.Z;
+        }
+
+        return false;
+    }
+
     @Override public String toString() {
         return X + ", " + Y + ", " + Z;
     }

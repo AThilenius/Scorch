@@ -4,27 +4,30 @@ class StudentsController < ApplicationController
 
   def list
   	return if sessionAdminCheckFailed
+
+    @students = User.where(:permissions => 'student').order(lastName: :desc)
   end
 
   def show
   	return if sessionAdminCheckFailed
 
-  	@student = User.get(params[:username])
+  	@student = User.find(params[:id])
     if @student.nil?
-      flash[:error] = "Cannot find find a student with that username: #{params[:username]}"
+      flash[:error] = "Cannot find find a student with ID: #{params[:id]}"
       redirect_to students_list_path
+      return
     end
   end
 
   def destroy
     return if sessionAdminCheckFailed
 
-    @student = User.get(params[:username])
+    @student = User.find(params[:id])
     if @student.nil?
-      flash[:error] = "Cannot find find the student account: #{params[:username]}"
+      flash[:error] = "Cannot find find the student account with ID: #{params[:id]}"
     else
+      flash[:notice] = "Account #{@student.username} deleted successfully."
       @student.delete
-      flash[:notice] = "Account #{@student.key} deleted successfully."
     end
 
     redirect_to students_list_path
@@ -62,14 +65,14 @@ class StudentsController < ApplicationController
 
     # Check existence
     if didPass
-      user = User.create(params[:username])
-      user.firstName = params[:firstName]
-      user.lastName = params[:lastName]
-      user.studentID = params[:studentID]
-      user.permissions = 'student'
-      user.password = SecureRandom.uuid.split('-')[4]
+      user = User.create(username: params[:username],
+                        firstName: params[:firstName],
+                        lastName: params[:lastName],
+                        studentID: params[:studentID],
+                        permissions: 'student',
+                        password: SecureRandom.uuid.split('-')[4])
 
-      flash[:notice] = "Account #{user.key} Created Successfully."
+      flash[:notice] = "Account #{user.username} Created Successfully."
       redirect_to students_list_path
     end
 

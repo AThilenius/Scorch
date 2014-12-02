@@ -9,22 +9,67 @@ class AssignmentsController < ApplicationController
   def show
     return if sessionActiveCheckFailed
 
-    @assignment = AssignmentDescription.get(params[:name])
+    @assignment = AssignmentDescription.find(params[:id])
+
     if @assignment.nil?
-      flash[:error] = "Cannot find an assignment by the name: #{params[:name]}"
+      flash[:error] = "Cannot find an assignment with ID: #{params[:id]}"
       redirect_to assignments_list_path
+      return
     end
+
+    @levelDescriptions = LevelDescription.where(:assignment_description_id => @assignment.id).order(levelNumber: :asc)
+
+    # pull User Assignment and all User Levels
+    @userAssignment = UserAssignment.find_or_create(sessionGetUser.id, @assignment.id)
+    @userLevels = []
+    @levels = []
+    @levelDescriptions.each do |levelDescription|
+      userLevel = UserLevel.find_or_create(@userAssignment.id, levelDescription.id)
+      @userLevels << userLevel
+
+      # Build out the 'level'
+      level = OpenStruct.new
+      level.levelDescription = levelDescription
+      level.userLevel = userLevel
+
+      case (100 * Float(userLevel.points) / Float(levelDescription.points)).round
+        when 0..59
+          level.panelColor = 'danger'
+        when 60..89
+          level.panelColor = 'warning'
+        else
+          level.panelColor = 'success'
+      end
+      @levels << level
+
+    end
+
+    # Compute assignment level some statistics
+    @totalPoints = @earnedPoints = 0
+    @levelDescriptions.each do |level| @totalPoints += level.points end
+    @userLevels.each do |userLevel| @earnedPoints += userLevel.points end
+    @percentage = (100 * (Float(@earnedPoints) / Float(@totalPoints))).round
+
+    case @percentage
+      when 0..59
+        @panelColor = 'danger'
+      when 60..89
+        @panelColor = 'warning'
+      else
+        @panelColor = 'success'
+    end
+
   end
 
   def destroy
     return if sessionAdminCheckFailed
 
-    @assignment = AssignmentDescription.get(params[:name])
+    @assignment = AssignmentDescription.find(params[:id])
     if @assignment.nil?
-      flash[:error] = "Cannot find an assignment by the name: #{params[:name]}"
+      flash[:error] = "Cannot find an assignment with ID: #{params[:id]}"
     else
+      flash[:notice] = "Assignment #{@assignment.name} deleted successfully."
       @assignment.delete
-      flash[:notice] = "Assignment #{@assignment.key} deleted successfully."
     end
 
     redirect_to assignments_list_path
@@ -56,11 +101,11 @@ class AssignmentsController < ApplicationController
     end
 
     if didPass
-      assignmentDescription = AssignmentDescription.create(params[:name])
-      assignmentDescription.descriptionMarkdown = params[:descriptionMarkdown]
-      assignmentDescription.jarPath = params[:jarPath]
+      assignmentDescription = AssignmentDescription.create(name: params[:name],
+                                                           markdown: params[:descriptionMarkdown],
+                                                           jarPath: params[:jarPath])
 
-      flash[:notice] = "Assignment #{assignmentDescription.key} Created Successfully."
+      flash[:notice] = "Assignment #{assignmentDescription.name} Created Successfully."
       redirect_to assignments_list_path
     end
 

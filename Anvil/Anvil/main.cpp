@@ -17,8 +17,6 @@
 using namespace Anvil;
 using namespace Anvil::Socket;
 using Thilenius::BFEProtos::BFEMessage;
-using Thilenius::BFEProtos::BFEAuthRequest;
-using Thilenius::BFEProtos::BFEAuthResponse;
 using Thilenius::BFEProtos::BFELoadLevelRequest;
 using Thilenius::BFEProtos::BFELoadLevelResponse;
 using Thilenius::BFEProtos::BFESparkCommand;
@@ -26,6 +24,11 @@ using Thilenius::BFEProtos::BFESparkResponse;
 using Thilenius::BFEProtos::BFESparkCommand_CommandType;
 
 void doMinecraftThingy() {
+    
+    
+    // Client Code Sample:
+    // Level level = Anvil.getLevel( levelNumber )
+    
     
     // Dictionary<UserUUID, User>
     
@@ -95,7 +98,7 @@ void doMinecraftThingy() {
     
     
     
-    std::string authToken;
+    std::string authToken = "c0dba92c-6449-40a6-95da-11d2b7d28ad6";
     
     // Anvil.Authenticate( "authToken" [from Forge] );
     // BlazeLevel level = Anvil.GetLevel( level = 2, submit = false );
@@ -106,51 +109,50 @@ void doMinecraftThingy() {
         return;
     }
     
-    // Write out [NOT USED]
-    {
-        BFEMessage message;
-        BFEAuthRequest* request = message.MutableExtension(BFEAuthRequest::BFEAuthRequest_ext);
-        request->set_username("athilenius");
-        request->set_password("qwe123");
-        message.PrintDebugString();
-        request->PrintDebugString();
-        
-        int size = message.ByteSize();
-        void *buffer = malloc(size);
-        message.SerializeToArray(buffer, size);
-        
-        // Send test request
-        if (!socket.Write(buffer, size)) {
-            std::cout << "Failed to send test data" << std::endl;
-            return;
-        }
-    }
-    
-    // Read back [NOT USED]
-    {
-        TcpMessagePtr response = socket.Read();
-        if (response == nullptr) {
-            std::cout << "Failed to recieve response" << std::endl;
-            return;
-        }
-        
-        BFEMessage responseMessage;
-        responseMessage.ParseFromArray(response->Data, response->Count);
-        
-        if (responseMessage.HasExtension(BFEAuthResponse::BFEAuthResponse_ext)) {
-            BFEAuthResponse response = responseMessage.GetExtension(BFEAuthResponse::BFEAuthResponse_ext);
-            std::cout << "Got AUTH response: " << response.DebugString() << std::endl;
-            authToken = response.auth_token();
-        }
-    }
+//    // Write out [NOT USED]
+//    {
+//        BFEMessage message;
+//        BFEAuthRequest* request = message.MutableExtension(BFEAuthRequest::BFEAuthRequest_ext);
+//        request->set_username("athilenius");
+//        request->set_password("qwe123");
+//        message.PrintDebugString();
+//        request->PrintDebugString();
+//        
+//        int size = message.ByteSize();
+//        void *buffer = malloc(size);
+//        message.SerializeToArray(buffer, size);
+//        
+//        // Send test request
+//        if (!socket.Write(buffer, size)) {
+//            std::cout << "Failed to send test data" << std::endl;
+//            return;
+//        }
+//    }
+//    
+//    // Read back [NOT USED]
+//    {
+//        TcpMessagePtr response = socket.Read();
+//        if (response == nullptr) {
+//            std::cout << "Failed to recieve response" << std::endl;
+//            return;
+//        }
+//        
+//        BFEMessage responseMessage;
+//        responseMessage.ParseFromArray(response->Data, response->Count);
+//        
+//        if (responseMessage.HasExtension(BFEAuthResponse::BFEAuthResponse_ext)) {
+//            BFEAuthResponse response = responseMessage.GetExtension(BFEAuthResponse::BFEAuthResponse_ext);
+//            std::cout << "Got AUTH response: " << response.DebugString() << std::endl;
+//            authToken = response.auth_token();
+//        }
+//    }
     
     // Test Assignment
     {
         BFEMessage message;
         BFELoadLevelRequest* request = message.MutableExtension(BFELoadLevelRequest::BFELoadLevelRequest_ext);
         request->set_auth_token(authToken);
-        request->set_assignmentname("com.thilenius.blaze.assignment.demo.DemoAssignment");
-        request->set_levelnumber(0);
+        request->set_levelnumber(1);
         request->set_seed(1234);
         
         int size = message.ByteSize();
