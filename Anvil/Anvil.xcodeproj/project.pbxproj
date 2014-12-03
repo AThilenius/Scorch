@@ -7,29 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		702F1BF71A1D4A4E00200224 /* Blaze.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BED1A1D4A4E00200224 /* Blaze.cpp */; };
 		702F1BF81A1D4A4E00200224 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BEF1A1D4A4E00200224 /* Level.cpp */; };
 		702F1BF91A1D4A4E00200224 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
 		702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
 		702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */; };
 		702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */; };
-		702F1C161A1D50F500200224 /* freetype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C051A1D50F500200224 /* freetype.framework */; };
-		702F1C171A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C061A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
-		702F1C181A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C071A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
-		702F1C191A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C081A1D50F500200224 /* libsfml-audio.2.1.dylib */; };
-		702F1C1A1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C091A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
-		702F1C1B1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0A1A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
-		702F1C1C1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0B1A1D50F500200224 /* libsfml-graphics.2.1.dylib */; };
-		702F1C1D1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0C1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
-		702F1C1E1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0D1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
-		702F1C1F1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0E1A1D50F500200224 /* libsfml-network.2.1.dylib */; };
-		702F1C201A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C0F1A1D50F500200224 /* libsfml-system.2.1.dylib */; };
-		702F1C211A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C101A1D50F500200224 /* libsfml-system.2.1.dylib */; };
-		702F1C221A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C111A1D50F500200224 /* libsfml-system.2.1.dylib */; };
-		702F1C231A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C121A1D50F500200224 /* libsfml-window.2.1.dylib */; };
-		702F1C241A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C131A1D50F500200224 /* libsfml-window.2.1.dylib */; };
-		702F1C251A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C141A1D50F500200224 /* libsfml-window.2.1.dylib */; };
-		702F1C261A1D50F500200224 /* sndfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 702F1C151A1D50F500200224 /* sndfile.framework */; };
+		7037368A1A2D8A680088DF33 /* Anvil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703736881A2D8A680088DF33 /* Anvil.cpp */; };
+		7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7037368B1A2D989A0088DF33 /* Spark.cpp */; };
+		703736F61A2E83A60088DF33 /* Anvil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703736881A2D8A680088DF33 /* Anvil.cpp */; };
+		703736F81A2E83A60088DF33 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BEF1A1D4A4E00200224 /* Level.cpp */; };
+		703736FA1A2E83A60088DF33 /* Spark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7037368B1A2D989A0088DF33 /* Spark.cpp */; };
+		703736FC1A2E83A60088DF33 /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
+		703736FE1A2E83A60088DF33 /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */; };
+		703737001A2E83A60088DF33 /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */; };
+		703737021A2E83A60088DF33 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
+		703737051A2E83F40088DF33 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
+		703737061A2E84CE0088DF33 /* Anvil.h in Headers */ = {isa = PBXBuildFile; fileRef = 703736891A2D8A680088DF33 /* Anvil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		703737071A2E84D00088DF33 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		703737081A2E84D30088DF33 /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +41,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		702F1BED1A1D4A4E00200224 /* Blaze.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blaze.cpp; sourceTree = "<group>"; };
-		702F1BEE1A1D4A4E00200224 /* Blaze.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blaze.h; sourceTree = "<group>"; };
 		702F1BEF1A1D4A4E00200224 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		702F1BF01A1D4A4E00200224 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		702F1BF11A1D4A4E00200224 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -75,32 +68,29 @@
 		702F1C131A1D50F500200224 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
 		702F1C141A1D50F500200224 /* libsfml-window.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.1.dylib"; path = "lib/libsfml-window.2.1.dylib"; sourceTree = "<group>"; };
 		702F1C151A1D50F500200224 /* sndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sndfile.framework; path = lib/sndfile.framework; sourceTree = "<group>"; };
+		703736861A2D89900088DF33 /* ProjectConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectConfig.h; sourceTree = "<group>"; };
+		703736881A2D8A680088DF33 /* Anvil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Anvil.cpp; sourceTree = "<group>"; };
+		703736891A2D8A680088DF33 /* Anvil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anvil.h; sourceTree = "<group>"; };
+		7037368B1A2D989A0088DF33 /* Spark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spark.cpp; sourceTree = "<group>"; };
+		7037368C1A2D989A0088DF33 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
+		703736F21A2E81AD0088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A4C8701A15886B00DC9093 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = /usr/local/lib/libprotobuf.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		703736EF1A2E81AD0088DF33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703737051A2E83F40088DF33 /* libprotobuf.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70541CB11A15537000D37EF2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				702F1C181A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
-				702F1C1F1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
-				702F1C161A1D50F500200224 /* freetype.framework in Frameworks */,
-				702F1C251A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
-				702F1C1E1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
-				702F1C201A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
-				702F1C1C1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
-				702F1C221A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
-				702F1C261A1D50F500200224 /* sndfile.framework in Frameworks */,
-				702F1C241A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
-				702F1C1A1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
-				702F1C211A1D50F500200224 /* libsfml-system.2.1.dylib in Frameworks */,
-				702F1C171A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
-				702F1C1D1A1D50F500200224 /* libsfml-network.2.1.dylib in Frameworks */,
-				702F1C191A1D50F500200224 /* libsfml-audio.2.1.dylib in Frameworks */,
-				702F1C231A1D50F500200224 /* libsfml-window.2.1.dylib in Frameworks */,
-				702F1C1B1A1D50F500200224 /* libsfml-graphics.2.1.dylib in Frameworks */,
 				70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +118,19 @@
 			name = Socket;
 			sourceTree = "<group>";
 		};
+		703736871A2D8A560088DF33 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				703736881A2D8A680088DF33 /* Anvil.cpp */,
+				703736891A2D8A680088DF33 /* Anvil.h */,
+				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
+				702F1BF01A1D4A4E00200224 /* Level.h */,
+				7037368B1A2D989A0088DF33 /* Spark.cpp */,
+				7037368C1A2D989A0088DF33 /* Spark.h */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		70541CAB1A15537000D37EF2 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				70541CB41A15537000D37EF2 /* Anvil */,
+				703736F21A2E81AD0088DF33 /* libAnvilLib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,15 +152,13 @@
 		70541CB61A15537000D37EF2 /* Anvil */ = {
 			isa = PBXGroup;
 			children = (
+				703736871A2D8A560088DF33 /* API */,
 				702F1C001A1D4AC800200224 /* Socket */,
 				702F1BFC1A1D4A5700200224 /* gen-files */,
-				702F1BED1A1D4A4E00200224 /* Blaze.cpp */,
-				702F1BEE1A1D4A4E00200224 /* Blaze.h */,
-				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
-				702F1BF01A1D4A4E00200224 /* Level.h */,
 				702F1BF11A1D4A4E00200224 /* main.cpp */,
 				702F1BF21A1D4A4E00200224 /* PrefixHeader.h */,
 				70541CD41A1581AD00D37EF2 /* gen-files */,
+				703736861A2D89900088DF33 /* ProjectConfig.h */,
 			);
 			path = Anvil;
 			sourceTree = "<group>";
@@ -195,7 +197,37 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		703736F01A2E81AD0088DF33 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703737061A2E84CE0088DF33 /* Anvil.h in Headers */,
+				703737071A2E84D00088DF33 /* Level.h in Headers */,
+				703737081A2E84D30088DF33 /* Spark.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		703736F11A2E81AD0088DF33 /* AnvilLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 703736F31A2E81AD0088DF33 /* Build configuration list for PBXNativeTarget "AnvilLib" */;
+			buildPhases = (
+				703736EE1A2E81AD0088DF33 /* Sources */,
+				703736EF1A2E81AD0088DF33 /* Frameworks */,
+				703736F01A2E81AD0088DF33 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnvilLib;
+			productName = AnvilLib;
+			productReference = 703736F21A2E81AD0088DF33 /* libAnvilLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		70541CB31A15537000D37EF2 /* Anvil */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70541CBD1A15537000D37EF2 /* Build configuration list for PBXNativeTarget "Anvil" */;
@@ -235,18 +267,34 @@
 			projectRoot = "";
 			targets = (
 				70541CB31A15537000D37EF2 /* Anvil */,
+				703736F11A2E81AD0088DF33 /* AnvilLib */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		703736EE1A2E81AD0088DF33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703736F61A2E83A60088DF33 /* Anvil.cpp in Sources */,
+				703736F81A2E83A60088DF33 /* Level.cpp in Sources */,
+				703736FA1A2E83A60088DF33 /* Spark.cpp in Sources */,
+				703736FC1A2E83A60088DF33 /* TcpMessage.cpp in Sources */,
+				703736FE1A2E83A60088DF33 /* TcpSocket.cpp in Sources */,
+				703737001A2E83A60088DF33 /* BFEProtos.pb.cc in Sources */,
+				703737021A2E83A60088DF33 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		70541CB01A15537000D37EF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				702F1BF81A1D4A4E00200224 /* Level.cpp in Sources */,
 				702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */,
-				702F1BF71A1D4A4E00200224 /* Blaze.cpp in Sources */,
+				7037368A1A2D8A680088DF33 /* Anvil.cpp in Sources */,
+				7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */,
 				702F1BF91A1D4A4E00200224 /* main.cpp in Sources */,
 				702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */,
 				702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */,
@@ -256,6 +304,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		703736F41A2E81AD0088DF33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /include;
+			};
+			name = Debug;
+		};
+		703736F51A2E81AD0088DF33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /include;
+			};
+			name = Release;
+		};
 		70541CBB1A15537000D37EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -375,6 +457,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		703736F31A2E81AD0088DF33 /* Build configuration list for PBXNativeTarget "AnvilLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				703736F41A2E81AD0088DF33 /* Debug */,
+				703736F51A2E81AD0088DF33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		70541CAF1A15537000D37EF2 /* Build configuration list for PBXProject "Anvil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

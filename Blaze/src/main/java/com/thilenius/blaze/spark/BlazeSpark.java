@@ -6,6 +6,8 @@ import com.thilenius.flame.Flame;
 import com.thilenius.flame.spark.SparkTileEntity;
 import com.thilenius.utilities.types.Location3D;
 
+import java.nio.channels.SocketChannel;
+
 /**
  * Created by Alec on 11/15/14.
  */
@@ -17,7 +19,7 @@ public class BlazeSpark {
         CreateMinecraftSpark(location);
     }
 
-    public BFEProtos.BFESparkResponse Handle (BFEProtos.BFESparkCommand.CommandType commandType) {
+    public BFEProtos.BFESparkResponse handle (BFEProtos.BFESparkCommand.CommandType commandType) {
         BFEProtos.BFESparkResponse response;
 
         SparkTileEntity.AnimationTypes animationAction = toAnimationType(commandType);

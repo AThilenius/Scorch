@@ -8,7 +8,6 @@
 #pragma once
 
 
-namespace Anvil {
 namespace Socket {
 
 
@@ -35,4 +34,3 @@ private:
 
     
 } // namespace Socket
-} // namespace Anvil

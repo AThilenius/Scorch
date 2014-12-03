@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AnvilLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>703736F11A2E81AD0088DF33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>70541CB31A15537000D37EF2</key>
 		<dict>
 			<key>primary</key>

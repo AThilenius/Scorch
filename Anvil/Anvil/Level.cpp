@@ -8,16 +8,31 @@
 #include "PrefixHeader.h"
 #include "Level.h"
 
+#include "Spark.h"
 
-namespace Anvil {
+
+namespace AnvilAPI {
 
 
-Level::Level() {
+Level::Level(int levelNumber, int sparkCount) :
+    m_levelNumber(levelNumber),
+    m_sparkCount(sparkCount) {
     
 }
 
 Level::~Level() {
     
 }
-
-} // namespace Anvil
+    
+Spark Level::GetSpark(int sparkNumber) {
+    if (sparkNumber >= m_sparkCount) {
+        std::cout << "The loaded level does not have a spark " << sparkNumber << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    Spark spark(m_levelNumber, sparkNumber);
+    return spark;
+}
+    
+    
+} // namespace AnvilAPI

@@ -32,7 +32,12 @@ class AssignmentsController < ApplicationController
       level.levelDescription = levelDescription
       level.userLevel = userLevel
 
-      case (100 * Float(userLevel.points) / Float(levelDescription.points)).round
+      percentage = 100
+      if levelDescription.points != 0
+        percentage = (100 * Float(userLevel.points) / Float(levelDescription.points)).round
+      end
+
+      case percentage
         when 0..59
           level.panelColor = 'danger'
         when 60..89

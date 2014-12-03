@@ -22,7 +22,7 @@
 <div class="panel panel-<%= @panelColor %>">
   <div class="panel-heading">
     <h3 class="panel-title">
-      Overview
+      Assignment Overview
       <div class="badge pull-right"><%= "#{@earnedPoints} / #{@totalPoints}" %></div>
     </h3>
   </div>
@@ -37,7 +37,7 @@
     <div class="panel panel-<%= level.panelColor %>" >
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= level.levelDescription.name %>
+          <span class="badge"><%= level.levelDescription.levelNumber %></span> <%= level.levelDescription.name %>
           <div class="badge pull-right"><%= "#{level.userLevel.points} / #{level.levelDescription.points}" %></div>
         </h3>
       </div>

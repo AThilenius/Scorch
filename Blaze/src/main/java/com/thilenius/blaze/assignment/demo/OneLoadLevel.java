@@ -8,7 +8,7 @@ import net.minecraft.init.Blocks;
 /**
  * Created by Alec on 11/15/14.
  */
-public class DemoLevelOne extends BlazeLevel {
+public class OneLoadLevel extends BlazeLevel {
 
     @Override
     public void load(Location3D arenaLocation, int seed, int userLevelId) {

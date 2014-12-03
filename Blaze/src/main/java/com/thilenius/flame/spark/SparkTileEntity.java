@@ -11,6 +11,8 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
 public class SparkTileEntity extends TileEntity {
 
+    public final static float ANIMATION_TIME = 0.5f;
+
     public enum FaceDirections {
         North,
         East,
@@ -156,6 +158,11 @@ public class SparkTileEntity extends TileEntity {
         m_currentFaceDir = sparkTileEntity.m_currentFaceDir;
     }
 
+    public boolean isAnimating() {
+        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
+        return fractionTime >= 0.0f;
+    }
+
     @Override
     public void writeToNBT(NBTTagCompound nbt)
     {
@@ -171,7 +178,7 @@ public class SparkTileEntity extends TileEntity {
         super.readFromNBT(nbt);
 
         m_currentFaceDir = FaceDirections.valueOf(nbt.getString("faceDir"));
-        animate(AnimationTypes.valueOf(nbt.getString("animation")), 0.5f);
+        animate(AnimationTypes.valueOf(nbt.getString("animation")), ANIMATION_TIME);
     }
 
     @Override

@@ -17,7 +17,6 @@
 #include "TcpMessage.h"
 
 
-namespace Anvil {
 namespace Socket {
 
 
@@ -122,4 +121,3 @@ bool TcpSocket::WriteComplete(char* buffer, int socket, UInt32 count) {
 
     
 } // namespace Socket
-} // namespace Anvil

@@ -8,21 +8,23 @@
 #pragma once
 
 
-namespace Anvil {
-
+namespace AnvilAPI {
+ 
     
-class Blaze;
+class Spark;
 
 class Level {
 public:
-    
-private:
-    Level();
+    Level(int levelNumber, int sparkCount);
     ~Level();
     
-private:
-    friend class Blaze;
-};
-
+    Spark GetSpark(int sparkNumber = 0);
     
-} // namespace Anvil
+private:
+    int m_levelNumber;
+    int m_sparkCount;
+    
+};
+    
+    
+} // namespace AnvilAPI

@@ -61,6 +61,25 @@ public abstract class BlazeLevel {
         }
     }
 
+    protected int getPoints() {
+        String SQL =
+                "SELECT points\n" +
+                "FROM user_levels\n" +
+                "WHERE id=" + m_userLevelId;
+        try {
+            Statement statement = Blaze.SqlInstance.createStatement();
+            ResultSet rs = statement.executeQuery(SQL);
+            rs.next();
+            int points = rs.getInt("points");
+            rs.next();
+            return points;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return -1;
+    }
+
     protected void setBlock(int x, int y, int z, Block block) {
         if (x < 0 || y < 0 || z < 0 ||
             x >= ArenaSize || y >= ArenaSize || z >= ArenaSize ) {
@@ -133,6 +152,12 @@ public abstract class BlazeLevel {
                     Blaze.World.MinecraftWorld.setBlock(m_arenaLocation.X + ArenaSize - 1, yLevel, z, block);
                 }
             }
+        }
+    }
+
+    protected void drawOffsetList(Location3D startLocation, Location3D[] offsets, Block block) {
+        for (Location3D location : offsets) {
+            setBlock(startLocation.X + location.X, startLocation.Y + location.Y, startLocation.Z + location.Z, block);
         }
     }
 

@@ -20,7 +20,8 @@ module ApplicationHelper
         footnotes:          true,
         lax_spacing:        true,
         strikethrough:      true,
-        tables:             true
+        tables:             true,
+        link_attributes:    true
 
     }
 

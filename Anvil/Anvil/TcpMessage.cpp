@@ -9,7 +9,6 @@
 #include "TcpMessage.h"
 
 
-namespace Anvil {
 namespace Socket {
 
 
@@ -26,4 +25,3 @@ TcpMessage::~TcpMessage() {
 
 
 } // namespace Socket
-} // namespace Anvil

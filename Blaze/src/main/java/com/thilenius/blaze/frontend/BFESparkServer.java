@@ -4,7 +4,6 @@ import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
-import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.spark.BlazeSpark;
 
 import java.nio.channels.SocketChannel;
@@ -63,7 +62,7 @@ public class BFESparkServer {
                     } else {
                         // All good! Finally...
                         BlazeSpark spark = level.getSparks()[request.getSparkId()];
-                        response = spark.Handle(request.getCommand());
+                        response = spark.handle(request.getCommand());
 
                         // Give the loaded level a chance to grade based on this move
                         level.grade(request);

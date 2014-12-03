@@ -8,7 +8,6 @@
 #pragma once
 
 
-namespace Anvil {
 namespace Socket {
     
 
@@ -36,4 +35,3 @@ typedef std::shared_ptr<TcpMessage> TcpMessagePtr;
 
 
 } // namespace Socket
-} // namespace Anvil

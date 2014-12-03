@@ -1,26 +1,19 @@
 package com.thilenius.blaze.assignment.demo;
 
-import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeAssignment;
 import com.thilenius.blaze.assignment.BlazeLevel;
-import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.utilities.types.Location3D;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 
 /**
  * Created by Alec on 11/15/14.
  */
-public class DemoAssignment extends BlazeAssignment {
+public class HelloWorldAssignment extends BlazeAssignment {
 
-    private DemoLevelOne m_levelOne;
-    private DemoLevelTwo m_levelTwo;
-
-    public DemoAssignment() {
-        m_levelOne = new DemoLevelOne();
-        m_levelTwo = new DemoLevelTwo();
-    }
+    private OneLoadLevel m_levelOne = new OneLoadLevel();
+    private TwoMoveForward m_levelTwo = new TwoMoveForward();
+    private ThreeTurnSpark m_levelThree = new ThreeTurnSpark();
+    private FourMaze m_levelFour = new FourMaze();
 
     @Override
     public void load(Location3D arenaLocation) {
@@ -43,6 +36,8 @@ public class DemoAssignment extends BlazeAssignment {
         {
             case 0: return m_levelOne;
             case 1: return m_levelTwo;
+            case 2: return m_levelThree;
+            case 3: return m_levelFour;
             default: return null;
         }
     }
