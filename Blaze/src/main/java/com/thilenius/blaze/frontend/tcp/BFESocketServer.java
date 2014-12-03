@@ -52,6 +52,11 @@ public class BFESocketServer implements Runnable {
                         switch(change.type) {
                             case ChangeRequest.CHANGEOPS:
                                 SelectionKey key = change.socket.keyFor(this.selector);
+
+                                if (key == null) {
+                                    continue;
+                                }
+
                                 key.interestOps(change.ops);
                         }
                     }

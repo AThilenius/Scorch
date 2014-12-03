@@ -27,6 +27,8 @@ public class ThreeTurnSpark extends BlazeLevel {
         // Already done?
         if (getPoints() == 5) {
             drawBorder(1, 1, Blocks.emerald_block);
+        } else {
+            drawBorder(1, 1, Blocks.redstone_block);
         }
     }
 
@@ -42,6 +44,13 @@ public class ThreeTurnSpark extends BlazeLevel {
 
         // Spawn a new Spark
         m_spark = new BlazeSpark(m_sparkSpawn);
+
+        // Already done?
+        if (getPoints() == 5) {
+            drawBorder(1, 1, Blocks.emerald_block);
+        } else {
+            drawBorder(1, 1, Blocks.redstone_block);
+        }
     }
 
     @Override

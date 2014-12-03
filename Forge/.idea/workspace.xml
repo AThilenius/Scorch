@@ -2,27 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4cbbfa5-3f93-41c0-a7f7-99942608c2af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Anvil.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Anvil.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/FourMaze.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Anvil/Anvil/ProjectConfig.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Spark.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Spark.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/ThreeTurnSpark.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/xcuserdata/Alec.xcuserdatad/xcschemes/Anvil.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Anvil/Anvil/Blaze.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Anvil/Anvil/Blaze.h" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/DemoAssignment.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/HelloWorldAssignment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/DemoLevelOne.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/OneLoadLevel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/DemoLevelTwo.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/TwoMoveForward.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/SparkRequest.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/DifferedSparkRequest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/playerdata/3b3303c3-29af-3244-964c-3058d2bedc28.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/playerdata/3b3303c3-29af-3244-964c-3058d2bedc28.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-project-headers.hmap" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil-project-headers.hmap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil.hmap" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Anvil.hmap" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil_dependency_info.dat" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil_dependency_info.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/project.xcworkspace/xcuserdata/Alec.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/project.xcworkspace/xcuserdata/Alec.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb-shm" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb-shm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb.strings-file" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb.strings-file" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb.strings-sym" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Index/Debug/macosx10.9-x86_64/Anvil.xcindex/db.xcindexdb.strings-sym" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Redis/dump.rdb" afterPath="$PROJECT_DIR$/../Redis/dump.rdb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat_old" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat_old" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.-1.mca" />
@@ -34,28 +17,23 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.-1.mca" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.0.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.0.mca" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/session.lock" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/session.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/TextIndex/text-index.idx" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/TextIndex/text-index.idx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM-1/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM-1/data/villages.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM1/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM1/data/villages.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/villages.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/stats/3b3303c3-29af-3244-964c-3058d2bedc28.json" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/stats/3b3303c3-29af-3244-964c-3058d2bedc28.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil.LinkFileList" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/Anvil.LinkFileList" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/BlazeLevel.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/BlazeLevel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/Level.cpp" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Level.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/Level.h" afterPath="$PROJECT_DIR$/../Anvil/Anvil/Level.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/PrefixHeader.h" afterPath="$PROJECT_DIR$/../Anvil/Anvil/PrefixHeader.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/TcpMessage.cpp" afterPath="$PROJECT_DIR$/../Anvil/Anvil/TcpMessage.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/TcpMessage.h" afterPath="$PROJECT_DIR$/../Anvil/Anvil/TcpMessage.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/TcpSocket.cpp" afterPath="$PROJECT_DIR$/../Anvil/Anvil/TcpSocket.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/TcpSocket.h" afterPath="$PROJECT_DIR$/../Anvil/Anvil/TcpSocket.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BFERequestDispatcher.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BFERequestDispatcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/tcp/BFESocketServer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/tcp/BFESocketServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BFESparkServer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BFESparkServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/FourMaze.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/FourMaze.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/HelloWorldAssignment.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/HelloWorldAssignment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkRenderer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkTileEntity.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkTileEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/ThreeTurnSpark.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/ThreeTurnSpark.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/TwoMoveForward.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/TwoMoveForward.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/assignments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/assignments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil/main.cpp" afterPath="$PROJECT_DIR$/../Anvil/Anvil/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.d" afterPath="$PROJECT_DIR$/../Anvil/DerivedData/Anvil/Build/Intermediates/Anvil.build/Debug/Anvil.build/Objects-normal/x86_64/main.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/assignments/show.html.erb" afterPath="$PROJECT_DIR$/app/views/assignments/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/xcuserdata/Alec.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/../Anvil/Anvil.xcodeproj/xcuserdata/Alec.xcuserdatad/xcschemes/xcschememanagement.plist" />
     </list>
     <ignored path="Forge.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,7 +48,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Forge@routes__Forge.coverage" NAME="routes: Forge Coverage Results" MODIFIED="1417047294663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
-    <SUITE FILE_PATH="coverage/Forge@Development__Forge.coverage" NAME="Development: Forge Coverage Results" MODIFIED="1417328696023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
+    <SUITE FILE_PATH="coverage/Forge@Development__Forge.coverage" NAME="Development: Forge Coverage Results" MODIFIED="1417575613736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@db_migrate__Forge.coverage" NAME="db:migrate: Forge Coverage Results" MODIFIED="1417325847492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@db_rollback__Forge.coverage" NAME="db:rollback: Forge Coverage Results" MODIFIED="1417306117429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
   </component>
@@ -107,82 +85,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="assignments_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="assignments_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/assignments_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="514" max-vertical-offset="2685">
-              <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.43521595" vertical-offset="1902" max-vertical-offset="2805">
+              <caret line="153" column="23" selection-start-line="153" selection-start-column="23" selection-end-line="153" selection-end-column="23" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Rails Forge: development" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://db-console:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="120">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="10" />
-              <folding>
-                <marker date="0" expanded="true" signature="0:41" placeholder="SELECT point..user_levels..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_levels" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/..user_levels">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/assignments/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.833333" vertical-offset="223" max-vertical-offset="795">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="level_descriptions" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/..level_descriptions">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="assignment_descriptions" pinned="false" current-in-tab="true">
-        <entry file="dbDummy://dbtable:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/..assignment_descriptions">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="795">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -220,7 +137,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20141129202835_create_assignment_descriptions.rb" />
         <option value="$PROJECT_DIR$/app/views/assignments/list.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20141129203000_create_level_descriptions.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20141129232400_create_users.rb" />
         <option value="$PROJECT_DIR$/app/views/students/list.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/session_helper.rb" />
@@ -239,6 +155,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20141129232439_create_user_assignments.rb" />
         <option value="db-console:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/assignments/show.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/assignments_controller.rb" />
       </list>
@@ -283,6 +200,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -459,7 +377,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -662,13 +579,13 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
       <option name="VM_PARAMETERS" value="" />
       <option name="USER_CFG_CLASS" />
       <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest">
@@ -738,29 +655,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="189" y="23" width="1491" height="997" extended-state="1" />
+    <frame x="189" y="23" width="1491" height="997" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32975295" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62835664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22108844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30719656" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22108844" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20680273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20680273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30719656" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -828,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.016611295" vertical-offset="0" max-vertical-offset="903">
           <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -847,13 +763,6 @@
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/minecraft_accounts/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="615">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/minecraft_accounts/new.html.erb">
@@ -888,14 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
           <caret line="1" column="36" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3654485" vertical-offset="0" max-vertical-offset="1320">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -999,7 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06825939" vertical-offset="0" max-vertical-offset="879">
           <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64784056" vertical-offset="0" max-vertical-offset="903">
           <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11627907" vertical-offset="0" max-vertical-offset="903">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,7 +998,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1112,7 +1008,6 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -1123,9 +1018,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="567">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="10" />
-          <folding>
-            <marker date="0" expanded="true" signature="0:41" placeholder="SELECT point..user_levels..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,33 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1665">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/assignments/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.833333" vertical-offset="223" max-vertical-offset="795">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/..user_levels">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/assignments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="514" max-vertical-offset="2685">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1184,6 +1050,49 @@
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e266bf2b/88dc4428-4105-4d02-aa61-390117f6dafd/..user_levels">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/minecraft_accounts/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15358362" vertical-offset="0" max-vertical-offset="879">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13289036" vertical-offset="0" max-vertical-offset="1335">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/assignments/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="795">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/assignments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43521595" vertical-offset="1902" max-vertical-offset="2805">
+          <caret line="153" column="23" selection-start-line="153" selection-start-column="23" selection-end-line="153" selection-end-column="23" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

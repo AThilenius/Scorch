@@ -20,14 +20,12 @@ public class HelloWorldAssignment extends BlazeAssignment {
         super.load(arenaLocation);
         clear();
         drawFloor(0, Blocks.quartz_block);
-        drawBorder(1, 1, Blocks.redstone_block);
     }
 
     @Override
     public void reload() {
         super.reload();
         clear();
-        drawBorder(1, 1, Blocks.redstone_block);
     }
 
     @Override

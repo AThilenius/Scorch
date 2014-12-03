@@ -10,6 +10,9 @@ import java.nio.channels.SocketChannel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Alec on 11/16/14.
@@ -18,6 +21,7 @@ public class BFESparkServer {
 
     private BFESocketServer m_socketServer;
     private BFEAssignmentServer m_assignmentServer;
+    private List<DifferedSparkRequest> m_defferedCommands = new LinkedList<DifferedSparkRequest>();
 
     public BFESparkServer(BFESocketServer socketServer, BFEAssignmentServer assignmentServer) {
         m_socketServer = socketServer;
@@ -60,21 +64,28 @@ public class BFESparkServer {
                                 .setFailureReason("Invalid Spark ID.")
                                 .build();
                     } else {
-                        // All good! Finally...
                         BlazeSpark spark = level.getSparks()[request.getSparkId()];
-                        response = spark.handle(request.getCommand());
 
-                        // Give the loaded level a chance to grade based on this move
-                        level.grade(request);
+                        // Check if the spark is currently animating
+                        if (spark.TileEntity.isAnimating()) {
+                            // Deffer the command
+                            m_defferedCommands.add(new DifferedSparkRequest(spark, level, socketChannel, request));
+                        } else {
+                            // We can animate the Spark now
+                            response = spark.handle(request.getCommand());
+
+                            // Respond back to Client
+                            BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                                    .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                                    .build();
+                            m_socketServer.send(socketChannel, message.toByteArray());
+
+                            // Give the loaded level a chance to grade based on this move
+                            level.grade(request);
+                        }
                     }
                 }
             }
-
-            BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
-                    .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
-                    .build();
-
-            m_socketServer.send(socketChannel, message.toByteArray());
         } catch (SQLException e) {
             e.printStackTrace();
             BFEProtos.BFESparkResponse response = BFEProtos.BFESparkResponse.newBuilder()
@@ -88,4 +99,24 @@ public class BFESparkServer {
         }
     }
 
+    public void onTick() {
+        for (Iterator<DifferedSparkRequest> iterator = m_defferedCommands.iterator(); iterator.hasNext();) {
+            DifferedSparkRequest request = iterator.next();
+
+            if (!request.Spark.TileEntity.isAnimating()) {
+                // We can animate the Spark now
+                BFEProtos.BFESparkResponse response = request.Spark.handle(request.Request.getCommand());
+
+                // Respond back to Client
+                BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                        .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                        .build();
+                m_socketServer.send(request.Socket, message.toByteArray());
+
+                // Give the loaded level a chance to grade based on this move
+                request.Level.grade(request.Request);
+                iterator.remove();
+            }
+        }
+    }
 }

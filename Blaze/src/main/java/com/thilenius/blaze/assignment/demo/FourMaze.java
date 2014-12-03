@@ -13,6 +13,7 @@ public class FourMaze extends BlazeLevel {
 
     private BlazeSpark m_spark;
     private Location3D m_sparkSpawn;
+    private Location3D m_finishLocation;
     private Location3D[] m_mazeOffsets = new Location3D[] {
             new Location3D(-1, 0, 0),
             new Location3D(0, 0, 1),
@@ -40,15 +41,21 @@ public class FourMaze extends BlazeLevel {
         // Spawn a single Spark
         m_sparkSpawn = new Location3D(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y + 1,
                 getArenaLocation().Z + (ArenaSize / 2));
+        m_finishLocation = new Location3D(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y + 1,
+                getArenaLocation().Z + (ArenaSize / 2) + 1);
 
         m_spark = new BlazeSpark(m_sparkSpawn);
 
         // Draw Maze
         drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
+        setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
 
         // Already done?
         if (getPoints() == 5) {
             drawBorder(1, 1, Blocks.emerald_block);
+        } else {
+            drawBorder(1, 1, Blocks.redstone_block);
         }
     }
 
@@ -56,6 +63,10 @@ public class FourMaze extends BlazeLevel {
     public void unload() {
         super.unload();
         m_spark = null;
+
+        // Return gold block back to Quartz
+        setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.quartz_block);
     }
 
     @Override
@@ -64,14 +75,25 @@ public class FourMaze extends BlazeLevel {
 
         // Spawn a new Spark
         m_spark = new BlazeSpark(m_sparkSpawn);
+
+        // Draw Maze
+        drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
+        setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
+
+        // Already done?
+        if (getPoints() == 5) {
+            drawBorder(1, 1, Blocks.emerald_block);
+        } else {
+            drawBorder(1, 1, Blocks.redstone_block);
+        }
     }
 
     @Override
     public void grade(BFEProtos.BFESparkCommand request) {
         super.grade(request);
 
-        if (request.getCommand() == BFEProtos.BFESparkCommand.CommandType.TURN_LEFT ||
-                request.getCommand() == BFEProtos.BFESparkCommand.CommandType.TURN_RIGHT) {
+        if (m_spark.getLocation().equals(m_finishLocation)) {
             setPoints(5);
             drawBorder(1, 1, Blocks.emerald_block);
         }

@@ -46,24 +46,23 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		GL11.glPopMatrix();
 
 
-
-        // Render Text (TEST)
-        GL11.glPushMatrix();
-
-        GL11.glTranslatef((float)x + 16.0f, (float)y + 5.0f, (float)z);
-        GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
-
-        // Rotate him upside down
-        //GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
-
-        // Scale down text
-        GL11.glScalef(0.3f, 0.3f, 0.3f);
-
-        FontRenderer fontrenderer = this.func_147498_b();
-        fontrenderer.drawString("Hello World", 0, 0, 0xFFFFFFFF);
-
-        // End Render Text (TEST)
-        GL11.glPopMatrix();
+//        // Render Text (TEST)
+//        GL11.glPushMatrix();
+//
+//        GL11.glTranslatef((float)x + 16.0f, (float)y + 5.0f, (float)z);
+//        GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+//
+//        // Rotate him upside down
+//        //GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+//
+//        // Scale down text
+//        GL11.glScalef(0.3f, 0.3f, 0.3f);
+//
+//        FontRenderer fontrenderer = this.func_147498_b();
+//        fontrenderer.drawString("Hello World", 0, 0, 0xFFFFFFFF);
+//
+//        // End Render Text (TEST)
+//        GL11.glPopMatrix();
     }
 
 //	//Set the lighting stuff, so it changes it's brightness properly.       

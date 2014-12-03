@@ -102,8 +102,13 @@ public class SparkTileEntity extends TileEntity {
 
     public void animateClients(AnimationTypes animationType) {
         m_currenAnimation = animationType;
+
         // Still need to handle rotation on the server side
         rotateByAnimation(animationType);
+
+        // Also need to track timer for knowing when spark is ready for another command
+        m_animationTimer = new CountdownTimer(ANIMATION_TIME);
+
         this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
     }
 

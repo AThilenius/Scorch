@@ -29,6 +29,9 @@ public class BFERequestDispatcher {
     }
 
     public void onTick() {
+        // Allow any blocked Sparks to free
+        SparkServer.onTick();
+
         List<SocketRequest> pendingRequests = m_server.getAllWaiting();
 
         while (!pendingRequests.isEmpty()) {

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'account' => 'account#show'
   get 'assignments/create'
   get 'assignments/createLevel'
+  get 'assignments/download_xcode'
   get 'assignments/list'
   get 'assignments/new'
   get 'blaze' => 'blaze#show'
