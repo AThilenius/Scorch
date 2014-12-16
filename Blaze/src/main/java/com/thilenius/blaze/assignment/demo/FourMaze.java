@@ -1,5 +1,6 @@
 package com.thilenius.blaze.assignment.demo;
 
+import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.spark.BlazeSpark;
@@ -21,7 +22,7 @@ public class FourMaze extends BlazeLevel {
             new Location3D(1, 0, 1),
             new Location3D(1, 0, -1),
             new Location3D(1, 0, -2),
-            new Location3D(0, 0, -2),
+            //new Location3D(0, 0, -2),
             new Location3D(-1, 0, -2),
             new Location3D(-2, 0, -2),
             new Location3D(-3, 0, -2),
@@ -50,6 +51,8 @@ public class FourMaze extends BlazeLevel {
         drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
         setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
                 getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
+        setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
 
         // Already done?
         if (getPoints() == 5) {
@@ -80,6 +83,8 @@ public class FourMaze extends BlazeLevel {
         drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
         setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
                 getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
+        setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
 
         // Already done?
         if (getPoints() == 5) {
@@ -92,6 +97,13 @@ public class FourMaze extends BlazeLevel {
     @Override
     public void grade(BFEProtos.BFESparkCommand request) {
         super.grade(request);
+
+        // Failure case
+        if (m_spark.getBlockLocationFromCommand(request.getCommand()).equals(new Location3D(
+                getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+                getArenaLocation().Z + (ArenaSize / 2) - 2))) {
+            // Get and blow up TNT
+        }
 
         if (m_spark.getLocation().equals(m_finishLocation)) {
             setPoints(5);

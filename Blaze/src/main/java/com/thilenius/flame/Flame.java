@@ -23,6 +23,8 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.WorldEvent;
 
+// Note: Program Arguments: -username=athilenius
+
 @Mod(modid = "flame", name = "Flame", version = "0.0.1")
 public class Flame {
 
@@ -69,7 +71,7 @@ public class Flame {
         BlazeInstance = new Blaze(this);
     }
 
-    // Fuck this piece of shit Minecraft/Forge code!!!
+    // Fuck this piece of shit Minecraft code!!!
     @SubscribeEvent
     public void entityJoinEvent(EntityJoinWorldEvent event) {
 //        if ((Object)event.entity instanceof SparkTileEntity) {

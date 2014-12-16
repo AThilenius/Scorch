@@ -56,6 +56,10 @@ public class BlazeSpark {
         return new Location3D(TileEntity.xCoord, TileEntity.yCoord, TileEntity.zCoord);
     }
 
+    public Location3D getBlockLocationFromCommand(BFEProtos.BFESparkCommand.CommandType commandType) {
+        return TileEntity.getBlockFromAction(toAnimationType(commandType));
+    }
+
     private static SparkTileEntity.AnimationTypes toAnimationType(BFEProtos.BFESparkCommand.CommandType command) {
         switch (command) {
             case MOVE_FORWARD: return SparkTileEntity.AnimationTypes.Forward;

@@ -25,6 +25,7 @@
 		703737061A2E84CE0088DF33 /* Anvil.h in Headers */ = {isa = PBXBuildFile; fileRef = 703736891A2D8A680088DF33 /* Anvil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737071A2E84D00088DF33 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737081A2E84D30088DF33 /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7084E5791A33B3AD0064041D /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7084E5781A33B3AD0064041D /* ProjectConfig.cpp */; };
 		70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		7037368C1A2D989A0088DF33 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 		703736F21A2E81AD0088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
+		7084E5781A33B3AD0064041D /* ProjectConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectConfig.cpp; sourceTree = "<group>"; };
 		70A4C8701A15886B00DC9093 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = /usr/local/lib/libprotobuf.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 				702F1BF21A1D4A4E00200224 /* PrefixHeader.h */,
 				70541CD41A1581AD00D37EF2 /* gen-files */,
 				703736861A2D89900088DF33 /* ProjectConfig.h */,
+				7084E5781A33B3AD0064041D /* ProjectConfig.cpp */,
 			);
 			path = Anvil;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				702F1BF91A1D4A4E00200224 /* main.cpp in Sources */,
 				702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */,
 				702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */,
+				7084E5791A33B3AD0064041D /* ProjectConfig.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +468,7 @@
 				703736F51A2E81AD0088DF33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		70541CAF1A15537000D37EF2 /* Build configuration list for PBXProject "Anvil" */ = {
 			isa = XCConfigurationList;

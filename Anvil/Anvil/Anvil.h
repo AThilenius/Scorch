@@ -7,7 +7,6 @@
 //
 #pragma once
 
-
 #include "Level.h"
 #include "Spark.h"
 
@@ -17,11 +16,16 @@ class TcpSocket;
 
 
 namespace AnvilAPI {
-    
 
 class Anvil {
 public:
     static Level LoadLevel(int levelNumber);
+    
+public:
+    // Configuration
+    static std::string AuthToken;
+    static std::string BlazeIP;
+    static int BlazePort;
     
 private:
     static ::Socket::TcpSocket* m_socket;

@@ -32,7 +32,7 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
         BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
         request->set_command(connandType);
         request->set_spark_id(sparkNumber);
-        request->set_auth_token(AuthToken);
+        request->set_auth_token(Anvil::AuthToken);
         
         int size = message.ByteSize();
         void* buffer = malloc(size);
