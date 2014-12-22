@@ -5,7 +5,9 @@ import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.spark.BlazeSpark;
 import com.thilenius.utilities.types.Location3D;
+import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
 
 /**
  * Created by Alec on 12/2/14.
@@ -22,7 +24,7 @@ public class FourMaze extends BlazeLevel {
             new Location3D(1, 0, 1),
             new Location3D(1, 0, -1),
             new Location3D(1, 0, -2),
-            //new Location3D(0, 0, -2),
+            new Location3D(0, 0, -2),
             new Location3D(-1, 0, -2),
             new Location3D(-2, 0, -2),
             new Location3D(-3, 0, -2),
@@ -51,8 +53,8 @@ public class FourMaze extends BlazeLevel {
         drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
         setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
                 getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
-        setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
-                getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
+        //setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+        //        getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
 
         // Already done?
         if (getPoints() == 5) {
@@ -83,8 +85,8 @@ public class FourMaze extends BlazeLevel {
         drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
         setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
                 getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
-        setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
-                getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
+        //setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+        //        getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
 
         // Already done?
         if (getPoints() == 5) {
@@ -103,6 +105,11 @@ public class FourMaze extends BlazeLevel {
                 getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
                 getArenaLocation().Z + (ArenaSize / 2) - 2))) {
             // Get and blow up TNT
+//            TileEntity tnt = Blaze.World.MinecraftWorld.getTileEntity(
+//                    getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+//                    getArenaLocation().Z + (ArenaSize / 2) - 2);
+//            Blaze.World.MinecraftWorld.createExplosion(null, getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
+//                    getArenaLocation().Z + (ArenaSize / 2) - 2, 10);
         }
 
         if (m_spark.getLocation().equals(m_finishLocation)) {

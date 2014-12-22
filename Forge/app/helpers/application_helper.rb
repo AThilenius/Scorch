@@ -82,6 +82,22 @@ module ApplicationHelper
     end
   end
 
+  def pending_assignments_count
+    return 0 if sessionGetUser == nil
+
+    count = 0
+    AssignmentDescription.where(['open_date < ? AND dueDate > ?', Time.now.getutc, Time.now.getutc]).each do |assignment|
+      userAssignment = UserAssignment.find_or_create(sessionGetUser.id, assignment.id)
+      possiblePoints = LevelDescription.where(:assignment_description_id => assignment.id).sum(:points)
+      earnedPoints = UserLevel.where(:user_assignment_id => userAssignment.id).sum(:points)
+      if possiblePoints != earnedPoints
+        count += 1
+      end
+    end
+
+    return count
+  end
+
   def redis_getter(prefix, *args)
     args.each do |arg|
       self.class_eval(%Q{

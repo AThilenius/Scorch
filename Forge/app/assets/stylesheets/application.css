@@ -38,3 +38,17 @@ body {
 .autoWidth {
 	width:100%;
 }
+
+/**
+ * Progress bars with centered text
+ */
+.progress {
+    position: relative;
+}
+
+.progress span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: black;
+}

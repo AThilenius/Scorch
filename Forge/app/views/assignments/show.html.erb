@@ -1,10 +1,16 @@
 <h1 class="text-center"><%= @assignment.name %></h1>
-<h4 class="text-center">Due in <span class="label label-danger">3 hours</span></h4>
+<h4 class="text-center"><%='Due in' if not @assignment.is_past_due %>
+  <span class="label label-<%= @assignment.due_date_color %>">
+    <%= @assignment.is_past_due ? 'Closed' : @assignment.due_date_countdown %>
+  </span>
+</h4>
 
 <hr>
 
 <ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#">My Assignment</a></li>
+  <li role="presentation" class=<%= 'active' if current_page?(assignment_path(@assignment.id)) %>>
+    <a href=<%= assignment_path(@assignment.id) %>>Assignment</a>
+  </li>
   <li role="presentation"><a href="#">Class Statistics</a></li>
   <li role="presentation" class="dropdown pull-right">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -27,6 +33,7 @@
     </h3>
   </div>
   <div class="panel-body">
+    <p class="pull-right">TODO: ADD DATE HERE</p>
     <!--Render Assignment-->
     <%= markdown(@assignment.markdown) %>
   </div>

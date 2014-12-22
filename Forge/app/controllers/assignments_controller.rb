@@ -1,9 +1,46 @@
 class AssignmentsController < ApplicationController
 
+  require 'time_diff'
   include SessionHelper
+  include ApplicationHelper
 
   def list
     return if sessionActiveCheckFailed
+
+    @assignmentsData = []
+    @assignments = AssignmentDescription.find_each
+
+    # For each Assignment Description
+    @assignments.each do |assignment|
+
+      # TODO: These need to be collapsed into a single QUERY with a JOINs
+      # Get User Assignment
+      userAssignment = UserAssignment.find_or_create(sessionGetUser.id, assignment.id)
+
+      possiblePoints = LevelDescription.where(:assignment_description_id => assignment.id).sum(:points)
+      earnedPoints = UserLevel.where(:user_assignment_id => userAssignment.id).sum(:points)
+
+      possibleExtraCredit = LevelDescription.where(:assignment_description_id => assignment.id).sum(:extra_credit)
+      earnedExtraCredit = UserLevel.where(:user_assignment_id => userAssignment.id).sum(:extra_credit)
+
+      # Build out the 'assignment'
+      assignmentData = OpenStruct.new
+      assignmentData.assignment = assignment
+      assignmentData.isOpen = assignment.open_date < Time.now.getutc
+      assignmentData.userAssignment = userAssignment
+      assignmentData.possiblePoints = possiblePoints
+      assignmentData.earnedPoints = earnedPoints
+      assignmentData.possibleExtraCredit = possibleExtraCredit
+      assignmentData.earnedExtraCredit = earnedExtraCredit
+      assignmentData.pointsPercent = possiblePoints == 0 ?
+          '0%' : "#{(Float(earnedPoints) / Float(possiblePoints) * 100).round}%"
+      assignmentData.extraCreditPercent = possibleExtraCredit == 0 ?
+          '0%' : "#{(Float(earnedExtraCredit) / Float(possibleExtraCredit) * 100).round}%"
+      assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color
+
+      @assignmentsData << assignmentData
+    end
+
   end
 
   def show

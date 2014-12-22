@@ -4,7 +4,7 @@ class CreateUserLevels < ActiveRecord::Migration
       t.references :user_assignment,    index: true
       t.references :level_description,  index: true
       t.integer :points,                default: 0
-
+      t.integer :extra_credit,          default: 0
       t.timestamps
     end
   end

@@ -9,6 +9,7 @@ module SessionHelper
 	end
 
 	def sessionGetUser
+		return nil if session[:id] == nil
 		return User.find(session[:id])
 	end
 

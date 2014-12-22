@@ -6,6 +6,7 @@ class CreateLevelDescriptions < ActiveRecord::Migration
       t.string  :name
       t.integer :levelNumber
       t.integer :points
+      t.integer :extra_credit
       t.string  :markdown
 
       t.timestamps

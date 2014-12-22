@@ -1,34 +1,56 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Assignments
+<h1 class="text-center">Assignments</h1>
+<h4 class="text-center"><span class="label label-danger"></span></h4>
 
-      <div class="btn-group btn-group-xs pull-right">
-        <a type="button" class="btn btn-default" href=<%=assignments_new_path%>>Add</a>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-          Filter
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">All</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Free</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Allocated</a></li>
-        </ul>
-      </div>
+<hr>
 
-    </h3>
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">
+    My Assignments
+    <% assignmentsCount = pending_assignments_count %>
+    <% if assignmentsCount != 0 %>
+        <div class="badge pull-right"><%= pending_assignments_count %></div>
+    <% end %>
+  </a></li>
+  <li role="presentation"><a href="#">Class Statistics</a></li>
+</ul>
 
-  </div>
-  <div class="panel-body">
+<br>
+
+<% @assignmentsData.each do |assignmentData| %>
 
     <ul class="list-group">
-      <% AssignmentDescription.find_each.each do |assignment| %>
+      <a class="list-group-item list-group-item-<%= assignmentData.dueDateColor%>"
+            href=<%= assignment_path(assignmentData.assignment.id) %>>
+        <h4><b><%= assignmentData.assignment.name %></b>
+          <span class=" pull-right label label-<%= assignmentData.assignment.due_date_color %>">
+            <%= assignmentData.assignment.due_date_countdown %>
+          </span>
+        </h4>
+        <hr>
+        <div class="row">
 
-          <a class="list-group-item" href=<%= assignment_path(assignment.id) %>>
-            <%= assignment.name %>
-          </a>
+          <div class="col-sm-9">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: <%= assignmentData.pointsPercent %>">
+                <span class="">Progress</span>
+              </div>
+            </div>
+          </div>
 
-      <% end %>
-    </ul>
+          <div class="col-sm-3">
+            <div class="progress text-center">
+              <div class="progress-bar progress-bar-success progress-bar-striped"
+                   style="width: <%= assignmentData.extraCreditPercent %>">
+                <span class="">Extra Credit</span>
+              </div>
+            </div>
+          </div>
 
-  </div>
-</div>
+        </div>
+        <p><%= markdown(assignmentData.assignment.brief_markdown) %></p>
+        <em><%= assignmentData.assignment.dueDate %></em>
+      </a>
+
+      </ul>
+
+<% end %>

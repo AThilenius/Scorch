@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'password_change' => 'password#change'
   get 'session_login' => 'session#login'
   get 'session_logout' => 'session#logout'
-  post 'anvil/login'
+  post 'service/get_minecraft_session' => 'service#get_minecraft_session'
 
   resources :minecraft_accounts, :only => [:show, :destroy]
   resources :students, :only => [:show, :destroy]
