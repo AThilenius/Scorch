@@ -63,6 +63,7 @@ GEM
     mime-types (1.25.1)
     minitest (5.5.0)
     multi_json (1.10.1)
+    mysql2 (0.3.17)
     passenger (4.0.56)
       daemon_controller (>= 1.2.0)
       rack
@@ -143,6 +144,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   less-rails-bootstrap
+  mysql2
   passenger
   rails (= 4.1.1)
   redcarpet
