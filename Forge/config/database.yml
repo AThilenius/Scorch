@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: forge
+  username: forgeadmin
+  host: forge.cfqsj371kgit.us-west-1.rds.amazonaws.com
+  password: qwe123qwe!#
+  port: 3306
