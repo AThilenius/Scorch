@@ -1,0 +1,56 @@
+<h1 class="text-center">Assignments</h1>
+<h4 class="text-center"><span class="label label-danger"></span></h4>
+
+<hr>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">
+    My Assignments
+    <% assignmentsCount = pending_assignments_count %>
+    <% if assignmentsCount != 0 %>
+        <div class="badge pull-right"><%= pending_assignments_count %></div>
+    <% end %>
+  </a></li>
+  <li role="presentation"><a href="#">Class Statistics</a></li>
+</ul>
+
+<br>
+
+<% @assignmentsData.each do |assignmentData| %>
+
+    <ul class="list-group">
+      <a class="list-group-item list-group-item-<%= assignmentData.dueDateColor%>"
+            href=<%= assignment_path(assignmentData.assignment.id) %>>
+        <h4><b><%= assignmentData.assignment.name %></b>
+          <span class=" pull-right label label-<%= assignmentData.assignment.due_date_color %>">
+            <%= assignmentData.assignment.due_date_countdown %>
+          </span>
+        </h4>
+        <hr>
+        <div class="row">
+
+          <div class="col-sm-9">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: <%= assignmentData.pointsPercent %>">
+                <span class="">Progress</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="progress text-center">
+              <div class="progress-bar progress-bar-success progress-bar-striped"
+                   style="width: <%= assignmentData.extraCreditPercent %>">
+                <span class="">Extra Credit</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <p><%= markdown(assignmentData.assignment.brief_markdown) %></p>
+        <em><%= assignmentData.assignment.dueDate %></em>
+      </a>
+
+      </ul>
+
+<% end %>
