@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password
       t.string :guid,         index: true
       t.string :permissions,  index: true
+      t.string :arenaLocation
 
       t.timestamps
     end
