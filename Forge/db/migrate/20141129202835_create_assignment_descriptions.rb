@@ -7,6 +7,7 @@ class CreateAssignmentDescriptions < ActiveRecord::Migration
       t.string    :jarPath
       t.datetime  :dueDate
       t.datetime  :open_date
+      t.string    :arenaLocation
       t.timestamps
     end
   end
