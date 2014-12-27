@@ -1,9 +1,15 @@
 package com.thilenius.blaze.assignment.demo;
 
+import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeAssignment;
 import com.thilenius.blaze.assignment.BlazeLevel;
+import com.thilenius.flame.Flame;
+import com.thilenius.flame.jumbotron.JumboTileEntity;
+import com.thilenius.flame.spark.SparkTileEntity;
+import com.thilenius.utilities.types.Location2D;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
 
 /**
  * Created by Alec on 11/15/14.
@@ -16,8 +22,8 @@ public class HelloWorldAssignment extends BlazeAssignment {
     private FourMaze m_levelFour = new FourMaze();
 
     @Override
-    public void load(Location3D arenaLocation) {
-        super.load(arenaLocation);
+    public void load(Location3D arenaLocation, String displayName) {
+        super.load(arenaLocation, displayName);
         clear();
         drawFloor(0, Blocks.quartz_block);
     }

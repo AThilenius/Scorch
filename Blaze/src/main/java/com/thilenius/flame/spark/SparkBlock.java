@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 public class SparkBlock extends BlockContainer {
 	public SparkBlock () {
         super(Material.ground);
-        this.setBlockBounds(0.2F, 0.0F, 0.2F, 0.8F, 0.8F, 0.8F);
+        this.setBlockBounds(-10.2F, -10.0F, -10.2F, 20.8F, 20.8F, 20.8F);
         this.setCreativeTab(CreativeTabs.tabMisc);
 	}
 

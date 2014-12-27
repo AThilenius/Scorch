@@ -1,5 +1,7 @@
 package com.thilenius.flame.jumbotron;
 
+import com.thilenius.blaze.Blaze;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,10 +13,10 @@ import net.minecraft.world.World;
  */
 public class JumboBlock extends BlockContainer {
 
-    public JumboBlock () {
-        super(Material.ground);
-        this.setBlockBounds(-8.0F, 0.0F, 0.2F, 8.0F, 0.8F, 0.8F);
-        this.setCreativeTab(CreativeTabs.tabMisc);
+    public JumboBlock (Material material) {
+        super(material);
+        this.setBlockBounds(-14.0F, 0.0F, 0.0F, 0.0F, 2.0F, 1.0F);
+        this.setBlockName("Jumbotron");
     }
 
     @Override
@@ -24,8 +26,7 @@ public class JumboBlock extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        JumboTileEntity jumbo = new JumboTileEntity();
-        return jumbo;
+        return new JumboTileEntity();
     }
 
     @Override

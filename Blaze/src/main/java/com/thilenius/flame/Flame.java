@@ -1,6 +1,8 @@
 package com.thilenius.flame;
 
 import com.thilenius.blaze.Blaze;
+import com.thilenius.flame.jumbotron.JumboBlock;
+import com.thilenius.flame.jumbotron.JumboTileEntity;
 import com.thilenius.flame.spark.SparkBlock;
 import com.thilenius.flame.spark.SparkTileEntity;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -17,6 +19,8 @@ import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
@@ -40,6 +44,7 @@ public class Flame {
 	public static CommonProxy proxy;
 
 	public static Block sparkBlock;
+    public static Block jumboBlock;
 	public static Item spark;
 
 	@EventHandler
@@ -48,6 +53,10 @@ public class Flame {
 		sparkBlock = new SparkBlock();
 		GameRegistry.registerBlock(sparkBlock, "sparkBlock");
 		GameRegistry.registerTileEntity(SparkTileEntity.class, "SparkTileEntity");
+
+        jumboBlock = new JumboBlock(Material.ground);
+        GameRegistry.registerBlock(jumboBlock, "jumboBlock");
+        GameRegistry.registerTileEntity(JumboTileEntity.class, "jumboTileEntity");
 
 		// Register Events
 		MinecraftForge.EVENT_BUS.register(this);

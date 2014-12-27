@@ -2,6 +2,9 @@ package com.thilenius.blaze.assignment;
 
 import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.player.BlazePlayer;
+import com.thilenius.flame.Flame;
+import com.thilenius.flame.jumbotron.JumboTileEntity;
+import com.thilenius.utilities.types.Location2D;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -14,12 +17,28 @@ public abstract class BlazeAssignment {
 
     public abstract BlazeLevel getLevel(int number);
 
-    public void load(Location3D arenaLocation) {
+    public void load(Location3D arenaLocation, String displayName) {
         m_arenaLocation = arenaLocation;
+
+        // Add Jumbotron
+        Location3D jumbotronLocation = new Location3D(
+                arenaLocation.X + BlazeLevel.ArenaSize - 2,
+                arenaLocation.Y + 5,
+                arenaLocation.Z + BlazeLevel.ArenaSize + 1);
+        Blaze.World.MinecraftWorld.setBlockToAir(jumbotronLocation.X, jumbotronLocation.Y, jumbotronLocation.Z);
+        if(Blaze.World.MinecraftWorld.setBlock(jumbotronLocation.X, jumbotronLocation.Y, jumbotronLocation.Z,
+                Flame.jumboBlock)) {
+            JumboTileEntity tileEntity = (JumboTileEntity)Blaze.World.MinecraftWorld
+                    .getTileEntity(jumbotronLocation.X, jumbotronLocation.Y, jumbotronLocation.Z);
+            tileEntity.build(new Location2D(20, 2));
+            tileEntity.Text = displayName;
+            System.out.println("Jumbotron created: " + tileEntity.toString());
+        } else {
+            System.err.println("Failed to create jumbotron at: " + arenaLocation.toString());
+        }
     }
 
     public void unload() {
-
     }
 
     public void reload() {

@@ -5,7 +5,6 @@ import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.server.MinecraftServer;
-import redis.clients.jedis.Jedis;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,15 +16,12 @@ import java.sql.Statement;
  * Created by Alec on 10/24/14.
  */
 public class Blaze {
-
-    public static Jedis RedisInstance;
     public static Connection SqlInstance;
     public static BlazeWorld World;
     public static Flame FlameInstance;
     public static BlazeFrontEnd FrontEndServer;
 
     public Blaze (Flame flame) {
-        RedisInstance = new Jedis("localhost");
         FlameInstance = flame;
         World = new BlazeWorld(MinecraftServer.getServer().worldServers[0]);
         FrontEndServer = new BlazeFrontEnd();
@@ -35,7 +31,14 @@ public class Blaze {
         {
             Class.forName("org.sqlite.JDBC");
             SqlInstance = DriverManager.getConnection(
-                    "jdbc:sqlite:/Users/Alec/Documents/Development/Scorch/Forge/db/development.sqlite3");
+                    "jdbc:sqlite:/Users/Alec/Documents/Development/Forge/db/development.sqlite3");
+
+//            System.out.println("Trying to connect to AWS RDS: MySQL");
+//            Class.forName("org.gjt.mm.mysql.Driver").newInstance();
+//            SqlInstance = DriverManager.getConnection(
+//                    "jdbc:mysql:forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb",
+//                    "admin",
+//                    "forgeadmin");
             System.out.println("Connected to SQL Lite.");
         }
         catch(SQLException e)
@@ -44,6 +47,11 @@ public class Blaze {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {
@@ -55,13 +63,17 @@ public class Blaze {
     }
 
     public String onFormatName (String username) {
-        BlazePlayer player = World.BlazePlayersByUsername.get(username);
+       // BlazePlayer player = World.BlazePlayersByUsername.get(username);
 
-        if (player != null) {
-            return player.PlayerData.getDisplayName();
-        } else {
-            return username;
-        }
+//        if (player != null) {
+//            // Lookup name in database
+//            return "";
+//        } else {
+//            return username;
+//        }
+
+        //TODO: Fix this
+        return "TODO Blaze.Java 58";
     }
 
     public static void onTick() {

@@ -27,7 +27,7 @@ namespace AnvilAPI {
     int Anvil::m_activeLevel = -1;
     
     // Configuration
-    std::string Anvil::AuthToken = "c0dba92c-6449-40a6-95da-11d2b7d28ad6";
+    std::string Anvil::AuthToken = "ca41904d-91de-47c3-93a6-bbbd06282eeb";
     std::string Anvil::BlazeIP = "127.0.0.0";
     int Anvil::BlazePort = 5529;
 

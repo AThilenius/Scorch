@@ -47,7 +47,7 @@ public class Main {
 
         try {
             String userArgsJson = postJson(new URL("http://localhost:3000/service/get_minecraft_session"),
-                    "{ \"Some Field\": \"Some Value\" }");
+                    "{ \"user_guid\": \"8ef5aba1-cfac-4886-9b8d-9de30b1d9ab4\" }");
             userArgs = mapper.readValue(userArgsJson, MinecraftSession.class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,7 +79,6 @@ public class Main {
             out.println("minecraft_path=" + minecraftPath);
             out.println("user_args=\"" + userArgs.user_args + "\"");
             out.println("echo \"" + command +"\"");
-            out.println("echo \"${user_args}\"");
 
             out.println("cd ${minecraft_path}");
             out.println(command);

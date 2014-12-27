@@ -12,21 +12,21 @@ public class LoadState {
     public int LevelNumber = -1;
     
     public BFEProtos.BFEMessage transitionState (AssignmentLoader loader, String jarPath, Location3D arenaLocation,
-                                                 int levelNumber, int seed, int userLevelId) {
+                                                 String displayName, int levelNumber, int seed, int userLevelId) {
         BFEProtos.BFELoadLevelResponse response = null;
 
         try {
             // First check that the correct assignment is loaded
             if (Assignment == null) {
                 // No assignment is loaded at all
-                loadAssignment(loader, jarPath, arenaLocation);
+                loadAssignment(loader, jarPath, arenaLocation, displayName);
             } else if (!Assignment.getClass().getCanonicalName().equals(jarPath)) {
                 // The wrong assignment is loaded. We also need to unload the level at this point
                 if (Level != null) {
                     Level.unload();
                     Level = null;
                 }
-                loadAssignment(loader, jarPath, arenaLocation);
+                loadAssignment(loader, jarPath, arenaLocation, displayName);
             } else {
                 // Correct Assignment loaded
                 Assignment.reload();
@@ -63,7 +63,8 @@ public class LoadState {
                 .build();
     }
 
-    private void loadAssignment (AssignmentLoader loader, String jarPath, Location3D arenaLocation) throws Exception {
+    private void loadAssignment (AssignmentLoader loader, String jarPath, Location3D arenaLocation, String displayName)
+            throws Exception {
         BlazeAssignment newAssignment = loader.loadAssignment(jarPath);
         if (newAssignment == null) {
             // Failed to load the new assignment
@@ -75,7 +76,7 @@ public class LoadState {
             Assignment.unload();
         }
         Assignment = newAssignment;
-        Assignment.load(arenaLocation);
+        Assignment.load(arenaLocation, displayName);
     }
 
     private void loadLevel (int levelNumber, int seed, int userLevelId, Location3D arenaLocation) throws Exception {

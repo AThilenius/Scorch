@@ -56,7 +56,7 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 //        //GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
 //
 //        // Scale down text
-//        GL11.glScalef(0.3f, 0.3f, 0.3f);
+//        GL11.glScalef(0.2f, 0.2f, 0.2f);
 //
 //        FontRenderer fontrenderer = this.func_147498_b();
 //        fontrenderer.drawString("Hello World", 0, 0, 0xFFFFFFFF);

@@ -11,13 +11,11 @@ import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.utilities.types.Location3D;
 
 import java.nio.channels.SocketChannel;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.sql.*;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by Alec on 11/15/14.
@@ -47,7 +45,13 @@ public class BFEAssignmentServer {
             // Fuck me that is an ugly QUERY... This could turn out to be a huge performance sink, may need
             // to pre-process this in Forge.
             ResultSet rs = statement.executeQuery(
-                "SELECT users.username, users.arenaLocation, assignment_descriptions.jarPath, user_levels.id\n" +
+                "SELECT users.firstName, " +
+                        "users.lastName, " +
+                        "users.username, users.arenaLocation, " +
+                        "assignment_descriptions.dueDate, " +
+                        "assignment_descriptions.open_date, " +
+                        "assignment_descriptions.jarPath, " +
+                        "user_levels.id" + "\n" +
                 "FROM user_assignments\n" +
                 "  JOIN users\n" +
                 "    ON users.id = user_assignments.user_id\n" +
@@ -61,14 +65,48 @@ public class BFEAssignmentServer {
                 "WHERE user_assignments.authToken is \"" + request.getAuthToken() + "\"\n" +
                 "  AND level_descriptions.levelNumber = " + request.getLevelNumber() + "");
 
-            // May or may not need this for 1 record
+            SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+            dateTimeFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
             rs.next();
+            String firstName = rs.getString("firstName");
+            String lastName = rs.getString("lastName");
             String username = rs.getString("username");
             String arenaLocStr = rs.getString("arenaLocation");
+            String dueDateStr = rs.getString("dueDate");
+            java.util.Date dueDate = dateTimeFormat.parse(dueDateStr);
+            String openDateStr = rs.getString("open_date");
+            java.util.Date openDate = dateTimeFormat.parse(openDateStr);
             Location3D arenaLocation = new Location3D(arenaLocStr);
             String jarPath = rs.getString("jarPath");
             int userLevelId = rs.getInt("id");
             rs.next();
+
+            if (openDate.compareTo(new java.util.Date()) > -1) {
+                // Not yet open
+                BFEProtos.BFELoadLevelResponse response = BFEProtos.BFELoadLevelResponse.newBuilder()
+                        .setFailureReason("Assignment has not yet opened. Please wait for the assignment to open.")
+                        .build();
+                m_socketServer.send(socketChannel,
+                        BFEProtos.BFEMessage.newBuilder()
+                            .setExtension(BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt, response)
+                            .build()
+                            .toByteArray());
+                return;
+            }
+
+            if (dueDate.compareTo(new java.util.Date()) < 1) {
+                // Past due
+                BFEProtos.BFELoadLevelResponse response = BFEProtos.BFELoadLevelResponse.newBuilder()
+                        .setFailureReason("The assignment is past due, you cannot work on this assignment any longer.")
+                        .build();
+                m_socketServer.send(socketChannel,
+                        BFEProtos.BFEMessage.newBuilder()
+                            .setExtension(BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt, response)
+                            .build()
+                            .toByteArray());
+                return;
+            }
 
             LoadState loadState = m_loadedStatesByUsername.get(username);
             if (loadState == null) {
@@ -79,8 +117,8 @@ public class BFEAssignmentServer {
             // TODO: Switch this to a generated seed at some point. Not sure how I want to do it yet
             int seed = 0;
 
-            BFEProtos.BFEMessage message = loadState.transitionState
-                    (m_assignmentLoader, jarPath, arenaLocation, request.getLevelNumber(), seed, userLevelId);
+            BFEProtos.BFEMessage message = loadState.transitionState(m_assignmentLoader, jarPath, arenaLocation,
+                    lastName + ", " + firstName, request.getLevelNumber(), seed, userLevelId);
             m_socketServer.send(socketChannel, message.toByteArray());
 
         } catch (SQLException e) {
@@ -93,6 +131,8 @@ public class BFEAssignmentServer {
                     .setExtension(BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt, response)
                     .build()
                     .toByteArray());
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 
