@@ -88,7 +88,7 @@
       <primary-key columns="id"/>
     </table>
   </data-source>
-  <data-source name="MySQL - @forge.cfqsj371kgit.us-west-1.rds.amazonaws.com" uuid="1f4ebbf1-5f61-4da0-b95c-b780e19d7f06">
+  <data-source name="AWS Dev" uuid="81470f4e-992b-48ca-be37-e6a2354e257f">
     <database-info product="MySQL" version="5.6.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
@@ -98,8 +98,8 @@
     <table name="assignment_descriptions" schema="" catalog="forgedb" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="markdown" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="brief_markdown" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="markdown" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="brief_markdown" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
       <column name="jarPath" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="dueDate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="open_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
@@ -114,7 +114,7 @@
       <column name="levelNumber" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="points" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="extra_credit" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="markdown" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="markdown" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -169,6 +169,7 @@
       <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="guid" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="permissions" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="arenaLocation" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>

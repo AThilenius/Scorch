@@ -1,7 +1,21 @@
 class AssignmentDescription < ActiveRecord::Base
+  has_many :user_assignment
+  has_many :level_descriptions
 
   # Formats a delta time to a nice, readable format with fixed precision
   def due_date_countdown()
+    return AssignmentDescription.due_date_countdown(dueDate, open_date)
+  end
+
+  def due_date_color()
+    return AssignmentDescription.due_date_color(dueDate, open_date)
+  end
+
+  def is_past_due()
+    return AssignmentDescription.is_past_due(dueDate)
+  end
+
+  def self.due_date_countdown(dueDate, open_date)
     delta = Time.diff(dueDate, Time.now.getutc)
     prefix = open_date > Time.now.getutc ? 'Opens in ' : 'Due in '
     return 'Closed' if dueDate < Time.now.getutc
@@ -24,7 +38,7 @@ class AssignmentDescription < ActiveRecord::Base
     end
   end
 
-  def due_date_color()
+  def self.due_date_color(dueDate, open_date)
     delta = dueDate - Time.now.getutc
     if delta <= 0 or open_date > Time.now.getutc
       return 'default'
@@ -33,7 +47,7 @@ class AssignmentDescription < ActiveRecord::Base
     end
   end
 
-  def is_past_due()
+  def self.is_past_due(dueDate)
     return dueDate - Time.now.getutc <= 0
   end
 

@@ -1,5 +1,5 @@
 class ServiceController < ApplicationController
-  skip_before_filter :verify_authenticity_token, :only => [:get_minecraft_session]
+  skip_before_filter :verify_authenticity_token, :only => [:get_minecraft_session, :get_user_level_data]
 
   def get_minecraft_session
 
@@ -43,4 +43,49 @@ class ServiceController < ApplicationController
                               " --userProperties {}" +
                               " --userType #{account.user_type}" }
   end
+
+  def get_user_level_data
+
+    # Get the user by GUID
+    jsonRequest = JSON.parse(request.raw_post)
+    if jsonRequest.nil? or jsonRequest['authToken'].nil? or jsonRequest['levelNumber'].nil?
+      render :json => { :error => 'Failed to parse JSON data' }
+      return
+    end
+
+    data = User.join_all(
+            'users.username as user_username,' +
+            'users.firstName as user_first_name,' +
+            'users.lastName as user_last_name,' +
+            'users.permissions as user_permissions,' +
+            'users.arenaLocation as user_arena_location,' +
+            'assignment_descriptions.jarPath as assignment_jar_path,' +
+            'assignment_descriptions.name as assignment_name,' +
+            'assignment_descriptions.open_date as assignment_open_date,' +
+            'assignment_descriptions.dueDate as assignment_due_date,' +
+            'user_levels.id as user_level_id')
+        .where("user_assignments.authToken = \"#{jsonRequest['authToken']}\"")
+        .where("level_descriptions.levelNumber = \"#{jsonRequest['levelNumber']}\"")
+        .first
+
+    if data.nil?
+      render :json => { :error => "Failed to find a user assignment with the GUID #{jsonRequest['authToken']}" }
+      return
+    end
+
+    render :json => {
+                :user_username => data.user_username,
+                :user_first_name => data.user_first_name,
+                :user_last_name => data.user_last_name,
+                :user_permissions => data.user_permissions,
+                :user_arena_location => data.user_arena_location,
+                :assignment_jar_path => data.assignment_jar_path,
+                :assignment_open_date => data.assignment_open_date,
+                :assignment_due_date => data.assignment_due_date,
+                :user_level_id => data.user_level_id
+           }
+
+  end
+
+
 end

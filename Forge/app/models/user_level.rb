@@ -1,5 +1,6 @@
 class UserLevel < ActiveRecord::Base
   belongs_to :user_assignment
+  belongs_to :level_description
 
   def self.find_or_create(userAssignmentID, levelDescriptionID)
     userLevel = UserLevel.find_by user_assignment_id: userAssignmentID,

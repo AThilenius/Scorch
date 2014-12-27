@@ -13,6 +13,10 @@ module SessionHelper
 		return User.find(session[:id])
 	end
 
+	def sessionGetUserId
+		return session[:id]
+	end
+
 	def sessionLogin(user)
 		session[:id] = user.id
 	end
