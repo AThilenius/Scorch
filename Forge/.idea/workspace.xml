@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4cbbfa5-3f93-41c0-a7f7-99942608c2af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
     </list>
     <ignored path="Forge.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,11 +80,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21322691" vertical-offset="308" max-vertical-offset="1335">
+            <state vertical-scroll-proportion="-7.1923075" vertical-offset="308" max-vertical-offset="1335">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/database.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.59800667" vertical-offset="0" max-vertical-offset="903">
+              <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -136,7 +146,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20141129202835_create_assignment_descriptions.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20141129232400_create_users.rb" />
         <option value="db-console:/73e06eec/81470f4e-992b-48ca-be37-e6a2354e257f/" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/app/models/user_assignment.rb" />
         <option value="$PROJECT_DIR$/app/models/user_level.rb" />
         <option value="$PROJECT_DIR$/app/models/level_description.rb" />
@@ -152,6 +161,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20141129043813_create_minecraft_accounts.rb" />
         <option value="$PROJECT_DIR$/app/controllers/service_controller.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/config/database.yml" />
       </list>
     </option>
   </component>
@@ -854,14 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user_level.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
@@ -1183,8 +1185,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21322691" vertical-offset="308" max-vertical-offset="1335">
+        <state vertical-scroll-proportion="-7.1923075" vertical-offset="308" max-vertical-offset="1335">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59800667" vertical-offset="0" max-vertical-offset="903">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
           <folding />
         </state>
       </provider>

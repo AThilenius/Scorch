@@ -32,7 +32,7 @@ production:
   adapter: mysql2
   database: forgedb
   username: admin
-  host: forge-prod.cfqsj371kgit.us-west-1.rds.amazonaws.com
+  host: forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com
   password: forgeadmin
   port: 3306
   pool: 5
