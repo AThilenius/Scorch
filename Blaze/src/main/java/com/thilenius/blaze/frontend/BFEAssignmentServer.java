@@ -62,7 +62,7 @@ public class BFEAssignmentServer {
                 "  JOIN user_levels\n" +
                 "    ON user_levels.user_assignment_id = user_assignments.id\n" +
                 "   AND user_levels.level_description_id = level_descriptions.id\n" +
-                "WHERE user_assignments.authToken is \"" + request.getAuthToken() + "\"\n" +
+                "WHERE user_assignments.authToken = \"" + request.getAuthToken() + "\"\n" +
                 "  AND level_descriptions.levelNumber = " + request.getLevelNumber() + "");
 
             SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);

@@ -29,16 +29,32 @@ public class Blaze {
 
         try
         {
+            // First try to connect to production.
+            try {
+                System.out.println("Trying to connect DEVELOPMENT AWS RDS: MySQL");
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                SqlInstance = DriverManager.getConnection(
+                                "jdbc:mysql://forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb?" +
+                                "user=admin&password=forgeadmin");
+                System.out.println("Connected to DEVELOPMENT AWS RDS");
+                return;
+            } catch(SQLException e) {
+                // Do nothing, fallback to Dev
+                System.out.println(e.getMessage());
+            } catch (ClassNotFoundException e) {
+                System.out.println(e.getMessage());
+            } catch (InstantiationException e) {
+                System.out.println(e.getMessage());
+            } catch (IllegalAccessException e) {
+                System.out.println(e.getMessage());
+            }
+
+            System.out.println("Failed to connect. Falling back to Development DB: SqlLite");
             Class.forName("org.sqlite.JDBC");
             SqlInstance = DriverManager.getConnection(
                     "jdbc:sqlite:/Users/Alec/Documents/Development/Forge/db/development.sqlite3");
 
-//            System.out.println("Trying to connect to AWS RDS: MySQL");
-//            Class.forName("org.gjt.mm.mysql.Driver").newInstance();
-//            SqlInstance = DriverManager.getConnection(
-//                    "jdbc:mysql:forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb",
-//                    "admin",
-//                    "forgeadmin");
+
             System.out.println("Connected to SQL Lite.");
         }
         catch(SQLException e)

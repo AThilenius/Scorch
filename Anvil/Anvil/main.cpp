@@ -13,5 +13,7 @@
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    Level level = Anvil::LoadLevel(0);
+    Level level = Anvil::LoadLevel(1);
+    Spark spark = level.GetSpark();
+    spark.MoveForward();
 }

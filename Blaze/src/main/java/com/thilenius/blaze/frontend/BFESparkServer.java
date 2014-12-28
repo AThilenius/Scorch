@@ -41,7 +41,7 @@ public class BFESparkServer {
                     "FROM user_assignments\n" +
                     "  JOIN users\n" +
                     "    ON users.id = user_assignments.user_id\n" +
-                    "WHERE user_assignments.authToken is \"" + request.getAuthToken() + "\"");
+                    "WHERE user_assignments.authToken = \"" + request.getAuthToken() + "\"");
             rs.next();
             String username = rs.getString("username");
             rs.next();

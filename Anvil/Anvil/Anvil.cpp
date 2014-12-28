@@ -13,6 +13,8 @@
 #include "TcpMessage.h"
 #include "Level.h"
 
+#include "SFML/Network.hpp"
+
 using Socket::TcpSocket;
 using Socket::TcpMessage;
 using Socket::TcpMessagePtr;
@@ -27,8 +29,9 @@ namespace AnvilAPI {
     int Anvil::m_activeLevel = -1;
     
     // Configuration
-    std::string Anvil::AuthToken = "ca41904d-91de-47c3-93a6-bbbd06282eeb";
-    std::string Anvil::BlazeIP = "127.0.0.0";
+    std::string Anvil::AuthToken = "c0dba92c-6449-40a6-95da-11d2b7d28ad6";
+    std::string Anvil::BlazeIP = "54.67.82.68";
+    //std::string Anvil::BlazeIP = "127.0.0.0";
     int Anvil::BlazePort = 5529;
 
     Level Anvil::LoadLevel(int levelNumber) {
