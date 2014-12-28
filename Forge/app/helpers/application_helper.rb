@@ -86,7 +86,12 @@ module ApplicationHelper
     return 0 if sessionGetUser == nil
 
     count = 0
-    AssignmentDescription.where(['open_date < ? AND dueDate > ?', Time.now.getutc, Time.now.getutc]).each do |assignment|
+    nowUtc = Time.now.getutc.strftime('%Y-%m-%d %H:%M:%S')
+    queryStr = "open_date < '#{nowUtc}' AND dueDate > '#{nowUtc}'"
+    AssignmentDescription.where(queryStr).each do |assignment|
+      openDate = assignment.open_date
+      dueDate = assignment.dueDate
+      now = Time.zone.now
       userAssignment = UserAssignment.find_or_create(sessionGetUser.id, assignment.id)
       possiblePoints = LevelDescription.where(:assignment_description_id => assignment.id).sum(:points)
       earnedPoints = UserLevel.where(:user_assignment_id => userAssignment.id).sum(:points)

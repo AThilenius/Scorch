@@ -35,13 +35,35 @@ class ServiceController < ApplicationController
       account.save
     end
 
+    # Authenticate with Minecraft servers
+    jsonText = {
+        "agent" => {
+            "name" => "Minecraft",
+            "version" => 1
+        },
+        "username" => "#{account.username}",
+        "password" => "#{account.password}"
+    }.to_json
+
+    uri = URI.parse("https://authserver.mojang.com/authenticate")
+    https = Net::HTTP.new(uri.host,uri.port)
+    https.use_ssl = true
+    req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
+    req.body = jsonText
+    res = https.request(req)
+    data_parsed = JSON.parse(res.body)
+    userType = ''
+    if data_parsed['selectedProfile']['legacy']
+      userType = ' --userType legacy'
+    end
+
     # Return the compiled user_args to them
     render :json => { :user_args =>
                           "--username #{account.username}" +
-                              " --uuid #{account.uuid}" +
-                              " --accessToken #{account.access_token}" +
+                              " --uuid #{data_parsed['selectedProfile']['id']}" +
+                              " --accessToken #{data_parsed['accessToken']}" +
                               " --userProperties {}" +
-                              " --userType #{account.user_type}" }
+                              userType }
   end
 
   def get_user_level_data

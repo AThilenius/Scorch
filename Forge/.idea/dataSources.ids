@@ -35,10 +35,8 @@
       <column name="state" sqlType="VARCHAR(255)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <column name="updated_at" sqlType="DATETIME" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
-      <column name="allocated_user_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
-      <column name="access_token" sqlType="STRING" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="uuid" sqlType="STRING" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
-      <column name="user_type" sqlType="STRING" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="allocated_user_id" sqlType="INT" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="user_type" sqlType="STRING" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
       <primary-key columns="id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="" type="TABLE">
