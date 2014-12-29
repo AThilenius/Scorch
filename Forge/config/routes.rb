@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'flame/show'
+
+  get 'minecraft/show'
+
   get 'students/create'
   get 'students/list'
   get 'students/new'
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
   get 'downloads/:id/xcode' => 'downloads#xcode'
   get 'downloads/:id/vs' => 'downloads#vs'
   get 'downloads/:id/makefile' => 'downloads#makefile'
+  get 'downloads/flame' => 'downloads#flame'
   get 'login' => 'session#show'
   get 'minecraft_accounts/create'
   get 'minecraft_accounts/list'

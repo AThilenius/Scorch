@@ -70,7 +70,7 @@
                   <span class="badge"><%= pending_assignments_count %></span>
               <% end %>
             </a>
-          <li class="<%= 'active' if current_page?('') %>"><a href="">Minecraft</a>
+          <li class="<%= 'active' if current_page?(flame_show_path) %>"><a href=<%=flame_show_path%>>Flame</a>
           <li class="<%= 'active' if current_page?('') %>"><a href="">Forums</a>
 
           <% if sessionIsLoggedIn %>

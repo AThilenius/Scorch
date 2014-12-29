@@ -12,14 +12,6 @@ default: &default
 development:
   <<: *default
   database: db/development.sqlite3
-#  adapter: mysql2
-#  database: forgedb
-#  username: admin
-#  host: forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com
-#  password: forgeadmin
-#  port: 3306
-#  pool: 5
-#  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

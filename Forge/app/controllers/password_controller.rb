@@ -3,22 +3,18 @@ class PasswordController < ApplicationController
 	include SessionHelper
 
   def show
-  	return if sessionAdminCheckFailed
+  	return if sessionActiveCheckFailed
   end
 
   def change
-  	return if sessionAdminCheckFailed
+  	return if sessionActiveCheckFailed
 
   	currentUser = sessionGetUser
-  	user = User.get(params[:username]);
   	didPass = true
   	failureString = ''
 
-		if user == nil
-			failureString += 'Wrong user name or password. '
-			didPass = false
-		elsif params[:password] != user.password
-			failureString += 'Wrong user name or password. '
+		if params[:password] != currentUser.password
+			failureString += 'Incorrect current password. '
 			didPass = false
 		end
 
@@ -31,7 +27,8 @@ class PasswordController < ApplicationController
 		end
 
 		if didPass
-			user.password = params[:newPasswordOne]
+			currentUser.password = params[:newPasswordOne]
+			currentUser.save
 			flash[:notice] = 'Password successfully changed.'
 			redirect_to account_path
 		else

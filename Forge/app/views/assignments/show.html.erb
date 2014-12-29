@@ -1,5 +1,5 @@
 <h1 class="text-center"><%= @assignment.name %></h1>
-<h4 class="text-center"><%='Due in' if not @assignment.is_past_due %>
+<h4 class="text-center">
   <span class="label label-<%= @assignment.due_date_color %>">
     <%= @assignment.is_past_due ? 'Closed' : @assignment.due_date_countdown %>
   </span>
