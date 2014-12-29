@@ -207,12 +207,4 @@ class AssignmentsController < ApplicationController
 
   end
 
-  def download_xcode
-    return if sessionActiveCheckFailed
-
-    zipPath = File.join(Rails.root, 'app', 'assets', 'HelloWorldAssignment.zip')
-    zipData = File.read(zipPath)
-    send_data(zipData, :type => 'application/zip', :filename => 'HelloWorldAssignment.zip')
-  end
-
 end

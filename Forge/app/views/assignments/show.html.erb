@@ -16,9 +16,10 @@
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
       Download <span class="caret"></span>
     </a>
-    <ul class="dropdown-menu" role="menu">
-      <li><a href="#">Visual Studio 2012</a></li>
-      <li><a href=<%= assignments_download_xcode_path %>>XCode</a></li>
+    <ul class="dropdown-menu data-no-turbolink" role="menu">
+      <li><a href=<%= "/downloads/#{@assignment.id}/vs" %>>Visual Studio 2012</a></li>
+      <li><a href=<%= "/downloads/#{@assignment.id}/xcode" %>>XCode</a></li>
+      <li><a href=<%= "/downloads/#{@assignment.id}/makefile" %>>Unix Makefile</a></li>
     </ul>
   </li>
 </ul>
