@@ -26,6 +26,7 @@
 		703737071A2E84D00088DF33 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737081A2E84D30088DF33 /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7084E5791A33B3AD0064041D /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7084E5781A33B3AD0064041D /* ProjectConfig.cpp */; };
+		7085D5EE1A50CA5000B0491E /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7085D5ED1A50CA5000B0491E /* Config.h */; };
 		70A4C8711A15886B00DC9093 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A4C8701A15886B00DC9093 /* libprotobuf.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		703736F21A2E81AD0088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
 		7084E5781A33B3AD0064041D /* ProjectConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectConfig.cpp; sourceTree = "<group>"; };
+		7085D5ED1A50CA5000B0491E /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		70A4C8701A15886B00DC9093 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = /usr/local/lib/libprotobuf.a; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		703736871A2D8A560088DF33 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				7085D5ED1A50CA5000B0491E /* Config.h */,
 				703736881A2D8A680088DF33 /* Anvil.cpp */,
 				703736891A2D8A680088DF33 /* Anvil.h */,
 				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
@@ -205,6 +208,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7085D5EE1A50CA5000B0491E /* Config.h in Headers */,
 				703737061A2E84CE0088DF33 /* Anvil.h in Headers */,
 				703737071A2E84D00088DF33 /* Level.h in Headers */,
 				703737081A2E84D30088DF33 /* Spark.h in Headers */,
