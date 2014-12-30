@@ -5,4 +5,5 @@ package Json;
  */
 public class MinecraftSession {
     public String user_args;
+    public String error;
 }

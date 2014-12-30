@@ -26,8 +26,8 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/launcher/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5284974" vertical-offset="1176" max-vertical-offset="1755">
-              <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.22569445" vertical-offset="0" max-vertical-offset="864">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,73 +35,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlameConfig.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Json/FlameConfig.java">
+      <file leaf-file-name="LaunchCommandBuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/launcher/LaunchCommandBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="611">
-              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="2197">
+              <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpURLConnection.class" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/rt.jar!/sun/net/www/protocol/http/HttpURLConnection.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3513" max-vertical-offset="3822">
-              <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpFileDownloadTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/launcher/HttpFileDownloadTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="910">
-              <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DownloadList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Json/DownloadList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="728">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#468#490#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourceParser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/launcher/ResourceParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
-              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpTaskRunner.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/launcher/HttpTaskRunner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1157">
-              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#654#662#0" expanded="true" />
+                <element signature="e#4182#4183#0" expanded="true" />
+                <element signature="e#4214#4215#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,10 +83,13 @@
         <option value="$PROJECT_DIR$/src/Json/download/MinecraftResource.java" />
         <option value="$PROJECT_DIR$/src/Json/download/DownloadList.java" />
         <option value="$PROJECT_DIR$/src/launcher/ResourceParser.java" />
-        <option value="$PROJECT_DIR$/src/Json/MinecraftSession.java" />
         <option value="$PROJECT_DIR$/src/launcher/HttpTaskRunner.java" />
         <option value="$PROJECT_DIR$/src/launcher/HttpFileDownloadTask.java" />
         <option value="$PROJECT_DIR$/src/Json/FlameConfig.java" />
+        <option value="$PROJECT_DIR$/src/http/HttpJsonRequest.java" />
+        <option value="$PROJECT_DIR$/src/platform/CurrentPlatform.java" />
+        <option value="$PROJECT_DIR$/src/Json/MinecraftSession.java" />
+        <option value="$PROJECT_DIR$/src/launcher/LaunchCommandBuilder.java" />
         <option value="$PROJECT_DIR$/src/launcher/Main.java" />
       </list>
     </option>
@@ -182,8 +127,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -199,6 +142,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FlameLauncherJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FlameLauncherJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FlameLauncherJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platform" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -252,8 +213,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FlameLauncherJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FlameLauncherJava" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,6 +253,10 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
@@ -345,25 +330,6 @@
       <option name="trusted" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -390,6 +356,25 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -428,26 +413,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
       <option name="BCName" value="" />
       <option name="IOSSimulatorSdkPath" value="" />
@@ -483,6 +448,26 @@
       <option name="usbDebugPort" value="7936" />
       <method />
     </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
@@ -504,14 +489,15 @@
       <workItem from="1419177279801" duration="12848000" />
       <workItem from="1419196245040" duration="2582000" />
       <workItem from="1419715759755" duration="24520000" />
+      <workItem from="1419912586221" duration="5876000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39950000" />
+    <option name="totallyTimeSpent" value="45826000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="997" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="997" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -519,7 +505,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -535,10 +520,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2002442" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31491712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37348068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -568,6 +554,64 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/launcher/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1176" max-vertical-offset="1755">
+          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Json/FlameConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="611">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/rt.jar!/sun/net/www/protocol/http/HttpURLConnection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3757" max-vertical-offset="3835">
+          <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/HttpFileDownloadTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="624" max-vertical-offset="910">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Json/DownloadList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="312" max-vertical-offset="728">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/ResourceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="572">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/HttpTaskRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="455" max-vertical-offset="1209">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/launcher/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="1417">
@@ -608,7 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4686411" vertical-offset="1772" max-vertical-offset="5915">
           <caret line="190" column="73" selection-start-line="190" selection-start-column="73" selection-end-line="190" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -617,6 +660,44 @@
         <state vertical-scroll-proportion="0.33295324" vertical-offset="25682" max-vertical-offset="38974">
           <caret line="2074" column="19" selection-start-line="2074" selection-start-column="19" selection-end-line="2074" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/HttpTaskRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1157">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/HttpFileDownloadTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="910">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/ResourceParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/http/HttpJsonRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6077537" vertical-offset="0" max-vertical-offset="1027">
+          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#431#432#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#1687#1688#0" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -630,59 +711,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Json/DownloadList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="728">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#468#490#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Json/MinecraftSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15853658" vertical-offset="0" max-vertical-offset="574">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.65456676" vertical-offset="0" max-vertical-offset="854">
+          <caret line="47" column="9" selection-start-line="36" selection-start-column="8" selection-end-line="47" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/jre/lib/rt.jar!/sun/net/www/protocol/http/HttpURLConnection.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3513" max-vertical-offset="3822">
+        <state vertical-scroll-proportion="0.90725327" vertical-offset="2994" max-vertical-offset="3835">
           <caret line="289" column="0" selection-start-line="289" selection-start-column="0" selection-end-line="289" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/launcher/HttpTaskRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1157">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#654#662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/launcher/HttpFileDownloadTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="910">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/launcher/ResourceParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="572">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -690,16 +729,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="611">
           <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/platform/CurrentPlatform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5039909" vertical-offset="0" max-vertical-offset="877">
+          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Json/MinecraftSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10376283" vertical-offset="0" max-vertical-offset="877">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/launcher/LaunchCommandBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="2197">
+          <caret line="86" column="25" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4182#4183#0" expanded="true" />
+            <element signature="e#4214#4215#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/launcher/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5284974" vertical-offset="1176" max-vertical-offset="1755">
-          <caret line="114" column="40" selection-start-line="114" selection-start-column="40" selection-end-line="114" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.22569445" vertical-offset="0" max-vertical-offset="864">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
