@@ -38,7 +38,7 @@ public class Main {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Failed to start child process. Awkward.");
+            System.out.println("Failed to start child process.");
         }
     }
 

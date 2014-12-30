@@ -29,8 +29,9 @@ public class LaunchCommandBuilder {
     // Args
     private static final String OSX_ARGS = "-Xdock:icon=" + ROOT_PATH + "/Flame-512.png -Xdock:name=Flame " +
             "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
-    private static final String WIN_ARGS = "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode " +
-            "-XX:-UseAdaptiveSizePolicy -Xmn128M";
+    private static final String WIN_ARGS =
+            "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G " +
+                    "-XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
     private static final String LINUX_ARGS = "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode " +
             "-XX:-UseAdaptiveSizePolicy -Xmn128M";
 
@@ -39,18 +40,18 @@ public class LaunchCommandBuilder {
             "natives" };
 
     // Commands
-    private static final String OSX_COMMAND = "${java_path} ${platform_args} -Djava.library.path=${natives_path} -cp " +
-            "${library_glob}:${minecraft_jar_path} ${minecraft_launch_file} --gameDir ${root_path} --assetsDir " +
-            "${root_path}/assets --version ${minecraft_version} --assetIndex ${asset_index} --tweakClass " +
-            "${tweak_class} ${session_args}";
-    private static final String WINDOWS_COMMAND = "${java_path} ${platform_args} -Djava.library.path=${natives_path} -cp " +
-            "${library_glob}:${minecraft_jar_path} ${minecraft_launch_file} --gameDir ${root_path} --assetsDir " +
-            "${root_path}/assets --version ${minecraft_version} --assetIndex ${asset_index} --tweakClass " +
-            "${tweak_class} ${session_args}";
-    private static final String LINUX_COMMAND = "${java_path} ${platform_args} -Djava.library.path=${natives_path} -cp " +
-            "${library_glob}:${minecraft_jar_path} ${minecraft_launch_file} --gameDir ${root_path} --assetsDir " +
-            "${root_path}/assets --version ${minecraft_version} --assetIndex ${asset_index} --tweakClass " +
-            "${tweak_class} ${session_args}";
+    private static final String OSX_COMMAND = "\"${java_path}\" ${platform_args} " +
+            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
+            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
+            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
+    private static final String WINDOWS_COMMAND = "\"${java_path}\" ${platform_args} " +
+            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
+            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
+            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
+    private static final String LINUX_COMMAND = "\"${java_path}\" ${platform_args} " +
+            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
+            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
+            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
 
     private static ObjectMapper m_jsonMapper = new ObjectMapper();
 
@@ -126,11 +127,19 @@ public class LaunchCommandBuilder {
     }
 
     private String globLibFolder() {
-        String globAll = globFiles(new File("libraries/").listFiles(), ":", GLOB_EXCLUDE);
-        globAll = globAll.substring(0, globAll.length() - 1);
+        String globAll = "";
+        switch(CurrentPlatform.getType()) {
+            case OSX:
+                globAll = globFiles(new File("libraries/").listFiles(), ":", GLOB_EXCLUDE);
+                break;
+            case WINDOWS:
+                globAll = globFiles(new File("libraries/").listFiles(), ";", GLOB_EXCLUDE);
+                break;
+            case LINUX:
+                globAll = globFiles(new File("libraries/").listFiles(), ":", GLOB_EXCLUDE);
+                break;
+        }
 
-        // TODO: Figure out what to do with this shit...
-        //globAll.replace(" ", "\\ ");
         return globAll;
     }
 
@@ -147,7 +156,7 @@ public class LaunchCommandBuilder {
                     }
                 }
                 if (!isExcluded) {
-                    glob += file.getAbsolutePath() + ":";
+                    glob += "\"" + file.getAbsolutePath() + "\"" + separator;
                 }
             }
         }
@@ -156,8 +165,13 @@ public class LaunchCommandBuilder {
     }
 
     private String getNativesPath() {
-        // TODO: OS Dependant
-        return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives";
+        switch(CurrentPlatform.getType()) {
+            case OSX: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-osx";
+            case WINDOWS: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-win";
+            case LINUX: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-linux";
+            default: return null;
+        }
+
     }
 
 }
