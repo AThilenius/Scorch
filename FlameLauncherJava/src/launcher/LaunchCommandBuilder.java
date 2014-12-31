@@ -104,26 +104,23 @@ public class LaunchCommandBuilder {
     }
 
     private String getSessionArgs() {
-//        try {
-//            System.out.print("Authenticating with Blaze... ");
-//            FlameConfig config = FlameConfig.getConfig();
-//            HttpJsonRequest request = new HttpJsonRequest(new URL(config.session_service_url));
-//            String userArgsJson = request.postRequest("{ \"user_guid\": \"" + config.user_guid + "\" }");
-//            MinecraftSession sessionInfo = m_jsonMapper.readValue(userArgsJson, MinecraftSession.class);
-//            if (sessionInfo.error != null && !sessionInfo.error.isEmpty()) {
-//                System.out.println("Failed to login to Blaze. Given reason: " + sessionInfo.error);
-//                return null;
-//            }
-//            System.out.println("Done.");
-//            return sessionInfo.user_args;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
+        try {
+            System.out.print("Authenticating with Blaze... ");
+            FlameConfig config = FlameConfig.getConfig();
+            HttpJsonRequest request = new HttpJsonRequest(new URL(config.session_service_url));
+            String userArgsJson = request.postRequest("{ \"user_guid\": \"" + config.user_guid + "\" }");
+            MinecraftSession sessionInfo = m_jsonMapper.readValue(userArgsJson, MinecraftSession.class);
+            if (sessionInfo.error != null && !sessionInfo.error.isEmpty()) {
+                System.out.println("Failed to login to Blaze. Given reason: " + sessionInfo.error);
+                return null;
+            }
+            System.out.println("Done.");
+            return sessionInfo.user_args;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        // HACK: Offline
-        return "--username deathsshado0 --uuid a84c72ce2e9445e4b220914678f2cb6d --accessToken b3b9d960ed794a9188518163a30bb043 --userProperties {} --userType legacy";
+        return null;
     }
 
     private String globLibFolder() {

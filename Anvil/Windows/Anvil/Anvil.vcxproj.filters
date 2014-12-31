@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="gen-files">
+      <UniqueIdentifier>{2a93f48e-3cf2-4664-aefd-c700c60bd34c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Anvil.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProjectConfig.cpp" />
+    <ClCompile Include="Spark.cpp" />
+    <ClCompile Include="TcpMessage.cpp" />
+    <ClCompile Include="TcpSocket.cpp" />
+    <ClCompile Include="gen-files\BFEProtos.pb.cc">
+      <Filter>gen-files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Anvil.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="PrefixHeader.h" />
+    <ClInclude Include="ProjectConfig.h" />
+    <ClInclude Include="Spark.h" />
+    <ClInclude Include="TcpMessage.h" />
+    <ClInclude Include="TcpSocket.h" />
+    <ClInclude Include="gen-files\BFEProtos.pb.h">
+      <Filter>gen-files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

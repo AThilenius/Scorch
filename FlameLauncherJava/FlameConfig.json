@@ -2,5 +2,5 @@
 	"user_guid" : "8ef5aba1-cfac-4886-9b8d-9de30b1d9ab4",
     "load_balancer_ip" : "",
     "load_balancer_port" : 0,
-    "session_service_url" : "http://localhost:3000/service/get_minecraft_session"
+    "session_service_url" : "https://ScorchForge.com/service/get_minecraft_session"
 }

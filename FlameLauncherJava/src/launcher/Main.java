@@ -11,6 +11,10 @@ import java.net.URLConnection;
 public class Main {
 
     public static void main(String[] args) {
+        System.out.println("Scanning for missing files...");
+        HttpTaskRunner runner = new HttpTaskRunner(ResourceParser.getResourceTasks());
+        runner.run();
+
         LaunchCommandBuilder builder = new LaunchCommandBuilder();
         Process proc = null;
         
