@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4cbbfa5-3f93-41c0-a7f7-99942608c2af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/XCode/HelloWorldAssignment.xcodeproj/project.xcworkspace/xcuserdata/Alec.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/app/assets/assignments/1/XCode/HelloWorldAssignment.xcodeproj/project.xcworkspace/xcuserdata/Alec.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/XCode/lib/libAnvilLib.a" afterPath="$PROJECT_DIR$/app/assets/assignments/1/XCode/lib/libAnvilLib.a" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/XCode/HelloWorldAssignment/main.cpp" afterPath="$PROJECT_DIR$/app/assets/assignments/1/XCode/HelloWorldAssignment/main.cpp" />
     </list>
     <ignored path="Forge.iws" />
     <ignored path=".idea/workspace.xml" />
