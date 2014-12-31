@@ -16,6 +16,13 @@ public:
     static inline std::string GetAuthToken() {
         return std::string("<AuthToken>");
     }
+    static inline std::string GetBlazeIP() {
+        // 127.0.0.0
+        return std::string("54.67.82.68");
+    }
+    static inline int GetBlazePort() {
+        return 5529;
+    }
 };
 
 } // namespace AnvilAPI
