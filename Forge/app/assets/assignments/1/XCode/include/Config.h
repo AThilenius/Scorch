@@ -18,7 +18,7 @@ public:
     }
     static inline std::string GetBlazeIP() {
         // 127.0.0.0
-        return std::string("54.67.82.68");
+        return std::string("54.67.9.61");
     }
     static inline int GetBlazePort() {
         return 5529;
