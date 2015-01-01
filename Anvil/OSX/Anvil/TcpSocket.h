@@ -7,13 +7,12 @@
 //
 #pragma once
 
+#include "SFML/Network.hpp"
 
 namespace Socket {
 
-
 class TcpMessage;
 typedef std::shared_ptr<TcpMessage> TcpMessagePtr;
-
     
 class TcpSocket {
 public:
@@ -25,11 +24,11 @@ public:
     bool Write(void* data, int count);
 
 private:
-    bool ReadCompleate(char* buffer, int socket, UInt32 count);
-    bool WriteComplete(char* buffer, int socket, UInt32 count);
+    bool ReadCompleate(char* buffer, UInt32 count);
+    bool WriteComplete(char* buffer, UInt32 count);
     
 private:
-    int m_socketHandle;
+	sf::TcpSocket m_socket;
 };
 
     

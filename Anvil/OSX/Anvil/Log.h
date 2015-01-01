@@ -1,0 +1,31 @@
+//
+//  Log.h
+//  Anvil
+//
+//  Created by Alec Thilenius on 1/1/15.
+//  Copyright (c) 2014 Alec Thilenius. All rights reserved.
+//
+#pragma once
+
+
+namespace Util {
+
+
+enum ConsoleColor { White, Red, Yellow, Green, Blue };
+
+
+class Log
+{
+public:
+	~Log(void);
+
+	static void Error(std::string message);
+	static void SetColor(ConsoleColor color);
+
+private:
+	Log(void);
+
+};
+
+
+} // namespace Util

@@ -7,6 +7,9 @@
 //
 #pragma once
 
+// Defines
+#define PROTOBUF_USE_DLLS
+
 // STD
 #include <algorithm>
 #include <assert.h>
@@ -27,14 +30,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-#include <unistd.h>
+//#include <unistd.h>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
 
-// Anvil
-#include "ProjectConfig.h"
-#include "Config.h"
+// Project
+#include "Log.h"
 
 // Macros
 #define SAFE_DELETE(x) if(x){delete x;x=nullptr;}
