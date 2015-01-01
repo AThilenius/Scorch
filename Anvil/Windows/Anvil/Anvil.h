@@ -7,6 +7,8 @@
 //
 #pragma once
 
+#include <string>
+
 #include "Level.h"
 #include "Spark.h"
 

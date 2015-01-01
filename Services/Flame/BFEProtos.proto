@@ -1,4 +1,6 @@
 package Thilenius.BFEProtos;
+
+option optimize_for = LITE_RUNTIME;
 option java_package = "com.thilenius.blaze.frontend.protos";
 option java_outer_classname = "BFEProtos";
 

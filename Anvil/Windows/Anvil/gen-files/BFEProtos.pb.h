@@ -22,7 +22,6 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
-#include <google/protobuf/generated_message_reflection.h>
 // @@protoc_insertion_point(includes)
 
 namespace Thilenius {
@@ -39,25 +38,6 @@ class BFELoadLevelResponse;
 class BFESparkCommand;
 class BFESparkResponse;
 
-enum BFELoadLevelRequest_LevelLoadMode {
-  BFELoadLevelRequest_LevelLoadMode_DEFAULT = 0,
-  BFELoadLevelRequest_LevelLoadMode_SUBMIT = 1
-};
-bool BFELoadLevelRequest_LevelLoadMode_IsValid(int value);
-const BFELoadLevelRequest_LevelLoadMode BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_MIN = BFELoadLevelRequest_LevelLoadMode_DEFAULT;
-const BFELoadLevelRequest_LevelLoadMode BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_MAX = BFELoadLevelRequest_LevelLoadMode_SUBMIT;
-const int BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_ARRAYSIZE = BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* BFELoadLevelRequest_LevelLoadMode_descriptor();
-inline const ::std::string& BFELoadLevelRequest_LevelLoadMode_Name(BFELoadLevelRequest_LevelLoadMode value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    BFELoadLevelRequest_LevelLoadMode_descriptor(), value);
-}
-inline bool BFELoadLevelRequest_LevelLoadMode_Parse(
-    const ::std::string& name, BFELoadLevelRequest_LevelLoadMode* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<BFELoadLevelRequest_LevelLoadMode>(
-    BFELoadLevelRequest_LevelLoadMode_descriptor(), name, value);
-}
 enum BFESparkCommand_CommandType {
   BFESparkCommand_CommandType_MOVE_FORWARD = 0,
   BFESparkCommand_CommandType_MOVE_BACKWARD = 1,
@@ -71,19 +51,9 @@ const BFESparkCommand_CommandType BFESparkCommand_CommandType_CommandType_MIN = 
 const BFESparkCommand_CommandType BFESparkCommand_CommandType_CommandType_MAX = BFESparkCommand_CommandType_TURN_RIGHT;
 const int BFESparkCommand_CommandType_CommandType_ARRAYSIZE = BFESparkCommand_CommandType_CommandType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* BFESparkCommand_CommandType_descriptor();
-inline const ::std::string& BFESparkCommand_CommandType_Name(BFESparkCommand_CommandType value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    BFESparkCommand_CommandType_descriptor(), value);
-}
-inline bool BFESparkCommand_CommandType_Parse(
-    const ::std::string& name, BFESparkCommand_CommandType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<BFESparkCommand_CommandType>(
-    BFESparkCommand_CommandType_descriptor(), name, value);
-}
 // ===================================================================
 
-class BFEMessage : public ::google::protobuf::Message {
+class BFEMessage : public ::google::protobuf::MessageLite {
  public:
   BFEMessage();
   virtual ~BFEMessage();
@@ -95,15 +65,6 @@ class BFEMessage : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BFEMessage& default_instance();
   
   void Swap(BFEMessage* other);
@@ -111,8 +72,7 @@ class BFEMessage : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   BFEMessage* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BFEMessage& from);
   void MergeFrom(const BFEMessage& from);
   void Clear();
@@ -123,7 +83,6 @@ class BFEMessage : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -131,7 +90,7 @@ class BFEMessage : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -142,8 +101,6 @@ class BFEMessage : public ::google::protobuf::Message {
  private:
   
   ::google::protobuf::internal::ExtensionSet _extensions_;
-  
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   
   mutable int _cached_size_;
@@ -158,7 +115,7 @@ class BFEMessage : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class BFELoadLevelRequest : public ::google::protobuf::Message {
+class BFELoadLevelRequest : public ::google::protobuf::MessageLite {
  public:
   BFELoadLevelRequest();
   virtual ~BFELoadLevelRequest();
@@ -170,15 +127,6 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BFELoadLevelRequest& default_instance();
   
   void Swap(BFELoadLevelRequest* other);
@@ -186,8 +134,7 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   BFELoadLevelRequest* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BFELoadLevelRequest& from);
   void MergeFrom(const BFELoadLevelRequest& from);
   void Clear();
@@ -198,7 +145,6 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -206,33 +152,9 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
-  
-  typedef BFELoadLevelRequest_LevelLoadMode LevelLoadMode;
-  static const LevelLoadMode DEFAULT = BFELoadLevelRequest_LevelLoadMode_DEFAULT;
-  static const LevelLoadMode SUBMIT = BFELoadLevelRequest_LevelLoadMode_SUBMIT;
-  static inline bool LevelLoadMode_IsValid(int value) {
-    return BFELoadLevelRequest_LevelLoadMode_IsValid(value);
-  }
-  static const LevelLoadMode LevelLoadMode_MIN =
-    BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_MIN;
-  static const LevelLoadMode LevelLoadMode_MAX =
-    BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_MAX;
-  static const int LevelLoadMode_ARRAYSIZE =
-    BFELoadLevelRequest_LevelLoadMode_LevelLoadMode_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  LevelLoadMode_descriptor() {
-    return BFELoadLevelRequest_LevelLoadMode_descriptor();
-  }
-  static inline const ::std::string& LevelLoadMode_Name(LevelLoadMode value) {
-    return BFELoadLevelRequest_LevelLoadMode_Name(value);
-  }
-  static inline bool LevelLoadMode_Parse(const ::std::string& name,
-      LevelLoadMode* value) {
-    return BFELoadLevelRequest_LevelLoadMode_Parse(name, value);
-  }
   
   // accessors -------------------------------------------------------
   
@@ -261,13 +183,6 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 seed() const;
   inline void set_seed(::google::protobuf::int32 value);
   
-  // optional .Thilenius.BFEProtos.BFELoadLevelRequest.LevelLoadMode level_load_mode = 4 [default = DEFAULT];
-  inline bool has_level_load_mode() const;
-  inline void clear_level_load_mode();
-  static const int kLevelLoadModeFieldNumber = 4;
-  inline ::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode level_load_mode() const;
-  inline void set_level_load_mode(::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode value);
-  
   static const int kBFELoadLevelRequestExtFieldNumber = 100;
   static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
       ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFELoadLevelRequest >, 11, false >
@@ -280,18 +195,13 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
   inline void clear_has_levelnumber();
   inline void set_has_seed();
   inline void clear_has_seed();
-  inline void set_has_level_load_mode();
-  inline void clear_has_level_load_mode();
-  
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::std::string* auth_token_;
   ::google::protobuf::int32 levelnumber_;
   ::google::protobuf::int32 seed_;
-  int level_load_mode_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
   
   friend void  protobuf_AddDesc_BFEProtos_2eproto();
   friend void protobuf_AssignDesc_BFEProtos_2eproto();
@@ -302,7 +212,7 @@ class BFELoadLevelRequest : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class BFELoadLevelResponse : public ::google::protobuf::Message {
+class BFELoadLevelResponse : public ::google::protobuf::MessageLite {
  public:
   BFELoadLevelResponse();
   virtual ~BFELoadLevelResponse();
@@ -314,15 +224,6 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BFELoadLevelResponse& default_instance();
   
   void Swap(BFELoadLevelResponse* other);
@@ -330,8 +231,7 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   BFELoadLevelResponse* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BFELoadLevelResponse& from);
   void MergeFrom(const BFELoadLevelResponse& from);
   void Clear();
@@ -342,7 +242,6 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -350,7 +249,7 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -385,8 +284,6 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
   inline void set_has_spark_count();
   inline void clear_has_spark_count();
   
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-  
   ::std::string* failure_reason_;
   ::google::protobuf::int32 spark_count_;
   
@@ -402,7 +299,7 @@ class BFELoadLevelResponse : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class BFESparkCommand : public ::google::protobuf::Message {
+class BFESparkCommand : public ::google::protobuf::MessageLite {
  public:
   BFESparkCommand();
   virtual ~BFESparkCommand();
@@ -414,15 +311,6 @@ class BFESparkCommand : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BFESparkCommand& default_instance();
   
   void Swap(BFESparkCommand* other);
@@ -430,8 +318,7 @@ class BFESparkCommand : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   BFESparkCommand* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BFESparkCommand& from);
   void MergeFrom(const BFESparkCommand& from);
   void Clear();
@@ -442,7 +329,6 @@ class BFESparkCommand : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -450,7 +336,7 @@ class BFESparkCommand : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -470,17 +356,6 @@ class BFESparkCommand : public ::google::protobuf::Message {
     BFESparkCommand_CommandType_CommandType_MAX;
   static const int CommandType_ARRAYSIZE =
     BFESparkCommand_CommandType_CommandType_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  CommandType_descriptor() {
-    return BFESparkCommand_CommandType_descriptor();
-  }
-  static inline const ::std::string& CommandType_Name(CommandType value) {
-    return BFESparkCommand_CommandType_Name(value);
-  }
-  static inline bool CommandType_Parse(const ::std::string& name,
-      CommandType* value) {
-    return BFESparkCommand_CommandType_Parse(name, value);
-  }
   
   // accessors -------------------------------------------------------
   
@@ -535,8 +410,6 @@ class BFESparkCommand : public ::google::protobuf::Message {
   inline void set_has_pipline_token();
   inline void clear_has_pipline_token();
   
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-  
   int command_;
   ::google::protobuf::int32 spark_id_;
   ::std::string* auth_token_;
@@ -554,7 +427,7 @@ class BFESparkCommand : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class BFESparkResponse : public ::google::protobuf::Message {
+class BFESparkResponse : public ::google::protobuf::MessageLite {
  public:
   BFESparkResponse();
   virtual ~BFESparkResponse();
@@ -566,15 +439,6 @@ class BFESparkResponse : public ::google::protobuf::Message {
     return *this;
   }
   
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-  
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-  
-  static const ::google::protobuf::Descriptor* descriptor();
   static const BFESparkResponse& default_instance();
   
   void Swap(BFESparkResponse* other);
@@ -582,8 +446,7 @@ class BFESparkResponse : public ::google::protobuf::Message {
   // implements Message ----------------------------------------------
   
   BFESparkResponse* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
   void CopyFrom(const BFESparkResponse& from);
   void MergeFrom(const BFESparkResponse& from);
   void Clear();
@@ -594,7 +457,6 @@ class BFESparkResponse : public ::google::protobuf::Message {
       ::google::protobuf::io::CodedInputStream* input);
   void SerializeWithCachedSizes(
       ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
   int GetCachedSize() const { return _cached_size_; }
   private:
   void SharedCtor();
@@ -602,7 +464,7 @@ class BFESparkResponse : public ::google::protobuf::Message {
   void SetCachedSize(int size) const;
   public:
   
-  ::google::protobuf::Metadata GetMetadata() const;
+  ::std::string GetTypeName() const;
   
   // nested types ----------------------------------------------------
   
@@ -680,8 +542,6 @@ class BFESparkResponse : public ::google::protobuf::Message {
   inline void clear_has_response_float();
   inline void set_has_response_bytes();
   inline void clear_has_response_bytes();
-  
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
   ::std::string* pipline_token_;
   ::std::string* failure_reason_;
@@ -811,29 +671,6 @@ inline ::google::protobuf::int32 BFELoadLevelRequest::seed() const {
 inline void BFELoadLevelRequest::set_seed(::google::protobuf::int32 value) {
   set_has_seed();
   seed_ = value;
-}
-
-// optional .Thilenius.BFEProtos.BFELoadLevelRequest.LevelLoadMode level_load_mode = 4 [default = DEFAULT];
-inline bool BFELoadLevelRequest::has_level_load_mode() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void BFELoadLevelRequest::set_has_level_load_mode() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void BFELoadLevelRequest::clear_has_level_load_mode() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void BFELoadLevelRequest::clear_level_load_mode() {
-  level_load_mode_ = 0;
-  clear_has_level_load_mode();
-}
-inline ::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode BFELoadLevelRequest::level_load_mode() const {
-  return static_cast< ::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode >(level_load_mode_);
-}
-inline void BFELoadLevelRequest::set_level_load_mode(::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode value) {
-  GOOGLE_DCHECK(::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode_IsValid(value));
-  set_has_level_load_mode();
-  level_load_mode_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1334,23 +1171,6 @@ inline ::std::string* BFESparkResponse::release_response_bytes() {
 
 }  // namespace BFEProtos
 }  // namespace Thilenius
-
-#ifndef SWIG
-namespace google {
-namespace protobuf {
-
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode>() {
-  return ::Thilenius::BFEProtos::BFELoadLevelRequest_LevelLoadMode_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Thilenius::BFEProtos::BFESparkCommand_CommandType>() {
-  return ::Thilenius::BFEProtos::BFESparkCommand_CommandType_descriptor();
-}
-
-}  // namespace google
-}  // namespace protobuf
-#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

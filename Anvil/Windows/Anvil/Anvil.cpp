@@ -22,6 +22,17 @@ using Thilenius::BFEProtos::BFELoadLevelResponse;
 
 namespace AnvilAPI {
 
+	
+	// Messages
+	std::string ConnectionError (
+		std::string("Failed to connect to Blaze. Ensure you have an internet connection and try again. If ") +
+		std::string("the problem persists, try re-downloading the project from Forge."));
+	std::string CommunicationError (
+		std::string("A fatal error occurred while communicating with Blaze. Ensure you have a stable internet ") +
+		std::string("connection and try re-running your code."));
+	std::string DataError (
+		std::string("Blaze returned garbage data."));
+
 
     ::Socket::TcpSocket* Anvil::m_socket = nullptr;
     int Anvil::m_activeLevel = -1;
@@ -35,9 +46,7 @@ namespace AnvilAPI {
         if (m_socket == nullptr) {
             m_socket = new TcpSocket();
             if (!m_socket->Connect(BlazeIP, BlazePort)) {
-                std::cout << "Failed to connect to Blaze. Ensure you have an internet connection and try again. If "
-                << "the problem persists, try re-downloading the project from Forge." << std::endl;
-                exit(EXIT_FAILURE);
+                Util::Log::Error(ConnectionError);
             }
         }
         
@@ -53,10 +62,8 @@ namespace AnvilAPI {
             void* buffer = malloc(size);
             message.SerializeToArray(buffer, size);
             
-            if (!m_socket->Write(buffer, size)) {
-                std::cout << "A fatal error accured while trying to communicate with Blaze. Ensure you have a stable "
-                << "internet connection and try re-running your code." << std::endl;
-                exit(EXIT_FAILURE);
+			if (!m_socket->Write(buffer, size)) {
+				Util::Log::Error(ConnectionError);
             }
             
             free(buffer);
@@ -66,24 +73,20 @@ namespace AnvilAPI {
         {
             TcpMessagePtr response = m_socket->Read();
             if (response == nullptr) {
-                std::cout << "A fatal error accured while trying to communicate with Blaze. Ensure you have a stable "
-                << "internet connection and try re-running your code." << std::endl;
-                exit(EXIT_FAILURE);
+				Util::Log::Error(CommunicationError);
             }
             
             BFEMessage message;
-            if (!message.ParseFromArray(response->Data, response->Count)) {
-                std::cout << "Failed to parse Protocol Buffer from Blaze." << std::endl;
-                exit(EXIT_FAILURE);
+			if (!message.ParseFromArray(response->Data, response->Count)) {
+				Util::Log::Error(CommunicationError);
             }
             
             if (message.HasExtension(BFELoadLevelResponse::BFELoadLevelResponse_ext)) {
                 BFELoadLevelResponse response = message.GetExtension(BFELoadLevelResponse::BFELoadLevelResponse_ext);
                 
                 if (response.has_failure_reason()) {
-                    std::cout << "Blaze retuned a fatal error while trying to load level " << levelNumber
-                    << ". Given reason: " << response.failure_reason() << std::endl;
-                    exit(EXIT_FAILURE);
+                    Util::Log::Error("Blaze returned a fatal error while trying to load level " + std::to_string(levelNumber) +
+						". Given reason: " + response.failure_reason());
                 }
                 
                 // Everything went well, return it back to user
@@ -91,8 +94,7 @@ namespace AnvilAPI {
                 m_activeLevel = levelNumber;
                 return level;
             } else {
-                std::cout << "Blaze retuned unexpected data: " << message.DebugString() << std::endl;
-                exit(EXIT_FAILURE);
+                Util::Log::Error(CommunicationError);
             }
         }
     }

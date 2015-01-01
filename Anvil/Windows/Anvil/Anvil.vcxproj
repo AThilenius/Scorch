@@ -16,7 +16,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -51,8 +51,14 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\Alec\Documents\Development\Scorch\Anvil\Windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libprotobuf-d.lib;sfml-graphics-s-d.lib;sfml-network-s-d.lib;sfml-window-s-d.lib;sfml-audio-s-d.lib;sfml-system-s-d.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libprotobuf-lite-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>C:\Users\Alec\Documents\Development\Scorch\Anvil\Windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -77,8 +83,8 @@
     <ClCompile Include="Anvil.cpp" />
     <ClCompile Include="gen-files\BFEProtos.pb.cc" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ProjectConfig.cpp" />
     <ClCompile Include="Spark.cpp" />
     <ClCompile Include="TcpMessage.cpp" />
     <ClCompile Include="TcpSocket.cpp" />
@@ -87,8 +93,8 @@
     <ClInclude Include="Anvil.h" />
     <ClInclude Include="gen-files\BFEProtos.pb.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Log.h" />
     <ClInclude Include="PrefixHeader.h" />
-    <ClInclude Include="ProjectConfig.h" />
     <ClInclude Include="Spark.h" />
     <ClInclude Include="TcpMessage.h" />
     <ClInclude Include="TcpSocket.h" />

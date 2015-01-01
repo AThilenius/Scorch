@@ -39,7 +39,7 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
         message.SerializeToArray(buffer, size);
         
         if (!socket->Write(buffer, size)) {
-            std::cout << "A fatal error accured while trying to communicate with Blaze. Ensure you have a stable "
+            std::cout << "A fatal error occurred while trying to communicate with Blaze. Ensure you have a stable "
             << "internet connection and try re-running your code." << std::endl;
             exit(EXIT_FAILURE);
         }
@@ -51,7 +51,7 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
     {
         ::Socket::TcpMessagePtr response = socket->Read();
         if (response == nullptr) {
-            std::cout << "A fatal error accured while trying to communicate with Blaze. Ensure you have a stable "
+            std::cout << "A fatal error occurred while trying to communicate with Blaze. Ensure you have a stable "
             << "internet connection and try re-running your code." << std::endl;
             exit(EXIT_FAILURE);
         }
@@ -65,7 +65,7 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
         if (message.HasExtension(BFESparkResponse::BFESparkResponse_ext)) {
             return message.GetExtension(BFESparkResponse::BFESparkResponse_ext);
         } else {
-            std::cout << "Blaze retuned unexpected data: " << message.DebugString() << std::endl;
+            std::cout << "Blaze returned unexpected data." << std::endl;
             exit(EXIT_FAILURE);
         }
     }
@@ -86,7 +86,7 @@ bool Spark::MoveForward() {
     BFESparkResponse response = RunCommand(Anvil::m_socket, m_sparkNumber,
                                            BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
     if (!response.has_response_bool()) {
-        std::cout << "Blaze retuned unexpected data: " << response.DebugString() << std::endl;
+        std::cout << "Blaze returned unexpected data." << std::endl;
         exit(EXIT_FAILURE);
     } else {
         return response.response_bool();
@@ -97,7 +97,7 @@ bool Spark::MoveBackward() {
     BFESparkResponse response = RunCommand(Anvil::m_socket, m_sparkNumber,
                                            BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
     if (!response.has_response_bool()) {
-        std::cout << "Blaze retuned unexpected data: " << response.DebugString() << std::endl;
+        std::cout << "Blaze returned unexpected data." << std::endl;
         exit(EXIT_FAILURE);
     } else {
         return response.response_bool();

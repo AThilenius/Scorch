@@ -8,29 +8,55 @@
     <Filter Include="gen-files">
       <UniqueIdentifier>{2a93f48e-3cf2-4664-aefd-c700c60bd34c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AnvilAPI">
+      <UniqueIdentifier>{8e19424f-0527-4cfa-9ee7-70fde62a8c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Socket">
+      <UniqueIdentifier>{b7998408-ae6e-437e-b510-b5cc9654a6f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Anvil.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ProjectConfig.cpp" />
-    <ClCompile Include="Spark.cpp" />
-    <ClCompile Include="TcpMessage.cpp" />
-    <ClCompile Include="TcpSocket.cpp" />
     <ClCompile Include="gen-files\BFEProtos.pb.cc">
       <Filter>gen-files</Filter>
     </ClCompile>
+    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="TcpMessage.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpSocket.cpp">
+      <Filter>Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Anvil.cpp">
+      <Filter>AnvilAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>AnvilAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Spark.cpp">
+      <Filter>AnvilAPI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Anvil.h" />
-    <ClInclude Include="Level.h" />
     <ClInclude Include="PrefixHeader.h" />
-    <ClInclude Include="ProjectConfig.h" />
-    <ClInclude Include="Spark.h" />
-    <ClInclude Include="TcpMessage.h" />
-    <ClInclude Include="TcpSocket.h" />
     <ClInclude Include="gen-files\BFEProtos.pb.h">
       <Filter>gen-files</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="TcpMessage.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpSocket.h">
+      <Filter>Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Anvil.h">
+      <Filter>AnvilAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>AnvilAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Spark.h">
+      <Filter>AnvilAPI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

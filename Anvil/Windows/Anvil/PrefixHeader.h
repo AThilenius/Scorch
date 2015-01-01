@@ -35,8 +35,8 @@
 #include <unordered_set>
 #include <vector>
 
-// Anvil
-#include "ProjectConfig.h"
+// Project
+#include "Log.h"
 
 // Macros
 #define SAFE_DELETE(x) if(x){delete x;x=nullptr;}
