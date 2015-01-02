@@ -40,7 +40,7 @@ public class LaunchCommandBuilder {
             "natives" };
 
     // Commands
-    private static final String OSX_COMMAND = "\"${java_path}\" ${platform_args} " +
+    private static final String OSX_COMMAND = "${java_path} ${platform_args} " +
             "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
             "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
             "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
@@ -87,6 +87,8 @@ public class LaunchCommandBuilder {
     public String getRootPath() {
         return ROOT_PATH;
     }
+
+    public String getJavaPath() { return System.getProperty("java.home") + "/bin"; }
 
     private void checkForMissingFiles() {
         System.out.println("Synchronizing game files");

@@ -3,6 +3,7 @@ package launcher;
 import Json.FlameConfig;
 import Json.MinecraftSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import platform.CurrentPlatform;
 
 import java.io.*;
 import java.net.URL;
@@ -20,7 +21,19 @@ public class Main {
         
         try {
             String fullCommand = builder.getFullCommand();
-            proc = Runtime.getRuntime().exec(fullCommand, null, new File(builder.getRootPath()));
+            switch(CurrentPlatform.getType()) {
+                case OSX:
+                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
+                            null, new File(builder.getRootPath()));
+                    break;
+                case WINDOWS:
+                    proc = Runtime.getRuntime().exec(fullCommand, null, new File(builder.getRootPath()));
+                    break;
+                case LINUX:
+                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
+                            null, new File(builder.getRootPath()));
+                    break;
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -29,9 +42,13 @@ public class Main {
         if (proc != null) {
             System.out.println("Launching Minecraft...");
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            BufferedReader error = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
             try {
                 String line;
                 while ((line = in.readLine()) != null) {
+                    System.out.println(line);
+                }
+                while ((line = error.readLine()) != null) {
                     System.out.println(line);
                 }
                 proc.waitFor();

@@ -24,7 +24,6 @@
 		703737061A2E84CE0088DF33 /* Anvil.h in Headers */ = {isa = PBXBuildFile; fileRef = 703736891A2D8A680088DF33 /* Anvil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737071A2E84D00088DF33 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737081A2E84D30088DF33 /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7084E5791A33B3AD0064041D /* ProjectConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7084E5781A33B3AD0064041D /* ProjectConfig.cpp */; };
 		7085D5EE1A50CA5000B0491E /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7085D5ED1A50CA5000B0491E /* Config.h */; };
 		70F0E92F1A560A2700BDC94C /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F0E92D1A560A2700BDC94C /* libsfml-network.2.1.dylib */; };
 		70F0E9301A560A2700BDC94C /* libsfml-network.2.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F0E92D1A560A2700BDC94C /* libsfml-network.2.1.dylib */; };
@@ -60,14 +59,12 @@
 		702F1BF61A1D4A4E00200224 /* TcpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpSocket.h; sourceTree = "<group>"; };
 		702F1BFD1A1D4A7A00200224 /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "gen-files/BFEProtos.pb.cc"; sourceTree = "<group>"; };
 		702F1BFE1A1D4A7A00200224 /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "gen-files/BFEProtos.pb.h"; sourceTree = "<group>"; };
-		703736861A2D89900088DF33 /* ProjectConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectConfig.h; sourceTree = "<group>"; };
 		703736881A2D8A680088DF33 /* Anvil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Anvil.cpp; sourceTree = "<group>"; };
 		703736891A2D8A680088DF33 /* Anvil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anvil.h; sourceTree = "<group>"; };
 		7037368B1A2D989A0088DF33 /* Spark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spark.cpp; sourceTree = "<group>"; };
 		7037368C1A2D989A0088DF33 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 		703736F21A2E81AD0088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
-		7084E5781A33B3AD0064041D /* ProjectConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProjectConfig.cpp; sourceTree = "<group>"; };
 		7085D5ED1A50CA5000B0491E /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		70F0E92D1A560A2700BDC94C /* libsfml-network.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.1.dylib"; path = "lib/libsfml-network.2.1.dylib"; sourceTree = "<group>"; };
 		70F0E92E1A560A2700BDC94C /* libsfml-system.2.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.1.dylib"; path = "lib/libsfml-system.2.1.dylib"; sourceTree = "<group>"; };
@@ -162,8 +159,6 @@
 				702F1BF11A1D4A4E00200224 /* main.cpp */,
 				702F1BF21A1D4A4E00200224 /* PrefixHeader.h */,
 				70541CD41A1581AD00D37EF2 /* gen-files */,
-				703736861A2D89900088DF33 /* ProjectConfig.h */,
-				7084E5781A33B3AD0064041D /* ProjectConfig.cpp */,
 			);
 			path = Anvil;
 			sourceTree = "<group>";
@@ -301,7 +296,6 @@
 				702F1BF91A1D4A4E00200224 /* main.cpp in Sources */,
 				702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */,
 				702F1BFF1A1D4A7A00200224 /* BFEProtos.pb.cc in Sources */,
-				7084E5791A33B3AD0064041D /* ProjectConfig.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
