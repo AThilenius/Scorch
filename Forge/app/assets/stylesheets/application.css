@@ -18,7 +18,12 @@
 body {
   padding-top: 70px;
   padding-bottom: 20px;
+  overflow-x: hidden;
 }
+
+#bg { position: fixed; top: 0; left: 0; }
+.bgwidth { width: 100%; }
+.bgheight { height: 100%; }
 
 /* Override Rail's default error calls with Bootstrap 3 */
 .field_with_errors {
