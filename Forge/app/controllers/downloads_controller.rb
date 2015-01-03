@@ -65,6 +65,8 @@ class DownloadsController < ApplicationController
     archive = File.join(Rails.root, 'tmp', 'assignments', "#{params[:id]}", "#{projectName}.zip")
 
     compress(resourcePath, archive, {/libAnvilLib.a/ =>
+                                         { 'D6089AA2-CB1C-4FFA-8990-4297A38376C2' => userAssignment.authToken },
+                                     /Anvil.lib/ =>
                                          { 'D6089AA2-CB1C-4FFA-8990-4297A38376C2' => userAssignment.authToken }})
 
     # Send-er out!
