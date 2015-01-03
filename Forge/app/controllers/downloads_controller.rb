@@ -15,10 +15,6 @@ class DownloadsController < ApplicationController
           zipfile.add(file.sub(path+'/',''), file)
 
         else
-          # Read the file
-          contents = nil
-          File.open(file, 'rb') { |f| contents = f.read }
-
           # Regex compare each replace request
           replaceSelection = nil
           replaceTokens.each do |fName, replaceArray|
@@ -30,14 +26,22 @@ class DownloadsController < ApplicationController
 
           # Replace contents with each request
           if replaceSelection != nil
+            # Read the file
+            contents = nil
+            File.open(file, 'rb') { |f| contents = f.read }
+
             p replaceTokens[replaceSelection]
             replaceTokens[replaceSelection].each do |from, to|
               contents = contents.gsub(from, to)
             end
-          end
 
-          # Write it out to the zip
-          zipfile.get_output_stream(file.sub(path+'/','')) { |f| f.puts contents }
+            # Write modified file out to the zip
+            zipfile.get_output_stream(file.sub(path+'/','')) { |f| f.puts contents }
+          else
+
+            # Pass through
+            zipfile.add(file.sub(path+'/',''), file)
+          end
         end
 
       end
