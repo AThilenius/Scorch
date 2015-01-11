@@ -65,3 +65,23 @@ message BFESparkResponse {
   optional float response_float = 5;
   optional bytes response_bytes = 6;
 }
+
+/******************************************************************************/
+/* Basic                                                                      */
+/******************************************************************************/
+message BFEInfoQueryRequest {
+  extend BFEMessage {
+    optional BFEInfoQueryRequest BFEInfoQueryRequest_ext = 104;
+  }
+
+  required string auth_token = 1;
+}
+
+message BFEInfoQueryResponse {
+  extend BFEMessage {
+    optional BFEInfoQueryResponse BFEInfoQueryResponse_ext = 105;
+  }
+
+  optional string failure_reason = 1;
+  optional string blaze_response = 2;
+}

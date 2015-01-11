@@ -27,7 +27,7 @@ public class LaunchCommandBuilder {
     private static final String TWEAK_CLASS = "cpw.mods.fml.common.launcher.FMLTweaker";
 
     // Args
-    private static final String OSX_ARGS = "-Xdock:icon=" + ROOT_PATH + "/Flame-512.png -Xdock:name=Flame " +
+    private static final String OSX_ARGS = "-Xdock:icon=\"" + ROOT_PATH + "/Flame-512.png\" -Xdock:name=Flame " +
             "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
     private static final String WIN_ARGS =
             "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G " +

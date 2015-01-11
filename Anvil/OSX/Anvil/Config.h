@@ -7,15 +7,13 @@
 //
 #pragma once
 
-#include <stdio.h>
-
 namespace AnvilAPI {
-
-class Config {
-public:
-    static inline std::string GetAuthToken() {
-        return std::string("c0dba92c-6449-40a6-95da-11d2b7d28ad6");
-    }
-};
-
+    
+    class Config {
+    public:
+        static std::string GetAuthToken();
+        static std::string GetBlazeIP();
+        static int GetBlazePort();
+    };
+    
 } // namespace AnvilAPI

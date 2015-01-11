@@ -11,6 +11,8 @@ public final class BFEProtos {
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt);
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkCommand.bFESparkCommandExt);
     registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkResponse.bFESparkResponseExt);
+    registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.bFEInfoQueryRequestExt);
+    registry.add(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.bFEInfoQueryResponseExt);
   }
   public interface BFEMessageOrBuilder extends 
        com.google.protobuf.GeneratedMessageLite.
@@ -2376,6 +2378,772 @@ public final class BFEProtos {
           com.thilenius.blaze.frontend.protos.BFEProtos.BFESparkResponse.getDefaultInstance(),
           null,
           103,
+          com.google.protobuf.WireFormat.FieldType.MESSAGE);
+  }
+  
+  public interface BFEInfoQueryRequestOrBuilder
+      extends com.google.protobuf.MessageLiteOrBuilder {
+    
+    // required string auth_token = 1;
+    boolean hasAuthToken();
+    String getAuthToken();
+  }
+  public static final class BFEInfoQueryRequest extends
+      com.google.protobuf.GeneratedMessageLite
+      implements BFEInfoQueryRequestOrBuilder {
+    // Use BFEInfoQueryRequest.newBuilder() to construct.
+    private BFEInfoQueryRequest(Builder builder) {
+      super(builder);
+    }
+    private BFEInfoQueryRequest(boolean noInit) {}
+    
+    private static final BFEInfoQueryRequest defaultInstance;
+    public static BFEInfoQueryRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public BFEInfoQueryRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    private int bitField0_;
+    // required string auth_token = 1;
+    public static final int AUTH_TOKEN_FIELD_NUMBER = 1;
+    private java.lang.Object authToken_;
+    public boolean hasAuthToken() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getAuthToken() {
+      java.lang.Object ref = authToken_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          authToken_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getAuthTokenBytes() {
+      java.lang.Object ref = authToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        authToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    private void initFields() {
+      authToken_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      if (!hasAuthToken()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getAuthTokenBytes());
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getAuthTokenBytes());
+      }
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest, Builder>
+        implements com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequestOrBuilder {
+      // Construct using com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        authToken_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest getDefaultInstanceForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.getDefaultInstance();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest build() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest buildPartial() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest result = new com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.authToken_ = authToken_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+      
+      public Builder mergeFrom(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest other) {
+        if (other == com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.getDefaultInstance()) return this;
+        if (other.hasAuthToken()) {
+          setAuthToken(other.getAuthToken());
+        }
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        if (!hasAuthToken()) {
+          
+          return false;
+        }
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              
+              return this;
+            default: {
+              if (!parseUnknownField(input, extensionRegistry, tag)) {
+                
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              authToken_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // required string auth_token = 1;
+      private java.lang.Object authToken_ = "";
+      public boolean hasAuthToken() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getAuthToken() {
+        java.lang.Object ref = authToken_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          authToken_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setAuthToken(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        authToken_ = value;
+        
+        return this;
+      }
+      public Builder clearAuthToken() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        authToken_ = getDefaultInstance().getAuthToken();
+        
+        return this;
+      }
+      void setAuthToken(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        authToken_ = value;
+        
+      }
+      
+      // @@protoc_insertion_point(builder_scope:Thilenius.BFEProtos.BFEInfoQueryRequest)
+    }
+    
+    static {
+      defaultInstance = new BFEInfoQueryRequest(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFEInfoQueryRequest)
+    public static final int BFEINFOQUERYREQUEST_EXT_FIELD_NUMBER = 104;
+    public static final
+      com.google.protobuf.GeneratedMessageLite.GeneratedExtension<
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest> bFEInfoQueryRequestExt = com.google.protobuf.GeneratedMessageLite
+            .newSingularGeneratedExtension(
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage.getDefaultInstance(),
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.getDefaultInstance(),
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryRequest.getDefaultInstance(),
+          null,
+          104,
+          com.google.protobuf.WireFormat.FieldType.MESSAGE);
+  }
+  
+  public interface BFEInfoQueryResponseOrBuilder
+      extends com.google.protobuf.MessageLiteOrBuilder {
+    
+    // optional string failure_reason = 1;
+    boolean hasFailureReason();
+    String getFailureReason();
+    
+    // optional string blaze_response = 2;
+    boolean hasBlazeResponse();
+    String getBlazeResponse();
+  }
+  public static final class BFEInfoQueryResponse extends
+      com.google.protobuf.GeneratedMessageLite
+      implements BFEInfoQueryResponseOrBuilder {
+    // Use BFEInfoQueryResponse.newBuilder() to construct.
+    private BFEInfoQueryResponse(Builder builder) {
+      super(builder);
+    }
+    private BFEInfoQueryResponse(boolean noInit) {}
+    
+    private static final BFEInfoQueryResponse defaultInstance;
+    public static BFEInfoQueryResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+    
+    public BFEInfoQueryResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+    
+    private int bitField0_;
+    // optional string failure_reason = 1;
+    public static final int FAILURE_REASON_FIELD_NUMBER = 1;
+    private java.lang.Object failureReason_;
+    public boolean hasFailureReason() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    public String getFailureReason() {
+      java.lang.Object ref = failureReason_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          failureReason_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getFailureReasonBytes() {
+      java.lang.Object ref = failureReason_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        failureReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    // optional string blaze_response = 2;
+    public static final int BLAZE_RESPONSE_FIELD_NUMBER = 2;
+    private java.lang.Object blazeResponse_;
+    public boolean hasBlazeResponse() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    public String getBlazeResponse() {
+      java.lang.Object ref = blazeResponse_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (com.google.protobuf.Internal.isValidUtf8(bs)) {
+          blazeResponse_ = s;
+        }
+        return s;
+      }
+    }
+    private com.google.protobuf.ByteString getBlazeResponseBytes() {
+      java.lang.Object ref = blazeResponse_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8((String) ref);
+        blazeResponse_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    
+    private void initFields() {
+      failureReason_ = "";
+      blazeResponse_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+      
+      memoizedIsInitialized = 1;
+      return true;
+    }
+    
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFailureReasonBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getBlazeResponseBytes());
+      }
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+    
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFailureReasonBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getBlazeResponseBytes());
+      }
+      memoizedSerializedSize = size;
+      return size;
+    }
+    
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+    
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return newBuilder().mergeFrom(data, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      Builder builder = newBuilder();
+      if (builder.mergeDelimitedFrom(input, extensionRegistry)) {
+        return builder.buildParsed();
+      } else {
+        return null;
+      }
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input).buildParsed();
+    }
+    public static com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return newBuilder().mergeFrom(input, extensionRegistry)
+               .buildParsed();
+    }
+    
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+    
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse, Builder>
+        implements com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponseOrBuilder {
+      // Construct using com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+      
+      private void maybeForceBuilderInitialization() {
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+      
+      public Builder clear() {
+        super.clear();
+        failureReason_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        blazeResponse_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse getDefaultInstanceForType() {
+        return com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.getDefaultInstance();
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse build() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+      
+      private com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse buildParsed()
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(
+            result).asInvalidProtocolBufferException();
+        }
+        return result;
+      }
+      
+      public com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse buildPartial() {
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse result = new com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.failureReason_ = failureReason_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.blazeResponse_ = blazeResponse_;
+        result.bitField0_ = to_bitField0_;
+        return result;
+      }
+      
+      public Builder mergeFrom(com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse other) {
+        if (other == com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.getDefaultInstance()) return this;
+        if (other.hasFailureReason()) {
+          setFailureReason(other.getFailureReason());
+        }
+        if (other.hasBlazeResponse()) {
+          setBlazeResponse(other.getBlazeResponse());
+        }
+        return this;
+      }
+      
+      public final boolean isInitialized() {
+        return true;
+      }
+      
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              
+              return this;
+            default: {
+              if (!parseUnknownField(input, extensionRegistry, tag)) {
+                
+                return this;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              failureReason_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              blazeResponse_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      }
+      
+      private int bitField0_;
+      
+      // optional string failure_reason = 1;
+      private java.lang.Object failureReason_ = "";
+      public boolean hasFailureReason() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      public String getFailureReason() {
+        java.lang.Object ref = failureReason_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          failureReason_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setFailureReason(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        failureReason_ = value;
+        
+        return this;
+      }
+      public Builder clearFailureReason() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        failureReason_ = getDefaultInstance().getFailureReason();
+        
+        return this;
+      }
+      void setFailureReason(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000001;
+        failureReason_ = value;
+        
+      }
+      
+      // optional string blaze_response = 2;
+      private java.lang.Object blazeResponse_ = "";
+      public boolean hasBlazeResponse() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      public String getBlazeResponse() {
+        java.lang.Object ref = blazeResponse_;
+        if (!(ref instanceof String)) {
+          String s = ((com.google.protobuf.ByteString) ref).toStringUtf8();
+          blazeResponse_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      public Builder setBlazeResponse(String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        blazeResponse_ = value;
+        
+        return this;
+      }
+      public Builder clearBlazeResponse() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        blazeResponse_ = getDefaultInstance().getBlazeResponse();
+        
+        return this;
+      }
+      void setBlazeResponse(com.google.protobuf.ByteString value) {
+        bitField0_ |= 0x00000002;
+        blazeResponse_ = value;
+        
+      }
+      
+      // @@protoc_insertion_point(builder_scope:Thilenius.BFEProtos.BFEInfoQueryResponse)
+    }
+    
+    static {
+      defaultInstance = new BFEInfoQueryResponse(true);
+      defaultInstance.initFields();
+    }
+    
+    // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFEInfoQueryResponse)
+    public static final int BFEINFOQUERYRESPONSE_EXT_FIELD_NUMBER = 105;
+    public static final
+      com.google.protobuf.GeneratedMessageLite.GeneratedExtension<
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage,
+        com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse> bFEInfoQueryResponseExt = com.google.protobuf.GeneratedMessageLite
+            .newSingularGeneratedExtension(
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEMessage.getDefaultInstance(),
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.getDefaultInstance(),
+          com.thilenius.blaze.frontend.protos.BFEProtos.BFEInfoQueryResponse.getDefaultInstance(),
+          null,
+          105,
           com.google.protobuf.WireFormat.FieldType.MESSAGE);
   }
   

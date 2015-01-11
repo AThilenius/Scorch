@@ -19,6 +19,7 @@ class Log
 public:
 	~Log(void);
 
+    static void Info(std::string message);
 	static void Error(std::string message);
 	static void SetColor(ConsoleColor color);
 

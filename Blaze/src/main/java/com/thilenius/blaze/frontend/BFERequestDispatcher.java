@@ -15,6 +15,7 @@ public class BFERequestDispatcher {
 
     public BFEAssignmentServer LevelServer;
     public BFESparkServer SparkServer;
+    public BFEInfoQueryServer InfoQueryServer;
 
     private BFESocketServer m_server;
     private ExtensionRegistry m_extensionRegistry;
@@ -26,6 +27,7 @@ public class BFERequestDispatcher {
 
         LevelServer = new BFEAssignmentServer(socketServer);
         SparkServer = new BFESparkServer(socketServer, LevelServer);
+        InfoQueryServer = new BFEInfoQueryServer(socketServer);
     }
 
     public void onTick() {
@@ -48,6 +50,10 @@ public class BFERequestDispatcher {
                     BFEProtos.BFESparkCommand sparkRequest
                             = message.getExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt);
                     SparkServer.Handle(request.Channel, sparkRequest);
+                } else if (message.hasExtension(BFEProtos.BFEInfoQueryRequest.bFEInfoQueryRequestExt)) {
+                    BFEProtos.BFEInfoQueryRequest infoQueryRequest
+                            = message.getExtension(BFEProtos.BFEInfoQueryRequest.bFEInfoQueryRequestExt);
+                    InfoQueryServer.Handle(request.Channel, infoQueryRequest);
                 } else {
                     System.out.println("Invalid packet type. Can not dispatch!");
                 }

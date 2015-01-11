@@ -4,6 +4,5 @@ mkdir java-gen && mkdir cpp-gen
 protoc --java_out=java-gen ./BFEProtos.proto
 protoc --cpp_out=cpp-gen ./BFEProtos.proto
 
-cp -R -v ./cpp-gen/. ../../Anvil/OSX/Anvil/gen-files
-cp -R -v ./cpp-gen/. ../../Anvil/Windows/Anvil/gen-files
+cp -R -v ./cpp-gen/. ../../Anvil/Anvil/gen-files
 cp -R -v ./java-gen/. ../../Blaze/src/main/java

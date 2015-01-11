@@ -13,7 +13,5 @@
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    Level level = Anvil::LoadLevel(0);
-	std::cout << "Done" << std::endl;
-	std::cin.ignore();
+    Anvil::SayHello();
 }

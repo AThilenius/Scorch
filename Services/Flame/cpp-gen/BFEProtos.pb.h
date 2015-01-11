@@ -37,6 +37,8 @@ class BFELoadLevelRequest;
 class BFELoadLevelResponse;
 class BFESparkCommand;
 class BFESparkResponse;
+class BFEInfoQueryRequest;
+class BFEInfoQueryResponse;
 
 enum BFESparkCommand_CommandType {
   BFESparkCommand_CommandType_MOVE_FORWARD = 0,
@@ -559,6 +561,174 @@ class BFESparkResponse : public ::google::protobuf::MessageLite {
   
   void InitAsDefaultInstance();
   static BFESparkResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFEInfoQueryRequest : public ::google::protobuf::MessageLite {
+ public:
+  BFEInfoQueryRequest();
+  virtual ~BFEInfoQueryRequest();
+  
+  BFEInfoQueryRequest(const BFEInfoQueryRequest& from);
+  
+  inline BFEInfoQueryRequest& operator=(const BFEInfoQueryRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const BFEInfoQueryRequest& default_instance();
+  
+  void Swap(BFEInfoQueryRequest* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFEInfoQueryRequest* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const BFEInfoQueryRequest& from);
+  void MergeFrom(const BFEInfoQueryRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string auth_token = 1;
+  inline bool has_auth_token() const;
+  inline void clear_auth_token();
+  static const int kAuthTokenFieldNumber = 1;
+  inline const ::std::string& auth_token() const;
+  inline void set_auth_token(const ::std::string& value);
+  inline void set_auth_token(const char* value);
+  inline void set_auth_token(const char* value, size_t size);
+  inline ::std::string* mutable_auth_token();
+  inline ::std::string* release_auth_token();
+  
+  static const int kBFEInfoQueryRequestExtFieldNumber = 104;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFEInfoQueryRequest >, 11, false >
+    BFEInfoQueryRequest_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFEInfoQueryRequest)
+ private:
+  inline void set_has_auth_token();
+  inline void clear_has_auth_token();
+  
+  ::std::string* auth_token_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFEInfoQueryRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFEInfoQueryResponse : public ::google::protobuf::MessageLite {
+ public:
+  BFEInfoQueryResponse();
+  virtual ~BFEInfoQueryResponse();
+  
+  BFEInfoQueryResponse(const BFEInfoQueryResponse& from);
+  
+  inline BFEInfoQueryResponse& operator=(const BFEInfoQueryResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const BFEInfoQueryResponse& default_instance();
+  
+  void Swap(BFEInfoQueryResponse* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFEInfoQueryResponse* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const BFEInfoQueryResponse& from);
+  void MergeFrom(const BFEInfoQueryResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string failure_reason = 1;
+  inline bool has_failure_reason() const;
+  inline void clear_failure_reason();
+  static const int kFailureReasonFieldNumber = 1;
+  inline const ::std::string& failure_reason() const;
+  inline void set_failure_reason(const ::std::string& value);
+  inline void set_failure_reason(const char* value);
+  inline void set_failure_reason(const char* value, size_t size);
+  inline ::std::string* mutable_failure_reason();
+  inline ::std::string* release_failure_reason();
+  
+  // optional string blaze_response = 2;
+  inline bool has_blaze_response() const;
+  inline void clear_blaze_response();
+  static const int kBlazeResponseFieldNumber = 2;
+  inline const ::std::string& blaze_response() const;
+  inline void set_blaze_response(const ::std::string& value);
+  inline void set_blaze_response(const char* value);
+  inline void set_blaze_response(const char* value, size_t size);
+  inline ::std::string* mutable_blaze_response();
+  inline ::std::string* release_blaze_response();
+  
+  static const int kBFEInfoQueryResponseExtFieldNumber = 105;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFEInfoQueryResponse >, 11, false >
+    BFEInfoQueryResponse_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFEInfoQueryResponse)
+ private:
+  inline void set_has_failure_reason();
+  inline void clear_has_failure_reason();
+  inline void set_has_blaze_response();
+  inline void clear_has_blaze_response();
+  
+  ::std::string* failure_reason_;
+  ::std::string* blaze_response_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFEInfoQueryResponse* default_instance_;
 };
 // ===================================================================
 
@@ -1162,6 +1332,188 @@ inline ::std::string* BFESparkResponse::release_response_bytes() {
   } else {
     ::std::string* temp = response_bytes_;
     response_bytes_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BFEInfoQueryRequest
+
+// required string auth_token = 1;
+inline bool BFEInfoQueryRequest::has_auth_token() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFEInfoQueryRequest::set_has_auth_token() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFEInfoQueryRequest::clear_has_auth_token() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFEInfoQueryRequest::clear_auth_token() {
+  if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+    auth_token_->clear();
+  }
+  clear_has_auth_token();
+}
+inline const ::std::string& BFEInfoQueryRequest::auth_token() const {
+  return *auth_token_;
+}
+inline void BFEInfoQueryRequest::set_auth_token(const ::std::string& value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFEInfoQueryRequest::set_auth_token(const char* value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFEInfoQueryRequest::set_auth_token(const char* value, size_t size) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFEInfoQueryRequest::mutable_auth_token() {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  return auth_token_;
+}
+inline ::std::string* BFEInfoQueryRequest::release_auth_token() {
+  clear_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = auth_token_;
+    auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BFEInfoQueryResponse
+
+// optional string failure_reason = 1;
+inline bool BFEInfoQueryResponse::has_failure_reason() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFEInfoQueryResponse::set_has_failure_reason() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFEInfoQueryResponse::clear_has_failure_reason() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFEInfoQueryResponse::clear_failure_reason() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    failure_reason_->clear();
+  }
+  clear_has_failure_reason();
+}
+inline const ::std::string& BFEInfoQueryResponse::failure_reason() const {
+  return *failure_reason_;
+}
+inline void BFEInfoQueryResponse::set_failure_reason(const ::std::string& value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFEInfoQueryResponse::set_failure_reason(const char* value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFEInfoQueryResponse::set_failure_reason(const char* value, size_t size) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFEInfoQueryResponse::mutable_failure_reason() {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  return failure_reason_;
+}
+inline ::std::string* BFEInfoQueryResponse::release_failure_reason() {
+  clear_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = failure_reason_;
+    failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional string blaze_response = 2;
+inline bool BFEInfoQueryResponse::has_blaze_response() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BFEInfoQueryResponse::set_has_blaze_response() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BFEInfoQueryResponse::clear_has_blaze_response() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BFEInfoQueryResponse::clear_blaze_response() {
+  if (blaze_response_ != &::google::protobuf::internal::kEmptyString) {
+    blaze_response_->clear();
+  }
+  clear_has_blaze_response();
+}
+inline const ::std::string& BFEInfoQueryResponse::blaze_response() const {
+  return *blaze_response_;
+}
+inline void BFEInfoQueryResponse::set_blaze_response(const ::std::string& value) {
+  set_has_blaze_response();
+  if (blaze_response_ == &::google::protobuf::internal::kEmptyString) {
+    blaze_response_ = new ::std::string;
+  }
+  blaze_response_->assign(value);
+}
+inline void BFEInfoQueryResponse::set_blaze_response(const char* value) {
+  set_has_blaze_response();
+  if (blaze_response_ == &::google::protobuf::internal::kEmptyString) {
+    blaze_response_ = new ::std::string;
+  }
+  blaze_response_->assign(value);
+}
+inline void BFEInfoQueryResponse::set_blaze_response(const char* value, size_t size) {
+  set_has_blaze_response();
+  if (blaze_response_ == &::google::protobuf::internal::kEmptyString) {
+    blaze_response_ = new ::std::string;
+  }
+  blaze_response_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFEInfoQueryResponse::mutable_blaze_response() {
+  set_has_blaze_response();
+  if (blaze_response_ == &::google::protobuf::internal::kEmptyString) {
+    blaze_response_ = new ::std::string;
+  }
+  return blaze_response_;
+}
+inline ::std::string* BFEInfoQueryResponse::release_blaze_response() {
+  clear_has_blaze_response();
+  if (blaze_response_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = blaze_response_;
+    blaze_response_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }

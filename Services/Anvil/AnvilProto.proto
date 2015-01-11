@@ -1,0 +1,10 @@
+package Thilenius.AnvilProtos;
+
+option optimize_for = LITE_RUNTIME;
+option java_outer_classname = "AnvilProtos";
+
+message AnvilConfig {
+  required string auth_token = 1;
+  optional string blaze_ip = 2;
+  optional int32 blaze_port = 3;
+}

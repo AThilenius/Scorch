@@ -21,6 +21,7 @@ public class Main {
         
         try {
             String fullCommand = builder.getFullCommand();
+            System.out.println(fullCommand);
             switch(CurrentPlatform.getType()) {
                 case OSX:
                     proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
