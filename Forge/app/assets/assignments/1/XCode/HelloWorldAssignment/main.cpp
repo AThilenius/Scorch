@@ -11,5 +11,5 @@
 using namespace AnvilAPI;
 
 int main() {
-    
+    Anvil::SayHello();
 }

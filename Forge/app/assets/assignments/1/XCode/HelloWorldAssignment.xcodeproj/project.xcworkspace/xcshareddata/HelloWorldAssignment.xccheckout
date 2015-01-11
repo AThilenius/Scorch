@@ -10,31 +10,31 @@
 	<string>HelloWorldAssignment</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E2415D14644FD1F7633CCB802BB1CDA786EFC2D7</key>
-		<string>https://github.com/AThilenius/Scorch.git</string>
+		<key>63EEA955125B8D7EC402773AC868AFA9D49B6878</key>
+		<string>https://github.com/AThilenius/Forge.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Anvil/ProjectFiles/1/XCode/HelloWorldAssignment.xcodeproj</string>
+	<string>app/assets/assignments/1/XCode/HelloWorldAssignment.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E2415D14644FD1F7633CCB802BB1CDA786EFC2D7</key>
-		<string>../../../../../..</string>
+		<key>63EEA955125B8D7EC402773AC868AFA9D49B6878</key>
+		<string>../../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/AThilenius/Scorch.git</string>
+	<string>https://github.com/AThilenius/Forge.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E2415D14644FD1F7633CCB802BB1CDA786EFC2D7</string>
+	<string>63EEA955125B8D7EC402773AC868AFA9D49B6878</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E2415D14644FD1F7633CCB802BB1CDA786EFC2D7</string>
+			<string>63EEA955125B8D7EC402773AC868AFA9D49B6878</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Scorch</string>
+			<string>Forge</string>
 		</dict>
 	</array>
 </dict>

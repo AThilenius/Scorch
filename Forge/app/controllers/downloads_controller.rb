@@ -28,7 +28,7 @@ class DownloadsController < ApplicationController
           if replaceSelection != nil
             # Read the file
             contents = nil
-            File.open(file, 'rb') { |f| contents = f.read }
+            File.open(file, 'r') { |f| contents = f.read }
 
             p replaceTokens[replaceSelection]
             replaceTokens[replaceSelection].each do |from, to|
@@ -36,7 +36,7 @@ class DownloadsController < ApplicationController
             end
 
             # Write modified file out to the zip
-            zipfile.get_output_stream(file.sub(path+'/','')) { |f| f.puts contents }
+            zipfile.get_output_stream(file.sub(path+'/','')) { |f| f.print contents }
           else
 
             # Pass through
@@ -64,10 +64,8 @@ class DownloadsController < ApplicationController
     attachmentName = "#{sessionGetUser.lastName} Assignment #{params[:id]}.zip"
     archive = File.join(Rails.root, 'tmp', 'assignments', "#{params[:id]}", "#{projectName}.zip")
 
-    compress(resourcePath, archive, {/libAnvilLib.a/ =>
-                                         { 'D6089AA2-CB1C-4FFA-8990-4297A38376C2' => userAssignment.authToken },
-                                     /Anvil.lib/ =>
-                                         { 'D6089AA2-CB1C-4FFA-8990-4297A38376C2' => userAssignment.authToken }})
+    compress(resourcePath, archive, {/AuthToken.aat/ =>
+                                         { '<AuthToken>' => userAssignment.authToken }})
 
     # Send-er out!
     send_file(archive, :type => 'application/zip', :filename => attachmentName)
