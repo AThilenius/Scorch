@@ -36,6 +36,9 @@
     <ClCompile Include="Spark.cpp">
       <Filter>AnvilAPI</Filter>
     </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>AnvilAPI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PrefixHeader.h" />
@@ -56,6 +59,9 @@
       <Filter>AnvilAPI</Filter>
     </ClInclude>
     <ClInclude Include="Spark.h">
+      <Filter>AnvilAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
       <Filter>AnvilAPI</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,6 +13,7 @@
 #include "TcpSocket.h"
 #include "TcpMessage.h"
 #include "BFEProtos.pb.h"
+#include "Config.h"
 
 
 using Socket::TcpMessage;
@@ -32,7 +33,7 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
         BFESparkCommand* request = message.MutableExtension(BFESparkCommand::BFESparkCommand_ext);
         request->set_command(connandType);
         request->set_spark_id(sparkNumber);
-        request->set_auth_token(Anvil::AuthToken);
+        request->set_auth_token(Config::GetAuthToken());
         
         int size = message.ByteSize();
         void* buffer = malloc(size);

@@ -28,6 +28,13 @@ Log::~Log(void)
 {
 
 }
+    
+void Log::Info(std::string message) {
+    SetColor(Green);
+    std::cout << "[INFO] ";
+    SetColor(White);
+    std::cout << message << std::endl;
+}
 
 void Log::Error( std::string message )
 {

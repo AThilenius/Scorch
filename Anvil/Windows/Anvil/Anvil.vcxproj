@@ -81,6 +81,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Anvil.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="gen-files\BFEProtos.pb.cc" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -91,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Anvil.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="gen-files\BFEProtos.pb.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Log.h" />

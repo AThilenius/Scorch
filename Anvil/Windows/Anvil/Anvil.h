@@ -21,13 +21,11 @@ namespace AnvilAPI {
 
 class Anvil {
 public:
+    static void SayHello();
     static Level LoadLevel(int levelNumber);
     
-public:
-    // Configuration
-    static std::string AuthToken;
-    static std::string BlazeIP;
-    static int BlazePort;
+private:
+    static void EnsureConnected();
     
 private:
     static ::Socket::TcpSocket* m_socket;
