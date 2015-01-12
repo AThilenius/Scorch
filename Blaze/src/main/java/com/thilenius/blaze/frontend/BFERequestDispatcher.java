@@ -41,7 +41,7 @@ public class BFERequestDispatcher {
                 SocketRequest request = pendingRequests.remove(0);
                 BFEProtos.BFEMessage message = BFEProtos.BFEMessage.parseFrom(request.Payload, m_extensionRegistry);
 
-                System.out.println("Processing Proto: " + message.toString());
+                // System.out.println("Processing Proto: " + message.toString());
                 if (message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
                     BFEProtos.BFELoadLevelRequest loadRequest
                             = message.getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);

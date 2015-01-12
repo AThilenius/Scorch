@@ -63,11 +63,6 @@ public class Blaze {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-//        } catch (InstantiationException e) {
-//            e.printStackTrace();
-//        } catch (IllegalAccessException e) {
-//            e.printStackTrace();
-//        }
     }
 
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {

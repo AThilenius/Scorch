@@ -22,9 +22,13 @@ public:
     static void Info(std::string message);
 	static void Error(std::string message);
 	static void SetColor(ConsoleColor color);
+    static void Suppress();
 
 private:
 	Log(void);
+    
+private:
+    static bool s_isSupressed;
 
 };
 

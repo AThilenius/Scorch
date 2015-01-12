@@ -53,7 +53,7 @@ public class BFESocketServer implements Runnable {
                             case ChangeRequest.CHANGEOPS:
                                 SelectionKey key = change.socket.keyFor(this.selector);
 
-                                if (key == null) {
+                                if (key == null || !key.isValid()) {
                                     continue;
                                 }
 
@@ -72,7 +72,7 @@ public class BFESocketServer implements Runnable {
                     SelectionKey key = (SelectionKey) selectedKeys.next();
                     selectedKeys.remove();
 
-                    if (!key.isValid()) {
+                    if (key == null || !key.isValid()) {
                         continue;
                     }
 
@@ -194,7 +194,7 @@ public class BFESocketServer implements Runnable {
                 byte[] buf = (byte[]) queue.get(0);
 
                 // Write out size
-                System.out.println("Writing " + buf.length + " bytes.");
+                // System.out.println("Writing " + buf.length + " bytes.");
                 ByteBuffer writeBuffer = ByteBuffer.allocate(4 + buf.length);
                 writeBuffer.putInt(buf.length);
                 writeBuffer.put(buf);

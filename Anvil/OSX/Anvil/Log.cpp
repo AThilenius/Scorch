@@ -16,6 +16,9 @@
 
 
 namespace Util {
+    
+    
+bool Log::s_isSupressed = false;
 
 
 Log::Log(void)
@@ -30,6 +33,10 @@ Log::~Log(void)
 }
     
 void Log::Info(std::string message) {
+    if (s_isSupressed) {
+        return;
+    }
+    
     SetColor(Green);
     std::cout << "[INFO] ";
     SetColor(White);
@@ -38,6 +45,10 @@ void Log::Info(std::string message) {
 
 void Log::Error( std::string message )
 {
+    if (s_isSupressed) {
+        return;
+    }
+    
 #ifdef _WIN32
 	// For visual studio, write out the error and wait for a key. The console
 	// will auto close if not.
@@ -118,6 +129,10 @@ void Log::SetColor( ConsoleColor color )
 		break;
 	}
 #endif
+}
+
+void Log::Suppress() {
+    s_isSupressed = true;
 }
 
 

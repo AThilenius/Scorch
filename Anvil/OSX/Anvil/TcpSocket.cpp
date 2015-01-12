@@ -11,100 +11,122 @@
 
 #ifdef _WIN32
 	#define WIN32_LEAN_AND_MEAN
+    #include <io.h>
 	#include <winsock2.h>
 	#include <ws2tcpip.h>
 	#include <stdio.h>
 	#include <stdlib.h>
 	#pragma comment(lib,"Ws2_32.lib")
 #else
-	#include <arpa/inet.h>
-	#include <netdb.h>
-	#include <netinet/in.h>
-	#include <sys/socket.h>
+    #include <unistd.h>
+    #include <arpa/inet.h>
+    #include <netdb.h>
+    #include <netinet/in.h>
+    #include <sys/socket.h>
+    #include <sys/types.h>
 #endif
 
 namespace Socket {
+    
+    
+TcpSocket::TcpSocket() :
+    m_socketHandle(-1) {
+    
+}
 
-	TcpSocket::TcpSocket() {
-	}
+TcpSocket::~TcpSocket() {
+    
+}
 
-	TcpSocket::~TcpSocket() {
+bool TcpSocket::Connect(std::string ipAddressStr, UInt16 port) {
+    
+    // Setup address
+    sockaddr_in serverAddress;
+    inet_pton(AF_INET, ipAddressStr.c_str(), &(serverAddress.sin_addr));
+    serverAddress.sin_port = htons(port);
+    serverAddress.sin_family = AF_INET;
+    
+    m_socketHandle = socket(AF_INET, SOCK_STREAM, 0);
+    if (m_socketHandle < 0) {
+        return false;
+    }
+    
+    if (connect(m_socketHandle, (sockaddr*) &serverAddress, sizeof(serverAddress)) < 0) {
+        return false;
+    }
+    
+    return true;
+}
 
-	}
+TcpMessagePtr TcpSocket::Read() {
+    
+    // First read in the 4 byte size (in network endian)
+    UInt32 size = 0;
+    
+    if (!ReadCompleate((char*)&size, m_socketHandle, 4)) {
+        return TcpMessagePtr(nullptr);
+    }
+    
+    // Convert to host endian
+    size = ntohl(size);
+    
+    // Read in that size
+    void* buffer = malloc(size);
+    
+    if (!ReadCompleate((char*)buffer, m_socketHandle, size)) {
+        return TcpMessagePtr(nullptr);
+    }
+    
+    // Wrap it in a shared ptr
+    TcpMessage* message = new TcpMessage(buffer, size, this);
+    return TcpMessagePtr(message);
+}
 
-	bool TcpSocket::Connect(std::string ipAddressStr, UInt16 port) {
-		sf::Socket::Status status = m_socket.connect(ipAddressStr, port);
-		if (status != sf::Socket::Done) {
-			return false;
-		}
+bool TcpSocket::Write(void* data, int count) {
+    
+    // First write out the size (in network endian)
+    UInt32 size = htonl(count);
+    if (!WriteComplete((char*)&size, m_socketHandle, 4)) {
+        return false;
+    }
+    
+    // Next write out the message
+    if (!WriteComplete((char*)data, m_socketHandle, count)) {
+        return false;
+    }
+    
+    return true;
+}
 
-		return true;
-	}
+bool TcpSocket::ReadCompleate(char* buffer, int socket, UInt32 count) {
+    assert(count != 0);
+    
+    UInt32 readCount = 0;
+    while (readCount < count) {
+        Int64 n = read(socket, &buffer[readCount], count - readCount);
+        readCount += n;
+        if (n < 0) {
+            // Socket was forcibly closed
+            return false;
+        }
+    }
+    return true;
+}
 
-	TcpMessagePtr TcpSocket::Read() {
-
-		// First read in the 4 byte size (in network endian)
-		UInt32 size = 0;
-
-		if (!ReadCompleate((char*)&size, 4)) {
-			return TcpMessagePtr(nullptr);
-		}
-
-		// Convert to host endian
-		size = ntohl(size);
-
-		// Read in that size
-		void* buffer = malloc(size);
-
-		if (!ReadCompleate((char*)buffer, size)) {
-			return TcpMessagePtr(nullptr);
-		}
-
-		// Wrap it in a shared ptr
-		TcpMessage* message = new TcpMessage(buffer, size, this);
-		return TcpMessagePtr(message);
-	}
-
-	bool TcpSocket::Write(void* data, int count) {
-
-		// First write out the size (in network endian)
-		UInt32 size = htonl(count);
-		if (!WriteComplete((char*)&size, 4)) {
-			return false;
-		}
-
-		// Next write out the message
-		if (!WriteComplete((char*)data, count)) {
-			return false;
-		}
-
-		return true;
-	}
-
-	bool TcpSocket::ReadCompleate(char* buffer, UInt32 count) {
-		assert(count != 0);
-
-		size_t readCount = 0;
-		while (readCount < count) {
-			size_t n = 0;
-			if (m_socket.receive(&buffer[readCount], count - readCount, n) != sf::Socket::Done) {
-				return false;
-			}
-
-			readCount += n;
-		}
-		return true;
-	}
-
-	bool TcpSocket::WriteComplete(char* buffer, UInt32 count) {
-		// SFML takes care of most of this for me...
-		assert(count != 0);
-
-		if (m_socket.send(buffer, count) != sf::Socket::Done) {
-			return false;
-		}
-		return true;
-	}
-
-
+bool TcpSocket::WriteComplete(char* buffer, int socket, UInt32 count) {
+    assert(count != 0);
+    
+    UInt32 writeCount = 0;
+    while (writeCount < count) {
+        Int64 n = write(socket, &buffer[writeCount], count - writeCount);
+        writeCount += n;
+        if (n < 0) {
+            // Socket was forcibly closed
+            return false;
+        }
+    }
+    return true;
+}
+    
+    
 } // namespace Socket
