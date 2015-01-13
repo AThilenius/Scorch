@@ -11,9 +11,6 @@
 		702F1BF91A1D4A4E00200224 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
 		702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
 		702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */; };
-		7030B3CA1A6427DC004B5BBE /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7030B3C81A6427DC004B5BBE /* Time.cpp */; };
-		7030B3CB1A6427DC004B5BBE /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7030B3C81A6427DC004B5BBE /* Time.cpp */; };
-		7030B3CC1A6427DC004B5BBE /* Time.h in Headers */ = {isa = PBXBuildFile; fileRef = 7030B3C91A6427DC004B5BBE /* Time.h */; };
 		7037368A1A2D8A680088DF33 /* Anvil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703736881A2D8A680088DF33 /* Anvil.cpp */; };
 		7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7037368B1A2D989A0088DF33 /* Spark.cpp */; };
 		703736F61A2E83A60088DF33 /* Anvil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703736881A2D8A680088DF33 /* Anvil.cpp */; };
@@ -59,8 +56,6 @@
 		702F1BF41A1D4A4E00200224 /* TcpMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpMessage.h; sourceTree = "<group>"; };
 		702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TcpSocket.cpp; sourceTree = "<group>"; };
 		702F1BF61A1D4A4E00200224 /* TcpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcpSocket.h; sourceTree = "<group>"; };
-		7030B3C81A6427DC004B5BBE /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
-		7030B3C91A6427DC004B5BBE /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		703736881A2D8A680088DF33 /* Anvil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Anvil.cpp; sourceTree = "<group>"; };
 		703736891A2D8A680088DF33 /* Anvil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Anvil.h; sourceTree = "<group>"; };
 		7037368B1A2D989A0088DF33 /* Spark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spark.cpp; sourceTree = "<group>"; };
@@ -181,8 +176,6 @@
 		70F0E93B1A560B2E00BDC94C /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				7030B3C81A6427DC004B5BBE /* Time.cpp */,
-				7030B3C91A6427DC004B5BBE /* Time.h */,
 				70F0E9361A560B2900BDC94C /* Log.cpp */,
 				70F0E9371A560B2900BDC94C /* Log.h */,
 			);
@@ -196,7 +189,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7030B3CC1A6427DC004B5BBE /* Time.h in Headers */,
 				70F0E93A1A560B2900BDC94C /* Log.h in Headers */,
 				703737061A2E84CE0088DF33 /* Anvil.h in Headers */,
 				7085EDD41A63104E0093DE12 /* Config.h in Headers */,
@@ -279,7 +271,6 @@
 				703736F81A2E83A60088DF33 /* Level.cpp in Sources */,
 				70F0E9391A560B2900BDC94C /* Log.cpp in Sources */,
 				703736FA1A2E83A60088DF33 /* Spark.cpp in Sources */,
-				7030B3CB1A6427DC004B5BBE /* Time.cpp in Sources */,
 				703736FC1A2E83A60088DF33 /* TcpMessage.cpp in Sources */,
 				703736FE1A2E83A60088DF33 /* TcpSocket.cpp in Sources */,
 				7085EDD31A63104E0093DE12 /* Config.cpp in Sources */,
@@ -296,7 +287,6 @@
 				702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */,
 				70560DE31A5F433C007319DE /* BFEProtos.pb.cc in Sources */,
 				7085EDD21A63104E0093DE12 /* Config.cpp in Sources */,
-				7030B3CA1A6427DC004B5BBE /* Time.cpp in Sources */,
 				7037368A1A2D8A680088DF33 /* Anvil.cpp in Sources */,
 				70F0E9381A560B2900BDC94C /* Log.cpp in Sources */,
 				7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */,

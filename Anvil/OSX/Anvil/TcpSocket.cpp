@@ -11,7 +11,6 @@
 
 #ifdef _WIN32
 	#define WIN32_LEAN_AND_MEAN
-    #include <io.h>
 	#include <winsock2.h>
 	#include <ws2tcpip.h>
 	#include <stdio.h>
@@ -40,6 +39,18 @@ TcpSocket::~TcpSocket() {
 
 bool TcpSocket::Connect(std::string ipAddressStr, UInt16 port) {
     
+#ifdef _WIN32
+	// Fucking Windows...
+	WSADATA wsaData;
+	int iResult;
+
+	iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
+	if (iResult != 0) {
+		Util::Log::Error("Winsock isn't supported on your system.");
+		return false;
+	}
+#endif
+
     // Setup address
     sockaddr_in serverAddress;
     inet_pton(AF_INET, ipAddressStr.c_str(), &(serverAddress.sin_addr));
@@ -103,7 +114,11 @@ bool TcpSocket::ReadCompleate(char* buffer, int socket, UInt32 count) {
     
     UInt32 readCount = 0;
     while (readCount < count) {
+#ifdef _WIN32
+		Int64 n = recv(socket, &buffer[readCount], count - readCount, 0);
+#else
         Int64 n = read(socket, &buffer[readCount], count - readCount);
+#endif
         readCount += n;
         if (n < 0) {
             // Socket was forcibly closed
@@ -115,10 +130,14 @@ bool TcpSocket::ReadCompleate(char* buffer, int socket, UInt32 count) {
 
 bool TcpSocket::WriteComplete(char* buffer, int socket, UInt32 count) {
     assert(count != 0);
-    
+
     UInt32 writeCount = 0;
     while (writeCount < count) {
+#ifdef _WIN32
+		Int64 n = send(socket, &buffer[writeCount], count - writeCount, 0);
+#else
         Int64 n = write(socket, &buffer[writeCount], count - writeCount);
+#endif
         writeCount += n;
         if (n < 0) {
             // Socket was forcibly closed

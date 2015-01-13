@@ -10,7 +10,6 @@
 
 #include "Anvil.h"
 #include "Config.h"
-#include "Time.h"
 #include "Log.h"
 
 using namespace AnvilAPI;
