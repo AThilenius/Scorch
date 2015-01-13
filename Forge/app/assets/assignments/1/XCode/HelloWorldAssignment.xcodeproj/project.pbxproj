@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		703737161A2E85890088DF33 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703737151A2E85880088DF33 /* main.cpp */; };
 		7037371F1A2E85A90088DF33 /* libAnvilLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7037371E1A2E85A90088DF33 /* libAnvilLib.a */; };
-		70F0E93F1A5648AE00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F0E93C1A5648AE00BDC94C /* libprotobuf-lite.7.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +27,6 @@
 		703737121A2E85880088DF33 /* HelloWorldAssignment */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloWorldAssignment; sourceTree = BUILT_PRODUCTS_DIR; };
 		703737151A2E85880088DF33 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7037371E1A2E85A90088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAnvilLib.a; path = lib/libAnvilLib.a; sourceTree = "<group>"; };
-		70F0E93C1A5648AE00BDC94C /* libprotobuf-lite.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libprotobuf-lite.7.dylib"; path = "lib/libprotobuf-lite.7.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +34,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70F0E93F1A5648AE00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */,
 				7037371F1A2E85A90088DF33 /* libAnvilLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +69,6 @@
 		70F0E9421A5648B200BDC94C /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				70F0E93C1A5648AE00BDC94C /* libprotobuf-lite.7.dylib */,
 				7037371E1A2E85A90088DF33 /* libAnvilLib.a */,
 			);
 			name = Libraries;
