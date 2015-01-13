@@ -7,7 +7,6 @@
 //
 #pragma once
 
-#include "SFML/Network.hpp"
 
 namespace Socket {
 
@@ -24,11 +23,11 @@ public:
     bool Write(void* data, int count);
 
 private:
-    bool ReadCompleate(char* buffer, UInt32 count);
-    bool WriteComplete(char* buffer, UInt32 count);
+    bool ReadCompleate(char* buffer, int socket, UInt32 count);
+    bool WriteComplete(char* buffer, int socket, UInt32 count);
     
 private:
-	sf::TcpSocket m_socket;
+	int m_socketHandle;
 };
 
     

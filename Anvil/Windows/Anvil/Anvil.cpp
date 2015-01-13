@@ -41,14 +41,15 @@ std::string DataError (
 int Anvil::m_activeLevel = -1;
     
 void Anvil::SayHello() {
+	std::string authToken = Config::GetAuthToken();
+	Util::Log::Info("Saying hello to blaze with the token: [" + authToken + "]");
+
     EnsureConnected();
     
     // Send InfoQueryRequst
     {
         BFEMessage message;
         BFEInfoQueryRequest* request = message.MutableExtension(BFEInfoQueryRequest::BFEInfoQueryRequest_ext);
-        std::string authToken = Config::GetAuthToken();
-        Util::Log::Info("Saying hello to blaze with the token: [" + authToken + "]");
         request->set_auth_token(Config::GetAuthToken());
         
         int size = message.ByteSize();
