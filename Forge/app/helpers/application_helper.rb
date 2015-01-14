@@ -22,13 +22,16 @@ module ApplicationHelper
         strikethrough:      true,
         tables:             true,
         link_attributes:    true
-
     }
 
     renderer = Redcarpet::Render::HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
     markdown.render(text).html_safe
+  end
+
+  def pretty_date(date)
+    return date.localtime.strftime("%A, %b %d %Y, %I:%M%p")
   end
 
   def site_name

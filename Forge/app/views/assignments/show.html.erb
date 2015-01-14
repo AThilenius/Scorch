@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= @assignment.name %></h1>
+<h1 class="text-center white"><%= @assignment.name %></h1>
 <h4 class="text-center">
   <span class="label label-<%= @assignment.due_date_color %>">
     <%= @assignment.is_past_due ? 'Closed' : @assignment.due_date_countdown %>
@@ -26,6 +26,7 @@
 
 <br>
 
+
 <div class="panel panel-<%= @panelColor %>">
   <div class="panel-heading">
     <h3 class="panel-title">
@@ -34,7 +35,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <p class="pull-right">TODO: ADD DATE HERE</p>
+    <p class="pull-right">Due <%= pretty_date @assignment.dueDate %></p>
     <!--Render Assignment-->
     <%= markdown(@assignment.markdown) %>
   </div>

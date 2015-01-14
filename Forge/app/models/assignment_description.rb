@@ -7,8 +7,12 @@ class AssignmentDescription < ActiveRecord::Base
     return AssignmentDescription.due_date_countdown(dueDate, open_date)
   end
 
+  def due_date_color_label()
+    return AssignmentDescription.due_date_color_label(dueDate, open_date)
+  end
+
   def due_date_color()
-    return AssignmentDescription.due_date_color(dueDate, open_date)
+    return AssignmentDescription.due_date_color_label(dueDate, open_date)
   end
 
   def is_past_due()
@@ -38,12 +42,21 @@ class AssignmentDescription < ActiveRecord::Base
     end
   end
 
-  def self.due_date_color(dueDate, open_date)
+  def self.due_date_color_label(dueDate, open_date)
     delta = dueDate - Time.now.getutc
     if delta <= 0 or open_date > Time.now.getutc
       return 'default'
     else
       return delta < 24 * 3600 ? 'danger' : 'warning'
+    end
+  end
+
+  def self.due_date_color(dueDate, open_date)
+    delta = dueDate - Time.now.getutc
+    if delta <= 0 or open_date > Time.now.getutc
+      return 'grey'
+    else
+      return delta < 24 * 3600 ? 'red' : 'yellow'
     end
   end
 

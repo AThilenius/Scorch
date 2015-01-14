@@ -1,39 +1,35 @@
-<h1 class="text-center">Flame</h1>
+<h1 class="text-center white">Flame</h1>
 
 <hr>
 
 <ul class="nav nav-pills">
-  <li role="presentation" class=<%= 'active' if current_page?(flame_show_path) %>>
-    <a href="#">Flame</a>
-  </li>
   <li role="presentation" class="pull-right">
-    <a class="button data-no-turbolink" href='/downloads/flame' role="button" aria-expanded="false">
+    <button id="downloadButton" class="btn btn-primary data-no-turbolink">
       Download Flame
-    </a>
+    </button>
   </li>
 </ul>
 
 <br>
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      Installing Flame
-    </h3>
+<div class="row">
+  <div class="col-md-4">
+    <img height="300" width="300" src=<%=asset_path('MinecraftCreeper.png')%> />
   </div>
-  <div class="panel-body">
-    <p><strong>Flame</strong> is the custom build and launcher for Minecraft. You cannot log into <strong>Blaze</strong> without it.</p>
-    <blockquote>
-      <p><strong>The download of <strong>Flame</strong> is customized to you! Do not share it with anyone.</strong></p>
-    </blockquote>
-    <h3 id="installing-flame">Installing <strong>Flame</strong></h3>
+  <div class="col-md-8 white" style="background-color: rgba(0, 0, 0, 0.22);">
+    <h3>What is Flame?</h3>
+    <p>Scorch relies on a heavily modified Minecraft client and server. Flame is a custom resource-resolver and launcher for Minecraft, making setup turn-key. It is very important to note that <strong>this download of Flame is customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</strong></p>
+    <h3>Installing Flame</h3>
     <ul>
       <li>Download and install Java 6 from
-        <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jre-6u45-oth-JPR">here</a>.</li>
-      <li>Download your copy of <strong>Flame</strong></li>
+        <strong><a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jre-6u45-oth-JPR">here</a></strong></li>
+      <li>Download your copy of Flame and extract it to it's final resting place</li>
     </ul>
-    <p>Yep, it&#39;s that simple, you&#39;re welcome.</p>
-    <h3 id="running-flame">Running Flame</h3>
-    <p>TODO: Finish this up</p>
+    <h3>Running Flame</h3>
+    <ul>
+      <li>Open a Shell / Command Prompt</li>
+      <li>Change directories to where you extracted Flame</li>
+      <li>Run <i>java -jar FlameLauncher.jar</i></li>
+    </ul>
   </div>
 </div>

@@ -10,16 +10,49 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require twitter/bootstrap
+ *= require_tree .
  */
 
 body {
-  padding-top: 70px;
-  padding-bottom: 20px;
-  overflow-x: hidden;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+    background-color: transparent;
 }
+
+html {
+    background: url('Background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.white {
+    color: #ffffff;
+}
+
+a:link {
+    color: #ffffff;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #ffffff;
+}
+
+/* selected link */
+a:active {
+    color: #ffffff;
+}
+
 
 #bg { position: fixed; top: 0; left: 0; }
 .bgwidth { width: 100%; }

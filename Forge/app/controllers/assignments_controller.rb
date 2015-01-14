@@ -36,7 +36,8 @@ class AssignmentsController < ApplicationController
           '0%' : "#{(Float(earnedPoints) / Float(possiblePoints) * 100).round}%"
       assignmentData.extraCreditPercent = possibleExtraCredit == 0 ?
           '0%' : "#{(Float(earnedExtraCredit) / Float(possibleExtraCredit) * 100).round}%"
-      assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color
+      assignmentData.dueDateColorLabel = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color_label
+      assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'green' : assignment.due_date_color
 
       @assignmentsData << assignmentData
     end

@@ -1,39 +1,36 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %></h3>
+<h1 class="text-center white">Account</h1>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-4">
+    <img height="250" width="250" src=<%=asset_path('Flame-512.png')%> />
   </div>
-  <div class="panel-body">
-  	<div class="row">
-	  <div class="col-md-4">
-	  	<img height="250" width="250" src=<%=asset_path('Flame-512.png')%> />
-	  </div>
-	  <div class="col-md-4">
-	  	<dl class="dl-horizontal">
-		  <dt>First Name:</dt>
-		  <dd><%= sessionGetUser.firstName %></dd>
-		</dl>
-	  	<dl class="dl-horizontal">
-		  <dt>Last Name:</dt>
-		  <dd><%= sessionGetUser.lastName %></dd>
-		</dl>
-        <dl class="dl-horizontal">
-          <dt>User Name:</dt>
-          <dd><%= sessionGetUser.id %></dd>
-        </dl>
-        <dl class="dl-horizontal">
-          <dt>Student ID:</dt>
-          <dd><%= sessionGetUser.studentID %></dd>
-        </dl>
-	  	<dl class="dl-horizontal">
-		  <dt>Password:</dt>
-		  <dd><a href=<%= password_path %>>Change</a></dd>
-		</dl>
-		<dl class="dl-horizontal">
-		  <dt>Role:</dt>
-		  <dd><%= sessionIsAdmin ? 'Teacher' : 'Student' %></dd>
-		</dl>
-	  </div>
-	</div>
-  	
+  <div class="col-md-8 white" style="background-color: rgba(0, 0, 0, 0.22);">
+    <br>
+    <dl class="dl-horizontal">
+      <dt>First Name:</dt>
+      <dd><%= sessionGetUser.firstName %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Last Name:</dt>
+      <dd><%= sessionGetUser.lastName %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>GUID:</dt>
+      <dd><span class="label label-default"><%= sessionGetUser.guid %></span></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Student ID:</dt>
+      <dd><%= sessionGetUser.studentID %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Password:</dt>
+      <dd><a href="<%= password_path %>" class="btn btn-xs btn-danger">Change</a></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Role:</dt>
+      <dd><%= sessionIsAdmin ? 'Teacher' : 'Student' %></dd>
+    </dl>
   </div>
 </div>
