@@ -1,6 +1,0 @@
-{
-	"user_guid" : "<AuthToken>",
-    "load_balancer_ip" : "",
-    "load_balancer_port" : 0,
-    "session_service_url" : "https://scorchforge.com/service/get_minecraft_session"
-}
