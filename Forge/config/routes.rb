@@ -32,5 +32,5 @@ Rails.application.routes.draw do
   resources :students, :only => [:show, :destroy]
   resources :assignments, :only => [:show, :destroy]
 
-  root 'home_page#index'
+  root 'assignments#list'
 end

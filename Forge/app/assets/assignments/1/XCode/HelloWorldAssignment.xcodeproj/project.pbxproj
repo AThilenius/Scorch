@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702BB0981A65FDC2009AA378 /* AuthToken.aat in CopyFiles */ = {isa = PBXBuildFile; fileRef = 702BB0971A65FD87009AA378 /* AuthToken.aat */; };
 		703737161A2E85890088DF33 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703737151A2E85880088DF33 /* main.cpp */; };
 		7037371F1A2E85A90088DF33 /* libAnvilLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7037371E1A2E85A90088DF33 /* libAnvilLib.a */; };
 /* End PBXBuildFile section */
@@ -14,16 +15,18 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		703737101A2E85880088DF33 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				702BB0981A65FDC2009AA378 /* AuthToken.aat in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		702BB0971A65FD87009AA378 /* AuthToken.aat */ = {isa = PBXFileReference; lastKnownFileType = text; path = AuthToken.aat; sourceTree = "<group>"; };
 		703737121A2E85880088DF33 /* HelloWorldAssignment */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HelloWorldAssignment; sourceTree = BUILT_PRODUCTS_DIR; };
 		703737151A2E85880088DF33 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7037371E1A2E85A90088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAnvilLib.a; path = lib/libAnvilLib.a; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		703737091A2E85880088DF33 = {
 			isa = PBXGroup;
 			children = (
+				702BB0971A65FD87009AA378 /* AuthToken.aat */,
 				70F0E9421A5648B200BDC94C /* Libraries */,
 				703737141A2E85880088DF33 /* HelloWorldAssignment */,
 				703737131A2E85880088DF33 /* Products */,
