@@ -1,6 +1,8 @@
 package com.thilenius.blaze.assignment;
 
 import com.thilenius.blaze.Blaze;
+import com.thilenius.blaze.data.AssignmentQuery;
+import com.thilenius.blaze.data.PointsQuery;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.blaze.player.PlayerArena;
@@ -24,15 +26,17 @@ public abstract class BlazeLevel {
     private Location3D m_arenaLocation;
     private Random m_random;
     private int m_userLevelId;
+    private int m_points;
 
-    public void load(Location3D arenaLocation, int seed, int userLevelId) {
-        m_arenaLocation = arenaLocation;
-        m_random = new Random((long)seed);
-        m_userLevelId = userLevelId;
+    public void load(AssignmentQuery assignmentQuery, int points) {
+        m_arenaLocation = assignmentQuery.ArenaLocation;
+        m_random = new Random((long)0);
+        m_userLevelId = assignmentQuery.UserLevelId;
+        m_points = points;
     }
 
     public void unload() {}
-    public void reload() {}
+    public void reload(int points) { m_points = points; }
 
     public Location3D getArenaLocation() {
         return m_arenaLocation;
@@ -48,36 +52,14 @@ public abstract class BlazeLevel {
     }
 
     protected void setPoints(int points) {
-        String SQL =
-                "UPDATE user_levels\n" +
-                "SET points = CASE WHEN points < " + points + "\n" +
-                "THEN " + points + " ELSE points END\n" +
-                "WHERE id=" + m_userLevelId;
-        try {
-            Statement statement = Blaze.SqlInstance.createStatement();
-            statement.executeUpdate(SQL);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        m_points = points;
+        PointsQuery updateQuery = new PointsQuery(m_userLevelId);
+        updateQuery.Points = points;
+        Blaze.RemoteDataConnection.update(updateQuery);
     }
 
     protected int getPoints() {
-        String SQL =
-                "SELECT points\n" +
-                "FROM user_levels\n" +
-                "WHERE id=" + m_userLevelId;
-        try {
-            Statement statement = Blaze.SqlInstance.createStatement();
-            ResultSet rs = statement.executeQuery(SQL);
-            rs.next();
-            int points = rs.getInt("points");
-            rs.next();
-            return points;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return -1;
+        return m_points;
     }
 
     protected void setBlock(int x, int y, int z, Block block) {

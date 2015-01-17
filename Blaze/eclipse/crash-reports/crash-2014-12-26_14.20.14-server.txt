@@ -5,7 +5,7 @@ Time: 12/26/14 2:20 PM
 Description: Exception in server tick loop
 
 java.lang.NullPointerException: Exception in server tick loop
-	at com.thilenius.blaze.frontend.BFEAssignmentServer.Handle(BFEAssignmentServer.java:45)
+	at com.thilenius.blaze.frontend.protos.handlers.BFEAssignmentServer.Handle(BFEAssignmentServer.java:45)
 	at com.thilenius.blaze.frontend.BFERequestDispatcher.onTick(BFERequestDispatcher.java:46)
 	at com.thilenius.blaze.frontend.BlazeFrontEnd.onTick(BlazeFrontEnd.java:28)
 	at com.thilenius.blaze.Blaze.onTick(Blaze.java:80)

@@ -24,7 +24,8 @@ std::string Config::GetAuthToken() {
 #ifdef _WIN32
     std::ifstream t("../AuthToken.aat");
 #else
-    std::ifstream t("../../../../../AuthToken.aat");
+    // Build rule on OSX to copy to Products Directory
+    std::ifstream t("./AuthToken.aat");
 #endif
     std::string configStr((std::istreambuf_iterator<char>(t)),
                           std::istreambuf_iterator<char>());

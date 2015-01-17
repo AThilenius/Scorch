@@ -91,12 +91,26 @@ public class BFESocketServer implements Runnable {
         }
     }
 
-    public List<SocketRequest> getAllWaiting() {
+    public List<SocketRequest> getAllWaiting(boolean block) {
         List<SocketRequest> retList = new LinkedList<SocketRequest>();
-
         synchronized(receiveQueue) {
-            while(!receiveQueue.isEmpty()) {
-                retList.add((SocketRequest)receiveQueue.remove(0));
+
+            try {
+
+                if (block) {
+                    // Wait for at least 1 packet
+                    while (receiveQueue.isEmpty()) {
+                        receiveQueue.wait();
+                    }
+                }
+
+                // Pull all packets out of the queue
+                while(!receiveQueue.isEmpty()) {
+                    retList.add((SocketRequest)receiveQueue.remove(0));
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 
@@ -176,8 +190,7 @@ public class BFESocketServer implements Runnable {
             return;
         }
 
-        // Enqueue the received data
-        synchronized(receiveQueue) {
+        synchronized (receiveQueue) {
             receiveQueue.add(new SocketRequest(dataBuffer.array(), socketChannel));
             receiveQueue.notify();
         }

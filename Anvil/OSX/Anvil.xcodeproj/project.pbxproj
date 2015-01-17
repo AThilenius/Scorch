@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702BB09B1A6B0244009AA378 /* Time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702BB0991A6B0244009AA378 /* Time.cpp */; };
 		702F1BF81A1D4A4E00200224 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BEF1A1D4A4E00200224 /* Level.cpp */; };
 		702F1BF91A1D4A4E00200224 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
 		702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
@@ -22,14 +23,14 @@
 		703737061A2E84CE0088DF33 /* Anvil.h in Headers */ = {isa = PBXBuildFile; fileRef = 703736891A2D8A680088DF33 /* Anvil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737071A2E84D00088DF33 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		703737081A2E84D30088DF33 /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7045A3981A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045A3971A65B3B6000820EB /* libprotobuf-lite.a */; };
+		7045A3991A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045A3971A65B3B6000820EB /* libprotobuf-lite.a */; };
 		70560DE31A5F433C007319DE /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70560DE11A5F433C007319DE /* BFEProtos.pb.cc */; };
 		70560DE41A5F433C007319DE /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70560DE11A5F433C007319DE /* BFEProtos.pb.cc */; };
 		70560DE51A5F433C007319DE /* BFEProtos.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = 70560DE21A5F433C007319DE /* BFEProtos.pb.h */; };
 		7085EDD21A63104E0093DE12 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDD01A63104E0093DE12 /* Config.cpp */; };
 		7085EDD31A63104E0093DE12 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDD01A63104E0093DE12 /* Config.cpp */; };
 		7085EDD41A63104E0093DE12 /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7085EDD11A63104E0093DE12 /* Config.h */; };
-		70F0E9341A560A8D00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F0E9331A560A8D00BDC94C /* libprotobuf-lite.7.dylib */; };
-		70F0E9351A560A8D00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 70F0E9331A560A8D00BDC94C /* libprotobuf-lite.7.dylib */; };
 		70F0E9381A560B2900BDC94C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F0E9361A560B2900BDC94C /* Log.cpp */; };
 		70F0E9391A560B2900BDC94C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F0E9361A560B2900BDC94C /* Log.cpp */; };
 		70F0E93A1A560B2900BDC94C /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 70F0E9371A560B2900BDC94C /* Log.h */; };
@@ -48,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		702BB0991A6B0244009AA378 /* Time.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Time.cpp; sourceTree = "<group>"; };
+		702BB09A1A6B0244009AA378 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
 		702F1BEF1A1D4A4E00200224 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
 		702F1BF01A1D4A4E00200224 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		702F1BF11A1D4A4E00200224 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -61,12 +64,12 @@
 		7037368B1A2D989A0088DF33 /* Spark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spark.cpp; sourceTree = "<group>"; };
 		7037368C1A2D989A0088DF33 /* Spark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spark.h; sourceTree = "<group>"; };
 		703736F21A2E81AD0088DF33 /* libAnvilLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7045A3971A65B3B6000820EB /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
 		70541CB41A15537000D37EF2 /* Anvil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Anvil; sourceTree = BUILT_PRODUCTS_DIR; };
 		70560DE11A5F433C007319DE /* BFEProtos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BFEProtos.pb.cc; path = "gen-files/BFEProtos.pb.cc"; sourceTree = "<group>"; };
 		70560DE21A5F433C007319DE /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "gen-files/BFEProtos.pb.h"; sourceTree = "<group>"; };
 		7085EDD01A63104E0093DE12 /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
 		7085EDD11A63104E0093DE12 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		70F0E9331A560A8D00BDC94C /* libprotobuf-lite.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libprotobuf-lite.7.dylib"; path = "lib/libprotobuf-lite.7.dylib"; sourceTree = "<group>"; };
 		70F0E9361A560B2900BDC94C /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		70F0E9371A560B2900BDC94C /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70F0E9351A560A8D00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */,
+				7045A3991A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70F0E9341A560A8D00BDC94C /* libprotobuf-lite.7.dylib in Frameworks */,
+				7045A3981A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +115,8 @@
 		703736871A2D8A560088DF33 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				702BB0991A6B0244009AA378 /* Time.cpp */,
+				702BB09A1A6B0244009AA378 /* Time.h */,
 				703736881A2D8A680088DF33 /* Anvil.cpp */,
 				703736891A2D8A680088DF33 /* Anvil.h */,
 				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
@@ -159,7 +164,7 @@
 		70541CCE1A15598600D37EF2 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				70F0E9331A560A8D00BDC94C /* libprotobuf-lite.7.dylib */,
+				7045A3971A65B3B6000820EB /* libprotobuf-lite.a */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -241,7 +246,7 @@
 		70541CAC1A15537000D37EF2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Alec Thilenius";
 			};
 			buildConfigurationList = 70541CAF1A15537000D37EF2 /* Build configuration list for PBXProject "Anvil" */;
@@ -287,6 +292,7 @@
 				702F1BFB1A1D4A4E00200224 /* TcpSocket.cpp in Sources */,
 				70560DE31A5F433C007319DE /* BFEProtos.pb.cc in Sources */,
 				7085EDD21A63104E0093DE12 /* Config.cpp in Sources */,
+				702BB09B1A6B0244009AA378 /* Time.cpp in Sources */,
 				7037368A1A2D8A680088DF33 /* Anvil.cpp in Sources */,
 				70F0E9381A560B2900BDC94C /* Log.cpp in Sources */,
 				7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */,
@@ -301,6 +307,8 @@
 		703736F41A2E81AD0088DF33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -318,7 +326,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					./lib,
 					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /include;
 			};
@@ -327,6 +337,8 @@
 		703736F51A2E81AD0088DF33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -340,7 +352,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					./lib,
 					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)",
 				);
+				MACH_O_TYPE = staticlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /include;
 			};
@@ -433,6 +447,7 @@
 					./lib,
 					"$(PROJECT_DIR)/lib",
 					/usr/local/lib,
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -456,6 +471,7 @@
 					./lib,
 					"$(PROJECT_DIR)/lib",
 					/usr/local/lib,
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";

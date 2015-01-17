@@ -2,6 +2,7 @@ package com.thilenius.blaze.assignment.demo;
 
 import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeLevel;
+import com.thilenius.blaze.data.AssignmentQuery;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.spark.BlazeSpark;
 import com.thilenius.utilities.types.Location3D;
@@ -38,8 +39,8 @@ public class FourMaze extends BlazeLevel {
     };
 
     @Override
-    public void load(Location3D arenaLocation, int seed, int userLevelId) {
-        super.load(arenaLocation, seed, userLevelId);
+    public void load(AssignmentQuery assignmentQuery, int points) {
+        super.load(assignmentQuery, points);
 
         // Spawn a single Spark
         m_sparkSpawn = new Location3D(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y + 1,
@@ -75,8 +76,8 @@ public class FourMaze extends BlazeLevel {
     }
 
     @Override
-    public void reload() {
-        super.reload();
+    public void reload(int points) {
+        super.reload(points);
 
         // Spawn a new Spark
         m_spark = new BlazeSpark(m_sparkSpawn);

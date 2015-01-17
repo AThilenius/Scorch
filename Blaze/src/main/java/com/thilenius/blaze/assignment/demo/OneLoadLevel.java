@@ -1,6 +1,7 @@
 package com.thilenius.blaze.assignment.demo;
 
 import com.thilenius.blaze.assignment.BlazeLevel;
+import com.thilenius.blaze.data.AssignmentQuery;
 import com.thilenius.blaze.spark.BlazeSpark;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.init.Blocks;
@@ -11,8 +12,8 @@ import net.minecraft.init.Blocks;
 public class OneLoadLevel extends BlazeLevel {
 
     @Override
-    public void load(Location3D arenaLocation, int seed, int userLevelId) {
-        super.load(arenaLocation, seed, userLevelId);
+    public void load(AssignmentQuery assignmentQuery, int points) {
+        super.load(assignmentQuery, points);
 
         // All that needs to be done for this assignment is to connect
         setPoints(5);

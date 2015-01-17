@@ -1,5 +1,6 @@
 package com.thilenius.blaze.assignment;
 
+import com.thilenius.blaze.data.AssignmentQuery;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.utilities.types.Location3D;
 
@@ -11,22 +12,23 @@ public class LoadState {
     public BlazeLevel Level = null;
     public int LevelNumber = -1;
     
-    public BFEProtos.BFEMessage transitionState (AssignmentLoader loader, String jarPath, Location3D arenaLocation,
-                                                 String displayName, int levelNumber, int seed, int userLevelId) {
+    public BFEProtos.BFEMessage transitionState (AssignmentLoader loader, AssignmentQuery assignmentQuery, int points) {
         BFEProtos.BFELoadLevelResponse response = null;
 
         try {
             // First check that the correct assignment is loaded
             if (Assignment == null) {
                 // No assignment is loaded at all
-                loadAssignment(loader, jarPath, arenaLocation, displayName);
-            } else if (!Assignment.getClass().getCanonicalName().equals(jarPath)) {
+                loadAssignment(loader, assignmentQuery.JarPath, assignmentQuery.ArenaLocation,
+                        assignmentQuery.FirstName + " " + assignmentQuery.LastName);
+            } else if (!Assignment.getClass().getCanonicalName().equals(assignmentQuery.JarPath)) {
                 // The wrong assignment is loaded. We also need to unload the level at this point
                 if (Level != null) {
                     Level.unload();
                     Level = null;
                 }
-                loadAssignment(loader, jarPath, arenaLocation, displayName);
+                loadAssignment(loader, assignmentQuery.JarPath, assignmentQuery.ArenaLocation,
+                        assignmentQuery.FirstName + " " + assignmentQuery.LastName);
             } else {
                 // Correct Assignment loaded
                 Assignment.reload();
@@ -35,13 +37,13 @@ public class LoadState {
             // Next check that the correct level is loaded
             if (Level == null) {
                 // No level is loaded at all
-                loadLevel(levelNumber, seed, userLevelId, arenaLocation);
-            } else if (LevelNumber != levelNumber) {
+                loadLevel(assignmentQuery, points);
+            } else if (LevelNumber != assignmentQuery.LevelNumber) {
                 // Wrong level is loaded
-                loadLevel(levelNumber, seed, userLevelId, arenaLocation);
+                loadLevel(assignmentQuery, points);
             } else {
                 // Correct Level loaded
-                Level.reload();
+                Level.reload(points);
             }
 
             // Return a 'good to go' Proto
@@ -79,11 +81,12 @@ public class LoadState {
         Assignment.load(arenaLocation, displayName);
     }
 
-    private void loadLevel (int levelNumber, int seed, int userLevelId, Location3D arenaLocation) throws Exception {
-        BlazeLevel newLevel = Assignment.getLevel(levelNumber);
+    private void loadLevel (AssignmentQuery assignmentQuery, int points) throws Exception {
+        BlazeLevel newLevel = Assignment.getLevel(assignmentQuery.LevelNumber);
         if (newLevel == null) {
             // Failed to load the new level
-            throw new Exception("Failed to load level: " + levelNumber + ". The level number likely doesn't exist.");
+            throw new Exception("Failed to load level: " + assignmentQuery.LevelNumber +
+                    ". The level number likely doesn't exist.");
         }
 
         // New level loaded correctly, unload the old one if needed
@@ -91,7 +94,7 @@ public class LoadState {
             Level.unload();
         }
         Level = newLevel;
-        Level.load(arenaLocation, seed, userLevelId);
-        LevelNumber = levelNumber;
+        Level.load(assignmentQuery, points);
+        LevelNumber = assignmentQuery.LevelNumber;
     }
 }
