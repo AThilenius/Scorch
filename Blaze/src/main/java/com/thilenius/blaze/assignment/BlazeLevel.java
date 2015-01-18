@@ -135,6 +135,8 @@ public abstract class BlazeLevel {
                 }
             }
         }
+
+        block.setLightOpacity(0);
     }
 
     protected void drawOffsetList(Location3D startLocation, Location3D[] offsets, Block block) {

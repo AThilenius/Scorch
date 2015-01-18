@@ -30,20 +30,4 @@ public class BlazeWorld {
 //        }
     }
 
-    public void OnPlayerJoinWorld(EntityPlayer minecraftPlayer) {
-        System.out.println("Player connected: " + minecraftPlayer.getGameProfile().getName());
-
-        // Find the blaze player with this ID
-//        for (BlazePlayer player : ArenasByPlayer.keySet()) {
-//            String bUserName = player.PlayerData.getUserName();
-//            String mUserName = minecraftPlayer.getGameProfile().getName();
-//            if (bUserName.equals(mUserName)) {
-//                player.onMinecraftPlayerLogin(minecraftPlayer);
-//                BlazePlayersByMinecraftPlayers.put(minecraftPlayer, player);
-//                return;
-//            }
-//        }
-
-    }
-
 }

@@ -7,8 +7,7 @@ import java.util.HashMap;
 
 // Manages a SQL or HTTP connection for remote data access
 public class RemoteData {
-    public Connection m_sqlInstance;
-
+    private Connection m_sqlInstance;
     private HashMap<String, Queryable> m_queryCache = new HashMap<String, Queryable>();
 
     public void connect() {
@@ -143,7 +142,7 @@ public class RemoteData {
                 Statement statement = null;
                 try {
                     long startTime = System.currentTimeMillis();
-                    statement = Blaze.RemoteDataConnection.m_sqlInstance.createStatement();
+                    statement = getConnection().createStatement();
                     statement.executeUpdate(m_updateable.getSqlUpdate());
                     System.out.println("SQL Update: " + m_updateable.getClass().getName() + ". Took: " +
                             (System.currentTimeMillis() - startTime) + "ms on a background thread.");

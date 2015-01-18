@@ -1,6 +1,8 @@
 package com.thilenius.blaze.assignment;
 
+import com.thilenius.blaze.assignment.blank.BlankAssignment;
 import com.thilenius.blaze.data.AssignmentQuery;
+import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.utilities.types.Location3D;
 
@@ -11,6 +13,31 @@ public class LoadState {
     public BlazeAssignment Assignment = null;
     public BlazeLevel Level = null;
     public int LevelNumber = -1;
+
+    public void setDefault(UserQuery userQuery) {
+
+        // Load default Assignment
+        BlazeAssignment newAssignment = new BlankAssignment();
+        if (Assignment != null) {
+            Assignment.unload();
+        }
+        Assignment = newAssignment;
+        Assignment.load(userQuery.ArenaLocation, userQuery.FirstName + " " + userQuery.LastName);
+
+        // Load default Level
+        BlazeLevel newLevel = Assignment.getLevel(0);
+        if (Level != null) {
+            Level.unload();
+        }
+        Level = newLevel;
+
+        // Build a mock AssignmentQuery
+        AssignmentQuery assignmentQuery = new AssignmentQuery("", 0);
+        assignmentQuery.ArenaLocation = userQuery.ArenaLocation;
+        assignmentQuery.UserLevelId = -1;
+        Level.load(assignmentQuery, -1);
+        LevelNumber = 0;
+    }
     
     public BFEProtos.BFEMessage transitionState (AssignmentLoader loader, AssignmentQuery assignmentQuery, int points) {
         BFEProtos.BFELoadLevelResponse response = null;

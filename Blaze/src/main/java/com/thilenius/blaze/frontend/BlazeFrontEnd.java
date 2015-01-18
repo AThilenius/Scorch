@@ -2,6 +2,8 @@ package com.thilenius.blaze.frontend;
 
 import com.google.protobuf.ExtensionRegistry;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.thilenius.blaze.data.AssignmentQuery;
+import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.frontend.protos.handlers.BFEAssignmentHandler;
 import com.thilenius.blaze.frontend.protos.handlers.BFEInfoQueryHandler;
@@ -45,6 +47,10 @@ public class BlazeFrontEnd implements Runnable {
 
     public void onTick() {
         // Nothing for now
+    }
+
+    public void setDefaults(UserQuery userQuery) {
+        AssignmentHandler.setDefault(userQuery);
     }
 
 

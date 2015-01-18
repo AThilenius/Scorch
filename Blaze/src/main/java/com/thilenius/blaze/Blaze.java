@@ -1,11 +1,13 @@
 package com.thilenius.blaze;
 
 import com.thilenius.blaze.data.RemoteData;
+import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.BlazeFrontEnd;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.WorldSettings;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -46,7 +48,19 @@ public class Blaze {
     }
 
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {
-        World.OnPlayerJoinWorld(joinEvent.player);
+        UserQuery userQuery = new UserQuery(joinEvent.player.getGameProfile().getName());
+        if (!RemoteDataConnection.query(userQuery)) {
+            // Unknown player, boot them.
+            System.out.println("Unknown player trying to join Blaze: " + joinEvent.player.getGameProfile().getName() +
+                    ". Booting them.");
+            joinEvent.setCanceled(true);
+        } else {
+            // Load arena (if needed)
+            FrontEndServer.setDefaults(userQuery);
+            joinEvent.player.setPositionAndUpdate(userQuery.ArenaLocation.X, userQuery.ArenaLocation.Y + 2,
+                    userQuery.ArenaLocation.Z);
+            joinEvent.player.setGameType(WorldSettings.GameType.CREATIVE);
+        }
     }
 
     public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent leaveEvent) {
@@ -54,17 +68,12 @@ public class Blaze {
     }
 
     public String onFormatName (String username) {
-       // BlazePlayer player = World.BlazePlayersByUsername.get(username);
-
-//        if (player != null) {
-//            // Lookup name in database
-//            return "";
-//        } else {
-//            return username;
-//        }
-
-        //TODO: Fix this
-        return "TODO Blaze.Java 58";
+        UserQuery userQuery = new UserQuery(username);
+        if (!RemoteDataConnection.query(userQuery)) {
+            return username;
+        } else {
+            return userQuery.FirstName + " " + userQuery.LastName.substring(0, 1);
+        }
     }
 
     public static void onTick() {

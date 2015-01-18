@@ -6,6 +6,7 @@ import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.assignment.LoadState;
 import com.thilenius.blaze.data.AssignmentQuery;
 import com.thilenius.blaze.data.PointsQuery;
+import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.BFERequest;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 
@@ -22,6 +23,18 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
 
     public BlazeLevel getActiveLevelForPlayer(String username) {
         return m_loadedStatesByUsername.get(username).Level;
+    }
+
+    public void setDefault(UserQuery userQuery) {
+
+        // Only set defaults if nothing is loaded yet.
+        LoadState loadState = m_loadedStatesByUsername.get(userQuery.Username);
+        if (loadState == null) {
+            loadState = new LoadState();
+            m_loadedStatesByUsername.put(userQuery.Username, loadState);
+            loadState.setDefault(userQuery);
+        }
+
     }
 
     @Override
