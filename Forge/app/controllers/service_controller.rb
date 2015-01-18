@@ -16,54 +16,62 @@ class ServiceController < ApplicationController
       return
     end
 
-    # Check for a pinned or already allocated account
-    account = MinecraftAccount.where(:allocated_user_id => user.id).first
-
-    # No account (aka no pinned account)
-    if account.nil?
-      account = MinecraftAccount.where(:state => :free).first
-
-      # if the account is still nil, it means we are out of accounts
-      if account.nil?
-        render :json => { :error => 'No free Minecraft accounts available' }
-        return
-      end
-
-      # Mark the account allocated
-      account.state = 'allocated'
-      account.allocated_user_id = user.id
-      account.save
-    end
-
-    # Authenticate with Minecraft servers
-    jsonText = {
-        "agent" => {
-            "name" => "Minecraft",
-            "version" => 1
-        },
-        "username" => "#{account.username}",
-        "password" => "#{account.password}"
-    }.to_json
-
-    uri = URI.parse("https://authserver.mojang.com/authenticate")
-    https = Net::HTTP.new(uri.host,uri.port)
-    https.use_ssl = true
-    req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
-    req.body = jsonText
-    res = https.request(req)
-    data_parsed = JSON.parse(res.body)
-    userType = ''
-    if data_parsed['selectedProfile']['legacy']
-      userType = ' --userType legacy'
-    end
+    # # Check for a pinned or already allocated account
+    # account = MinecraftAccount.where(:allocated_user_id => user.id).first
+    #
+    # # No account (aka no pinned account)
+    # if account.nil?
+    #   account = MinecraftAccount.where(:state => :free).first
+    #
+    #   # if the account is still nil, it means we are out of accounts
+    #   if account.nil?
+    #     render :json => { :error => 'No free Minecraft accounts available' }
+    #     return
+    #   end
+    #
+    #   # Mark the account allocated
+    #   account.state = 'allocated'
+    #   account.allocated_user_id = user.id
+    #   account.save
+    # end
+    #
+    # # Authenticate with Minecraft servers
+    # jsonText = {
+    #     "agent" => {
+    #         "name" => "Minecraft",
+    #         "version" => 1
+    #     },
+    #     "username" => "#{account.username}",
+    #     "password" => "#{account.password}"
+    # }.to_json
+    #
+    # uri = URI.parse("https://authserver.mojang.com/authenticate")
+    # https = Net::HTTP.new(uri.host,uri.port)
+    # https.use_ssl = true
+    # req = Net::HTTP::Post.new(uri.path, initheader = {'Content-Type' =>'application/json'})
+    # req.body = jsonText
+    # res = https.request(req)
+    # data_parsed = JSON.parse(res.body)
+    # userType = ''
+    # if data_parsed['selectedProfile']['legacy']
+    #   userType = ' --userType legacy'
+    # end
 
     # Return the compiled user_args to them
+    # render :json => { :user_args =>
+    #                       "--username #{account.username}" +
+    #                           " --uuid #{data_parsed['selectedProfile']['id']}" +
+    #                           " --accessToken #{data_parsed['accessToken']}" +
+    #                           " --userProperties {}" +
+    #                           userType }
+
+    # HACK: Test
     render :json => { :user_args =>
-                          "--username #{account.username}" +
-                              " --uuid #{data_parsed['selectedProfile']['id']}" +
-                              " --accessToken #{data_parsed['accessToken']}" +
+                          "--username #{user.username}" +
+                              " --uuid NA" +
+                              " --accessToken NA" +
                               " --userProperties {}" +
-                              userType }
+                              ' --userType legacy' }
   end
 
   def get_user_level_data
