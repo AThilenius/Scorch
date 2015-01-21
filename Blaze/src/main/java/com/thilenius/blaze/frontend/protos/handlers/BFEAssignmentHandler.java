@@ -7,7 +7,7 @@ import com.thilenius.blaze.assignment.LoadState;
 import com.thilenius.blaze.data.AssignmentQuery;
 import com.thilenius.blaze.data.PointsQuery;
 import com.thilenius.blaze.data.UserQuery;
-import com.thilenius.blaze.frontend.BFERequest;
+import com.thilenius.blaze.frontend.IBFERequest;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 
 import java.util.*;
@@ -38,19 +38,19 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
     }
 
     @Override
-    public boolean Handle(BFERequest request) {
-        if (!request.Message.hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
+    public boolean Handle(IBFERequest request) {
+        if (!request.getRequest().hasExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt)) {
             return false;
         }
 
         class AssignmentTask implements Runnable {
-            private BFERequest m_request;
-            public AssignmentTask(BFERequest taskRequest) { m_request = taskRequest; }
+            private IBFERequest m_request;
+            public AssignmentTask(IBFERequest taskRequest) { m_request = taskRequest; }
 
             @Override
             public void run() {
                 BFEProtos.BFELoadLevelRequest loadRequest
-                        = m_request.Message.getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
+                        = m_request.getRequest().getExtension(BFEProtos.BFELoadLevelRequest.bFELoadLevelRequestExt);
                 BFEProtos.BFELoadLevelResponse response;
                 AssignmentQuery assignmentQuery = new AssignmentQuery(loadRequest.getAuthToken(),
                         loadRequest.getLevelNumber());
@@ -104,7 +104,7 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
 
                                     BFEProtos.BFEMessage message = loadState.transitionState(m_assignmentLoader,
                                             m_assignmentQuery, m_pointsQuery.Points);
-                                    m_request.SocketServer.send(m_request.Channel, message.toByteArray());
+                                    m_request.sendResponse(message);
                                 }
                             }
 
@@ -117,11 +117,10 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
                 }
 
                 // Send out the error message
-                m_request.SocketServer.send(m_request.Channel,
+                m_request.sendResponse(
                         BFEProtos.BFEMessage.newBuilder()
-                                .setExtension(BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt, response)
-                                .build()
-                                .toByteArray());
+                        .setExtension(BFEProtos.BFELoadLevelResponse.bFELoadLevelResponseExt, response)
+                        .build());
             }
         }
 

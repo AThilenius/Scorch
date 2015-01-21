@@ -1,13 +1,16 @@
 package com.thilenius.blaze;
 
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.thilenius.blaze.data.RemoteData;
 import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.BlazeFrontEnd;
+import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldSettings;
+import org.apache.commons.codec.binary.Base64;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -57,9 +60,8 @@ public class Blaze {
         } else {
             // Load arena (if needed)
             FrontEndServer.setDefaults(userQuery);
-            joinEvent.player.setPositionAndUpdate(userQuery.ArenaLocation.X, userQuery.ArenaLocation.Y + 2,
-                    userQuery.ArenaLocation.Z);
-            joinEvent.player.setGameType(WorldSettings.GameType.CREATIVE);
+            joinEvent.player.setPositionAndUpdate(userQuery.ArenaLocation.X + 16, userQuery.ArenaLocation.Y + 2,
+                    userQuery.ArenaLocation.Z + 5);
         }
     }
 

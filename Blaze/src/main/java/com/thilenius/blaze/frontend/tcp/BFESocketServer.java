@@ -1,5 +1,11 @@
 package com.thilenius.blaze.frontend.tcp;
 
+import com.google.protobuf.ExtensionRegistry;
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.thilenius.blaze.frontend.IBFERequest;
+import com.thilenius.blaze.frontend.IBFERequestHandler;
+import com.thilenius.blaze.frontend.protos.BFEProtos;
+
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -16,19 +22,44 @@ import java.util.*;
  */
 public class BFESocketServer implements Runnable {
 
-    private InetAddress hostAddress;
-    private int port;
-    private Selector selector;
-    private final List changeRequests = new LinkedList();
-    private final Map pendingData = new HashMap();
-    private final List receiveQueue = new LinkedList();
+    private InetAddress m_hostAddress;
+    private int m_port;
+    private IBFERequestHandler m_handler;
+    private Selector m_selector;
+    private final List<ChangeRequest> m_changeRequests = new LinkedList<ChangeRequest>();
+    private final Map<SocketChannel, List<byte[]>> m_pendingData = new HashMap<SocketChannel, List<byte[]>>();
+    private final List<BFETcpRequest> m_receiveQueue = new LinkedList<BFETcpRequest>();
 
-    public BFESocketServer(int port) {
-        this.port = port;
+    public BFESocketServer(int port, IBFERequestHandler handler) {
+        m_port = port;
+        m_handler = handler;
     }
 
     public void startServer() {
+        // Start primary TCP server
         new Thread(this).start();
+
+        // Create a 'pump' thread.
+        class SocketServerPump implements Runnable {
+            private IBFERequestHandler m_handler;
+            public SocketServerPump(IBFERequestHandler handler) {
+                m_handler = handler;
+            }
+            @Override
+            public void run() {
+                while(true) {
+
+                    // Get all pending requests BLOCKING, pass them to the handler one at a time
+                    List<IBFERequest> pendingTcpRequests = getAllWaiting(m_handler.getExtensionRegistry(), true);
+                    for (IBFERequest request : pendingTcpRequests) {
+                        m_handler.handle(request);
+                    }
+
+                }
+            }
+        }
+        new Thread(new SocketServerPump(m_handler)).start();
+
     }
 
     public void run() {
@@ -36,8 +67,8 @@ public class BFESocketServer implements Runnable {
         System.out.println("Blaze Frontend TCP Socket server starting.");
 
         try {
-            this.hostAddress = InetAddress.getLocalHost();
-            this.selector = this.initSelector();
+            m_hostAddress = InetAddress.getLocalHost();
+            m_selector = this.initSelector();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,13 +76,13 @@ public class BFESocketServer implements Runnable {
         while (true) {
             try {
                 // Process any pending changes
-                synchronized(this.changeRequests) {
-                    Iterator changes = this.changeRequests.iterator();
+                synchronized(this.m_changeRequests) {
+                    Iterator changes = this.m_changeRequests.iterator();
                     while (changes.hasNext()) {
                         ChangeRequest change = (ChangeRequest) changes.next();
                         switch(change.type) {
                             case ChangeRequest.CHANGEOPS:
-                                SelectionKey key = change.socket.keyFor(this.selector);
+                                SelectionKey key = change.socket.keyFor(this.m_selector);
 
                                 if (key == null || !key.isValid()) {
                                     continue;
@@ -60,14 +91,14 @@ public class BFESocketServer implements Runnable {
                                 key.interestOps(change.ops);
                         }
                     }
-                    this.changeRequests.clear();
+                    this.m_changeRequests.clear();
                 }
 
                 // Wait for an event one of the registered channels
-                this.selector.select();
+                this.m_selector.select();
 
                 // Iterate over the set of keys for which events are available
-                Iterator selectedKeys = this.selector.selectedKeys().iterator();
+                Iterator selectedKeys = this.m_selector.selectedKeys().iterator();
                 while (selectedKeys.hasNext()) {
                     SelectionKey key = (SelectionKey) selectedKeys.next();
                     selectedKeys.remove();
@@ -91,22 +122,22 @@ public class BFESocketServer implements Runnable {
         }
     }
 
-    public List<SocketRequest> getAllWaiting(boolean block) {
-        List<SocketRequest> retList = new LinkedList<SocketRequest>();
-        synchronized(receiveQueue) {
+    private List<IBFERequest> getAllWaiting(ExtensionRegistry extensionRegistry, boolean block) {
+        List<IBFERequest> allWaiting = new LinkedList<IBFERequest>();
+        synchronized(m_receiveQueue) {
 
             try {
 
                 if (block) {
                     // Wait for at least 1 packet
-                    while (receiveQueue.isEmpty()) {
-                        receiveQueue.wait();
+                    while (m_receiveQueue.isEmpty()) {
+                        m_receiveQueue.wait();
                     }
                 }
 
                 // Pull all packets out of the queue
-                while(!receiveQueue.isEmpty()) {
-                    retList.add((SocketRequest)receiveQueue.remove(0));
+                while(!m_receiveQueue.isEmpty()) {
+                    allWaiting.add(m_receiveQueue.remove(0));
                 }
 
             } catch (InterruptedException e) {
@@ -114,19 +145,19 @@ public class BFESocketServer implements Runnable {
             }
         }
 
-        return retList;
+        return allWaiting;
     }
 
     private Selector initSelector() throws IOException {
-        // Create a new selector
+        // Create a new m_selector
         Selector socketSelector = SelectorProvider.provider().openSelector();
 
         // Create a new non-blocking server socket channel
         ServerSocketChannel serverChannel = ServerSocketChannel.open();
         serverChannel.configureBlocking(false);
 
-        // Bind the server socket to the specified address and port
-        InetSocketAddress isa = new InetSocketAddress( /* this.hostAddress, */ this.port);
+        // Bind the server socket to the specified address and m_port
+        InetSocketAddress isa = new InetSocketAddress( /* this.m_hostAddress, */ this.m_port);
         serverChannel.socket().bind(isa);
 
         // Register the server socket channel, indicating an interest in
@@ -146,29 +177,29 @@ public class BFESocketServer implements Runnable {
 
         // Register the new SocketChannel with our Selector, indicating
         // we'd like to be notified when there's data waiting to be read
-        socketChannel.register(this.selector, SelectionKey.OP_READ);
+        socketChannel.register(this.m_selector, SelectionKey.OP_READ);
 
         System.out.println("Accepting Connection");
     }
 
     public void send(SocketChannel socket, byte[] data) {
-        synchronized (this.changeRequests) {
+        synchronized (this.m_changeRequests) {
             // Indicate we want the interest ops set changed
-            this.changeRequests.add(new ChangeRequest(socket, ChangeRequest.CHANGEOPS, SelectionKey.OP_WRITE));
+            this.m_changeRequests.add(new ChangeRequest(socket, ChangeRequest.CHANGEOPS, SelectionKey.OP_WRITE));
 
             // And queue the data we want written
-            synchronized (this.pendingData) {
-                List queue = (List) this.pendingData.get(socket);
+            synchronized (this.m_pendingData) {
+                List<byte[]> queue = this.m_pendingData.get(socket);
                 if (queue == null) {
-                    queue = new ArrayList();
-                    this.pendingData.put(socket, queue);
+                    queue = new ArrayList<byte[]>();
+                    this.m_pendingData.put(socket, queue);
                 }
                 queue.add(data);
             }
         }
 
         // Finally, wake up our selecting thread so it can make the required changes
-        this.selector.wakeup();
+        this.m_selector.wakeup();
     }
 
     private void read(SelectionKey key) throws IOException {
@@ -190,17 +221,24 @@ public class BFESocketServer implements Runnable {
             return;
         }
 
-        synchronized (receiveQueue) {
-            receiveQueue.add(new SocketRequest(dataBuffer.array(), socketChannel));
-            receiveQueue.notify();
+        try {
+            BFEProtos.BFEMessage message = BFEProtos.BFEMessage.parseFrom(dataBuffer.array(),
+                    m_handler.getExtensionRegistry());
+
+            synchronized (m_receiveQueue) {
+                m_receiveQueue.add(new BFETcpRequest(this, socketChannel, message));
+                m_receiveQueue.notify();
+            }
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
         }
     }
 
     private void write(SelectionKey key) throws IOException {
         SocketChannel socketChannel = (SocketChannel) key.channel();
 
-        synchronized (this.pendingData) {
-            List queue = (List) this.pendingData.get(socketChannel);
+        synchronized (this.m_pendingData) {
+            List queue = (List) this.m_pendingData.get(socketChannel);
 
             // Write until there's not more data ...
             while (!queue.isEmpty()) {

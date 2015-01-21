@@ -12,12 +12,19 @@
 #include "Config.h"
 #include "Log.h"
 #include "Time.h"
+#include "BFEProtos.pb.h"
+
+using Thilenius::BFEProtos::BFEMessage;
+using Thilenius::BFEProtos::BFELoadLevelRequest;
+using Thilenius::BFEProtos::BFELoadLevelResponse;
+using Thilenius::BFEProtos::BFEInfoQueryRequest;
+using Thilenius::BFEProtos::BFEInfoQueryResponse;
 
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
     Config::OverrideIp("0.0.0.0");
-    Config::OverrideAuthToken("abcd15cb-c3a8-4ffb-92c5-97eba1e4601c");
+    Config::OverrideAuthToken("c0dba92c-6449-40a6-95da-11d2b7d28ad6");
 //    Util::Log::Suppress();
     
 //    std::cout << "Running 'Say Hello' Performance analysis" << std::endl;
@@ -33,6 +40,12 @@ int main(int argc, const char * argv[]) {
 //        std::cout << iops << " IOPS" << std::endl;
 //    }
     
+//    Anvil::SayHello();
+//    Spark spark = Anvil::LoadLevel(1).GetSpark();
+//    spark.MoveForward();
+//    spark.MoveForward();
+//    spark.MoveForward();
+    
     Anvil::SayHello();
-    Anvil::LoadLevel(0);
+    
 }

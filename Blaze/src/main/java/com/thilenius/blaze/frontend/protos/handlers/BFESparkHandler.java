@@ -3,8 +3,7 @@ package com.thilenius.blaze.frontend.protos.handlers;
 import com.thilenius.blaze.Blaze;
 import com.thilenius.blaze.assignment.BlazeLevel;
 import com.thilenius.blaze.data.InfoQuery;
-import com.thilenius.blaze.frontend.BFERequest;
-import com.thilenius.blaze.frontend.DifferedSparkRequest;
+import com.thilenius.blaze.frontend.IBFERequest;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.spark.BlazeSpark;
 
@@ -25,49 +24,62 @@ public class BFESparkHandler extends BFEProtoHandler {
     }
 
     public void onTick() {
-        for (Iterator<DifferedSparkRequest> iterator = m_differedCommands.iterator(); iterator.hasNext();) {
-            DifferedSparkRequest request = iterator.next();
+        synchronized (m_differedCommands) {
 
-            if (!request.Spark.TileEntity.isAnimating()) {
-                // We can animate the Spark now
-                BFEProtos.BFESparkResponse response = request.Spark.handle(request.Request.getCommand());
+            // Using a iterator because I need to conditionally clear the list.
+            for (Iterator<DifferedSparkRequest> iterator = m_differedCommands.iterator(); iterator.hasNext(); ) {
+                DifferedSparkRequest request = iterator.next();
 
-                // Respond back to Client
-                BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
-                        .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
-                        .build();
-                request.Socket.send(request.Channel, message.toByteArray());
+                if (!request.Spark.TileEntity.isAnimating()) {
+                    // We can animate the Spark now
+                    BFEProtos.BFESparkResponse response = request.Spark.handle(request.Command.getCommand());
 
-                // Give the loaded level a chance to grade based on this move
-                request.Level.grade(request.Request);
-                iterator.remove();
+                    // sendResponse back to Client
+                    BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                            .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                            .build();
+                    request.Request.sendResponse(message);
+
+                    // Give the loaded level a chance to grade based on this move
+                    request.Level.grade(request.Command);
+                    iterator.remove();
+                }
+
+                // Else, don't remove it from the list
             }
         }
     }
 
     @Override
-    public boolean Handle(BFERequest request) {
-        if (!request.Message.hasExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt)) {
+    public boolean Handle(IBFERequest request) {
+        if (!request.getRequest().hasExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt)) {
             return false;
         }
 
         class SparkTask implements Runnable {
-            private BFERequest m_request;
-            public SparkTask(BFERequest taskRequest) { m_request = taskRequest; }
+            private IBFERequest m_request;
+            public SparkTask(IBFERequest taskRequest) { m_request = taskRequest; }
 
             @Override
             public void run() {
-                BFEProtos.BFESparkResponse response;
                 BFEProtos.BFESparkCommand sparkRequest
-                        = m_request.Message.getExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt);
+                        = m_request.getRequest().getExtension(BFEProtos.BFESparkCommand.bFESparkCommandExt);
                 InfoQuery infoQuery = new InfoQuery(sparkRequest.getAuthToken());
                 if (!Blaze.RemoteDataConnection.query(infoQuery)) {
-                    response = BFEProtos.BFESparkResponse.newBuilder()
+
+                    // Failure, respond
+                    BFEProtos.BFESparkResponse response = BFEProtos.BFESparkResponse.newBuilder()
                             .setFailureReason("Invalid AuthToken.")
                             .build();
+                    BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                            .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                            .build();
+                    m_request.sendResponse(message);
+
                 } else {
 
                     // The rest must be marshaled to the main thread (until I make all this thread safe)
+                    // God I fucking hate this language... this is so gross!
                     class SparkTaskMain implements Runnable {
                         private BFEProtos.BFESparkCommand m_sparkRequest;
                         private InfoQuery m_infoQuery;
@@ -77,39 +89,47 @@ public class BFESparkHandler extends BFEProtoHandler {
                         }
                         @Override
                         public void run() {
-                            BFEProtos.BFESparkResponse response;
-
                             // Get Active Level
                             BlazeLevel level = m_assignmentServer.getActiveLevelForPlayer(m_infoQuery.Username);
                             if (level == null) {
-                                response = BFEProtos.BFESparkResponse.newBuilder()
+                                BFEProtos.BFESparkResponse response = BFEProtos.BFESparkResponse.newBuilder()
                                         .setFailureReason("A level is not loaded. Load a level first.")
                                         .build();
+                                BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                                        .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                                        .build();
+                                m_request.sendResponse(message);
                             } else {
                                 // Get Spark
                                 if (m_sparkRequest.getSparkId() < 0 ||
                                         level.getSparks().length <= m_sparkRequest.getSparkId()) {
-                                    response = BFEProtos.BFESparkResponse.newBuilder()
+                                    BFEProtos.BFESparkResponse response = BFEProtos.BFESparkResponse.newBuilder()
                                             .setFailureReason("Invalid Spark ID.")
                                             .build();
+                                    BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
+                                            .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt, response)
+                                            .build();
+                                    m_request.sendResponse(message);
                                 } else {
                                     BlazeSpark spark = level.getSparks()[m_sparkRequest.getSparkId()];
 
                                     // Check if the spark is currently animating
                                     if (spark.TileEntity.isAnimating()) {
                                         // Deffer the command
-                                        m_differedCommands.add(new DifferedSparkRequest(spark, level,
-                                                m_request.SocketServer, m_request.Channel, m_sparkRequest));
+                                        synchronized (m_differedCommands) {
+                                            m_differedCommands.add(new DifferedSparkRequest(spark, level,
+                                                    m_request, m_sparkRequest));
+                                        }
                                     } else {
                                         // We can animate the Spark now
-                                        response = spark.handle(m_sparkRequest.getCommand());
+                                        BFEProtos.BFESparkResponse response = spark.handle(m_sparkRequest.getCommand());
 
-                                        // Respond back to Client
+                                        // sendResponse back to Client
                                         BFEProtos.BFEMessage message = BFEProtos.BFEMessage.newBuilder()
                                                 .setExtension(BFEProtos.BFESparkResponse.bFESparkResponseExt,
                                                         response)
                                                 .build();
-                                        m_request.SocketServer.send(m_request.Channel, message.toByteArray());
+                                        m_request.sendResponse(message);
 
                                         // Give the loaded level a chance to grade based on this move
                                         level.grade(m_sparkRequest);
@@ -126,5 +146,22 @@ public class BFESparkHandler extends BFEProtoHandler {
 
         Blaze.ThreadPool.execute(new SparkTask(request));
         return true;
+    }
+
+    public class DifferedSparkRequest {
+
+        public BlazeSpark Spark;
+        public BlazeLevel Level;
+        public IBFERequest Request;
+        public BFEProtos.BFESparkCommand Command;
+
+        public DifferedSparkRequest(BlazeSpark spark, BlazeLevel level, IBFERequest request,
+                                    BFEProtos.BFESparkCommand command) {
+            Spark = spark;
+            Level = level;
+            Request = request;
+            Command = command;
+        }
+
     }
 }
