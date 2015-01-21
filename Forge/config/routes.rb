@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'flame/show'
+  get 'flame/show' => 'flame#show'
 
   get 'minecraft/show'
 
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get 'assignments/createLevel'
   get 'assignments/list'
   get 'assignments/new'
-  get 'blaze' => 'blaze#show'
   get 'downloads/:id/xcode' => 'downloads#xcode'
   get 'downloads/:id/vs' => 'downloads#vs'
   get 'downloads/:id/makefile' => 'downloads#makefile'
@@ -27,6 +26,7 @@ Rails.application.routes.draw do
   get 'session_logout' => 'session#logout'
   post 'service/get_minecraft_session' => 'service#get_minecraft_session'
   post 'service/get_user_level_data' => 'service#get_user_level_data'
+  match 'blaze/(*path)' => redirect {|params, req| "http://localhost:9886/#{params[:path]}"},  via: [:get, :post]
 
   resources :minecraft_accounts, :only => [:show, :destroy]
   resources :students, :only => [:show, :destroy]

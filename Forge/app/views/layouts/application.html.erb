@@ -26,6 +26,13 @@
 </head>
 <body>
 
+<!--JavaScript Globals-->
+<script>
+    var BlazeIp = "54.67.38.67";
+    var BlazeJsonPort = 80;
+    var BlazeJsonPath = "/json";
+</script>
+
 <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -60,6 +67,17 @@
             <!--</li>-->
         <!--<% end %>-->
         <!-- /Admin Tab -->
+
+        <!--Minecraft Controls-->
+        <% if sessionIsLoggedIn %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= "Minecraft" %><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><button id="teleportHomeButton">Teleport Home</button></li>
+              </ul>
+            </li>
+        <% end %>
+
       </ul>
 
       <ul class="nav navbar-nav pull-right">

@@ -101,7 +101,6 @@ class AssignmentsController < ApplicationController
       else
         @panelColor = 'success'
     end
-
   end
 
   def destroy
