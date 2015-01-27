@@ -12,6 +12,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -23,6 +24,8 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
@@ -31,10 +34,12 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import org.lwjgl.Sys;
 
 import java.util.HashSet;
 
@@ -59,6 +64,7 @@ public class Flame {
 	public static Item spark;
 
     private static HashSet<Entity> m_protectedEntities = new HashSet<Entity>();
+    private static boolean m_hasStartTickBeenSent;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -110,7 +116,12 @@ public class Flame {
     }
 
 	@SubscribeEvent
-	public void onRenderTick(ServerTickEvent event) {
+	public void onServerTick(ServerTickEvent event) {
+        if (!m_hasStartTickBeenSent && BlazeInstance != null) {
+            m_hasStartTickBeenSent = true;
+            BlazeInstance.onStart();
+        }
+
 		Blaze.onTick();
 	}
 
@@ -162,7 +173,22 @@ public class Flame {
         }
     }
 
-    @SubscribeEvent()
+//    @SubscribeEvent
+//    public void onEntitySpawn (LivingSpawnEvent livingSpawnEvent) {
+//        if (livingSpawnEvent.y >= 200 && !(livingSpawnEvent.entity instanceof EntityPlayer)) {
+//            livingSpawnEvent.setResult(Event.Result.DENY);
+//        }
+//    }
+
+    @SubscribeEvent
+    public void onEntitySpawn (LivingSpawnEvent.CheckSpawn checkSpawnEvent) {
+        if (checkSpawnEvent.y >= 200 && checkSpawnEvent.entity instanceof EntityLivingBase &&
+                !(checkSpawnEvent.entityLiving instanceof EntityPlayer)) {
+            checkSpawnEvent.setResult(Event.Result.DENY);
+        }
+    }
+
+    @SubscribeEvent
     public void onPlayerRespawn (PlayerEvent.PlayerRespawnEvent playerRespawnEvent) {
         playerRespawnEvent.player.setPositionAndUpdate(0, 202, 0);
     }
@@ -199,7 +225,7 @@ public class Flame {
     }
 
 	//	@SubscribeEvent
-	//	public void onRenderTick(ClientTickEvent event) {
+	//	public void onServerTick(ClientTickEvent event) {
 	//		System.out.println("Client Tick");
 	//	}
 }

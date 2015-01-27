@@ -1,16 +1,18 @@
 ---- Minecraft Crash Report ----
-// Surprise! Haha. Well, this is awkward.
+// You're mean.
 
-Time: 12/26/14 2:20 PM
+Time: 1/27/15 2:51 PM
 Description: Exception in server tick loop
 
 java.lang.NullPointerException: Exception in server tick loop
-	at com.thilenius.blaze.frontend.protos.handlers.BFEAssignmentServer.Handle(BFEAssignmentServer.java:45)
-	at com.thilenius.blaze.frontend.BFERequestDispatcher.onTick(BFERequestDispatcher.java:46)
-	at com.thilenius.blaze.frontend.BlazeFrontEnd.onTick(BlazeFrontEnd.java:28)
-	at com.thilenius.blaze.Blaze.onTick(Blaze.java:80)
-	at onServerTick(Flame.java:93)
-	at cpw.mods.fml.common.eventhandler.ASMEventHandler_7_Flame_onRenderTick_ServerTickEvent.invoke(.dynamic)
+	at com.thilenius.blaze.assignment.BlazeAssignment.load(BlazeAssignment.java:24)
+	at com.thilenius.blaze.assignment.blank.BlankAssignment.load(BlankAssignment.java:17)
+	at com.thilenius.blaze.assignment.LoadState.setDefault(LoadState.java:25)
+	at com.thilenius.blaze.frontend.protos.handlers.BFEAssignmentHandler.setDefault(BFEAssignmentHandler.java:35)
+	at com.thilenius.blaze.frontend.BlazeFrontEnd.setDefaults(BlazeFrontEnd.java:50)
+	at com.thilenius.blaze.Blaze.onStart(Blaze.java:64)
+	at com.thilenius.flame.Flame.onServerTick(Flame.java:122)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler_7_Flame_onServerTick_ServerTickEvent.invoke(.dynamic)
 	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
 	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:138)
 	at cpw.mods.fml.common.FMLCommonHandler.onPreServerTick(FMLCommonHandler.java:260)
@@ -29,7 +31,7 @@ Details:
 	Operating System: Mac OS X (x86_64) version 10.10
 	Java Version: 1.7.0_71, Oracle Corporation
 	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
-	Memory: 683123728 bytes (651 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	Memory: 853994808 bytes (814 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
 	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
 	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
 	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
@@ -40,6 +42,6 @@ Details:
 	flame{0.0.1} [Flame] (main) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
 	Profiler Position: N/A (disabled)
 	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
-	Player Count: 1 / 8; [EntityPlayerMP['athilenius'/1, l='DevWorldTDefault', x=1.51, y=203.96, z=-13.82]]
+	Player Count: 0 / 8; []
 	Type: Integrated Server (map_client.txt)
 	Is Modded: Definitely; Client brand changed to 'fml,forge'

@@ -19,6 +19,14 @@ public class UserQuery extends Queryable{
         Username = username;
     }
 
+    public UserQuery(String username, String firstName, String lastName, Location3D arenaLocation, String permissions) {
+        Username = username;
+        FirstName = firstName;
+        LastName = lastName;
+        ArenaLocation = arenaLocation;
+        Permissions = permissions;
+    }
+
     @Override
     public String getSqlQuery() {
         return "SELECT users.firstName, users.lastName, users.arenaLocation, users.permissions\n" +

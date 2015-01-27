@@ -3,12 +3,15 @@ package com.thilenius.blaze;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thilenius.blaze.data.RemoteData;
 import com.thilenius.blaze.data.UserQuery;
+import com.thilenius.blaze.data.UsersQuery;
 import com.thilenius.blaze.frontend.BlazeFrontEnd;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
 import com.thilenius.blaze.player.BlazePlayer;
 import com.thilenius.flame.Flame;
+import com.thilenius.utilities.StringUtils;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.*;
 import net.minecraft.world.WorldSettings;
 import org.apache.commons.codec.binary.Base64;
 
@@ -50,6 +53,21 @@ public class Blaze {
         RemoteDataConnection.connect();
     }
 
+    // Note: Called on the first stable server tick
+    public void onStart() {
+        // Load ALL player arenas
+        System.out.println("Setting defaults. This could take a LONG time for a new server.");
+        UsersQuery allUsers = new UsersQuery();
+        if (Blaze.RemoteDataConnection.query(allUsers)) {
+            // For each user, set defaults.
+            for (UserQuery user : allUsers.Users) {
+                Blaze.FrontEndServer.setDefaults(user);
+            }
+        } else {
+            System.out.println("Failed to QUERY all users!");
+        }
+    }
+
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent joinEvent) {
         UserQuery userQuery = new UserQuery(joinEvent.player.getGameProfile().getName());
         if (!RemoteDataConnection.query(userQuery)) {
@@ -62,6 +80,22 @@ public class Blaze {
             FrontEndServer.setDefaults(userQuery);
             joinEvent.player.setPositionAndUpdate(userQuery.ArenaLocation.X + 16, userQuery.ArenaLocation.Y + 2,
                     userQuery.ArenaLocation.Z + 5);
+
+            ChatStyle joinStyle = new ChatStyle();
+            joinStyle.setColor(EnumChatFormatting.DARK_GREEN);
+
+            ChatStyle infoStyle = new ChatStyle();
+            infoStyle.setColor(EnumChatFormatting.DARK_GREEN);
+            infoStyle.setBold(true);
+
+            ChatComponentText joinText = new ChatComponentText("Welcome to Blaze " + userQuery.FirstName);
+            ChatComponentText infoText = new ChatComponentText("Type: /home to return to your development arena");
+
+            joinText.setChatStyle(joinStyle);
+            infoText.setChatStyle(infoStyle);
+
+            joinEvent.player.addChatComponentMessage(joinText);
+            joinEvent.player.addChatComponentMessage(infoText);
         }
     }
 
@@ -74,7 +108,9 @@ public class Blaze {
         if (!RemoteDataConnection.query(userQuery)) {
             return username;
         } else {
-            return userQuery.FirstName + " " + userQuery.LastName.substring(0, 1);
+            String fullName = userQuery.LastName + ", " + userQuery.FirstName;
+            String alternateName = userQuery.LastName + ", " + userQuery.FirstName.substring(0, 1);
+            return StringUtils.Shrink(fullName, alternateName, alternateName, 16);
         }
     }
 

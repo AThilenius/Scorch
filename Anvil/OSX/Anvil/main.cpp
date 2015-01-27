@@ -23,7 +23,7 @@ using Thilenius::BFEProtos::BFEInfoQueryResponse;
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    Config::OverrideIp("0.0.0.0");
+//    Config::OverrideIp("0.0.0.0");
     Config::OverrideAuthToken("c0dba92c-6449-40a6-95da-11d2b7d28ad6");
 //    Util::Log::Suppress();
     
@@ -46,6 +46,6 @@ int main(int argc, const char * argv[]) {
 //    spark.MoveForward();
 //    spark.MoveForward();
     
-    Anvil::SayHello();
+    Anvil::LoadLevel(0);
     
 }

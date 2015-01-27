@@ -3,6 +3,8 @@ package com.thilenius.flame.spark;
 import com.thilenius.utilities.types.CountdownTimer;
 import com.thilenius.utilities.types.Location3D;
 import com.thilenius.utilities.types.LocationF3D;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
@@ -234,6 +236,12 @@ public class SparkTileEntity extends TileEntity {
 
     private float nanoToSeconds(long nano) {
         return (float)((double)nano / 1000000000.0);
+    }
+
+    @Override
+    public double getMaxRenderDistanceSquared()
+    {
+        return 16384.0D;
     }
 
 }

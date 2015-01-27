@@ -8,7 +8,7 @@ java.lang.NullPointerException: Exception in server tick loop
 	at com.thilenius.blaze.frontend.http.BFEHttpServer.onTick(BFEHttpServer.java:46)
 	at com.thilenius.blaze.frontend.BFEServer.onTick(BFEServer.java:29)
 	at com.thilenius.blaze.Blaze.onTick(Blaze.java:48)
-	at com.thilenius.flame.Flame.onRenderTick(Flame.java:80)
+	at onServerTick(Flame.java:80)
 	at cpw.mods.fml.common.eventhandler.ASMEventHandler_7_Flame_onRenderTick_ServerTickEvent.invoke(.dynamic)
 	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
 	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:138)

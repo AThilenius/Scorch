@@ -1,6 +1,8 @@
 package com.thilenius.flame.jumbotron;
 
 import com.thilenius.utilities.types.Location2D;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -82,6 +84,12 @@ public class JumboTileEntity extends TileEntity {
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
     {
         readFromNBT(pkt.func_148857_g());
+    }
+
+    @Override
+    public double getMaxRenderDistanceSquared()
+    {
+        return 16384.0D;
     }
 
 

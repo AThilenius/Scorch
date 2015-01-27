@@ -8,6 +8,7 @@ import com.thilenius.utilities.types.Location2D;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 
 /**
  * Created by Alec on 11/15/14.
@@ -62,6 +63,8 @@ public abstract class BlazeAssignment {
         if (Blaze.World.MinecraftWorld.getBlock(x, y, z) != block) {
             Blaze.World.MinecraftWorld.setBlock(x, y, z, block);
         }
+
+        block.setLightOpacity(0);
     }
 
     protected void clear() {
@@ -89,6 +92,8 @@ public abstract class BlazeAssignment {
                 }
             }
         }
+
+        drawBorder(0, 1, Blocks.glowstone);
 
         block.setLightOpacity(0);
     }
@@ -122,6 +127,8 @@ public abstract class BlazeAssignment {
                 }
             }
         }
+
+        block.setLightOpacity(0);
     }
 
 }
