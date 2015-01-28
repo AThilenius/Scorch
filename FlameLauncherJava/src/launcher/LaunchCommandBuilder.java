@@ -6,10 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import http.HttpJsonRequest;
 import platform.CurrentPlatform;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 
 /**
@@ -23,11 +21,13 @@ public class LaunchCommandBuilder {
     private static final String JAVA_PATH = System.getProperty("java.home") + "/bin/java";
     private static final String MINECRAFT_JAR_PATH = ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" +
             MINECRAFT_VERSION +".jar";
+    private static final String NATIVES_PATH = ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" +
+            MINECRAFT_VERSION + "-natives";
     private static final String MINECRAFT_LAUNCH_FILE = "net.minecraft.launchwrapper.Launch";
     private static final String TWEAK_CLASS = "cpw.mods.fml.common.launcher.FMLTweaker";
 
     // Args
-    private static final String OSX_ARGS = "-Xdock:icon=\"" + ROOT_PATH + "/Flame-512.png\" -Xdock:name=Flame " +
+    private static final String OSX_ARGS = "-Xdock:icon=\"" + ROOT_PATH + "assets/flame/Flame-512.png\" -Xdock:name=Flame " +
             "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
     private static final String WIN_ARGS =
             "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G " +
@@ -89,6 +89,10 @@ public class LaunchCommandBuilder {
     }
 
     public String getJavaPath() { return System.getProperty("java.home") + "/bin"; }
+
+    public String getNativesPath() {
+        return NATIVES_PATH;
+    }
 
     private void checkForMissingFiles() {
         System.out.println("Synchronizing game files");
@@ -161,16 +165,6 @@ public class LaunchCommandBuilder {
         }
 
         return glob;
-    }
-
-    private String getNativesPath() {
-        switch(CurrentPlatform.getType()) {
-            case OSX: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-osx";
-            case WINDOWS: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-win";
-            case LINUX: return ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" + MINECRAFT_VERSION + "-natives-linux";
-            default: return null;
-        }
-
     }
 
 }

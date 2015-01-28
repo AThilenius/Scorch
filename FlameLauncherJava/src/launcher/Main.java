@@ -1,22 +1,25 @@
 package launcher;
 
-import Json.FlameConfig;
-import Json.MinecraftSession;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import platform.CurrentPlatform;
 
-import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
 
     public static void main(String[] args) {
+        LaunchCommandBuilder builder = new LaunchCommandBuilder();
+
         System.out.println("Scanning for missing files...");
         HttpTaskRunner runner = new HttpTaskRunner(ResourceParser.getResourceTasks());
         runner.run();
 
-        LaunchCommandBuilder builder = new LaunchCommandBuilder();
+        // Extract Natives
+        NativesExtractor nativesExtractor = new NativesExtractor();
+        nativesExtractor.extractAll(ResourceParser.getNativesPaths(), builder.getNativesPath());
+
         Process proc = null;
         
         try {

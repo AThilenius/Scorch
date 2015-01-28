@@ -53,6 +53,15 @@ public class Blaze {
         RemoteDataConnection.connect();
     }
 
+    public static void handleCommand(String[] args) {
+        if (args.length == 0 || args[0].trim().equalsIgnoreCase("help")) {
+            System.out.println("Blaze commands:");
+            System.out.println("  -forceCacheFlush");
+        } else if (args[0].trim().equalsIgnoreCase("-forceCacheFlush")) {
+            RemoteDataConnection.forceCacheFlush();
+        }
+    }
+
     // Note: Called on the first stable server tick
     public void onStart() {
         // Load ALL player arenas

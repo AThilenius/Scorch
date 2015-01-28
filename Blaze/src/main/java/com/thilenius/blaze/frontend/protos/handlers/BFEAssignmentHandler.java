@@ -96,6 +96,7 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
                                 }
                                 @Override
                                 public void run() {
+                                    long startTime = System.currentTimeMillis();
                                     LoadState loadState = m_loadedStatesByUsername.get(m_assignmentQuery.Username);
                                     if (loadState == null) {
                                         loadState = new LoadState();
@@ -105,6 +106,7 @@ public class BFEAssignmentHandler extends BFEProtoHandler {
                                     BFEProtos.BFEMessage message = loadState.transitionState(m_assignmentLoader,
                                             m_assignmentQuery, m_pointsQuery.Points);
                                     m_request.sendResponse(message);
+                                    System.out.println("Assignment loading took " + (System.currentTimeMillis() - startTime) + "ms.");
                                 }
                             }
 

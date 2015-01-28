@@ -1,6 +1,7 @@
 package com.thilenius.flame;
 
 import com.thilenius.blaze.Blaze;
+import com.thilenius.flame.commands.BlazeCommandHandler;
 import com.thilenius.flame.commands.HomeCommandHandler;
 import com.thilenius.flame.jumbotron.JumboBlock;
 import com.thilenius.flame.jumbotron.JumboTileEntity;
@@ -100,6 +101,7 @@ public class Flame {
         ICommandManager command = server.getCommandManager();
         ServerCommandManager manager = (ServerCommandManager) command;
         manager.registerCommand(new HomeCommandHandler());
+        manager.registerCommand(new BlazeCommandHandler());
     }
 
     @EventHandler

@@ -35,4 +35,25 @@ public class ResourceParser {
 
         return downloadList.getDownloadTasks();
     }
+
+    public static List<String> getNativesPaths() {
+        // Read File
+        byte[] encoded = new byte[0];
+        try {
+            encoded = Files.readAllBytes(Paths.get("DownloadList.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String jsonText = new String(encoded, Charset.defaultCharset());
+
+        // Parse JSON
+        DownloadList downloadList = null;
+        try {
+            downloadList = mapper.readValue(jsonText, DownloadList.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return downloadList.getNativesPaths();
+    }
 }

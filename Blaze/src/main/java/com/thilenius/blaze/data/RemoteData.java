@@ -159,4 +159,11 @@ public class RemoteData {
         return true;
     }
 
+    public void forceCacheFlush() {
+        synchronized (m_queryCache) {
+            m_queryCache.clear();
+        }
+
+        System.out.println("Blaze SQL cache cleared.");
+    }
 }

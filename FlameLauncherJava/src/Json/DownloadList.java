@@ -33,6 +33,15 @@ public class DownloadList {
         return tasks;
     }
 
+    public List<String> getNativesPaths() {
+        List<String> nativesPaths = new ArrayList<String>();
+        for (RemoteResource resource : getNatives()) {
+            nativesPaths.add(resource.file);
+        }
+
+        return nativesPaths;
+    }
+
     private List<RemoteResource> getNatives() {
         String osName = System.getProperty("os.name").toLowerCase();
 

@@ -55,6 +55,7 @@ public class BlazeFrontEnd implements IBFERequestHandler {
         SparkHandler.onTick();
     }
 
+    // Asynchronous (That is, will be run in the thread pool)
     @Override
     public void handle(IBFERequest request) {
 

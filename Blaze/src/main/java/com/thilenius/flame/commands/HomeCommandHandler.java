@@ -5,6 +5,7 @@ import com.thilenius.blaze.data.UserQuery;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.World;
 
 /**
