@@ -24,6 +24,7 @@ public class MainForm {
     private JTextArea m_descriptionLabel;
     private JProgressBar m_progressBar;
     private JButton m_launchButton;
+    private JScrollPane m_scrollPanel;
 
     private Color m_errorColor = new Color(153, 0, 0);
     private JavaFinder m_javaFinder = new JavaFinder();
@@ -33,9 +34,8 @@ public class MainForm {
         m_statusLabel.setText("Polling System Properties");
         m_progressBar.setIndeterminate(true);
         m_descriptionLabel.setVisible(false);
-        m_launchButton.setVisible(false);
-        m_descriptionLabel.addComponentListener(new ComponentAdapter() {
-        });
+        m_scrollPanel.setVisible(false);
+        m_launchButton.setVisible(false);;
     }
 
     public void beginLaunchCycle() {
@@ -90,6 +90,7 @@ public class MainForm {
                     "you will not get help with crashes. Download Java 1.6 from:\n" +
                     m_javaFinder.getDownloadLink());
             m_descriptionLabel.setVisible(true);
+            m_scrollPanel.setVisible(true);
             m_statusLabel.setForeground(m_errorColor);
             m_progressBar.setVisible(false);
             m_launchButton.setVisible(true);
@@ -109,6 +110,7 @@ public class MainForm {
         m_frame.setLocation(dim.width / 2 - m_frame.getSize().width / 2, dim.height / 2 - m_frame.getSize().height / 2);
         m_frame.setResizable(true);
         m_descriptionLabel.setVisible(true);
+        m_scrollPanel.setVisible(true);
         m_launchButton.setVisible(false);
         m_progressBar.setVisible(false);
         m_descriptionLabel.setText("Launching with Java: " + m_javaFinder.getJavaPath() + "\n");
@@ -161,8 +163,7 @@ public class MainForm {
                 System.out.println("Failed to start child process.");
                 m_statusLabel.setForeground(m_errorColor);
                 m_statusLabel.setText("Failed to start child process.");
-                m_descriptionLabel.setVisible(true);
-                m_descriptionLabel.setText(e.getMessage() + "\n" + e.getStackTrace());
+                m_descriptionLabel.setText(m_descriptionLabel.getText() + e.getMessage() + "\n" + e.getStackTrace());
                 e.printStackTrace();
             }
         } else {
