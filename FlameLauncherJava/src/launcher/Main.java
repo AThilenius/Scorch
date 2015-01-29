@@ -24,7 +24,7 @@ public class Main {
         Process proc = null;
 
         try {
-            String fullCommand = builder.getFullCommand();
+            String fullCommand = builder.getFullCommand(new JavaFinder().getJavaPath());
             System.out.println(fullCommand);
             switch(CurrentPlatform.getType()) {
                 case OSX:

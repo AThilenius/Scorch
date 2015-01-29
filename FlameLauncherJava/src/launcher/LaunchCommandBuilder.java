@@ -18,7 +18,6 @@ public class LaunchCommandBuilder {
     private static final String ROOT_PATH =  new File("").getAbsolutePath();
     private static final String MINECRAFT_VERSION = "1.7.10-Forge10.13.2.1230";
     private static final String ASSET_INDEX = "1.7.10";
-    private static final String JAVA_PATH = System.getProperty("java.home") + "/bin/java";
     //private static final String JAVA_PATH = "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java";
     private static final String MINECRAFT_JAR_PATH = ROOT_PATH + "/versions/" + MINECRAFT_VERSION + "/" +
             MINECRAFT_VERSION +".jar";
@@ -57,7 +56,7 @@ public class LaunchCommandBuilder {
     private static ObjectMapper m_jsonMapper = new ObjectMapper();
 
 
-    public String getFullCommand() {
+    public String getFullCommand(String javaPath) {
         String command = "";
         switch(CurrentPlatform.getType()) {
             case OSX:
@@ -72,7 +71,7 @@ public class LaunchCommandBuilder {
         }
 
         // Replace ${} strings
-        return command.replace("${java_path}",              JAVA_PATH)
+        return command.replace("${java_path}",        javaPath)
                 .replace("${platform_args}",          getPlatformArgs())
                 .replace("${natives_path}",           getNativesPath())
                 .replace("${library_glob}",           globLibFolder())

@@ -98,15 +98,26 @@ public class MainForm {
     }
 
     private void launchMinecraft(LaunchCommandBuilder builder) {
-        m_statusLabel.setText("Launching Minecraft");
+        m_statusLabel.setText("Launching Minecraft, awaiting process start.");
         m_progressBar.setIndeterminate(false);
         m_progressBar.setValue(100);
+
+        // Scale the window up and forward all output to description
+        m_frame.setMinimumSize(new Dimension(700, 500));
+        m_frame.setMaximumSize(new Dimension(700, 500));
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        m_frame.setLocation(dim.width / 2 - m_frame.getSize().width / 2, dim.height / 2 - m_frame.getSize().height / 2);
+        m_frame.setResizable(true);
+        m_descriptionLabel.setVisible(true);
+        m_launchButton.setVisible(false);
+        m_progressBar.setVisible(false);
+        m_descriptionLabel.setText("Launching with Java: " + m_javaFinder.getJavaPath() + "\n");
 
         // Launch!
         Process proc = null;
 
         try {
-            String fullCommand = builder.getFullCommand();
+            String fullCommand = builder.getFullCommand(m_javaFinder.getJavaPath());
             System.out.println(fullCommand);
             switch(CurrentPlatform.getType()) {
                 case OSX:
@@ -127,22 +138,31 @@ public class MainForm {
         }
 
         if (proc != null) {
-            System.out.println("Launching Minecraft...");
+            m_statusLabel.setText("Minecraft Running...");
             BufferedReader in = new BufferedReader(new InputStreamReader(proc.getInputStream()));
             BufferedReader error = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
             try {
                 String line;
                 while ((line = in.readLine()) != null) {
                     System.out.println(line);
+                    m_descriptionLabel.setText(m_descriptionLabel.getText() + line + "\n");
+                    m_descriptionLabel.setRows(m_descriptionLabel.getRows() + 1);
                 }
                 while ((line = error.readLine()) != null) {
                     System.err.println(line);
+                    m_descriptionLabel.setText(m_descriptionLabel.getText() + line + "\n");
+                    m_descriptionLabel.setRows(m_descriptionLabel.getRows() + 1);
                 }
                 proc.waitFor();
                 in.close();
                 proc.destroy();
             }
             catch (Exception e) {
+                System.out.println("Failed to start child process.");
+                m_statusLabel.setForeground(m_errorColor);
+                m_statusLabel.setText("Failed to start child process.");
+                m_descriptionLabel.setVisible(true);
+                m_descriptionLabel.setText(e.getMessage() + "\n" + e.getStackTrace());
                 e.printStackTrace();
             }
         } else {
@@ -151,7 +171,8 @@ public class MainForm {
             m_statusLabel.setText("Failed to start child process.");
         }
 
-        System.exit(0);
+
+        m_statusLabel.setText("Minecraft Exited.");
     }
 
     public static void main(String[] args) {
