@@ -105,7 +105,7 @@ public class MainForm {
 
         // Scale the window up and forward all output to description
         m_frame.setMinimumSize(new Dimension(700, 500));
-        m_frame.setMaximumSize(new Dimension(700, 500));
+        m_frame.setMaximumSize(new Dimension(9999, 9999));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         m_frame.setLocation(dim.width / 2 - m_frame.getSize().width / 2, dim.height / 2 - m_frame.getSize().height / 2);
         m_frame.setResizable(true);
@@ -119,19 +119,20 @@ public class MainForm {
         Process proc = null;
 
         try {
-            String fullCommand = builder.getFullCommand(m_javaFinder.getJavaPath());
-            System.out.println(fullCommand);
+            String[] fullCommand = builder.getFullCommand(m_javaFinder.getJavaPath());
+
             switch(CurrentPlatform.getType()) {
                 case OSX:
-                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
-                            null, new File(builder.getRootPath()));
+                    ProcessBuilder pb = new ProcessBuilder(fullCommand);
+                    pb.directory(new File(builder.getRootPath()));
+                    proc = pb.start();
                     break;
                 case WINDOWS:
-                    proc = Runtime.getRuntime().exec(fullCommand, null, new File(builder.getRootPath()));
+                    //proc = Runtime.getRuntime().exec(fullCommand, null, new File(builder.getRootPath()));
                     break;
                 case LINUX:
-                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
-                            null, new File(builder.getRootPath()));
+//                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
+//                            null, new File(builder.getRootPath()));
                     break;
             }
         }

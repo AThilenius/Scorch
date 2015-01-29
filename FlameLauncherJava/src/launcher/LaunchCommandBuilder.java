@@ -26,38 +26,76 @@ public class LaunchCommandBuilder {
     private static final String MINECRAFT_LAUNCH_FILE = "net.minecraft.launchwrapper.Launch";
     private static final String TWEAK_CLASS = "cpw.mods.fml.common.launcher.FMLTweaker";
 
-    // Args
-    private static final String OSX_ARGS = "-Xdock:icon=\"" + ROOT_PATH + "assets/flame/Flame-512.png\" -Xdock:name=Flame " +
-            "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
-    private static final String WIN_ARGS =
-            "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -Xmx1G " +
-                    "-XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M";
-    private static final String LINUX_ARGS = "-Xmx1G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode " +
-            "-XX:-UseAdaptiveSizePolicy -Xmn128M";
-
     // Globing
-    private static final String[] GLOB_EXCLUDE = new String[] {
-            "natives" };
+    private static final String[] GLOB_EXCLUDE = new String[] { "natives" };
 
     // Commands
-    private static final String OSX_COMMAND = "${java_path} ${platform_args} " +
-            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
-            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
-            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
-    private static final String WINDOWS_COMMAND = "\"${java_path}\" ${platform_args} " +
-            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
-            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
-            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
-    private static final String LINUX_COMMAND = "\"${java_path}\" ${platform_args} " +
-            "-Djava.library.path=\"${natives_path}\" -cp ${library_glob}\"${minecraft_jar_path}\" " +
-            "${minecraft_launch_file} --gameDir \"${root_path}\" --assetsDir \"${root_path}/assets\" " +
-            "--version ${minecraft_version} --assetIndex ${asset_index} --tweakClass ${tweak_class} ${session_args}";
+    private static final String[] OSX_COMMAND = new String[] {
+            "${java_path}",
+
+            // OSX Platform Args
+            "-Xdock:icon=" + ROOT_PATH + "assets/flame/Flame-512.png",
+            "-Xdock:name=Flame",
+            "-Xmx1G",
+            "-XX:+UseConcMarkSweepGC",
+            "-XX:+CMSIncrementalMode",
+            "-XX:-UseAdaptiveSizePolicy",
+            "-Xmn128M",
+
+            "-Djava.library.path=${natives_path}",
+            "-cp",
+            "${library_glob}${minecraft_jar_path}",
+            "${minecraft_launch_file}",
+            "--gameDir", "${root_path}",
+            "--assetsDir", "${root_path}/assets",
+            "--version", "${minecraft_version}",
+            "--assetIndex", "${asset_index}",
+            "--tweakClass", "${tweak_class}"};
+    private static final String[] WINDOWS_COMMAND = new String[] {
+            "${java_path}",
+
+            // Windows Platform Args
+            "-XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump",
+            "-Xmx1G",
+            "-XX:+UseConcMarkSweepGC",
+            "-XX:+CMSIncrementalMode",
+            "-XX:-UseAdaptiveSizePolicy",
+            "-Xmn128M",
+
+            "-Djava.library.path=${natives_path}",
+            "-cp",
+            "${library_glob}${minecraft_jar_path}",
+            "${minecraft_launch_file}",
+            "--gameDir", "${root_path}",
+            "--assetsDir", "${root_path}/assets",
+            "--version", "${minecraft_version}",
+            "--assetIndex", "${asset_index}",
+            "--tweakClass", "${tweak_class}"};
+    private static final String[] LINUX_COMMAND = new String[] {
+            "${java_path}",
+
+            // Linux Platform Args
+            "-Xmx1G",
+            "-XX:+UseConcMarkSweepGC",
+            "-XX:+CMSIncrementalMode",
+            "-XX:-UseAdaptiveSizePolicy",
+            "-Xmn128M",
+
+            "-Djava.library.path=${natives_path}",
+            "-cp",
+            "${library_glob}${minecraft_jar_path}",
+            "${minecraft_launch_file}",
+            "--gameDir", "${root_path}",
+            "--assetsDir", "${root_path}/assets",
+            "--version", "${minecraft_version}",
+            "--assetIndex", "${asset_index}",
+            "--tweakClass", "${tweak_class}"};
 
     private static ObjectMapper m_jsonMapper = new ObjectMapper();
 
 
-    public String getFullCommand(String javaPath) {
-        String command = "";
+    public String[] getFullCommand(String javaPath) {
+        String[] command = null;
         switch(CurrentPlatform.getType()) {
             case OSX:
                 command = OSX_COMMAND;
@@ -70,18 +108,28 @@ public class LaunchCommandBuilder {
                 break;
         }
 
-        // Replace ${} strings
-        return command.replace("${java_path}",        javaPath)
-                .replace("${platform_args}",          getPlatformArgs())
-                .replace("${natives_path}",           getNativesPath())
-                .replace("${library_glob}",           globLibFolder())
-                .replace("${minecraft_jar_path}",     MINECRAFT_JAR_PATH)
-                .replace("${minecraft_launch_file}",  MINECRAFT_LAUNCH_FILE)
-                .replace("${root_path}",              ROOT_PATH)
-                .replace("${minecraft_version}",      MINECRAFT_VERSION)
-                .replace("${asset_index}",            ASSET_INDEX)
-                .replace("${tweak_class}",            TWEAK_CLASS)
-                .replace("${session_args}",           getSessionArgs());
+        String[] sessionArgs = getSessionArgs();
+        String[] fullCommand = new String[command.length + sessionArgs.length];
+
+        // Replace ${} strings in command
+        for (int i = 0; i < command.length; i++) {
+            fullCommand[i] = command[i].replace("${java_path}", javaPath)
+                    .replace("${natives_path}", getNativesPath())
+                    .replace("${library_glob}", globLibFolder())
+                    .replace("${minecraft_jar_path}", MINECRAFT_JAR_PATH)
+                    .replace("${minecraft_launch_file}", MINECRAFT_LAUNCH_FILE)
+                    .replace("${root_path}", ROOT_PATH)
+                    .replace("${minecraft_version}", MINECRAFT_VERSION)
+                    .replace("${asset_index}", ASSET_INDEX)
+                    .replace("${tweak_class}", TWEAK_CLASS);
+        }
+
+        // Add in session args
+        for (int i = 0; i < sessionArgs.length; i++) {
+            fullCommand[i + command.length] = sessionArgs[i];
+        }
+
+        return fullCommand;
     }
 
     public String getRootPath() {
@@ -94,16 +142,7 @@ public class LaunchCommandBuilder {
         return NATIVES_PATH;
     }
 
-    private String getPlatformArgs() {
-        switch(CurrentPlatform.getType()) {
-            case OSX: return OSX_ARGS;
-            case WINDOWS: return WIN_ARGS;
-            case LINUX: return LINUX_ARGS;
-            default: return null;
-        }
-    }
-
-    private String getSessionArgs() {
+    private String[] getSessionArgs() {
         try {
             System.out.print("Authenticating with Blaze... ");
             FlameConfig config = FlameConfig.getConfig();
@@ -115,7 +154,12 @@ public class LaunchCommandBuilder {
                 return null;
             }
             System.out.println("Done.");
-            return sessionInfo.user_args;
+            return new String[] {
+                    "--username", sessionInfo.username,
+                    "--uuid", sessionInfo.uuid,
+                    "--accessToken", sessionInfo.access_token,
+                    "--userProperties", sessionInfo.user_properties,
+                    "--userType", sessionInfo.user_type };
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -153,7 +197,7 @@ public class LaunchCommandBuilder {
                     }
                 }
                 if (!isExcluded) {
-                    glob += "\"" + file.getAbsolutePath() + "\"" + separator;
+                    glob += file.getAbsolutePath() + separator;
                 }
             }
         }

@@ -5,5 +5,10 @@ package Json;
  */
 public class MinecraftSession {
     public String user_args;
+    public String username;
+    public String uuid;
+    public String access_token;
+    public String user_properties;
+    public String user_type;
     public String error;
 }
