@@ -21,14 +21,6 @@
     {
       "url": "https://libraries.minecraft.net/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar",
       "file": "libraries/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar"
-    },
-    {
-      "url": "https://libraries.minecraft.net/tv/twitch/twitch-platform/5.16/twitch-platform-5.16-natives-windows-.jar",
-      "file": "libraries/tv/twitch/twitch-platform/5.16/twitch-platform-5.16-natives-windows-.jar"
-    },
-    {
-      "url": "https://libraries.minecraft.net/tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-.jar",
-      "file": "libraries/tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-.jar"
     }
   ],
   "osx": [

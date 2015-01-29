@@ -122,18 +122,24 @@ public class MainForm {
             String[] fullCommand = builder.getFullCommand(m_javaFinder.getJavaPath());
 
             switch(CurrentPlatform.getType()) {
-                case OSX:
+                case OSX: {
                     ProcessBuilder pb = new ProcessBuilder(fullCommand);
                     pb.directory(new File(builder.getRootPath()));
                     proc = pb.start();
                     break;
-                case WINDOWS:
-                    //proc = Runtime.getRuntime().exec(fullCommand, null, new File(builder.getRootPath()));
+                }
+                case WINDOWS: {
+                    ProcessBuilder pb = new ProcessBuilder(fullCommand);
+                    pb.directory(new File(builder.getRootPath()));
+                    proc = pb.start();
                     break;
-                case LINUX:
-//                    proc = Runtime.getRuntime().exec(new String[]{"/bin/bash", "-c", fullCommand},
-//                            null, new File(builder.getRootPath()));
+                }
+                case LINUX: {
+                    ProcessBuilder pb = new ProcessBuilder(fullCommand);
+                    pb.directory(new File(builder.getRootPath()));
+                    proc = pb.start();
                     break;
+                }
             }
         }
         catch (IOException e) {
