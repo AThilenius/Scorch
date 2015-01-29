@@ -65,13 +65,12 @@ class ServiceController < ApplicationController
     #                           " --userProperties {}" +
     #                           userType }
 
-    # HACK: Test
-    render :json => { :user_args =>
-                          "--username #{user.username}" +
-                              " --uuid NA" +
-                              " --accessToken NA" +
-                              " --userProperties {}" +
-                              ' --userType legacy' }
+    # TODO: user_args is being phased out.
+    render :json => { :username => "#{user.username}",
+                      :uuid => "NA",
+                      :access_token => "NA",
+                      :user_properties => "{}",
+                      :user_type => 'legacy'}
   end
 
   def get_user_level_data
