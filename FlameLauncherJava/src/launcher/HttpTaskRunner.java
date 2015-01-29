@@ -1,5 +1,6 @@
 package launcher;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +10,13 @@ import java.util.List;
 public class HttpTaskRunner implements Runnable {
 
     private List<HttpFileDownloadTask> m_tasks;
+    private JProgressBar m_progressBar;
     private int m_compleatedCount;
     private int m_nextIndex;
 
-    public HttpTaskRunner(List<HttpFileDownloadTask> tasks) {
+    public HttpTaskRunner(List<HttpFileDownloadTask> tasks, JProgressBar progressBar) {
         m_tasks = tasks;
+        m_progressBar = progressBar;
     }
 
     public void run() {
@@ -36,6 +39,9 @@ public class HttpTaskRunner implements Runnable {
                         }
                         task.run();
                         print();
+                        if (m_progressBar != null) {
+                            m_progressBar.setValue((int) ((float) m_compleatedCount / (float) m_tasks.size() * 100.0f));
+                        }
                     }
                 }
             };
@@ -45,7 +51,7 @@ public class HttpTaskRunner implements Runnable {
 
         try {
             for (final Thread thread : threads) {
-                    thread.join();
+                thread.join();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

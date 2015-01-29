@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.channels.Channels;
@@ -39,9 +40,20 @@ public class HttpFileDownloadTask implements Runnable {
                 outFile.createNewFile();
             }
 
-            ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-            FileOutputStream fos = new FileOutputStream(outFile, false);
-            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            HttpURLConnection huc =  (HttpURLConnection) website.openConnection();
+            huc.setRequestMethod("GET");
+            huc.connect();
+            int code = huc.getResponseCode();
+            if (code != 200) {
+                System.out.println();
+                System.out.println("Failed to download file: [" + m_file + "]. Server responded with: [" + code +
+                        "]. Will try to launch the game anyway but it's unlike to work.");
+                System.out.println();
+            } else {
+                ReadableByteChannel rbc = Channels.newChannel(website.openStream());
+                FileOutputStream fos = new FileOutputStream(outFile, false);
+                fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+            }
         } catch (MalformedURLException e) {
             // e.printStackTrace();
         } catch (FileNotFoundException e) {

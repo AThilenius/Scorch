@@ -1,5 +1,6 @@
 package launcher;
 
+import gui.MainForm;
 import platform.CurrentPlatform;
 
 import java.io.BufferedReader;
@@ -13,15 +14,15 @@ public class Main {
         LaunchCommandBuilder builder = new LaunchCommandBuilder();
 
         System.out.println("Scanning for missing files...");
-        HttpTaskRunner runner = new HttpTaskRunner(ResourceParser.getResourceTasks());
+        HttpTaskRunner runner = new HttpTaskRunner(ResourceParser.getResourceTasks(), null);
         runner.run();
 
         // Extract Natives
-        NativesExtractor nativesExtractor = new NativesExtractor();
+        NativesExtractor nativesExtractor = new NativesExtractor(null);
         nativesExtractor.extractAll(ResourceParser.getNativesPaths(), builder.getNativesPath());
 
         Process proc = null;
-        
+
         try {
             String fullCommand = builder.getFullCommand();
             System.out.println(fullCommand);

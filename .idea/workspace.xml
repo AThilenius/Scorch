@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2848f36c-ef8f-402d-a734-6ab2e29b4f89" name="Default" comment="" />
+    <list default="true" id="2848f36c-ef8f-402d-a734-6ab2e29b4f89" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/DIM-1/data/villages.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/DIM-1/forcedchunks.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/DIM1/data/villages.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/DIM1/forcedchunks.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/data/Mineshaft.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/data/Stronghold.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/data/villages.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/forcedchunks.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/level.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/level.dat_old" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/03634869-afe2-3a1b-a205-3566be3c7865.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/2c92bc6e-a5f2-3a9f-b7d1-b9e3417881b5.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/2dcf48b8-df85-3250-9187-6a58eb513360.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/4f645d6e-7de7-3522-b8b0-8c7fae8ab448.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/58c39d85-ea92-3de6-98b4-2f4111cba92d.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/6e55bd87-9b22-37b1-add9-4522ce25762d.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/a84c72ce-2e94-45e4-b220-914678f2cb6d.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/bd5a8c7b-8444-3131-bbff-f47ec2198c83.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/bea957ce-f0e3-3686-9bc9-0c882a86c25f.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/playerdata/c61fa7c6-5480-39d7-91ab-a667d283ab69.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.-1.-1.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.-1.0.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.-2.-1.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.-2.0.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.0.-1.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/region/r.0.0.mca" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/session.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/03634869-afe2-3a1b-a205-3566be3c7865.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/2c92bc6e-a5f2-3a9f-b7d1-b9e3417881b5.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/2dcf48b8-df85-3250-9187-6a58eb513360.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/4f645d6e-7de7-3522-b8b0-8c7fae8ab448.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/58c39d85-ea92-3de6-98b4-2f4111cba92d.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/6e55bd87-9b22-37b1-add9-4522ce25762d.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/a84c72ce-2e94-45e4-b220-914678f2cb6d.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/bd5a8c7b-8444-3131-bbff-f47ec2198c83.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/bea957ce-f0e3-3686-9bc9-0c882a86c25f.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Blaze/eclipse/world/stats/c61fa7c6-5480-39d7-91ab-a667d283ab69.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Blaze/eclipse/server.properties" afterPath="$PROJECT_DIR$/Blaze/eclipse/server.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlameLauncherJava/.idea/workspace.xml" afterPath="$PROJECT_DIR$/FlameLauncherJava/.idea/workspace.xml" />
+    </list>
     <ignored path="Scorch.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +57,12 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Scorch" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
@@ -47,6 +91,43 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scorch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scorch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scorch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -59,6 +140,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Blaze" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -73,19 +155,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -114,6 +183,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -164,30 +246,36 @@
       <changelist id="2848f36c-ef8f-402d-a734-6ab2e29b4f89" name="Default" comment="" />
       <created>1419989478053</created>
       <updated>1419989478053</updated>
+      <workItem from="1422471397731" duration="35000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="35000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="997" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />

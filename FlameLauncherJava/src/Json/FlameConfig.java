@@ -1,11 +1,11 @@
 package Json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import utilities.IOUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * Created by Alec on 12/27/14.
@@ -22,7 +22,7 @@ public class FlameConfig {
         // Read File
         byte[] encoded = new byte[0];
         try {
-            encoded = Files.readAllBytes(Paths.get("FlameConfig.json"));
+            encoded = IOUtil.readFile(new File("FlameConfig.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }

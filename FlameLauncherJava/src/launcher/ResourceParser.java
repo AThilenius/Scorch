@@ -2,11 +2,11 @@ package launcher;
 
 import Json.DownloadList;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import utilities.IOUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ public class ResourceParser {
         // Read File
         byte[] encoded = new byte[0];
         try {
-            encoded = Files.readAllBytes(Paths.get("DownloadList.json"));
+            encoded = IOUtil.readFile(new File("DownloadList.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class ResourceParser {
         // Read File
         byte[] encoded = new byte[0];
         try {
-            encoded = Files.readAllBytes(Paths.get("DownloadList.json"));
+            encoded = IOUtil.readFile(new File("DownloadList.json"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -59,11 +59,11 @@
       "file": "libraries/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.jar"
     },
     {
-      "url": "http://files.minecraftforge.net/maven/com/typesafe/akka/akka-actor_2.11/2.3.3/akka-actor_2.11-2.3.3.jar",
+      "url": "http://central.maven.org/maven2/com/typesafe/akka/akka-actor_2.11/2.3.3/akka-actor_2.11-2.3.3.jar",
       "file": "libraries/com/typesafe/akka/akka-actor_2.11/2.3.3/akka-actor_2.11-2.3.3.jar"
     },
     {
-      "url": "http://files.minecraftforge.net/maven/com/typesafe/config/1.2.1/config-1.2.1.jar",
+      "url": "http://central.maven.org/maven2/com/typesafe/config/1.2.1/config-1.2.1.jar",
       "file": "libraries/com/typesafe/config/1.2.1/config-1.2.1.jar"
     },
     {
