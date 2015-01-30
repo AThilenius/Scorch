@@ -47,11 +47,21 @@ public class JavaFinder {
                 // Scan all locations for 1.6.x
                 String programFilesPath = System.getenv("ProgramFiles");
                 String[] programPaths = new String[2];
+
+                if (programFilesPath == null) {
+                    // Default to fallback C drive
+                    programFilesPath = "C:";
+                }
+
                 programPaths[0] = programFilesPath.split(":")[0] + ":/Program Files/Java";
                 programPaths[1] = programFilesPath.split(":")[0] + ":/Program Files (x86)/Java";
 
                 for (String scanLocation : programPaths) {
                     File scanDirectory = new File(scanLocation);
+
+                    if (!scanDirectory.exists()) {
+                        continue;
+                    }
 
                     File[] files = scanDirectory.listFiles();
                     for (int i = 0; i < files.length; i++) {
