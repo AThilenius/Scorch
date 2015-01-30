@@ -2,6 +2,7 @@ package gui;
 
 import launcher.*;
 import platform.CurrentPlatform;
+import platform.GlobalExceptionHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -184,6 +185,9 @@ public class MainForm {
     }
 
     public static void main(String[] args) {
+        // Set Unhandled Exception Catcher
+        Thread.setDefaultUncaughtExceptionHandler(new GlobalExceptionHandler());
+
         JFrame frame = new JFrame("Flame");
         MainForm form = new MainForm(frame);
         frame.setContentPane(form.panel1);
