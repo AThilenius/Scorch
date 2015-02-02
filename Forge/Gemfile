@@ -8,8 +8,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'spring',        group: :development
+gem 'sdoc', '~> 0.4.0',           group: :doc
+gem 'spring',                     group: :development
 gem 'less-rails'
 gem 'therubyracer'
 gem 'less-rails-bootstrap'
@@ -21,3 +21,7 @@ gem 'passenger'
 gem 'mysql2'
 gem 'seed_dump'
 gem 'rubyzip'
+
+# Need to use Thin for faye
+gem 'thin',                       group: :development
+gem 'faye-rails', '~> 2.0'

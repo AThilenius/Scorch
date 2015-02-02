@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'blaze/show'
+
   get 'flame/show' => 'flame#show'
 
   get 'minecraft/show'
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   get 'session_logout' => 'session#logout'
   post 'service/get_minecraft_session' => 'service#get_minecraft_session'
   post 'service/get_user_level_data' => 'service#get_user_level_data'
+  post 'service/get_chat' => 'service#get_chat'
+  post 'service/push_chat' => 'service#push_chat'
   match 'blaze/(*path)' => redirect {|params, req| "http://localhost:9886/#{params[:path]}"},  via: [:get, :post]
 
   resources :minecraft_accounts, :only => [:show, :destroy]
