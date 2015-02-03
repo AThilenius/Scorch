@@ -80,4 +80,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+    # User Faye with Redis for passenger (Note, must fix a bug, see below)
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25, :server => 'passenger',
+                          :engine => {type: Faye::Redis, host: 'localhost', port: 6379}
+
+    # NOTE! Must fix a FayeRails bug in Middleware.rb:
+    # Change:
+    # Faye::WebSocket.load_adapter(options.delete(:server))
+
+    # To:
+    # server = options.delete(:server)
+    # Faye::WebSocket.load_adapter(server) if server && server != 'passenger'
 end

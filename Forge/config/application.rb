@@ -20,14 +20,5 @@ module Forge
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-
-    # For Faye
-
-    config.middleware.delete Rack::Lock
-    # config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
-    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25, :server => 'passenger',
-                          :engine => {type: Faye::Redis, host: 'localhost', port: 6379}
-
-
   end
 end
