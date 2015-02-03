@@ -24,4 +24,6 @@ gem 'rubyzip'
 
 # Need to use Thin for faye
 gem 'thin',                       group: :development
-gem 'faye-rails', '~> 2.0'
+gem 'faye'
+gem 'faye-rails'
+gem 'faye-redis'

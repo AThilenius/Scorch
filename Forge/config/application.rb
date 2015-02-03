@@ -22,8 +22,11 @@ module Forge
 
 
     # For Faye
+
     config.middleware.delete Rack::Lock
-    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
+    # config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
+    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25, :server => 'passenger',
+                          :engine => {type: Faye::Redis, host: 'localhost', port: 6379}
 
 
   end
