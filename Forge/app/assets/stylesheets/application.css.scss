@@ -15,48 +15,38 @@
  *= require_tree .
  */
 
-body {
-    padding-top: 70px;
-    padding-bottom: 20px;
-    overflow-x: hidden;
-    background-color: transparent;
-}
-
-html {
-    background: rgba(0, 0, 0, 0.49) url(asset-path('Background.jpg')) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.navbar-translucent {
+  colro: white;
+  background-color: rgba(34, 34, 34, 0.17);
+  border-color: rgba(34, 34, 34, 0.5);
 }
 
 .white {
-    color: #ffffff;
+    color: white;
+}
+
+a.white {
+  color: white;
 }
 
 a:link {
-    color: #ffffff;
+    color: black;
 }
 
 /* visited link */
 a:visited {
-    color: #ffffff;
+    color: black;
 }
 
 /* mouse over link */
 a:hover {
-    color: #ffffff;
+    color: black;
 }
 
 /* selected link */
 a:active {
-    color: #ffffff;
+    color: black;
 }
-
-
-#bg { position: fixed; top: 0; left: 0; }
-.bgwidth { width: 100%; }
-.bgheight { height: 100%; }
 
 /* Override Rail's default error calls with Bootstrap 3 */
 .field_with_errors {

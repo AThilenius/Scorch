@@ -1,18 +1,27 @@
-<h1 class="text-center white">Assignments</h1>
-<h4 class="text-center"><span class="label label-danger"></span></h4>
+<% content_for :for_head do %>
+    <div id="anvilHeader">
+      <span id="dummySpan"></span>
+      <div id="label">Anvil</div>
+    </div>
+<% end %>
 
-<hr>
+<br>
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="active"><a href="#">
-    My Assignments
-    <% assignmentsCount = pending_assignments_count %>
-    <% if assignmentsCount != 0 %>
-        <div class="badge pull-right"><%= pending_assignments_count %></div>
-    <% end %>
-  </a></li>
-  <li role="presentation"><a href="#">Class Statistics</a></li>
+<ul class="nav nav-pills nav-justified">
+  <li role="presentation" class="active" style="height: 10px;"><a>My Assignments
+      <% assignmentsCount = pending_assignments_count %>
+      <% if assignmentsCount != 0 %>
+          <div class="badge"><%= pending_assignments_count %></div>
+      <% end %></a></li>
+  <li role="presentation"style="height: 10px;"><a>Class Statistics</a></li>
 </ul>
+
+<br>
+
+<div style="text-align: center;">
+  <h2>What is Anvil?</h2>
+  <p>Scorch relies on a heavily modified Minecraft client and server. Flame is a custom resource-resolver and launcher for Minecraft, making setup turn-key. It is very important to note that this download of Flame is customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</p>
+</div>
 
 <br>
 

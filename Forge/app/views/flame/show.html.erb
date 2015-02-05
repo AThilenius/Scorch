@@ -1,44 +1,63 @@
-<h1 class="text-center white">Flame</h1>
+<% content_for :for_head do %>
+    <div id="flameHeader">
+      <span id="dummySpan"></span>
+      <div id="label">Flame</div>
+    </div>
+<% end %>
 
-<hr>
-
+<br>
 <ul class="nav nav-pills">
   <li role="presentation" class="pull-right">
-    <a class="btn btn-primary data-no-turbolink" href='/downloads/flame'>
-      Download Flame
-    </a>
+    <form action='/downloads/flame'>
+    <button class="btn btn-primary">
+      <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Download Flame
+    </button>
+    </form>
   </li>
 </ul>
 
 <br>
 
-<div class="row">
-  <div class="col-md-4">
-    <img height="300" width="300" src=<%=asset_path('MinecraftCreeper.png')%> />
-  </div>
-  <div class="col-md-8 white" style="background-color: rgba(0, 0, 0, 0.22);">
-    <h3>What is Flame?</h3>
-    <p>Scorch relies on a heavily modified Minecraft client and server. Flame is a custom resource-resolver and launcher for Minecraft, making setup turn-key. It is very important to note that <strong>this download of Flame is customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</strong></p>
-    <h3>Installing Java 6</h3>
+<div style="text-align: center;">
+<h2>What is Flame?</h2>
+<p>Scorch relies on a heavily modified Minecraft client and server. Flame is a custom resource-resolver and launcher for Minecraft, making setup turn-key. It is very important to note that this download of Flame is customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</p>
+</div>
 
-    <strong>You must have Java 6 installed!</strong> Because of Minecraft requirements it must be exactly 1.6. Later versions of Java will not be supported and are almost guaranteed to cause crashes.
-    <ul>
-      <li>Windows: <strong><a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR">here</a></strong></li>
-      <li>OS X: <strong><a href="http://support.apple.com/kb/DL1572">here</a></strong></li>
 
-    </ul>
-    <h3>Running Flame</h3>
+<div class="row" style="margin-top:100px; margin-bottom:100px;">
+  <div class="col-md-4 vcenter">
+    <img style="max-width: 80%; margin-left:10%; margin-bottom: 20px; margin-top: 10px;" src=<%=asset_path('JavaCircle.jpg')%> />
+    <h3 class="text-center">Step 1 | Install Java 6</h3>
+    <br>
+    <p>You must have Java 6 installed! Because of Minecraft requirements it must be exactly 1.6. Later versions of Java will not be supported and are almost guaranteed to cause crashes.</p>
     <ul>
-      <li>Download Flame and extract it to it's final resting place</li>
-      <li>Double click FlameLauncher.jar</li>
-      <li>The first time you launch on OSX you will need to right click FlameLauncher.jar, click "Open With", then click "Jar Launcher..."</li>
-      <li>Once in Minecraft, go to Multiplayer and join the assigned Blaze instance.</li>
-    </ul>
-    <h3>In Game</h3>
-    <ul>
-      <li>You can get back to your arena at any time by typing <strong>/home</strong></li>
-      <li>All forms of damage, including starvation, are disabled in arenas</li>
-      <li>Feel free to jump off the edge of your arena. You can 'fall from heaven' without taking damage. After this point it's just like normal Minecraft so watch out for creepers!</li>
+      <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html#jdk-6u45-oth-JPR">Java 6 Windows Download</a>
+      <li><a href="http://support.apple.com/kb/DL1572">Java 6 OSX Download</a>
     </ul>
   </div>
+  <div class="col-md-4 vcenter">
+    <img style="max-width: 80%; margin-left:10%; margin-bottom: 20px; margin-top: 10px;" src=<%=asset_path('FlameCircle.jpg')%> />
+    <h3 class="text-center">Step 2 | Running Flame</h3>
+    <br>
+    <ul>
+      <li>Download Flame and extract it to it's final resting place
+      <li>Double click FlameLauncher.jar
+      <li>Once in Minecraft, go to Multiplayer and join the assigned Blaze instance.
+    </ul>
+  </div>
+  <div class="col-md-4 vcenter">
+    <img style="max-width: 80%; margin-left:10%; margin-bottom: 20px; margin-top: 10px;" src=<%=asset_path('InGameCircle.jpg')%> />
+    <h3 class="text-center">Step 3 | In Game</h3>
+    <br>
+    <ul>
+      <li>You can get back to your arena at any time by typing <strong>/home</strong>
+      <li>All forms of damage, including starvation, are disabled in arenas
+      <li>Feel free to jump off the edge of your arena. You can 'fall from heaven' without taking damage. After this point it's just like normal Minecraft so watch out for creepers!
+    </ul>
+  </div>
+</div>
+
+<div style="text-align: center;">
+<h2>Problem with Flame?</h2>
+<P style="margin-bottom: 100px;">If you have the correct version of Java installed and Flame is still crashing then please email the crash report, displayed during launch and while the game is running, to Alec@Thilenius.com</P>
 </div>
