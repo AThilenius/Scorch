@@ -16,6 +16,8 @@
 ga('create', 'UA-59144431-1', 'auto');
 ga('send', 'pageview');
 
+
+// Helper Functions
 function getBaseURL () {
     return location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
 }
@@ -61,33 +63,56 @@ var scrapeAsyncHref = function() {
 var scrapeAsyncUrl = function() {
     $('[data-async-url]').each(function () {
         var $this = $(this),
-            url = $this.data('async-url');
+            url = $this.data('async-url'),
+            pollInterval = $this.data('poll-interval');
 
         // Relative path?
         if (url.indexOf("http") <= -1) {
             url = getFullAddress(url);
         }
 
-        $.ajax({
-            url: url,
-            dataType: 'html',
-            type: 'get',
-            success: function (html) {
-                $this.fadeOut("fast", function () {
-                    $this.html(html);
-                    $this.fadeIn("fast");
+        var pollRegisterFunction = function(isPoll) {
+            $.ajax({
+                url: url,
+                dataType: 'html',
+                type: 'get',
+                success: function (html) {
 
-                    // Finally scrap async-hrefs
-                    scrapeAsyncHref();
-                    scrapeAsyncUrl();
-                });
-            }
-        });
+                    if (isPoll) {
+                        var innerHtmlText = $this.innerHTML;
+                        var htmlText = $this.html();
+                        if (htmlText != html) {
+                            $this.html(html);
+                        }
+                    } else {
+                        $this.fadeOut("fast", function () {
+                            $this.html(html);
+                            $this.fadeIn("fast");
+
+                            // Finally scrap async-hrefs
+                            scrapeAsyncHref();
+                            scrapeAsyncUrl();
+                        });
+                    }
+
+                    if (pollInterval != null) {
+                        setTimeout(function() { pollRegisterFunction(true) }, pollInterval);
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (pollInterval != null) {
+                        setTimeout(function() { pollRegisterFunction(true) }, pollInterval * 5);
+                    }
+                }
+            });
+        };
+
+        pollRegisterFunction(false);
 
         // Remove the attribute to prevent re-loading
         this.removeAttribute("data-async-url");
     });
-}
+};
 
 var ready = (function() {
     scrapeAsyncHref();

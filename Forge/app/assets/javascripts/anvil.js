@@ -31,7 +31,6 @@ var ready = function() {
         selectTab('Other');
     }
 
-
 };
 $(document).ready(ready)
 $(window).bind('page:change', ready)
