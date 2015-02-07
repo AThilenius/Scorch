@@ -1,12 +1,14 @@
 class AnvilController < ApplicationController
   def show
+    return if sessionActiveCheckFailed
   end
 
   def list
-
+    return if sessionActiveCheckFailed
   end
 
   def overview
+    return if sessionActiveCheckFailed
   end
 
   # Partials
