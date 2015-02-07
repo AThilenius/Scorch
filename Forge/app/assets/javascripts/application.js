@@ -1,22 +1,10 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 
 //= require twitter/bootstrap
 //= require faye
-
+//= require Chart
 //= require_tree .
 
 // Google Analytics
@@ -27,3 +15,64 @@
 
 ga('create', 'UA-59144431-1', 'auto');
 ga('send', 'pageview');
+
+function getBaseURL () {
+    return location.protocol + "//" + location.hostname + (location.port && ":" + location.port) + "/";
+}
+
+function getFullAddress (href) {
+    return getBaseURL() + "/" + href;
+}
+
+var scrapeAsyncHref = function() {
+    // Scan all elements for 'async-href' and add an onClick function
+    $('[data-async-href]').each(function () {
+        var element = this;
+        var $this = $(this);
+        var url = getFullAddress($this.data('async-href'));
+        var contentAreaName = $this.data('content-area') == null ? 'async-content-area' : $this.data('content-area');
+        var contentArea = $(document.getElementById(contentAreaName));
+
+        element.onclick = function() {
+            $.ajax({
+                url: url,
+                dataType: 'html',
+                type: 'get',
+                success: function (html) {
+                    contentArea.fadeOut("fast", function () {
+                        contentArea.html(html);
+                        contentArea.fadeIn("fast");
+                        scrapeAsyncHref();
+                    });
+                }
+            });
+        };
+    });
+};
+
+var ready = (function() {
+
+    scrapeAsyncHref();
+
+    // Async Div Loading
+    $('[data-async-url]').each(function () {
+        var $this = $(this),
+            url = $this.data('async-url');
+        $.ajax({
+            url: url,
+            dataType: 'html',
+            type: 'get',
+            success: function (html) {
+                $this.fadeOut("fast", function () {
+                    $this.html(html);
+                    $this.fadeIn("fast");
+
+                    // Finally scrap async-hrefs
+                    scrapeAsyncHref();
+                });
+            }
+        });
+    });
+});
+$(document).ready(ready)
+$(window).bind('page:change', ready)

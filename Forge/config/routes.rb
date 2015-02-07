@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'anvil/show'
+  get 'anvil/list'
+  get 'anvil/overview'
+  get 'anvil/assignment_list' => 'anvil#assignment_list'
+  get 'anvil/my_anvil' => 'anvil#my_anvil'
+  get 'anvil/:id/assignment' => 'anvil#assignment'
+  get 'anvil/getting_started' => 'anvil#getting_started'
+  get 'anvil/osx' => 'anvil#gs_osx'
+  get 'anvil/win' => 'anvil#gs_win'
+  get 'anvil/other' => 'anvil#gs_other'
+
   get 'blaze/show'
 
   get 'flame/show' => 'flame#show'
@@ -12,7 +23,6 @@ Rails.application.routes.draw do
   get 'account' => 'account#show'
   get 'assignments/create'
   get 'assignments/createLevel'
-  get 'assignments/list'
   get 'assignments/new'
   get 'downloads/:id/xcode' => 'downloads#xcode'
   get 'downloads/:id/vs' => 'downloads#vs'

@@ -47,8 +47,8 @@
       </div>
       <div class="collapse navbar-collapse navbar-menubuilder">
         <ul class="nav navbar-nav pull-right">
-          <li class="<%= 'active' if current_page?(assignments_list_path) or @assignment != nil %>">
-            <a href=<%= assignments_list_path %>>Anvil
+          <li class="<%= 'active' if current_page?(anvil_show_path) or @assignment != nil %>">
+            <a href=<%= anvil_show_path %>>Anvil
               <% assignmentsCount = pending_assignments_count %>
               <% if assignmentsCount != 0 %>
                   <span class="badge"><%= pending_assignments_count %></span>
@@ -64,7 +64,6 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="<%= account_path %>">Account</a></li>
-                  <li><a href="<%= assignments_list_path %>">Assignments</a></li>
                   <li class="divider"></li>
                   <li><a href="<%= session_logout_path %>">Sign Out</a></li>
                 </ul>
