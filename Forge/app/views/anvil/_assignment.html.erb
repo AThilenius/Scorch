@@ -31,59 +31,19 @@
   </span>
 </h4>
 
-<hr>
+<div style="text-align: center;">
+  <br>
 
-<script>
-    function testQueryInfo() {
-        var jsonText = JSON.stringify({"Thilenius.BFEProtos.BFEInfoQueryRequest.BFEInfoQueryRequest_ext": {"auth_token": "c0dba92c-6449-40a6-95da-11d2b7d28ad6"}});
-        console.log("Sending request: " + jsonText);
-//        $.ajax({
-//            type: 'POST',
-//            url: 'http://localhost:9886/json',
-//            dataType: 'jsonp',
-//            data: jsonText,
-//            success: function (data) {
-//                console.log(data);
-//            }
-//        });
-        $.post("http://localhost:9886/json",
-                jsonText,
-                function(data, textStatus, jqXHR) {
-                    console.log("Got: " + JSON.stringify(data));
-                },
-                "json").fail(function(jqXHR, textStatus, errorThrown) {
-                    console.log("Error: " + textStatus);
-                });
-    }
-</script>
-<!--<button type="button" class="btn btn-default" onclick="testQueryInfo()">Test Query Info</button>-->
-
-
-<div class="panel panel-<%= @panelColor %>">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      Assignment Overview
-      <div class="badge pull-right"><%= "#{@earnedPoints} / #{@totalPoints}" %></div>
-    </h3>
-  </div>
-  <div class="panel-body">
-    <p class="pull-right">Due <%= pretty_date @assignment.dueDate %></p>
-    <!--Render Assignment-->
-    <%= markdown(@assignment.markdown) %>
+  <h3>My Progress</h3>
+  <div data-async-url="<%="anvil/#{@assignment.id}/assignment_progress"%>">
+    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
   </div>
 </div>
+<br>
+<br>
 
-<!--Render Each Level-->
-<% @levels.each do |level| %>
-    <div class="panel panel-<%= level.panelColor %>" >
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <span class="badge"><%= level.levelDescription.levelNumber %></span> <%= level.levelDescription.name %>
-          <div class="badge pull-right"><%= "#{level.userLevel.points} / #{level.levelDescription.points}" %></div>
-        </h3>
-      </div>
-      <div class="panel-body">
-        <%= markdown(level.levelDescription.markdown) %>
-      </div>
-    </div>
-<% end %>
+<div data-async-url="<%="anvil/#{@assignment.id}/assignment_description"%>">
+  <div style="text-align: center;">
+    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+  </div>
+</div>

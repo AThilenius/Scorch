@@ -21,7 +21,7 @@ function getBaseURL () {
 }
 
 function getFullAddress (href) {
-    return getBaseURL() + "/" + href;
+    return getBaseURL() + href;
 }
 
 var scrapeAsyncHref = function() {
@@ -34,6 +34,8 @@ var scrapeAsyncHref = function() {
         var contentArea = $(document.getElementById(contentAreaName));
 
         element.onclick = function() {
+            element.disabled = true;
+
             $.ajax({
                 url: url,
                 dataType: 'html',
@@ -43,21 +45,29 @@ var scrapeAsyncHref = function() {
                         contentArea.html(html);
                         contentArea.fadeIn("fast");
                         scrapeAsyncHref();
+                        scrapeAsyncUrl();
                     });
+
+                    element.disabled = false;
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    element.innerHTML = "Request Failed! :(";
                 }
             });
         };
     });
 };
 
-var ready = (function() {
-
-    scrapeAsyncHref();
-
-    // Async Div Loading
+var scrapeAsyncUrl = function() {
     $('[data-async-url]').each(function () {
         var $this = $(this),
             url = $this.data('async-url');
+
+        // Relative path?
+        if (url.indexOf("http") <= -1) {
+            url = getFullAddress(url);
+        }
+
         $.ajax({
             url: url,
             dataType: 'html',
@@ -69,10 +79,19 @@ var ready = (function() {
 
                     // Finally scrap async-hrefs
                     scrapeAsyncHref();
+                    scrapeAsyncUrl();
                 });
             }
         });
+
+        // Remove the attribute to prevent re-loading
+        this.removeAttribute("data-async-url");
     });
+}
+
+var ready = (function() {
+    scrapeAsyncHref();
+    scrapeAsyncUrl();
 });
 $(document).ready(ready)
 $(window).bind('page:change', ready)

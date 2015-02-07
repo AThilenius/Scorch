@@ -57,6 +57,12 @@ class AnvilController < ApplicationController
 
   def assignment
     return if sessionActiveCheckFailed
+    @assignment = AssignmentDescription.find(params[:id])
+    render partial: 'assignment', :layout => false
+  end
+
+  def assignment_description
+    return if sessionActiveCheckFailed
 
     @assignment = AssignmentDescription.find(params[:id])
 
@@ -113,7 +119,60 @@ class AnvilController < ApplicationController
         @panelColor = 'success'
     end
 
-    render partial: 'assignment', :layout => false
+    render partial: 'assignment_description', :layout => false
+  end
+
+  def assignment_progress
+    return if sessionActiveCheckFailed
+
+    @assignment = AssignmentDescription.find(params[:id])
+
+    if @assignment.nil?
+      flash[:error] = "Cannot find an assignment with ID: #{params[:id]}"
+      redirect_to assignments_list_path
+      return
+    end
+
+    @levelDescriptions = LevelDescription.where(:assignment_description_id => @assignment.id).order(levelNumber: :asc)
+    @userAssignment = UserAssignment.find_or_create(sessionGetUser.id, @assignment.id)
+
+    @graphData = []
+
+    @levelDescriptions.each do |levelDescription|
+      userLevel = UserLevel.find_or_create(@userAssignment.id, levelDescription.id)
+
+      if userLevel.points > 0
+        @graphData << {
+            :value => userLevel.points,
+            :color =>"#33CC33",
+            :highlight => "#00FF00",
+            :label => "Level #{levelDescription.levelNumber} - Completed"
+        }
+      end
+
+      # Standard Level
+      if levelDescription.extra_credit == 0 and levelDescription.points - userLevel.points > 0
+        @graphData << {
+            :value => levelDescription.points - userLevel.points,
+            :color =>"#F7464A",
+            :highlight => "#FF5A5E",
+            :label => "Level: #{levelDescription.levelNumber} - Uncompleted"
+        }
+      end
+
+      # Extra Credit Level
+      if levelDescription.extra_credit != 0 and levelDescription.extra_credit - userLevel.points > 0
+        @graphData << {
+            :value => levelDescription.extra_credit - userLevel.points,
+            :color =>"#3366FF",
+            :highlight => "#6699FF",
+            :label => "Extra Credit Level: #{levelDescription.levelNumber} - Uncompleted"
+        }
+      end
+
+    end
+
+    render partial: 'assignment_progress', :layout => false
   end
 
   def my_anvil

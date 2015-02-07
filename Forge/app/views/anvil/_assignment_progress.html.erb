@@ -1,0 +1,10 @@
+<canvas id="myChart" width="200" height="200"></canvas>
+<script>
+    var ready = function() {
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var data = <%=raw @graphData.to_json%>;
+        var myDoughnutChart = new Chart(ctx).Doughnut(data, {});
+    };
+    $(document).ready(ready);
+    $(window).bind('page:change', ready);
+</script>

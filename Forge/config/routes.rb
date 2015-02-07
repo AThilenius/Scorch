@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'anvil/osx' => 'anvil#gs_osx'
   get 'anvil/win' => 'anvil#gs_win'
   get 'anvil/other' => 'anvil#gs_other'
+  get 'anvil/:id/assignment_progress' => 'anvil#assignment_progress'
+  get 'anvil/:id/assignment_description' => 'anvil#assignment_description'
 
   get 'blaze/show'
 

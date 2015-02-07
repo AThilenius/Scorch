@@ -1,0 +1,9 @@
+<!--Render Each Level-->
+<% @levels.each do |level| %>
+    <div style="text-align: center;">
+      <h3>Level <%= level.levelDescription.levelNumber %> - <%= level.levelDescription.name %> - <%= "#{level.userLevel.points} / #{level.levelDescription.points} Points" %></h3>
+    </div>
+    <%= markdown(level.levelDescription.markdown) %>
+    <br>
+    <br>
+<% end %>
