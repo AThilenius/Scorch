@@ -5,10 +5,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.thilenius.blaze.data.UserQuery;
 import com.thilenius.blaze.frontend.http.BFEHttpServer;
 import com.thilenius.blaze.frontend.protos.BFEProtos;
-import com.thilenius.blaze.frontend.protos.handlers.BFEAssignmentHandler;
-import com.thilenius.blaze.frontend.protos.handlers.BFEInfoQueryHandler;
-import com.thilenius.blaze.frontend.protos.handlers.BFEProtoHandler;
-import com.thilenius.blaze.frontend.protos.handlers.BFESparkHandler;
+import com.thilenius.blaze.frontend.protos.handlers.*;
 import com.thilenius.blaze.frontend.tcp.BFESocketServer;
 import org.apache.commons.codec.binary.Base64;
 
@@ -25,6 +22,7 @@ public class BlazeFrontEnd implements IBFERequestHandler {
     public BFEAssignmentHandler AssignmentHandler = new BFEAssignmentHandler();
     public BFESparkHandler SparkHandler = new BFESparkHandler(AssignmentHandler);
     public BFEInfoQueryHandler InfoQueryHandler = new BFEInfoQueryHandler();
+    public BFECodeSubmitHandler CodeSubmitHandler = new BFECodeSubmitHandler();
     private List<BFEProtoHandler> m_handlers = new ArrayList<BFEProtoHandler>();
 
     private ExtensionRegistry m_extensionRegistry;
@@ -35,6 +33,7 @@ public class BlazeFrontEnd implements IBFERequestHandler {
         m_handlers.add(AssignmentHandler);
         m_handlers.add(SparkHandler);
         m_handlers.add(InfoQueryHandler);
+        m_handlers.add(CodeSubmitHandler);
 
         m_extensionRegistry = ExtensionRegistry.newInstance();
         BFEProtos.registerAllExtensions(m_extensionRegistry);

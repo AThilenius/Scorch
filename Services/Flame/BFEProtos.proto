@@ -1,6 +1,5 @@
 package Thilenius.BFEProtos;
 
-//option optimize_for = LITE_RUNTIME;
 option java_package = "com.thilenius.blaze.frontend.protos";
 option java_outer_classname = "BFEProtos";
 
@@ -84,4 +83,68 @@ message BFEInfoQueryResponse {
 
   optional string failure_reason = 1;
   optional string blaze_response = 2;
+}
+
+/******************************************************************************/
+/* Delta Compression                                                          */
+/******************************************************************************/
+message Repository {
+  optional string repo_uuid = 1;
+
+  repeated Revision revisions = 2;
+}
+
+message Revision {
+  optional string comment = 1;
+  optional string timestamp = 2;
+
+  repeated FileDelta file_deltas = 3;
+}
+
+message FileDelta {
+  enum ChangeType {
+    CREATE = 1;
+    MODIFY = 2;
+    DELETE = 3;
+  }
+
+  required string path = 1;
+  required ChangeType change_type = 2;
+
+  repeated LexicalDelta lexical_deltas = 3;
+}
+
+message LexicalDelta {
+  required int32 from_begin = 1;
+  required int32 from_length = 2;
+  required int32 to_begin = 3;
+  required int32 to_length = 4;
+  optional string text = 5;
+}
+
+/******************************************************************************/
+/* Code Submit                                                                */
+/******************************************************************************/
+message BFETextFile {
+  optional string name = 1;
+  optional string extension = 2;
+  optional string modify_date = 3;
+  optional string contents = 4;
+}
+
+message BFECodeSubmitRequest {
+  extend BFEMessage {
+    optional BFECodeSubmitRequest BFECodeSubmitRequest_ext = 106;
+  }
+
+  required string auth_token = 1;
+  repeated BFETextFile code_files = 2; 
+}
+
+message BFECodeSubmitResponse {
+  extend BFEMessage {
+    optional BFECodeSubmitResponse BFECodeSubmitResponse_ext = 107;
+  }
+
+  optional string failure_reason = 1;
 }

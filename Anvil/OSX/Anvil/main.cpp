@@ -13,6 +13,7 @@
 #include "Log.h"
 #include "Time.h"
 #include "BFEProtos.pb.h"
+#include "TextFile.h"
 
 using Thilenius::BFEProtos::BFEMessage;
 using Thilenius::BFEProtos::BFELoadLevelRequest;
@@ -24,7 +25,7 @@ using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
     Config::OverrideIp("0.0.0.0");
-    Config::OverrideAuthToken("c0dba92c-6449-40a6-95da-11d2b7d28ad6");
+    Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
 //    Util::Log::Suppress();
     
 //    std::cout << "Running 'Say Hello' Performance analysis" << std::endl;
@@ -46,6 +47,9 @@ int main(int argc, const char * argv[]) {
 //    spark.MoveForward();
 //    spark.MoveForward();
     
-    Anvil::LoadLevel(0);
+    Anvil::SayHello();
+    Level level = Anvil::LoadLevel(1);
+    Spark spark = level.GetSpark();
+    spark.TurnLeft();
     
 }

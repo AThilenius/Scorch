@@ -51,11 +51,8 @@ public class FourMaze extends BlazeLevel {
         m_spark = new BlazeSpark(m_sparkSpawn);
 
         // Draw Maze
-        drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
-        setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
-                getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
-        //setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
-        //        getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
+        drawOffsetList(new Location3D((ArenaSize / 2), 1, (ArenaSize / 2)), m_mazeOffsets, Blocks.glass);
+        setBlock((ArenaSize / 2) - 1, 0, (ArenaSize / 2) + 1, Blocks.gold_block);
 
         // Already done?
         if (getPoints() == 5) {
@@ -83,11 +80,8 @@ public class FourMaze extends BlazeLevel {
         m_spark = new BlazeSpark(m_sparkSpawn);
 
         // Draw Maze
-        drawOffsetList(new Location3D(m_sparkSpawn.X, 1, m_sparkSpawn.Z), m_mazeOffsets, Blocks.glass);
-        setBlock(getArenaLocation().X + (ArenaSize / 2) - 1, getArenaLocation().Y,
-                getArenaLocation().Z + (ArenaSize / 2) + 1, Blocks.gold_block);
-        //setBlock(getArenaLocation().X + (ArenaSize / 2), getArenaLocation().Y,
-        //        getArenaLocation().Z + (ArenaSize / 2) - 2, Blocks.tnt);
+        drawOffsetList(new Location3D((ArenaSize / 2), 1, (ArenaSize / 2)), m_mazeOffsets, Blocks.glass);
+        setBlock((ArenaSize / 2) - 1, 0, (ArenaSize / 2) + 1, Blocks.gold_block);
 
         // Already done?
         if (getPoints() == 5) {

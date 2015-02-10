@@ -13,6 +13,7 @@
 #include "TcpMessage.h"
 #include "Level.h"
 #include "Config.h"
+#include "TextFile.h"
 
 using Socket::TcpSocket;
 using Socket::TcpMessage;
@@ -22,6 +23,9 @@ using Thilenius::BFEProtos::BFELoadLevelRequest;
 using Thilenius::BFEProtos::BFELoadLevelResponse;
 using Thilenius::BFEProtos::BFEInfoQueryRequest;
 using Thilenius::BFEProtos::BFEInfoQueryResponse;
+using Thilenius::BFEProtos::BFECodeSubmitRequest;
+using Thilenius::BFEProtos::BFECodeSubmitResponse;
+using Thilenius::BFEProtos::BFETextFile;
 
 namespace AnvilAPI {
 
@@ -35,16 +39,86 @@ std::string CommunicationError (
     std::string("connection and try re-running your code."));
 std::string DataError (
     std::string("Blaze returned garbage data."));
-
-
-::Socket::TcpSocket* Anvil::m_socket = nullptr;
-int Anvil::m_activeLevel = -1;
     
-void Anvil::SayHello() {
-	std::string authToken = Config::GetAuthToken();
-	Util::Log::Info("Saying hello to blaze with the token: [" + authToken + "]");
-
-    EnsureConnected();
+    
+// C API
+extern "C" {
+    
+    
+// Globals
+::Socket::TcpSocket* g_socket = nullptr;
+int g_activeLevel = -1;
+    
+    
+void AnvilEnsureConnected() {
+    if (g_socket == nullptr) {
+        g_socket = new TcpSocket();
+        if (!g_socket->Connect(Config::GetBlazeIP(), Config::GetBlazePort())) {
+            Util::Log::Error(ConnectionError);
+        } else {
+//            // Send all source files to bein the Blaze Run record
+//            std::vector<Util::TextFile> allFiles = Util::TextFile::GlobDirectory("/src");
+//            
+//            // Send BFECodeSubmitRequest
+//            {
+//                BFEMessage message;
+//                BFECodeSubmitRequest* request = message.MutableExtension(BFECodeSubmitRequest::BFECodeSubmitRequest_ext);
+//                request->set_auth_token(Config::GetAuthToken());
+//                
+//                for (Util::TextFile file : allFiles) {
+//                    BFETextFile* textFileProto = request->add_code_files();
+//                    textFileProto->set_name(file.Name);
+//                    textFileProto->set_extension(file.Extension);
+//                    textFileProto->set_modify_date(file.ModifyDate);
+//                    textFileProto->set_contents(file.Contents);
+//                }
+//                
+//                // Send it out
+//                int size = message.ByteSize();
+//                void* buffer = malloc(size);
+//                message.SerializeToArray(buffer, size);
+//                
+//                if (!g_socket->Write(buffer, size)) {
+//                    Util::Log::Error(CommunicationError);
+//                }
+//                
+//                free(buffer);
+//            }
+//            
+//            // Wait for submit confirmation
+//            {
+//                TcpMessagePtr response = g_socket->Read();
+//                if (response == nullptr) {
+//                    Util::Log::Error(CommunicationError);
+//                }
+//                
+//                BFEMessage message;
+//                if (!message.ParseFromArray(response->Data, response->Count)) {
+//                    Util::Log::Error(CommunicationError);
+//                }
+//                
+//                if (message.HasExtension(BFECodeSubmitResponse::BFECodeSubmitResponse_ext)) {
+//                    BFECodeSubmitResponse response = message.GetExtension(BFECodeSubmitResponse::BFECodeSubmitResponse_ext);
+//                    
+//                    if (response.has_failure_reason()) {
+//                        Util::Log::Error("Blaze returned a fatal error while trying submit code files: "
+//                                         + response.failure_reason());
+//                    }
+//                } else {
+//                    Util::Log::Error(CommunicationError);
+//                }
+//                
+//            }
+        }
+    }
+}
+    
+    
+void AnvilSayHello() {
+    std::string authToken = Config::GetAuthToken();
+    Util::Log::Info("Saying hello to blaze with the token: [" + authToken + "]");
+    
+    AnvilEnsureConnected();
     
     // Send InfoQueryRequst
     {
@@ -56,7 +130,7 @@ void Anvil::SayHello() {
         void* buffer = malloc(size);
         message.SerializeToArray(buffer, size);
         
-        if (!m_socket->Write(buffer, size)) {
+        if (!g_socket->Write(buffer, size)) {
             Util::Log::Error(ConnectionError);
         }
         
@@ -65,7 +139,7 @@ void Anvil::SayHello() {
     
     // Get InfoQueryResponse
     {
-        TcpMessagePtr response = m_socket->Read();
+        TcpMessagePtr response = g_socket->Read();
         if (response == nullptr) {
             Util::Log::Error(CommunicationError);
         }
@@ -91,8 +165,8 @@ void Anvil::SayHello() {
     }
 }
 
-Level Anvil::LoadLevel(int levelNumber) {
-    EnsureConnected();
+int AnvilLoadLevel(int levelNumber) {
+    AnvilEnsureConnected();
     
     // Send LoadLevelRequst
     {
@@ -106,7 +180,7 @@ Level Anvil::LoadLevel(int levelNumber) {
         void* buffer = malloc(size);
         message.SerializeToArray(buffer, size);
         
-        if (!m_socket->Write(buffer, size)) {
+        if (!g_socket->Write(buffer, size)) {
             Util::Log::Error(ConnectionError);
         }
         
@@ -115,7 +189,7 @@ Level Anvil::LoadLevel(int levelNumber) {
     
     // Get LoadLevel response
     {
-        TcpMessagePtr response = m_socket->Read();
+        TcpMessagePtr response = g_socket->Read();
         if (response == nullptr) {
             Util::Log::Error(CommunicationError);
         }
@@ -130,27 +204,37 @@ Level Anvil::LoadLevel(int levelNumber) {
             
             if (response.has_failure_reason()) {
                 Util::Log::Error("Blaze returned a fatal error while trying to load level " + std::to_string(levelNumber) +
-                    ". Given reason: " + response.failure_reason());
+                                 ". Given reason: " + response.failure_reason());
             }
             
-            // Everything went well, return it back to user
-            Level level(levelNumber, response.spark_count());
-            m_activeLevel = levelNumber;
-            return level;
+            // Everything went well, return the spark count back to user
+            g_activeLevel = levelNumber;
+            return response.spark_count();
         } else {
             Util::Log::Error(CommunicationError);
         }
     }
     
-    return Level(-1, 0);
+    return -1;
 }
+   
     
-void Anvil::EnsureConnected() {
-    if (m_socket == nullptr) {
-        m_socket = new TcpSocket();
-        if (!m_socket->Connect(Config::GetBlazeIP(), Config::GetBlazePort())) {
-            Util::Log::Error(ConnectionError);
-        }
+} // extern C
+    
+
+// C++ API
+void Anvil::SayHello() {
+    // Call C API
+    AnvilSayHello();
+}
+
+Level Anvil::LoadLevel(int levelNumber) {
+    // Call C API
+    int sparkCount = AnvilLoadLevel(levelNumber);
+    if (sparkCount < 0) {
+        return Level(-1, 0);
+    } else {
+        return Level(levelNumber, sparkCount);
     }
 }
     

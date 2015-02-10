@@ -12,6 +12,7 @@ namespace AnvilAPI {
  
     
 class Spark;
+    
 
 class Level {
 public:

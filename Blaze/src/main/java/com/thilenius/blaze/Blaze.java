@@ -65,6 +65,7 @@ public class Blaze {
     // Note: Called on the first stable server tick
     public void onStart() {
         // Load ALL player arenas
+
         System.out.println("Setting defaults. This could take a LONG time for a new server.");
         UsersQuery allUsers = new UsersQuery();
         if (Blaze.RemoteDataConnection.query(allUsers)) {

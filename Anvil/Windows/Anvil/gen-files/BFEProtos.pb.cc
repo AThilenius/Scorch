@@ -21,6 +21,13 @@ void protobuf_ShutdownFile_BFEProtos_2eproto() {
   delete BFESparkResponse::default_instance_;
   delete BFEInfoQueryRequest::default_instance_;
   delete BFEInfoQueryResponse::default_instance_;
+  delete Repository::default_instance_;
+  delete Revision::default_instance_;
+  delete FileDelta::default_instance_;
+  delete LexicalDelta::default_instance_;
+  delete BFETextFile::default_instance_;
+  delete BFECodeSubmitRequest::default_instance_;
+  delete BFECodeSubmitResponse::default_instance_;
 }
 
 void protobuf_AddDesc_BFEProtos_2eproto() {
@@ -36,6 +43,13 @@ void protobuf_AddDesc_BFEProtos_2eproto() {
   BFESparkResponse::default_instance_ = new BFESparkResponse();
   BFEInfoQueryRequest::default_instance_ = new BFEInfoQueryRequest();
   BFEInfoQueryResponse::default_instance_ = new BFEInfoQueryResponse();
+  Repository::default_instance_ = new Repository();
+  Revision::default_instance_ = new Revision();
+  FileDelta::default_instance_ = new FileDelta();
+  LexicalDelta::default_instance_ = new LexicalDelta();
+  BFETextFile::default_instance_ = new BFETextFile();
+  BFECodeSubmitRequest::default_instance_ = new BFECodeSubmitRequest();
+  BFECodeSubmitResponse::default_instance_ = new BFECodeSubmitResponse();
   BFEMessage::default_instance_->InitAsDefaultInstance();
   BFELoadLevelRequest::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
@@ -67,6 +81,21 @@ void protobuf_AddDesc_BFEProtos_2eproto() {
     &::Thilenius::BFEProtos::BFEMessage::default_instance(),
     105, 11, false, false,
     &::Thilenius::BFEProtos::BFEInfoQueryResponse::default_instance());
+  Repository::default_instance_->InitAsDefaultInstance();
+  Revision::default_instance_->InitAsDefaultInstance();
+  FileDelta::default_instance_->InitAsDefaultInstance();
+  LexicalDelta::default_instance_->InitAsDefaultInstance();
+  BFETextFile::default_instance_->InitAsDefaultInstance();
+  BFECodeSubmitRequest::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
+    &::Thilenius::BFEProtos::BFEMessage::default_instance(),
+    106, 11, false, false,
+    &::Thilenius::BFEProtos::BFECodeSubmitRequest::default_instance());
+  BFECodeSubmitResponse::default_instance_->InitAsDefaultInstance();
+  ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
+    &::Thilenius::BFEProtos::BFEMessage::default_instance(),
+    107, 11, false, false,
+    &::Thilenius::BFEProtos::BFECodeSubmitResponse::default_instance());
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_BFEProtos_2eproto);
 }
 
@@ -1691,6 +1720,1671 @@ void BFEInfoQueryResponse::Swap(BFEInfoQueryResponse* other) {
 
 ::std::string BFEInfoQueryResponse::GetTypeName() const {
   return "Thilenius.BFEProtos.BFEInfoQueryResponse";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Repository::kRepoUuidFieldNumber;
+const int Repository::kRevisionsFieldNumber;
+#endif  // !_MSC_VER
+
+Repository::Repository()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void Repository::InitAsDefaultInstance() {
+}
+
+Repository::Repository(const Repository& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Repository::SharedCtor() {
+  _cached_size_ = 0;
+  repo_uuid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Repository::~Repository() {
+  SharedDtor();
+}
+
+void Repository::SharedDtor() {
+  if (repo_uuid_ != &::google::protobuf::internal::kEmptyString) {
+    delete repo_uuid_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Repository::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const Repository& Repository::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+Repository* Repository::default_instance_ = NULL;
+
+Repository* Repository::New() const {
+  return new Repository;
+}
+
+void Repository::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_repo_uuid()) {
+      if (repo_uuid_ != &::google::protobuf::internal::kEmptyString) {
+        repo_uuid_->clear();
+      }
+    }
+  }
+  revisions_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool Repository::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string repo_uuid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_repo_uuid()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_revisions;
+        break;
+      }
+      
+      // repeated .Thilenius.BFEProtos.Revision revisions = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_revisions:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_revisions()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_revisions;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Repository::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string repo_uuid = 1;
+  if (has_repo_uuid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->repo_uuid(), output);
+  }
+  
+  // repeated .Thilenius.BFEProtos.Revision revisions = 2;
+  for (int i = 0; i < this->revisions_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      2, this->revisions(i), output);
+  }
+  
+}
+
+int Repository::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string repo_uuid = 1;
+    if (has_repo_uuid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->repo_uuid());
+    }
+    
+  }
+  // repeated .Thilenius.BFEProtos.Revision revisions = 2;
+  total_size += 1 * this->revisions_size();
+  for (int i = 0; i < this->revisions_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->revisions(i));
+  }
+  
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Repository::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Repository*>(&from));
+}
+
+void Repository::MergeFrom(const Repository& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  revisions_.MergeFrom(from.revisions_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_repo_uuid()) {
+      set_repo_uuid(from.repo_uuid());
+    }
+  }
+}
+
+void Repository::CopyFrom(const Repository& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Repository::IsInitialized() const {
+  
+  for (int i = 0; i < revisions_size(); i++) {
+    if (!this->revisions(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void Repository::Swap(Repository* other) {
+  if (other != this) {
+    std::swap(repo_uuid_, other->repo_uuid_);
+    revisions_.Swap(&other->revisions_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string Repository::GetTypeName() const {
+  return "Thilenius.BFEProtos.Repository";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Revision::kCommentFieldNumber;
+const int Revision::kTimestampFieldNumber;
+const int Revision::kFileDeltasFieldNumber;
+#endif  // !_MSC_VER
+
+Revision::Revision()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void Revision::InitAsDefaultInstance() {
+}
+
+Revision::Revision(const Revision& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Revision::SharedCtor() {
+  _cached_size_ = 0;
+  comment_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  timestamp_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Revision::~Revision() {
+  SharedDtor();
+}
+
+void Revision::SharedDtor() {
+  if (comment_ != &::google::protobuf::internal::kEmptyString) {
+    delete comment_;
+  }
+  if (timestamp_ != &::google::protobuf::internal::kEmptyString) {
+    delete timestamp_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void Revision::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const Revision& Revision::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+Revision* Revision::default_instance_ = NULL;
+
+Revision* Revision::New() const {
+  return new Revision;
+}
+
+void Revision::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_comment()) {
+      if (comment_ != &::google::protobuf::internal::kEmptyString) {
+        comment_->clear();
+      }
+    }
+    if (has_timestamp()) {
+      if (timestamp_ != &::google::protobuf::internal::kEmptyString) {
+        timestamp_->clear();
+      }
+    }
+  }
+  file_deltas_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool Revision::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string comment = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_comment()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_timestamp;
+        break;
+      }
+      
+      // optional string timestamp = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_timestamp:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_timestamp()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_file_deltas;
+        break;
+      }
+      
+      // repeated .Thilenius.BFEProtos.FileDelta file_deltas = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_file_deltas:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_file_deltas()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_file_deltas;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Revision::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string comment = 1;
+  if (has_comment()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->comment(), output);
+  }
+  
+  // optional string timestamp = 2;
+  if (has_timestamp()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->timestamp(), output);
+  }
+  
+  // repeated .Thilenius.BFEProtos.FileDelta file_deltas = 3;
+  for (int i = 0; i < this->file_deltas_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->file_deltas(i), output);
+  }
+  
+}
+
+int Revision::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string comment = 1;
+    if (has_comment()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->comment());
+    }
+    
+    // optional string timestamp = 2;
+    if (has_timestamp()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->timestamp());
+    }
+    
+  }
+  // repeated .Thilenius.BFEProtos.FileDelta file_deltas = 3;
+  total_size += 1 * this->file_deltas_size();
+  for (int i = 0; i < this->file_deltas_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->file_deltas(i));
+  }
+  
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Revision::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const Revision*>(&from));
+}
+
+void Revision::MergeFrom(const Revision& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  file_deltas_.MergeFrom(from.file_deltas_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_comment()) {
+      set_comment(from.comment());
+    }
+    if (from.has_timestamp()) {
+      set_timestamp(from.timestamp());
+    }
+  }
+}
+
+void Revision::CopyFrom(const Revision& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Revision::IsInitialized() const {
+  
+  for (int i = 0; i < file_deltas_size(); i++) {
+    if (!this->file_deltas(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void Revision::Swap(Revision* other) {
+  if (other != this) {
+    std::swap(comment_, other->comment_);
+    std::swap(timestamp_, other->timestamp_);
+    file_deltas_.Swap(&other->file_deltas_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string Revision::GetTypeName() const {
+  return "Thilenius.BFEProtos.Revision";
+}
+
+
+// ===================================================================
+
+bool FileDelta_ChangeType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#ifndef _MSC_VER
+const FileDelta_ChangeType FileDelta::CREATE;
+const FileDelta_ChangeType FileDelta::MODIFY;
+const FileDelta_ChangeType FileDelta::DELETE;
+const FileDelta_ChangeType FileDelta::ChangeType_MIN;
+const FileDelta_ChangeType FileDelta::ChangeType_MAX;
+const int FileDelta::ChangeType_ARRAYSIZE;
+#endif  // _MSC_VER
+#ifndef _MSC_VER
+const int FileDelta::kPathFieldNumber;
+const int FileDelta::kChangeTypeFieldNumber;
+const int FileDelta::kLexicalDeltasFieldNumber;
+#endif  // !_MSC_VER
+
+FileDelta::FileDelta()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void FileDelta::InitAsDefaultInstance() {
+}
+
+FileDelta::FileDelta(const FileDelta& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FileDelta::SharedCtor() {
+  _cached_size_ = 0;
+  path_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  change_type_ = 1;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FileDelta::~FileDelta() {
+  SharedDtor();
+}
+
+void FileDelta::SharedDtor() {
+  if (path_ != &::google::protobuf::internal::kEmptyString) {
+    delete path_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void FileDelta::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const FileDelta& FileDelta::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+FileDelta* FileDelta::default_instance_ = NULL;
+
+FileDelta* FileDelta::New() const {
+  return new FileDelta;
+}
+
+void FileDelta::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_path()) {
+      if (path_ != &::google::protobuf::internal::kEmptyString) {
+        path_->clear();
+      }
+    }
+    change_type_ = 1;
+  }
+  lexical_deltas_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool FileDelta::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string path = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_path()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_change_type;
+        break;
+      }
+      
+      // required .Thilenius.BFEProtos.FileDelta.ChangeType change_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_change_type:
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::Thilenius::BFEProtos::FileDelta_ChangeType_IsValid(value)) {
+            set_change_type(static_cast< ::Thilenius::BFEProtos::FileDelta_ChangeType >(value));
+          }
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_lexical_deltas;
+        break;
+      }
+      
+      // repeated .Thilenius.BFEProtos.LexicalDelta lexical_deltas = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_lexical_deltas:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_lexical_deltas()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_lexical_deltas;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FileDelta::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string path = 1;
+  if (has_path()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->path(), output);
+  }
+  
+  // required .Thilenius.BFEProtos.FileDelta.ChangeType change_type = 2;
+  if (has_change_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->change_type(), output);
+  }
+  
+  // repeated .Thilenius.BFEProtos.LexicalDelta lexical_deltas = 3;
+  for (int i = 0; i < this->lexical_deltas_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      3, this->lexical_deltas(i), output);
+  }
+  
+}
+
+int FileDelta::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string path = 1;
+    if (has_path()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->path());
+    }
+    
+    // required .Thilenius.BFEProtos.FileDelta.ChangeType change_type = 2;
+    if (has_change_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->change_type());
+    }
+    
+  }
+  // repeated .Thilenius.BFEProtos.LexicalDelta lexical_deltas = 3;
+  total_size += 1 * this->lexical_deltas_size();
+  for (int i = 0; i < this->lexical_deltas_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->lexical_deltas(i));
+  }
+  
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FileDelta::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const FileDelta*>(&from));
+}
+
+void FileDelta::MergeFrom(const FileDelta& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  lexical_deltas_.MergeFrom(from.lexical_deltas_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_path()) {
+      set_path(from.path());
+    }
+    if (from.has_change_type()) {
+      set_change_type(from.change_type());
+    }
+  }
+}
+
+void FileDelta::CopyFrom(const FileDelta& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FileDelta::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  
+  for (int i = 0; i < lexical_deltas_size(); i++) {
+    if (!this->lexical_deltas(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void FileDelta::Swap(FileDelta* other) {
+  if (other != this) {
+    std::swap(path_, other->path_);
+    std::swap(change_type_, other->change_type_);
+    lexical_deltas_.Swap(&other->lexical_deltas_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string FileDelta::GetTypeName() const {
+  return "Thilenius.BFEProtos.FileDelta";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LexicalDelta::kFromBeginFieldNumber;
+const int LexicalDelta::kFromEndFieldNumber;
+const int LexicalDelta::kToBeginFieldNumber;
+const int LexicalDelta::kToEndFieldNumber;
+const int LexicalDelta::kTextFieldNumber;
+#endif  // !_MSC_VER
+
+LexicalDelta::LexicalDelta()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void LexicalDelta::InitAsDefaultInstance() {
+}
+
+LexicalDelta::LexicalDelta(const LexicalDelta& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LexicalDelta::SharedCtor() {
+  _cached_size_ = 0;
+  from_begin_ = 0;
+  from_end_ = 0;
+  to_begin_ = 0;
+  to_end_ = 0;
+  text_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LexicalDelta::~LexicalDelta() {
+  SharedDtor();
+}
+
+void LexicalDelta::SharedDtor() {
+  if (text_ != &::google::protobuf::internal::kEmptyString) {
+    delete text_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void LexicalDelta::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const LexicalDelta& LexicalDelta::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+LexicalDelta* LexicalDelta::default_instance_ = NULL;
+
+LexicalDelta* LexicalDelta::New() const {
+  return new LexicalDelta;
+}
+
+void LexicalDelta::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    from_begin_ = 0;
+    from_end_ = 0;
+    to_begin_ = 0;
+    to_end_ = 0;
+    if (has_text()) {
+      if (text_ != &::google::protobuf::internal::kEmptyString) {
+        text_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool LexicalDelta::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 from_begin = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &from_begin_)));
+          set_has_from_begin();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_from_end;
+        break;
+      }
+      
+      // required int32 from_end = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_from_end:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &from_end_)));
+          set_has_from_end();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_to_begin;
+        break;
+      }
+      
+      // required int32 to_begin = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_to_begin:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &to_begin_)));
+          set_has_to_begin();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_to_end;
+        break;
+      }
+      
+      // required int32 to_end = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_to_end:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &to_end_)));
+          set_has_to_end();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_text;
+        break;
+      }
+      
+      // optional string text = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_text:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_text()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LexicalDelta::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required int32 from_begin = 1;
+  if (has_from_begin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->from_begin(), output);
+  }
+  
+  // required int32 from_end = 2;
+  if (has_from_end()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->from_end(), output);
+  }
+  
+  // required int32 to_begin = 3;
+  if (has_to_begin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->to_begin(), output);
+  }
+  
+  // required int32 to_end = 4;
+  if (has_to_end()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->to_end(), output);
+  }
+  
+  // optional string text = 5;
+  if (has_text()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->text(), output);
+  }
+  
+}
+
+int LexicalDelta::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 from_begin = 1;
+    if (has_from_begin()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->from_begin());
+    }
+    
+    // required int32 from_end = 2;
+    if (has_from_end()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->from_end());
+    }
+    
+    // required int32 to_begin = 3;
+    if (has_to_begin()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->to_begin());
+    }
+    
+    // required int32 to_end = 4;
+    if (has_to_end()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->to_end());
+    }
+    
+    // optional string text = 5;
+    if (has_text()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->text());
+    }
+    
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LexicalDelta::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const LexicalDelta*>(&from));
+}
+
+void LexicalDelta::MergeFrom(const LexicalDelta& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_from_begin()) {
+      set_from_begin(from.from_begin());
+    }
+    if (from.has_from_end()) {
+      set_from_end(from.from_end());
+    }
+    if (from.has_to_begin()) {
+      set_to_begin(from.to_begin());
+    }
+    if (from.has_to_end()) {
+      set_to_end(from.to_end());
+    }
+    if (from.has_text()) {
+      set_text(from.text());
+    }
+  }
+}
+
+void LexicalDelta::CopyFrom(const LexicalDelta& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LexicalDelta::IsInitialized() const {
+  if ((_has_bits_[0] & 0x0000000f) != 0x0000000f) return false;
+  
+  return true;
+}
+
+void LexicalDelta::Swap(LexicalDelta* other) {
+  if (other != this) {
+    std::swap(from_begin_, other->from_begin_);
+    std::swap(from_end_, other->from_end_);
+    std::swap(to_begin_, other->to_begin_);
+    std::swap(to_end_, other->to_end_);
+    std::swap(text_, other->text_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string LexicalDelta::GetTypeName() const {
+  return "Thilenius.BFEProtos.LexicalDelta";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BFETextFile::kNameFieldNumber;
+const int BFETextFile::kExtensionFieldNumber;
+const int BFETextFile::kModifyDateFieldNumber;
+const int BFETextFile::kContentsFieldNumber;
+#endif  // !_MSC_VER
+
+BFETextFile::BFETextFile()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void BFETextFile::InitAsDefaultInstance() {
+}
+
+BFETextFile::BFETextFile(const BFETextFile& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BFETextFile::SharedCtor() {
+  _cached_size_ = 0;
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  extension_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  modify_date_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  contents_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BFETextFile::~BFETextFile() {
+  SharedDtor();
+}
+
+void BFETextFile::SharedDtor() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (extension_ != &::google::protobuf::internal::kEmptyString) {
+    delete extension_;
+  }
+  if (modify_date_ != &::google::protobuf::internal::kEmptyString) {
+    delete modify_date_;
+  }
+  if (contents_ != &::google::protobuf::internal::kEmptyString) {
+    delete contents_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BFETextFile::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const BFETextFile& BFETextFile::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+BFETextFile* BFETextFile::default_instance_ = NULL;
+
+BFETextFile* BFETextFile::New() const {
+  return new BFETextFile;
+}
+
+void BFETextFile::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::kEmptyString) {
+        name_->clear();
+      }
+    }
+    if (has_extension()) {
+      if (extension_ != &::google::protobuf::internal::kEmptyString) {
+        extension_->clear();
+      }
+    }
+    if (has_modify_date()) {
+      if (modify_date_ != &::google::protobuf::internal::kEmptyString) {
+        modify_date_->clear();
+      }
+    }
+    if (has_contents()) {
+      if (contents_ != &::google::protobuf::internal::kEmptyString) {
+        contents_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool BFETextFile::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string name = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_extension;
+        break;
+      }
+      
+      // optional string extension = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_extension:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_extension()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_modify_date;
+        break;
+      }
+      
+      // optional string modify_date = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_modify_date:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_modify_date()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_contents;
+        break;
+      }
+      
+      // optional string contents = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_contents:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_contents()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BFETextFile::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->name(), output);
+  }
+  
+  // optional string extension = 2;
+  if (has_extension()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->extension(), output);
+  }
+  
+  // optional string modify_date = 3;
+  if (has_modify_date()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->modify_date(), output);
+  }
+  
+  // optional string contents = 4;
+  if (has_contents()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->contents(), output);
+  }
+  
+}
+
+int BFETextFile::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string name = 1;
+    if (has_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
+    }
+    
+    // optional string extension = 2;
+    if (has_extension()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->extension());
+    }
+    
+    // optional string modify_date = 3;
+    if (has_modify_date()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->modify_date());
+    }
+    
+    // optional string contents = 4;
+    if (has_contents()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->contents());
+    }
+    
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BFETextFile::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const BFETextFile*>(&from));
+}
+
+void BFETextFile::MergeFrom(const BFETextFile& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_name()) {
+      set_name(from.name());
+    }
+    if (from.has_extension()) {
+      set_extension(from.extension());
+    }
+    if (from.has_modify_date()) {
+      set_modify_date(from.modify_date());
+    }
+    if (from.has_contents()) {
+      set_contents(from.contents());
+    }
+  }
+}
+
+void BFETextFile::CopyFrom(const BFETextFile& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BFETextFile::IsInitialized() const {
+  
+  return true;
+}
+
+void BFETextFile::Swap(BFETextFile* other) {
+  if (other != this) {
+    std::swap(name_, other->name_);
+    std::swap(extension_, other->extension_);
+    std::swap(modify_date_, other->modify_date_);
+    std::swap(contents_, other->contents_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string BFETextFile::GetTypeName() const {
+  return "Thilenius.BFEProtos.BFETextFile";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BFECodeSubmitRequest::kAuthTokenFieldNumber;
+const int BFECodeSubmitRequest::kCodeFilesFieldNumber;
+#endif  // !_MSC_VER
+
+#ifndef _MSC_VER
+const int BFECodeSubmitRequest::kBFECodeSubmitRequestExtFieldNumber;
+#endif
+::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+    ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFECodeSubmitRequest >, 11, false >
+  BFECodeSubmitRequest::BFECodeSubmitRequest_ext(kBFECodeSubmitRequestExtFieldNumber, ::Thilenius::BFEProtos::BFECodeSubmitRequest::default_instance());
+BFECodeSubmitRequest::BFECodeSubmitRequest()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void BFECodeSubmitRequest::InitAsDefaultInstance() {
+}
+
+BFECodeSubmitRequest::BFECodeSubmitRequest(const BFECodeSubmitRequest& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BFECodeSubmitRequest::SharedCtor() {
+  _cached_size_ = 0;
+  auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BFECodeSubmitRequest::~BFECodeSubmitRequest() {
+  SharedDtor();
+}
+
+void BFECodeSubmitRequest::SharedDtor() {
+  if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+    delete auth_token_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BFECodeSubmitRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const BFECodeSubmitRequest& BFECodeSubmitRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+BFECodeSubmitRequest* BFECodeSubmitRequest::default_instance_ = NULL;
+
+BFECodeSubmitRequest* BFECodeSubmitRequest::New() const {
+  return new BFECodeSubmitRequest;
+}
+
+void BFECodeSubmitRequest::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_auth_token()) {
+      if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+        auth_token_->clear();
+      }
+    }
+  }
+  code_files_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool BFECodeSubmitRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string auth_token = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_auth_token()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_code_files;
+        break;
+      }
+      
+      // repeated .Thilenius.BFEProtos.BFETextFile code_files = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_code_files:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_code_files()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_code_files;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BFECodeSubmitRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required string auth_token = 1;
+  if (has_auth_token()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->auth_token(), output);
+  }
+  
+  // repeated .Thilenius.BFEProtos.BFETextFile code_files = 2;
+  for (int i = 0; i < this->code_files_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessage(
+      2, this->code_files(i), output);
+  }
+  
+}
+
+int BFECodeSubmitRequest::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string auth_token = 1;
+    if (has_auth_token()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->auth_token());
+    }
+    
+  }
+  // repeated .Thilenius.BFEProtos.BFETextFile code_files = 2;
+  total_size += 1 * this->code_files_size();
+  for (int i = 0; i < this->code_files_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->code_files(i));
+  }
+  
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BFECodeSubmitRequest::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const BFECodeSubmitRequest*>(&from));
+}
+
+void BFECodeSubmitRequest::MergeFrom(const BFECodeSubmitRequest& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  code_files_.MergeFrom(from.code_files_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_auth_token()) {
+      set_auth_token(from.auth_token());
+    }
+  }
+}
+
+void BFECodeSubmitRequest::CopyFrom(const BFECodeSubmitRequest& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BFECodeSubmitRequest::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  
+  return true;
+}
+
+void BFECodeSubmitRequest::Swap(BFECodeSubmitRequest* other) {
+  if (other != this) {
+    std::swap(auth_token_, other->auth_token_);
+    code_files_.Swap(&other->code_files_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string BFECodeSubmitRequest::GetTypeName() const {
+  return "Thilenius.BFEProtos.BFECodeSubmitRequest";
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BFECodeSubmitResponse::kFailureReasonFieldNumber;
+#endif  // !_MSC_VER
+
+#ifndef _MSC_VER
+const int BFECodeSubmitResponse::kBFECodeSubmitResponseExtFieldNumber;
+#endif
+::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+    ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFECodeSubmitResponse >, 11, false >
+  BFECodeSubmitResponse::BFECodeSubmitResponse_ext(kBFECodeSubmitResponseExtFieldNumber, ::Thilenius::BFEProtos::BFECodeSubmitResponse::default_instance());
+BFECodeSubmitResponse::BFECodeSubmitResponse()
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+}
+
+void BFECodeSubmitResponse::InitAsDefaultInstance() {
+}
+
+BFECodeSubmitResponse::BFECodeSubmitResponse(const BFECodeSubmitResponse& from)
+  : ::google::protobuf::MessageLite() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BFECodeSubmitResponse::SharedCtor() {
+  _cached_size_ = 0;
+  failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BFECodeSubmitResponse::~BFECodeSubmitResponse() {
+  SharedDtor();
+}
+
+void BFECodeSubmitResponse::SharedDtor() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    delete failure_reason_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void BFECodeSubmitResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const BFECodeSubmitResponse& BFECodeSubmitResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_BFEProtos_2eproto();  return *default_instance_;
+}
+
+BFECodeSubmitResponse* BFECodeSubmitResponse::default_instance_ = NULL;
+
+BFECodeSubmitResponse* BFECodeSubmitResponse::New() const {
+  return new BFECodeSubmitResponse;
+}
+
+void BFECodeSubmitResponse::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_failure_reason()) {
+      if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+        failure_reason_->clear();
+      }
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+bool BFECodeSubmitResponse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string failure_reason = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_failure_reason()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BFECodeSubmitResponse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional string failure_reason = 1;
+  if (has_failure_reason()) {
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->failure_reason(), output);
+  }
+  
+}
+
+int BFECodeSubmitResponse::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional string failure_reason = 1;
+    if (has_failure_reason()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->failure_reason());
+    }
+    
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BFECodeSubmitResponse::CheckTypeAndMergeFrom(
+    const ::google::protobuf::MessageLite& from) {
+  MergeFrom(*::google::protobuf::down_cast<const BFECodeSubmitResponse*>(&from));
+}
+
+void BFECodeSubmitResponse::MergeFrom(const BFECodeSubmitResponse& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_failure_reason()) {
+      set_failure_reason(from.failure_reason());
+    }
+  }
+}
+
+void BFECodeSubmitResponse::CopyFrom(const BFECodeSubmitResponse& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BFECodeSubmitResponse::IsInitialized() const {
+  
+  return true;
+}
+
+void BFECodeSubmitResponse::Swap(BFECodeSubmitResponse* other) {
+  if (other != this) {
+    std::swap(failure_reason_, other->failure_reason_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::std::string BFECodeSubmitResponse::GetTypeName() const {
+  return "Thilenius.BFEProtos.BFECodeSubmitResponse";
 }
 
 

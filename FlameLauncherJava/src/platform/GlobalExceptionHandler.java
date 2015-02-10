@@ -10,7 +10,8 @@ import java.io.Writer;
  */
 public class GlobalExceptionHandler implements Thread.UncaughtExceptionHandler {
 
-    @Override  public void uncaughtException(Thread aThread, Throwable aThrowable) {
+    @Override
+    public void uncaughtException(Thread aThread, Throwable aThrowable) {
         String stackTrace = getStackTrace(aThrowable);
         JOptionPane.showMessageDialog(
                 new JFrame(), "Flame threw an unhandled exception. Please send this to Alec@Thilenius.com\n" + aThrowable.toString() + ".\n== Stack Trace ==\n" + stackTrace,

@@ -31,6 +31,33 @@
 		7085EDD21A63104E0093DE12 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDD01A63104E0093DE12 /* Config.cpp */; };
 		7085EDD31A63104E0093DE12 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDD01A63104E0093DE12 /* Config.cpp */; };
 		7085EDD41A63104E0093DE12 /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7085EDD11A63104E0093DE12 /* Config.h */; };
+		70A5E2B01A86CCBB0013D31B /* TextFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70A5E2AE1A86CCBB0013D31B /* TextFile.cpp */; };
+		70A5E2B11A86CCBB0013D31B /* TextFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70A5E2AE1A86CCBB0013D31B /* TextFile.cpp */; };
+		70A5E2B21A86CCBB0013D31B /* TextFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A5E2AF1A86CCBB0013D31B /* TextFile.h */; };
+		70A5E2B41A86DB8B0013D31B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B31A86DB8B0013D31B /* libboost_filesystem.a */; };
+		70A5E2B51A86DB8B0013D31B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B31A86DB8B0013D31B /* libboost_filesystem.a */; };
+		70A5E2B71A86DBCB0013D31B /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B61A86DBCB0013D31B /* libboost_system.a */; };
+		70A5E2B81A86DBCB0013D31B /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B61A86DBCB0013D31B /* libboost_system.a */; };
+		70A5E2D31A8A85AA0013D31B /* Anvil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 703736881A2D8A680088DF33 /* Anvil.cpp */; };
+		70A5E2D41A8A85AA0013D31B /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BEF1A1D4A4E00200224 /* Level.cpp */; };
+		70A5E2D51A8A85AA0013D31B /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F0E9361A560B2900BDC94C /* Log.cpp */; };
+		70A5E2D61A8A85AA0013D31B /* Spark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7037368B1A2D989A0088DF33 /* Spark.cpp */; };
+		70A5E2D71A8A85AA0013D31B /* TcpMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF31A1D4A4E00200224 /* TcpMessage.cpp */; };
+		70A5E2D81A8A85AA0013D31B /* TcpSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF51A1D4A4E00200224 /* TcpSocket.cpp */; };
+		70A5E2D91A8A85AA0013D31B /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDD01A63104E0093DE12 /* Config.cpp */; };
+		70A5E2DA1A8A85AA0013D31B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 702F1BF11A1D4A4E00200224 /* main.cpp */; };
+		70A5E2DB1A8A85AA0013D31B /* BFEProtos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 70560DE11A5F433C007319DE /* BFEProtos.pb.cc */; };
+		70A5E2DC1A8A85AA0013D31B /* TextFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70A5E2AE1A86CCBB0013D31B /* TextFile.cpp */; };
+		70A5E2DE1A8A85AA0013D31B /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B61A86DBCB0013D31B /* libboost_system.a */; };
+		70A5E2DF1A8A85AA0013D31B /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E2B31A86DB8B0013D31B /* libboost_filesystem.a */; };
+		70A5E2E01A8A85AA0013D31B /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7045A3971A65B3B6000820EB /* libprotobuf-lite.a */; };
+		70A5E2E21A8A85AA0013D31B /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 70F0E9371A560B2900BDC94C /* Log.h */; };
+		70A5E2E31A8A85AA0013D31B /* Anvil.h in Headers */ = {isa = PBXBuildFile; fileRef = 703736891A2D8A680088DF33 /* Anvil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70A5E2E41A8A85AA0013D31B /* TextFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A5E2AF1A86CCBB0013D31B /* TextFile.h */; };
+		70A5E2E51A8A85AA0013D31B /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 7085EDD11A63104E0093DE12 /* Config.h */; };
+		70A5E2E61A8A85AA0013D31B /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = 702F1BF01A1D4A4E00200224 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70A5E2E71A8A85AA0013D31B /* BFEProtos.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = 70560DE21A5F433C007319DE /* BFEProtos.pb.h */; };
+		70A5E2E81A8A85AA0013D31B /* Spark.h in Headers */ = {isa = PBXBuildFile; fileRef = 7037368C1A2D989A0088DF33 /* Spark.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70F0E9381A560B2900BDC94C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F0E9361A560B2900BDC94C /* Log.cpp */; };
 		70F0E9391A560B2900BDC94C /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70F0E9361A560B2900BDC94C /* Log.cpp */; };
 		70F0E93A1A560B2900BDC94C /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 70F0E9371A560B2900BDC94C /* Log.h */; };
@@ -70,6 +97,11 @@
 		70560DE21A5F433C007319DE /* BFEProtos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFEProtos.pb.h; path = "gen-files/BFEProtos.pb.h"; sourceTree = "<group>"; };
 		7085EDD01A63104E0093DE12 /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Config.cpp; sourceTree = "<group>"; };
 		7085EDD11A63104E0093DE12 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		70A5E2AE1A86CCBB0013D31B /* TextFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextFile.cpp; sourceTree = "<group>"; };
+		70A5E2AF1A86CCBB0013D31B /* TextFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFile.h; sourceTree = "<group>"; };
+		70A5E2B31A86DB8B0013D31B /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../../../../../../../usr/local/lib/libboost_filesystem.a; sourceTree = "<group>"; };
+		70A5E2B61A86DBCB0013D31B /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../../../../../../usr/local/lib/libboost_system.a; sourceTree = "<group>"; };
+		70A5E2ED1A8A85AA0013D31B /* libAnvilDylib.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnvilDylib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F0E9361A560B2900BDC94C /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		70F0E9371A560B2900BDC94C /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A5E2B81A86DBCB0013D31B /* libboost_system.a in Frameworks */,
+				70A5E2B51A86DB8B0013D31B /* libboost_filesystem.a in Frameworks */,
 				7045A3991A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,20 +121,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70A5E2B71A86DBCB0013D31B /* libboost_system.a in Frameworks */,
+				70A5E2B41A86DB8B0013D31B /* libboost_filesystem.a in Frameworks */,
 				7045A3981A65B3B6000820EB /* libprotobuf-lite.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70A5E2DD1A8A85AA0013D31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E2DE1A8A85AA0013D31B /* libboost_system.a in Frameworks */,
+				70A5E2DF1A8A85AA0013D31B /* libboost_filesystem.a in Frameworks */,
+				70A5E2E01A8A85AA0013D31B /* libprotobuf-lite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		702F1BFC1A1D4A5700200224 /* gen-files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "gen-files";
-			sourceTree = "<group>";
-		};
 		702F1C001A1D4AC800200224 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,11 +151,9 @@
 			name = Socket;
 			sourceTree = "<group>";
 		};
-		703736871A2D8A560088DF33 /* API */ = {
+		703736871A2D8A560088DF33 /* PublicAPI */ = {
 			isa = PBXGroup;
 			children = (
-				702BB0991A6B0244009AA378 /* Time.cpp */,
-				702BB09A1A6B0244009AA378 /* Time.h */,
 				703736881A2D8A680088DF33 /* Anvil.cpp */,
 				703736891A2D8A680088DF33 /* Anvil.h */,
 				702F1BEF1A1D4A4E00200224 /* Level.cpp */,
@@ -126,7 +163,7 @@
 				7085EDD01A63104E0093DE12 /* Config.cpp */,
 				7085EDD11A63104E0093DE12 /* Config.h */,
 			);
-			name = API;
+			name = PublicAPI;
 			sourceTree = "<group>";
 		};
 		70541CAB1A15537000D37EF2 = {
@@ -143,6 +180,7 @@
 			children = (
 				70541CB41A15537000D37EF2 /* Anvil */,
 				703736F21A2E81AD0088DF33 /* libAnvilLib.a */,
+				70A5E2ED1A8A85AA0013D31B /* libAnvilDylib.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,9 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				70F0E93B1A560B2E00BDC94C /* Util */,
-				703736871A2D8A560088DF33 /* API */,
+				703736871A2D8A560088DF33 /* PublicAPI */,
 				702F1C001A1D4AC800200224 /* Socket */,
-				702F1BFC1A1D4A5700200224 /* gen-files */,
 				702F1BF11A1D4A4E00200224 /* main.cpp */,
 				702F1BF21A1D4A4E00200224 /* PrefixHeader.h */,
 				70541CD41A1581AD00D37EF2 /* gen-files */,
@@ -164,6 +201,8 @@
 		70541CCE1A15598600D37EF2 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				70A5E2B61A86DBCB0013D31B /* libboost_system.a */,
+				70A5E2B31A86DB8B0013D31B /* libboost_filesystem.a */,
 				7045A3971A65B3B6000820EB /* libprotobuf-lite.a */,
 			);
 			name = Libs;
@@ -181,8 +220,12 @@
 		70F0E93B1A560B2E00BDC94C /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				702BB0991A6B0244009AA378 /* Time.cpp */,
+				702BB09A1A6B0244009AA378 /* Time.h */,
 				70F0E9361A560B2900BDC94C /* Log.cpp */,
 				70F0E9371A560B2900BDC94C /* Log.h */,
+				70A5E2AE1A86CCBB0013D31B /* TextFile.cpp */,
+				70A5E2AF1A86CCBB0013D31B /* TextFile.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -196,10 +239,25 @@
 			files = (
 				70F0E93A1A560B2900BDC94C /* Log.h in Headers */,
 				703737061A2E84CE0088DF33 /* Anvil.h in Headers */,
+				70A5E2B21A86CCBB0013D31B /* TextFile.h in Headers */,
 				7085EDD41A63104E0093DE12 /* Config.h in Headers */,
 				703737071A2E84D00088DF33 /* Level.h in Headers */,
 				70560DE51A5F433C007319DE /* BFEProtos.pb.h in Headers */,
 				703737081A2E84D30088DF33 /* Spark.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70A5E2E11A8A85AA0013D31B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E2E21A8A85AA0013D31B /* Log.h in Headers */,
+				70A5E2E31A8A85AA0013D31B /* Anvil.h in Headers */,
+				70A5E2E41A8A85AA0013D31B /* TextFile.h in Headers */,
+				70A5E2E51A8A85AA0013D31B /* Config.h in Headers */,
+				70A5E2E61A8A85AA0013D31B /* Level.h in Headers */,
+				70A5E2E71A8A85AA0013D31B /* BFEProtos.pb.h in Headers */,
+				70A5E2E81A8A85AA0013D31B /* Spark.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +271,7 @@
 				703736EE1A2E81AD0088DF33 /* Sources */,
 				703736EF1A2E81AD0088DF33 /* Frameworks */,
 				703736F01A2E81AD0088DF33 /* Headers */,
+				70A5E2AC1A86C1860013D31B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +289,7 @@
 				70541CB01A15537000D37EF2 /* Sources */,
 				70541CB11A15537000D37EF2 /* Frameworks */,
 				70541CD31A1580FA00D37EF2 /* CopyFiles */,
+				70A5E2AD1A86C8A50013D31B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -239,6 +299,24 @@
 			productName = Anvil;
 			productReference = 70541CB41A15537000D37EF2 /* Anvil */;
 			productType = "com.apple.product-type.tool";
+		};
+		70A5E2D11A8A85AA0013D31B /* AnvilDylib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70A5E2EA1A8A85AA0013D31B /* Build configuration list for PBXNativeTarget "AnvilDylib" */;
+			buildPhases = (
+				70A5E2D21A8A85AA0013D31B /* Sources */,
+				70A5E2DD1A8A85AA0013D31B /* Frameworks */,
+				70A5E2E11A8A85AA0013D31B /* Headers */,
+				70A5E2E91A8A85AA0013D31B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnvilDylib;
+			productName = AnvilLib;
+			productReference = 70A5E2ED1A8A85AA0013D31B /* libAnvilDylib.dylib */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -263,9 +341,52 @@
 			targets = (
 				70541CB31A15537000D37EF2 /* Anvil */,
 				703736F11A2E81AD0088DF33 /* AnvilLib */,
+				70A5E2D11A8A85AA0013D31B /* AnvilDylib */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70A5E2AC1A86C1860013D31B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Src Root: ${SRCROOT}. Products Dir: ${BUILT_PRODUCTS_DIR}\"";
+		};
+		70A5E2AD1A86C8A50013D31B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf ${BUILT_PRODUCTS_DIR}/src && mkdir ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.cpp ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.c ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.cc ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.cxx ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.h ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.hpp ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :\ncp -p ${SRCROOT}/**/*.inl ${BUILT_PRODUCTS_DIR}/src 2>/dev/null || :";
+		};
+		70A5E2E91A8A85AA0013D31B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Src Root: ${SRCROOT}. Products Dir: ${BUILT_PRODUCTS_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		703736EE1A2E81AD0088DF33 /* Sources */ = {
@@ -281,6 +402,7 @@
 				7085EDD31A63104E0093DE12 /* Config.cpp in Sources */,
 				703737021A2E83A60088DF33 /* main.cpp in Sources */,
 				70560DE41A5F433C007319DE /* BFEProtos.pb.cc in Sources */,
+				70A5E2B11A86CCBB0013D31B /* TextFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +419,25 @@
 				70F0E9381A560B2900BDC94C /* Log.cpp in Sources */,
 				7037368D1A2D989A0088DF33 /* Spark.cpp in Sources */,
 				702F1BF91A1D4A4E00200224 /* main.cpp in Sources */,
+				70A5E2B01A86CCBB0013D31B /* TextFile.cpp in Sources */,
 				702F1BFA1A1D4A4E00200224 /* TcpMessage.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70A5E2D21A8A85AA0013D31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E2D31A8A85AA0013D31B /* Anvil.cpp in Sources */,
+				70A5E2D41A8A85AA0013D31B /* Level.cpp in Sources */,
+				70A5E2D51A8A85AA0013D31B /* Log.cpp in Sources */,
+				70A5E2D61A8A85AA0013D31B /* Spark.cpp in Sources */,
+				70A5E2D71A8A85AA0013D31B /* TcpMessage.cpp in Sources */,
+				70A5E2D81A8A85AA0013D31B /* TcpSocket.cpp in Sources */,
+				70A5E2D91A8A85AA0013D31B /* Config.cpp in Sources */,
+				70A5E2DA1A8A85AA0013D31B /* main.cpp in Sources */,
+				70A5E2DB1A8A85AA0013D31B /* BFEProtos.pb.cc in Sources */,
+				70A5E2DC1A8A85AA0013D31B /* TextFile.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,10 +462,12 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					./include,
+					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					./lib,
 					"$(PROJECT_DIR)/lib",
+					/usr/local/lib,
 					"$(PROJECT_DIR)",
 				);
 				MACH_O_TYPE = staticlib;
@@ -348,10 +490,12 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					./include,
+					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					./lib,
 					"$(PROJECT_DIR)/lib",
+					/usr/local/lib,
 					"$(PROJECT_DIR)",
 				);
 				MACH_O_TYPE = staticlib;
@@ -437,6 +581,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lib",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					EXPOSE_C_API,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -478,6 +627,68 @@
 			};
 			name = Release;
 		};
+		70A5E2EB1A8A85AA0013D31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					./lib,
+					"$(PROJECT_DIR)/lib",
+					/usr/local/lib,
+					"$(PROJECT_DIR)",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_NAME = AnvilDylib;
+				PUBLIC_HEADERS_FOLDER_PATH = /include;
+			};
+			name = Debug;
+		};
+		70A5E2EC1A8A85AA0013D31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					./include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					./lib,
+					"$(PROJECT_DIR)/lib",
+					/usr/local/lib,
+					"$(PROJECT_DIR)",
+				);
+				MACH_O_TYPE = mh_dylib;
+				PRODUCT_NAME = AnvilDylib;
+				PUBLIC_HEADERS_FOLDER_PATH = /include;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -504,6 +715,15 @@
 			buildConfigurations = (
 				70541CBE1A15537000D37EF2 /* Debug */,
 				70541CBF1A15537000D37EF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70A5E2EA1A8A85AA0013D31B /* Build configuration list for PBXNativeTarget "AnvilDylib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70A5E2EB1A8A85AA0013D31B /* Debug */,
+				70A5E2EC1A8A85AA0013D31B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

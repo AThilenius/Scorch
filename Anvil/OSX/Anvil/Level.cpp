@@ -12,8 +12,12 @@
 
 
 namespace AnvilAPI {
-
-
+    
+    
+// No C API
+    
+    
+// C++ API
 Level::Level(int levelNumber, int sparkCount) :
     m_levelNumber(levelNumber),
     m_sparkCount(sparkCount) {

@@ -23,9 +23,11 @@ using Thilenius::BFEProtos::BFESparkCommand_CommandType;
 using Thilenius::BFEProtos::BFESparkResponse;
 using Thilenius::BFEProtos::BFESparkResponse;
 
+
 namespace AnvilAPI {
     
-// Free Function ( I don't want this to be in the public class declaration )
+
+// C++ RunCommand for C Linkage
 BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESparkCommand_CommandType connandType) {
     // dispatch
     {
@@ -71,8 +73,52 @@ BFESparkResponse RunCommand (Socket::TcpSocket* socket, int sparkNumber, BFESpar
         }
     }
 }
+    
+
+// C API
+extern "C" {
+    
+    
+// Extern access to Anvil globals
+extern ::Socket::TcpSocket* g_socket;
+extern int g_activeLevel;
 
 
+bool SparkMoveForward(int level, int spark) {
+    BFESparkResponse response = RunCommand(g_socket, spark,
+                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
+    if (!response.has_response_bool()) {
+        std::cout << "Blaze returned unexpected data." << std::endl;
+        exit(EXIT_FAILURE);
+    } else {
+        return response.response_bool();
+    }
+}
+
+bool SparkMoveBackward(int level, int spark) {
+    BFESparkResponse response = RunCommand(g_socket, spark,
+                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
+    if (!response.has_response_bool()) {
+        std::cout << "Blaze returned unexpected data." << std::endl;
+        exit(EXIT_FAILURE);
+    } else {
+        return response.response_bool();
+    }
+}
+
+void SparkTurnLeft(int level, int spark) {
+    RunCommand(g_socket, spark, BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_LEFT);
+}
+
+void SparkTurnRight(int level, int spark) {
+    RunCommand(g_socket, spark, BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_RIGHT);
+}
+    
+    
+} // extern C
+
+
+// C++ API
 Spark::Spark(int levelNumber, int sparkNumber) :
     m_levelNumber(levelNumber),
     m_sparkNumber(sparkNumber) {
@@ -84,33 +130,23 @@ Spark::~Spark() {
 }
     
 bool Spark::MoveForward() {
-    BFESparkResponse response = RunCommand(Anvil::m_socket, m_sparkNumber,
-                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
-    if (!response.has_response_bool()) {
-        std::cout << "Blaze returned unexpected data." << std::endl;
-        exit(EXIT_FAILURE);
-    } else {
-        return response.response_bool();
-    }
+    // Call through to C API
+    return SparkMoveForward(m_levelNumber, m_sparkNumber);
 }
 
 bool Spark::MoveBackward() {
-    BFESparkResponse response = RunCommand(Anvil::m_socket, m_sparkNumber,
-                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
-    if (!response.has_response_bool()) {
-        std::cout << "Blaze returned unexpected data." << std::endl;
-        exit(EXIT_FAILURE);
-    } else {
-        return response.response_bool();
-    }
+    // Call through to C API
+    return SparkMoveBackward(m_levelNumber, m_sparkNumber);
 }
 
 void Spark::TurnLeft(){
-    RunCommand(Anvil::m_socket, m_sparkNumber, BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_LEFT);
+    // Call through to C API
+    SparkTurnLeft(m_levelNumber, m_sparkNumber);
 }
 
 void Spark::TurnRight() {
-    RunCommand(Anvil::m_socket, m_sparkNumber, BFESparkCommand_CommandType::BFESparkCommand_CommandType_TURN_RIGHT);
+    // Call through to C API
+    SparkTurnRight(m_levelNumber, m_sparkNumber);
 }
 
 

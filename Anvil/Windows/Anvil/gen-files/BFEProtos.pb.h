@@ -39,6 +39,13 @@ class BFESparkCommand;
 class BFESparkResponse;
 class BFEInfoQueryRequest;
 class BFEInfoQueryResponse;
+class Repository;
+class Revision;
+class FileDelta;
+class LexicalDelta;
+class BFETextFile;
+class BFECodeSubmitRequest;
+class BFECodeSubmitResponse;
 
 enum BFESparkCommand_CommandType {
   BFESparkCommand_CommandType_MOVE_FORWARD = 0,
@@ -52,6 +59,16 @@ bool BFESparkCommand_CommandType_IsValid(int value);
 const BFESparkCommand_CommandType BFESparkCommand_CommandType_CommandType_MIN = BFESparkCommand_CommandType_MOVE_FORWARD;
 const BFESparkCommand_CommandType BFESparkCommand_CommandType_CommandType_MAX = BFESparkCommand_CommandType_TURN_RIGHT;
 const int BFESparkCommand_CommandType_CommandType_ARRAYSIZE = BFESparkCommand_CommandType_CommandType_MAX + 1;
+
+enum FileDelta_ChangeType {
+  FileDelta_ChangeType_CREATE = 1,
+  FileDelta_ChangeType_MODIFY = 2,
+  FileDelta_ChangeType_DELETE = 3
+};
+bool FileDelta_ChangeType_IsValid(int value);
+const FileDelta_ChangeType FileDelta_ChangeType_ChangeType_MIN = FileDelta_ChangeType_CREATE;
+const FileDelta_ChangeType FileDelta_ChangeType_ChangeType_MAX = FileDelta_ChangeType_DELETE;
+const int FileDelta_ChangeType_ChangeType_ARRAYSIZE = FileDelta_ChangeType_ChangeType_MAX + 1;
 
 // ===================================================================
 
@@ -729,6 +746,697 @@ class BFEInfoQueryResponse : public ::google::protobuf::MessageLite {
   
   void InitAsDefaultInstance();
   static BFEInfoQueryResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Repository : public ::google::protobuf::MessageLite {
+ public:
+  Repository();
+  virtual ~Repository();
+  
+  Repository(const Repository& from);
+  
+  inline Repository& operator=(const Repository& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const Repository& default_instance();
+  
+  void Swap(Repository* other);
+  
+  // implements Message ----------------------------------------------
+  
+  Repository* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const Repository& from);
+  void MergeFrom(const Repository& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string repo_uuid = 1;
+  inline bool has_repo_uuid() const;
+  inline void clear_repo_uuid();
+  static const int kRepoUuidFieldNumber = 1;
+  inline const ::std::string& repo_uuid() const;
+  inline void set_repo_uuid(const ::std::string& value);
+  inline void set_repo_uuid(const char* value);
+  inline void set_repo_uuid(const char* value, size_t size);
+  inline ::std::string* mutable_repo_uuid();
+  inline ::std::string* release_repo_uuid();
+  
+  // repeated .Thilenius.BFEProtos.Revision revisions = 2;
+  inline int revisions_size() const;
+  inline void clear_revisions();
+  static const int kRevisionsFieldNumber = 2;
+  inline const ::Thilenius::BFEProtos::Revision& revisions(int index) const;
+  inline ::Thilenius::BFEProtos::Revision* mutable_revisions(int index);
+  inline ::Thilenius::BFEProtos::Revision* add_revisions();
+  inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::Revision >&
+      revisions() const;
+  inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::Revision >*
+      mutable_revisions();
+  
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.Repository)
+ private:
+  inline void set_has_repo_uuid();
+  inline void clear_has_repo_uuid();
+  
+  ::std::string* repo_uuid_;
+  ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::Revision > revisions_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static Repository* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Revision : public ::google::protobuf::MessageLite {
+ public:
+  Revision();
+  virtual ~Revision();
+  
+  Revision(const Revision& from);
+  
+  inline Revision& operator=(const Revision& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const Revision& default_instance();
+  
+  void Swap(Revision* other);
+  
+  // implements Message ----------------------------------------------
+  
+  Revision* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const Revision& from);
+  void MergeFrom(const Revision& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string comment = 1;
+  inline bool has_comment() const;
+  inline void clear_comment();
+  static const int kCommentFieldNumber = 1;
+  inline const ::std::string& comment() const;
+  inline void set_comment(const ::std::string& value);
+  inline void set_comment(const char* value);
+  inline void set_comment(const char* value, size_t size);
+  inline ::std::string* mutable_comment();
+  inline ::std::string* release_comment();
+  
+  // optional string timestamp = 2;
+  inline bool has_timestamp() const;
+  inline void clear_timestamp();
+  static const int kTimestampFieldNumber = 2;
+  inline const ::std::string& timestamp() const;
+  inline void set_timestamp(const ::std::string& value);
+  inline void set_timestamp(const char* value);
+  inline void set_timestamp(const char* value, size_t size);
+  inline ::std::string* mutable_timestamp();
+  inline ::std::string* release_timestamp();
+  
+  // repeated .Thilenius.BFEProtos.FileDelta file_deltas = 3;
+  inline int file_deltas_size() const;
+  inline void clear_file_deltas();
+  static const int kFileDeltasFieldNumber = 3;
+  inline const ::Thilenius::BFEProtos::FileDelta& file_deltas(int index) const;
+  inline ::Thilenius::BFEProtos::FileDelta* mutable_file_deltas(int index);
+  inline ::Thilenius::BFEProtos::FileDelta* add_file_deltas();
+  inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::FileDelta >&
+      file_deltas() const;
+  inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::FileDelta >*
+      mutable_file_deltas();
+  
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.Revision)
+ private:
+  inline void set_has_comment();
+  inline void clear_has_comment();
+  inline void set_has_timestamp();
+  inline void clear_has_timestamp();
+  
+  ::std::string* comment_;
+  ::std::string* timestamp_;
+  ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::FileDelta > file_deltas_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static Revision* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FileDelta : public ::google::protobuf::MessageLite {
+ public:
+  FileDelta();
+  virtual ~FileDelta();
+  
+  FileDelta(const FileDelta& from);
+  
+  inline FileDelta& operator=(const FileDelta& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const FileDelta& default_instance();
+  
+  void Swap(FileDelta* other);
+  
+  // implements Message ----------------------------------------------
+  
+  FileDelta* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const FileDelta& from);
+  void MergeFrom(const FileDelta& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  typedef FileDelta_ChangeType ChangeType;
+  static const ChangeType CREATE = FileDelta_ChangeType_CREATE;
+  static const ChangeType MODIFY = FileDelta_ChangeType_MODIFY;
+  static const ChangeType DELETE = FileDelta_ChangeType_DELETE;
+  static inline bool ChangeType_IsValid(int value) {
+    return FileDelta_ChangeType_IsValid(value);
+  }
+  static const ChangeType ChangeType_MIN =
+    FileDelta_ChangeType_ChangeType_MIN;
+  static const ChangeType ChangeType_MAX =
+    FileDelta_ChangeType_ChangeType_MAX;
+  static const int ChangeType_ARRAYSIZE =
+    FileDelta_ChangeType_ChangeType_ARRAYSIZE;
+  
+  // accessors -------------------------------------------------------
+  
+  // required string path = 1;
+  inline bool has_path() const;
+  inline void clear_path();
+  static const int kPathFieldNumber = 1;
+  inline const ::std::string& path() const;
+  inline void set_path(const ::std::string& value);
+  inline void set_path(const char* value);
+  inline void set_path(const char* value, size_t size);
+  inline ::std::string* mutable_path();
+  inline ::std::string* release_path();
+  
+  // required .Thilenius.BFEProtos.FileDelta.ChangeType change_type = 2;
+  inline bool has_change_type() const;
+  inline void clear_change_type();
+  static const int kChangeTypeFieldNumber = 2;
+  inline ::Thilenius::BFEProtos::FileDelta_ChangeType change_type() const;
+  inline void set_change_type(::Thilenius::BFEProtos::FileDelta_ChangeType value);
+  
+  // repeated .Thilenius.BFEProtos.LexicalDelta lexical_deltas = 3;
+  inline int lexical_deltas_size() const;
+  inline void clear_lexical_deltas();
+  static const int kLexicalDeltasFieldNumber = 3;
+  inline const ::Thilenius::BFEProtos::LexicalDelta& lexical_deltas(int index) const;
+  inline ::Thilenius::BFEProtos::LexicalDelta* mutable_lexical_deltas(int index);
+  inline ::Thilenius::BFEProtos::LexicalDelta* add_lexical_deltas();
+  inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::LexicalDelta >&
+      lexical_deltas() const;
+  inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::LexicalDelta >*
+      mutable_lexical_deltas();
+  
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.FileDelta)
+ private:
+  inline void set_has_path();
+  inline void clear_has_path();
+  inline void set_has_change_type();
+  inline void clear_has_change_type();
+  
+  ::std::string* path_;
+  ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::LexicalDelta > lexical_deltas_;
+  int change_type_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static FileDelta* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LexicalDelta : public ::google::protobuf::MessageLite {
+ public:
+  LexicalDelta();
+  virtual ~LexicalDelta();
+  
+  LexicalDelta(const LexicalDelta& from);
+  
+  inline LexicalDelta& operator=(const LexicalDelta& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const LexicalDelta& default_instance();
+  
+  void Swap(LexicalDelta* other);
+  
+  // implements Message ----------------------------------------------
+  
+  LexicalDelta* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const LexicalDelta& from);
+  void MergeFrom(const LexicalDelta& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required int32 from_begin = 1;
+  inline bool has_from_begin() const;
+  inline void clear_from_begin();
+  static const int kFromBeginFieldNumber = 1;
+  inline ::google::protobuf::int32 from_begin() const;
+  inline void set_from_begin(::google::protobuf::int32 value);
+  
+  // required int32 from_end = 2;
+  inline bool has_from_end() const;
+  inline void clear_from_end();
+  static const int kFromEndFieldNumber = 2;
+  inline ::google::protobuf::int32 from_end() const;
+  inline void set_from_end(::google::protobuf::int32 value);
+  
+  // required int32 to_begin = 3;
+  inline bool has_to_begin() const;
+  inline void clear_to_begin();
+  static const int kToBeginFieldNumber = 3;
+  inline ::google::protobuf::int32 to_begin() const;
+  inline void set_to_begin(::google::protobuf::int32 value);
+  
+  // required int32 to_end = 4;
+  inline bool has_to_end() const;
+  inline void clear_to_end();
+  static const int kToEndFieldNumber = 4;
+  inline ::google::protobuf::int32 to_end() const;
+  inline void set_to_end(::google::protobuf::int32 value);
+  
+  // optional string text = 5;
+  inline bool has_text() const;
+  inline void clear_text();
+  static const int kTextFieldNumber = 5;
+  inline const ::std::string& text() const;
+  inline void set_text(const ::std::string& value);
+  inline void set_text(const char* value);
+  inline void set_text(const char* value, size_t size);
+  inline ::std::string* mutable_text();
+  inline ::std::string* release_text();
+  
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.LexicalDelta)
+ private:
+  inline void set_has_from_begin();
+  inline void clear_has_from_begin();
+  inline void set_has_from_end();
+  inline void clear_has_from_end();
+  inline void set_has_to_begin();
+  inline void clear_has_to_begin();
+  inline void set_has_to_end();
+  inline void clear_has_to_end();
+  inline void set_has_text();
+  inline void clear_has_text();
+  
+  ::google::protobuf::int32 from_begin_;
+  ::google::protobuf::int32 from_end_;
+  ::google::protobuf::int32 to_begin_;
+  ::google::protobuf::int32 to_end_;
+  ::std::string* text_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static LexicalDelta* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFETextFile : public ::google::protobuf::MessageLite {
+ public:
+  BFETextFile();
+  virtual ~BFETextFile();
+  
+  BFETextFile(const BFETextFile& from);
+  
+  inline BFETextFile& operator=(const BFETextFile& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const BFETextFile& default_instance();
+  
+  void Swap(BFETextFile* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFETextFile* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const BFETextFile& from);
+  void MergeFrom(const BFETextFile& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  
+  // optional string extension = 2;
+  inline bool has_extension() const;
+  inline void clear_extension();
+  static const int kExtensionFieldNumber = 2;
+  inline const ::std::string& extension() const;
+  inline void set_extension(const ::std::string& value);
+  inline void set_extension(const char* value);
+  inline void set_extension(const char* value, size_t size);
+  inline ::std::string* mutable_extension();
+  inline ::std::string* release_extension();
+  
+  // optional string modify_date = 3;
+  inline bool has_modify_date() const;
+  inline void clear_modify_date();
+  static const int kModifyDateFieldNumber = 3;
+  inline const ::std::string& modify_date() const;
+  inline void set_modify_date(const ::std::string& value);
+  inline void set_modify_date(const char* value);
+  inline void set_modify_date(const char* value, size_t size);
+  inline ::std::string* mutable_modify_date();
+  inline ::std::string* release_modify_date();
+  
+  // optional string contents = 4;
+  inline bool has_contents() const;
+  inline void clear_contents();
+  static const int kContentsFieldNumber = 4;
+  inline const ::std::string& contents() const;
+  inline void set_contents(const ::std::string& value);
+  inline void set_contents(const char* value);
+  inline void set_contents(const char* value, size_t size);
+  inline ::std::string* mutable_contents();
+  inline ::std::string* release_contents();
+  
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFETextFile)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_extension();
+  inline void clear_has_extension();
+  inline void set_has_modify_date();
+  inline void clear_has_modify_date();
+  inline void set_has_contents();
+  inline void clear_has_contents();
+  
+  ::std::string* name_;
+  ::std::string* extension_;
+  ::std::string* modify_date_;
+  ::std::string* contents_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFETextFile* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFECodeSubmitRequest : public ::google::protobuf::MessageLite {
+ public:
+  BFECodeSubmitRequest();
+  virtual ~BFECodeSubmitRequest();
+  
+  BFECodeSubmitRequest(const BFECodeSubmitRequest& from);
+  
+  inline BFECodeSubmitRequest& operator=(const BFECodeSubmitRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const BFECodeSubmitRequest& default_instance();
+  
+  void Swap(BFECodeSubmitRequest* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFECodeSubmitRequest* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const BFECodeSubmitRequest& from);
+  void MergeFrom(const BFECodeSubmitRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // required string auth_token = 1;
+  inline bool has_auth_token() const;
+  inline void clear_auth_token();
+  static const int kAuthTokenFieldNumber = 1;
+  inline const ::std::string& auth_token() const;
+  inline void set_auth_token(const ::std::string& value);
+  inline void set_auth_token(const char* value);
+  inline void set_auth_token(const char* value, size_t size);
+  inline ::std::string* mutable_auth_token();
+  inline ::std::string* release_auth_token();
+  
+  // repeated .Thilenius.BFEProtos.BFETextFile code_files = 2;
+  inline int code_files_size() const;
+  inline void clear_code_files();
+  static const int kCodeFilesFieldNumber = 2;
+  inline const ::Thilenius::BFEProtos::BFETextFile& code_files(int index) const;
+  inline ::Thilenius::BFEProtos::BFETextFile* mutable_code_files(int index);
+  inline ::Thilenius::BFEProtos::BFETextFile* add_code_files();
+  inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::BFETextFile >&
+      code_files() const;
+  inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::BFETextFile >*
+      mutable_code_files();
+  
+  static const int kBFECodeSubmitRequestExtFieldNumber = 106;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFECodeSubmitRequest >, 11, false >
+    BFECodeSubmitRequest_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFECodeSubmitRequest)
+ private:
+  inline void set_has_auth_token();
+  inline void clear_has_auth_token();
+  
+  ::std::string* auth_token_;
+  ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::BFETextFile > code_files_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFECodeSubmitRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BFECodeSubmitResponse : public ::google::protobuf::MessageLite {
+ public:
+  BFECodeSubmitResponse();
+  virtual ~BFECodeSubmitResponse();
+  
+  BFECodeSubmitResponse(const BFECodeSubmitResponse& from);
+  
+  inline BFECodeSubmitResponse& operator=(const BFECodeSubmitResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  static const BFECodeSubmitResponse& default_instance();
+  
+  void Swap(BFECodeSubmitResponse* other);
+  
+  // implements Message ----------------------------------------------
+  
+  BFECodeSubmitResponse* New() const;
+  void CheckTypeAndMergeFrom(const ::google::protobuf::MessageLite& from);
+  void CopyFrom(const BFECodeSubmitResponse& from);
+  void MergeFrom(const BFECodeSubmitResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::std::string GetTypeName() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional string failure_reason = 1;
+  inline bool has_failure_reason() const;
+  inline void clear_failure_reason();
+  static const int kFailureReasonFieldNumber = 1;
+  inline const ::std::string& failure_reason() const;
+  inline void set_failure_reason(const ::std::string& value);
+  inline void set_failure_reason(const char* value);
+  inline void set_failure_reason(const char* value, size_t size);
+  inline ::std::string* mutable_failure_reason();
+  inline ::std::string* release_failure_reason();
+  
+  static const int kBFECodeSubmitResponseExtFieldNumber = 107;
+  static ::google::protobuf::internal::ExtensionIdentifier< ::Thilenius::BFEProtos::BFEMessage,
+      ::google::protobuf::internal::MessageTypeTraits< ::Thilenius::BFEProtos::BFECodeSubmitResponse >, 11, false >
+    BFECodeSubmitResponse_ext;
+  // @@protoc_insertion_point(class_scope:Thilenius.BFEProtos.BFECodeSubmitResponse)
+ private:
+  inline void set_has_failure_reason();
+  inline void clear_has_failure_reason();
+  
+  ::std::string* failure_reason_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_BFEProtos_2eproto();
+  friend void protobuf_AssignDesc_BFEProtos_2eproto();
+  friend void protobuf_ShutdownFile_BFEProtos_2eproto();
+  
+  void InitAsDefaultInstance();
+  static BFECodeSubmitResponse* default_instance_;
 };
 // ===================================================================
 
@@ -1514,6 +2222,883 @@ inline ::std::string* BFEInfoQueryResponse::release_blaze_response() {
   } else {
     ::std::string* temp = blaze_response_;
     blaze_response_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Repository
+
+// optional string repo_uuid = 1;
+inline bool Repository::has_repo_uuid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Repository::set_has_repo_uuid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Repository::clear_has_repo_uuid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Repository::clear_repo_uuid() {
+  if (repo_uuid_ != &::google::protobuf::internal::kEmptyString) {
+    repo_uuid_->clear();
+  }
+  clear_has_repo_uuid();
+}
+inline const ::std::string& Repository::repo_uuid() const {
+  return *repo_uuid_;
+}
+inline void Repository::set_repo_uuid(const ::std::string& value) {
+  set_has_repo_uuid();
+  if (repo_uuid_ == &::google::protobuf::internal::kEmptyString) {
+    repo_uuid_ = new ::std::string;
+  }
+  repo_uuid_->assign(value);
+}
+inline void Repository::set_repo_uuid(const char* value) {
+  set_has_repo_uuid();
+  if (repo_uuid_ == &::google::protobuf::internal::kEmptyString) {
+    repo_uuid_ = new ::std::string;
+  }
+  repo_uuid_->assign(value);
+}
+inline void Repository::set_repo_uuid(const char* value, size_t size) {
+  set_has_repo_uuid();
+  if (repo_uuid_ == &::google::protobuf::internal::kEmptyString) {
+    repo_uuid_ = new ::std::string;
+  }
+  repo_uuid_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Repository::mutable_repo_uuid() {
+  set_has_repo_uuid();
+  if (repo_uuid_ == &::google::protobuf::internal::kEmptyString) {
+    repo_uuid_ = new ::std::string;
+  }
+  return repo_uuid_;
+}
+inline ::std::string* Repository::release_repo_uuid() {
+  clear_has_repo_uuid();
+  if (repo_uuid_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = repo_uuid_;
+    repo_uuid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// repeated .Thilenius.BFEProtos.Revision revisions = 2;
+inline int Repository::revisions_size() const {
+  return revisions_.size();
+}
+inline void Repository::clear_revisions() {
+  revisions_.Clear();
+}
+inline const ::Thilenius::BFEProtos::Revision& Repository::revisions(int index) const {
+  return revisions_.Get(index);
+}
+inline ::Thilenius::BFEProtos::Revision* Repository::mutable_revisions(int index) {
+  return revisions_.Mutable(index);
+}
+inline ::Thilenius::BFEProtos::Revision* Repository::add_revisions() {
+  return revisions_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::Revision >&
+Repository::revisions() const {
+  return revisions_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::Revision >*
+Repository::mutable_revisions() {
+  return &revisions_;
+}
+
+// -------------------------------------------------------------------
+
+// Revision
+
+// optional string comment = 1;
+inline bool Revision::has_comment() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Revision::set_has_comment() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Revision::clear_has_comment() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Revision::clear_comment() {
+  if (comment_ != &::google::protobuf::internal::kEmptyString) {
+    comment_->clear();
+  }
+  clear_has_comment();
+}
+inline const ::std::string& Revision::comment() const {
+  return *comment_;
+}
+inline void Revision::set_comment(const ::std::string& value) {
+  set_has_comment();
+  if (comment_ == &::google::protobuf::internal::kEmptyString) {
+    comment_ = new ::std::string;
+  }
+  comment_->assign(value);
+}
+inline void Revision::set_comment(const char* value) {
+  set_has_comment();
+  if (comment_ == &::google::protobuf::internal::kEmptyString) {
+    comment_ = new ::std::string;
+  }
+  comment_->assign(value);
+}
+inline void Revision::set_comment(const char* value, size_t size) {
+  set_has_comment();
+  if (comment_ == &::google::protobuf::internal::kEmptyString) {
+    comment_ = new ::std::string;
+  }
+  comment_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Revision::mutable_comment() {
+  set_has_comment();
+  if (comment_ == &::google::protobuf::internal::kEmptyString) {
+    comment_ = new ::std::string;
+  }
+  return comment_;
+}
+inline ::std::string* Revision::release_comment() {
+  clear_has_comment();
+  if (comment_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = comment_;
+    comment_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional string timestamp = 2;
+inline bool Revision::has_timestamp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Revision::set_has_timestamp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Revision::clear_has_timestamp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Revision::clear_timestamp() {
+  if (timestamp_ != &::google::protobuf::internal::kEmptyString) {
+    timestamp_->clear();
+  }
+  clear_has_timestamp();
+}
+inline const ::std::string& Revision::timestamp() const {
+  return *timestamp_;
+}
+inline void Revision::set_timestamp(const ::std::string& value) {
+  set_has_timestamp();
+  if (timestamp_ == &::google::protobuf::internal::kEmptyString) {
+    timestamp_ = new ::std::string;
+  }
+  timestamp_->assign(value);
+}
+inline void Revision::set_timestamp(const char* value) {
+  set_has_timestamp();
+  if (timestamp_ == &::google::protobuf::internal::kEmptyString) {
+    timestamp_ = new ::std::string;
+  }
+  timestamp_->assign(value);
+}
+inline void Revision::set_timestamp(const char* value, size_t size) {
+  set_has_timestamp();
+  if (timestamp_ == &::google::protobuf::internal::kEmptyString) {
+    timestamp_ = new ::std::string;
+  }
+  timestamp_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Revision::mutable_timestamp() {
+  set_has_timestamp();
+  if (timestamp_ == &::google::protobuf::internal::kEmptyString) {
+    timestamp_ = new ::std::string;
+  }
+  return timestamp_;
+}
+inline ::std::string* Revision::release_timestamp() {
+  clear_has_timestamp();
+  if (timestamp_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = timestamp_;
+    timestamp_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// repeated .Thilenius.BFEProtos.FileDelta file_deltas = 3;
+inline int Revision::file_deltas_size() const {
+  return file_deltas_.size();
+}
+inline void Revision::clear_file_deltas() {
+  file_deltas_.Clear();
+}
+inline const ::Thilenius::BFEProtos::FileDelta& Revision::file_deltas(int index) const {
+  return file_deltas_.Get(index);
+}
+inline ::Thilenius::BFEProtos::FileDelta* Revision::mutable_file_deltas(int index) {
+  return file_deltas_.Mutable(index);
+}
+inline ::Thilenius::BFEProtos::FileDelta* Revision::add_file_deltas() {
+  return file_deltas_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::FileDelta >&
+Revision::file_deltas() const {
+  return file_deltas_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::FileDelta >*
+Revision::mutable_file_deltas() {
+  return &file_deltas_;
+}
+
+// -------------------------------------------------------------------
+
+// FileDelta
+
+// required string path = 1;
+inline bool FileDelta::has_path() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FileDelta::set_has_path() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FileDelta::clear_has_path() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FileDelta::clear_path() {
+  if (path_ != &::google::protobuf::internal::kEmptyString) {
+    path_->clear();
+  }
+  clear_has_path();
+}
+inline const ::std::string& FileDelta::path() const {
+  return *path_;
+}
+inline void FileDelta::set_path(const ::std::string& value) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::kEmptyString) {
+    path_ = new ::std::string;
+  }
+  path_->assign(value);
+}
+inline void FileDelta::set_path(const char* value) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::kEmptyString) {
+    path_ = new ::std::string;
+  }
+  path_->assign(value);
+}
+inline void FileDelta::set_path(const char* value, size_t size) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::kEmptyString) {
+    path_ = new ::std::string;
+  }
+  path_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* FileDelta::mutable_path() {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::kEmptyString) {
+    path_ = new ::std::string;
+  }
+  return path_;
+}
+inline ::std::string* FileDelta::release_path() {
+  clear_has_path();
+  if (path_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = path_;
+    path_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// required .Thilenius.BFEProtos.FileDelta.ChangeType change_type = 2;
+inline bool FileDelta::has_change_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FileDelta::set_has_change_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FileDelta::clear_has_change_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FileDelta::clear_change_type() {
+  change_type_ = 1;
+  clear_has_change_type();
+}
+inline ::Thilenius::BFEProtos::FileDelta_ChangeType FileDelta::change_type() const {
+  return static_cast< ::Thilenius::BFEProtos::FileDelta_ChangeType >(change_type_);
+}
+inline void FileDelta::set_change_type(::Thilenius::BFEProtos::FileDelta_ChangeType value) {
+  GOOGLE_DCHECK(::Thilenius::BFEProtos::FileDelta_ChangeType_IsValid(value));
+  set_has_change_type();
+  change_type_ = value;
+}
+
+// repeated .Thilenius.BFEProtos.LexicalDelta lexical_deltas = 3;
+inline int FileDelta::lexical_deltas_size() const {
+  return lexical_deltas_.size();
+}
+inline void FileDelta::clear_lexical_deltas() {
+  lexical_deltas_.Clear();
+}
+inline const ::Thilenius::BFEProtos::LexicalDelta& FileDelta::lexical_deltas(int index) const {
+  return lexical_deltas_.Get(index);
+}
+inline ::Thilenius::BFEProtos::LexicalDelta* FileDelta::mutable_lexical_deltas(int index) {
+  return lexical_deltas_.Mutable(index);
+}
+inline ::Thilenius::BFEProtos::LexicalDelta* FileDelta::add_lexical_deltas() {
+  return lexical_deltas_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::LexicalDelta >&
+FileDelta::lexical_deltas() const {
+  return lexical_deltas_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::LexicalDelta >*
+FileDelta::mutable_lexical_deltas() {
+  return &lexical_deltas_;
+}
+
+// -------------------------------------------------------------------
+
+// LexicalDelta
+
+// required int32 from_begin = 1;
+inline bool LexicalDelta::has_from_begin() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LexicalDelta::set_has_from_begin() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LexicalDelta::clear_has_from_begin() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LexicalDelta::clear_from_begin() {
+  from_begin_ = 0;
+  clear_has_from_begin();
+}
+inline ::google::protobuf::int32 LexicalDelta::from_begin() const {
+  return from_begin_;
+}
+inline void LexicalDelta::set_from_begin(::google::protobuf::int32 value) {
+  set_has_from_begin();
+  from_begin_ = value;
+}
+
+// required int32 from_end = 2;
+inline bool LexicalDelta::has_from_end() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LexicalDelta::set_has_from_end() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LexicalDelta::clear_has_from_end() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LexicalDelta::clear_from_end() {
+  from_end_ = 0;
+  clear_has_from_end();
+}
+inline ::google::protobuf::int32 LexicalDelta::from_end() const {
+  return from_end_;
+}
+inline void LexicalDelta::set_from_end(::google::protobuf::int32 value) {
+  set_has_from_end();
+  from_end_ = value;
+}
+
+// required int32 to_begin = 3;
+inline bool LexicalDelta::has_to_begin() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LexicalDelta::set_has_to_begin() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LexicalDelta::clear_has_to_begin() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LexicalDelta::clear_to_begin() {
+  to_begin_ = 0;
+  clear_has_to_begin();
+}
+inline ::google::protobuf::int32 LexicalDelta::to_begin() const {
+  return to_begin_;
+}
+inline void LexicalDelta::set_to_begin(::google::protobuf::int32 value) {
+  set_has_to_begin();
+  to_begin_ = value;
+}
+
+// required int32 to_end = 4;
+inline bool LexicalDelta::has_to_end() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LexicalDelta::set_has_to_end() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LexicalDelta::clear_has_to_end() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LexicalDelta::clear_to_end() {
+  to_end_ = 0;
+  clear_has_to_end();
+}
+inline ::google::protobuf::int32 LexicalDelta::to_end() const {
+  return to_end_;
+}
+inline void LexicalDelta::set_to_end(::google::protobuf::int32 value) {
+  set_has_to_end();
+  to_end_ = value;
+}
+
+// optional string text = 5;
+inline bool LexicalDelta::has_text() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LexicalDelta::set_has_text() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LexicalDelta::clear_has_text() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LexicalDelta::clear_text() {
+  if (text_ != &::google::protobuf::internal::kEmptyString) {
+    text_->clear();
+  }
+  clear_has_text();
+}
+inline const ::std::string& LexicalDelta::text() const {
+  return *text_;
+}
+inline void LexicalDelta::set_text(const ::std::string& value) {
+  set_has_text();
+  if (text_ == &::google::protobuf::internal::kEmptyString) {
+    text_ = new ::std::string;
+  }
+  text_->assign(value);
+}
+inline void LexicalDelta::set_text(const char* value) {
+  set_has_text();
+  if (text_ == &::google::protobuf::internal::kEmptyString) {
+    text_ = new ::std::string;
+  }
+  text_->assign(value);
+}
+inline void LexicalDelta::set_text(const char* value, size_t size) {
+  set_has_text();
+  if (text_ == &::google::protobuf::internal::kEmptyString) {
+    text_ = new ::std::string;
+  }
+  text_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* LexicalDelta::mutable_text() {
+  set_has_text();
+  if (text_ == &::google::protobuf::internal::kEmptyString) {
+    text_ = new ::std::string;
+  }
+  return text_;
+}
+inline ::std::string* LexicalDelta::release_text() {
+  clear_has_text();
+  if (text_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = text_;
+    text_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BFETextFile
+
+// optional string name = 1;
+inline bool BFETextFile::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFETextFile::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFETextFile::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFETextFile::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& BFETextFile::name() const {
+  return *name_;
+}
+inline void BFETextFile::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void BFETextFile::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void BFETextFile::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFETextFile::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* BFETextFile::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional string extension = 2;
+inline bool BFETextFile::has_extension() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BFETextFile::set_has_extension() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BFETextFile::clear_has_extension() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BFETextFile::clear_extension() {
+  if (extension_ != &::google::protobuf::internal::kEmptyString) {
+    extension_->clear();
+  }
+  clear_has_extension();
+}
+inline const ::std::string& BFETextFile::extension() const {
+  return *extension_;
+}
+inline void BFETextFile::set_extension(const ::std::string& value) {
+  set_has_extension();
+  if (extension_ == &::google::protobuf::internal::kEmptyString) {
+    extension_ = new ::std::string;
+  }
+  extension_->assign(value);
+}
+inline void BFETextFile::set_extension(const char* value) {
+  set_has_extension();
+  if (extension_ == &::google::protobuf::internal::kEmptyString) {
+    extension_ = new ::std::string;
+  }
+  extension_->assign(value);
+}
+inline void BFETextFile::set_extension(const char* value, size_t size) {
+  set_has_extension();
+  if (extension_ == &::google::protobuf::internal::kEmptyString) {
+    extension_ = new ::std::string;
+  }
+  extension_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFETextFile::mutable_extension() {
+  set_has_extension();
+  if (extension_ == &::google::protobuf::internal::kEmptyString) {
+    extension_ = new ::std::string;
+  }
+  return extension_;
+}
+inline ::std::string* BFETextFile::release_extension() {
+  clear_has_extension();
+  if (extension_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = extension_;
+    extension_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional string modify_date = 3;
+inline bool BFETextFile::has_modify_date() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BFETextFile::set_has_modify_date() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BFETextFile::clear_has_modify_date() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BFETextFile::clear_modify_date() {
+  if (modify_date_ != &::google::protobuf::internal::kEmptyString) {
+    modify_date_->clear();
+  }
+  clear_has_modify_date();
+}
+inline const ::std::string& BFETextFile::modify_date() const {
+  return *modify_date_;
+}
+inline void BFETextFile::set_modify_date(const ::std::string& value) {
+  set_has_modify_date();
+  if (modify_date_ == &::google::protobuf::internal::kEmptyString) {
+    modify_date_ = new ::std::string;
+  }
+  modify_date_->assign(value);
+}
+inline void BFETextFile::set_modify_date(const char* value) {
+  set_has_modify_date();
+  if (modify_date_ == &::google::protobuf::internal::kEmptyString) {
+    modify_date_ = new ::std::string;
+  }
+  modify_date_->assign(value);
+}
+inline void BFETextFile::set_modify_date(const char* value, size_t size) {
+  set_has_modify_date();
+  if (modify_date_ == &::google::protobuf::internal::kEmptyString) {
+    modify_date_ = new ::std::string;
+  }
+  modify_date_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFETextFile::mutable_modify_date() {
+  set_has_modify_date();
+  if (modify_date_ == &::google::protobuf::internal::kEmptyString) {
+    modify_date_ = new ::std::string;
+  }
+  return modify_date_;
+}
+inline ::std::string* BFETextFile::release_modify_date() {
+  clear_has_modify_date();
+  if (modify_date_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = modify_date_;
+    modify_date_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// optional string contents = 4;
+inline bool BFETextFile::has_contents() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void BFETextFile::set_has_contents() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void BFETextFile::clear_has_contents() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void BFETextFile::clear_contents() {
+  if (contents_ != &::google::protobuf::internal::kEmptyString) {
+    contents_->clear();
+  }
+  clear_has_contents();
+}
+inline const ::std::string& BFETextFile::contents() const {
+  return *contents_;
+}
+inline void BFETextFile::set_contents(const ::std::string& value) {
+  set_has_contents();
+  if (contents_ == &::google::protobuf::internal::kEmptyString) {
+    contents_ = new ::std::string;
+  }
+  contents_->assign(value);
+}
+inline void BFETextFile::set_contents(const char* value) {
+  set_has_contents();
+  if (contents_ == &::google::protobuf::internal::kEmptyString) {
+    contents_ = new ::std::string;
+  }
+  contents_->assign(value);
+}
+inline void BFETextFile::set_contents(const char* value, size_t size) {
+  set_has_contents();
+  if (contents_ == &::google::protobuf::internal::kEmptyString) {
+    contents_ = new ::std::string;
+  }
+  contents_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFETextFile::mutable_contents() {
+  set_has_contents();
+  if (contents_ == &::google::protobuf::internal::kEmptyString) {
+    contents_ = new ::std::string;
+  }
+  return contents_;
+}
+inline ::std::string* BFETextFile::release_contents() {
+  clear_has_contents();
+  if (contents_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = contents_;
+    contents_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// -------------------------------------------------------------------
+
+// BFECodeSubmitRequest
+
+// required string auth_token = 1;
+inline bool BFECodeSubmitRequest::has_auth_token() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFECodeSubmitRequest::set_has_auth_token() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFECodeSubmitRequest::clear_has_auth_token() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFECodeSubmitRequest::clear_auth_token() {
+  if (auth_token_ != &::google::protobuf::internal::kEmptyString) {
+    auth_token_->clear();
+  }
+  clear_has_auth_token();
+}
+inline const ::std::string& BFECodeSubmitRequest::auth_token() const {
+  return *auth_token_;
+}
+inline void BFECodeSubmitRequest::set_auth_token(const ::std::string& value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFECodeSubmitRequest::set_auth_token(const char* value) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(value);
+}
+inline void BFECodeSubmitRequest::set_auth_token(const char* value, size_t size) {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  auth_token_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFECodeSubmitRequest::mutable_auth_token() {
+  set_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    auth_token_ = new ::std::string;
+  }
+  return auth_token_;
+}
+inline ::std::string* BFECodeSubmitRequest::release_auth_token() {
+  clear_has_auth_token();
+  if (auth_token_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = auth_token_;
+    auth_token_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
+// repeated .Thilenius.BFEProtos.BFETextFile code_files = 2;
+inline int BFECodeSubmitRequest::code_files_size() const {
+  return code_files_.size();
+}
+inline void BFECodeSubmitRequest::clear_code_files() {
+  code_files_.Clear();
+}
+inline const ::Thilenius::BFEProtos::BFETextFile& BFECodeSubmitRequest::code_files(int index) const {
+  return code_files_.Get(index);
+}
+inline ::Thilenius::BFEProtos::BFETextFile* BFECodeSubmitRequest::mutable_code_files(int index) {
+  return code_files_.Mutable(index);
+}
+inline ::Thilenius::BFEProtos::BFETextFile* BFECodeSubmitRequest::add_code_files() {
+  return code_files_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::BFETextFile >&
+BFECodeSubmitRequest::code_files() const {
+  return code_files_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::Thilenius::BFEProtos::BFETextFile >*
+BFECodeSubmitRequest::mutable_code_files() {
+  return &code_files_;
+}
+
+// -------------------------------------------------------------------
+
+// BFECodeSubmitResponse
+
+// optional string failure_reason = 1;
+inline bool BFECodeSubmitResponse::has_failure_reason() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BFECodeSubmitResponse::set_has_failure_reason() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BFECodeSubmitResponse::clear_has_failure_reason() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BFECodeSubmitResponse::clear_failure_reason() {
+  if (failure_reason_ != &::google::protobuf::internal::kEmptyString) {
+    failure_reason_->clear();
+  }
+  clear_has_failure_reason();
+}
+inline const ::std::string& BFECodeSubmitResponse::failure_reason() const {
+  return *failure_reason_;
+}
+inline void BFECodeSubmitResponse::set_failure_reason(const ::std::string& value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFECodeSubmitResponse::set_failure_reason(const char* value) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(value);
+}
+inline void BFECodeSubmitResponse::set_failure_reason(const char* value, size_t size) {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  failure_reason_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* BFECodeSubmitResponse::mutable_failure_reason() {
+  set_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    failure_reason_ = new ::std::string;
+  }
+  return failure_reason_;
+}
+inline ::std::string* BFECodeSubmitResponse::release_failure_reason() {
+  clear_has_failure_reason();
+  if (failure_reason_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = failure_reason_;
+    failure_reason_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }

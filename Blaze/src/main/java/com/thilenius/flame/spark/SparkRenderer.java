@@ -27,7 +27,7 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		
 		// Translate
-		GL11.glTranslatef((float) x + 0.5f + offset.X, (float) y + 0.45f + offset.Y, (float) z + 0.5f + offset.Z);
+		GL11.glTranslatef((float) x + 0.5f + offset.X, (float) y + 0.35f + offset.Y, (float) z + 0.6f + offset.Z);
 		
 		// Rotate him upside down
 		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
@@ -36,7 +36,7 @@ public class SparkRenderer extends TileEntitySpecialRenderer {
         GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		
 		// Texture
-		ResourceLocation textures = (new ResourceLocation("flame:textures/model/spark.png"));
+		ResourceLocation textures = (new ResourceLocation("flame:textures/model/Spark.png"));
 		this.bindTexture(textures);
 		
 		// Draw Objects
