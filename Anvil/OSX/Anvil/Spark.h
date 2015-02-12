@@ -27,7 +27,7 @@ private:
 };
     
     
-#ifdef EXPOSE_C_API
+#ifdef ANVIL_EXPOSE_C_API
     
     
 extern "C" {

@@ -1,0 +1,253 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70A5E3051A8AA6920013D31B /* libAnvilLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A5E3041A8AA6920013D31B /* libAnvilLib.a */; };
+		70A5E3081A8AA95E0013D31B /* AnvilAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 70A5E3061A8AA95E0013D31B /* AnvilAPI.cpp */; };
+		70A5E3091A8AA95E0013D31B /* AnvilAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 70A5E3071A8AA95E0013D31B /* AnvilAPI.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		70A5E2F71A8AA6570013D31B /* libAnvilDyn.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libAnvilDyn.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		70A5E3041A8AA6920013D31B /* libAnvilLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAnvilLib.a; path = ../DerivedData/Anvil/Build/Products/Debug/libAnvilLib.a; sourceTree = "<group>"; };
+		70A5E3061A8AA95E0013D31B /* AnvilAPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnvilAPI.cpp; sourceTree = "<group>"; };
+		70A5E3071A8AA95E0013D31B /* AnvilAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnvilAPI.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70A5E2F41A8AA6570013D31B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E3051A8AA6920013D31B /* libAnvilLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70A5E2EE1A8AA6570013D31B = {
+			isa = PBXGroup;
+			children = (
+				70A5E3061A8AA95E0013D31B /* AnvilAPI.cpp */,
+				70A5E3071A8AA95E0013D31B /* AnvilAPI.h */,
+				70A5E3041A8AA6920013D31B /* libAnvilLib.a */,
+				70A5E2F81A8AA6570013D31B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70A5E2F81A8AA6570013D31B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70A5E2F71A8AA6570013D31B /* libAnvilDyn.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		70A5E2F51A8AA6570013D31B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E3091A8AA95E0013D31B /* AnvilAPI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		70A5E2F61A8AA6570013D31B /* AnvilDyn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70A5E2FB1A8AA6570013D31B /* Build configuration list for PBXNativeTarget "AnvilDyn" */;
+			buildPhases = (
+				70A5E2F31A8AA6570013D31B /* Sources */,
+				70A5E2F41A8AA6570013D31B /* Frameworks */,
+				70A5E2F51A8AA6570013D31B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnvilDyn;
+			productName = AnvilDyn;
+			productReference = 70A5E2F71A8AA6570013D31B /* libAnvilDyn.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70A5E2EF1A8AA6570013D31B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Scorch;
+				TargetAttributes = {
+					70A5E2F61A8AA6570013D31B = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 70A5E2F21A8AA6570013D31B /* Build configuration list for PBXProject "AnvilDyn" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 70A5E2EE1A8AA6570013D31B;
+			productRefGroup = 70A5E2F81A8AA6570013D31B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70A5E2F61A8AA6570013D31B /* AnvilDyn */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70A5E2F31A8AA6570013D31B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70A5E3081A8AA95E0013D31B /* AnvilAPI.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		70A5E2F91A8AA6570013D31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		70A5E2FA1A8AA6570013D31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		70A5E2FC1A8AA6570013D31B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Alec/Documents/Development/Scorch/Anvil/OSX/DerivedData/Anvil/Build/Products/Debug,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /Users/Alec/Documents/Development/Scorch/Anvil/OSX/Anvil;
+			};
+			name = Debug;
+		};
+		70A5E2FD1A8AA6570013D31B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Alec/Documents/Development/Scorch/Anvil/OSX/DerivedData/Anvil/Build/Products/Debug,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /Users/Alec/Documents/Development/Scorch/Anvil/OSX/Anvil;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70A5E2F21A8AA6570013D31B /* Build configuration list for PBXProject "AnvilDyn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70A5E2F91A8AA6570013D31B /* Debug */,
+				70A5E2FA1A8AA6570013D31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70A5E2FB1A8AA6570013D31B /* Build configuration list for PBXNativeTarget "AnvilDyn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70A5E2FC1A8AA6570013D31B /* Debug */,
+				70A5E2FD1A8AA6570013D31B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70A5E2EF1A8AA6570013D31B /* Project object */;
+}

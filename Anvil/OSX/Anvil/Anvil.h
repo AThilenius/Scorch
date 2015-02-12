@@ -27,14 +27,14 @@ public:
 };
     
     
-#ifdef EXPOSE_C_API
+#ifdef ANVIL_EXPOSE_C_API
     
     
 extern "C" {
     
     
-    void SayHello();
-    int LoadLevel(int levelNumber);
+void AnvilSayHello();
+int AnvilLoadLevel(int levelNumber);
     
     
 } // extern C

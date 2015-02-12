@@ -56,6 +56,8 @@ void AnvilEnsureConnected() {
         if (!g_socket->Connect(Config::GetBlazeIP(), Config::GetBlazePort())) {
             Util::Log::Error(ConnectionError);
         } else {
+            Util::Log::Info(std::string("Sucessfully connected to Blaze"));
+            
 //            // Send all source files to bein the Blaze Run record
 //            std::vector<Util::TextFile> allFiles = Util::TextFile::GlobDirectory("/src");
 //            
@@ -166,6 +168,11 @@ void AnvilSayHello() {
 }
 
 int AnvilLoadLevel(int levelNumber) {
+    if (g_activeLevel != -1) {
+        Util::Log::Error(std::string("You cannot load multiple levels during a single Anvil run (Aka you are calling") +
+                         std::string(" LoadLevel more than once)."));
+    }
+    
     AnvilEnsureConnected();
     
     // Send LoadLevelRequst
@@ -203,11 +210,12 @@ int AnvilLoadLevel(int levelNumber) {
             BFELoadLevelResponse response = message.GetExtension(BFELoadLevelResponse::BFELoadLevelResponse_ext);
             
             if (response.has_failure_reason()) {
-                Util::Log::Error("Blaze returned a fatal error while trying to load level " + std::to_string(levelNumber) +
-                                 ". Given reason: " + response.failure_reason());
+                Util::Log::Error("Blaze returned a fatal error while trying to load level " +
+                                 std::to_string(levelNumber) + ". Given reason: " + response.failure_reason());
             }
             
             // Everything went well, return the spark count back to user
+            Util::Log::Info("Level " + std::to_string(levelNumber) + " loaded.");
             g_activeLevel = levelNumber;
             return response.spark_count();
         } else {
