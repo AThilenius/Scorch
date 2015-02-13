@@ -2,28 +2,43 @@ package com.thilenius.blaze.data;
 
 import com.thilenius.blaze.Blaze;
 
+import java.io.Console;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Scanner;
 
 // Manages a SQL or HTTP connection for remote data access
 public class RemoteData {
     private Connection m_sqlInstance;
     private HashMap<String, Queryable> m_queryCache = new HashMap<String, Queryable>();
+    private String m_password = null;
+
+    public RemoteData() {
+        connect();
+    }
 
     public void connect() {
         if (m_sqlInstance != null) {
             return;
         }
 
+        if (m_password == null) {
+            // Prompt use for Password
+            System.out.println("Please enter RDS password:");
+            System.out.flush();
+            Scanner scan = new Scanner(System.in);
+            m_password = scan.nextLine();
+        }
+
         try
         {
             // First try to connect to production.
             try {
-                System.out.println("Trying to connect DEVELOPMENT AWS RDS: MySQL");
+                System.out.println("Trying to connect AWS RDS: MySQL");
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                 m_sqlInstance = DriverManager.getConnection(
                         "jdbc:mysql://forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb?" +
-                                "user=admin&password=forgeadmin");
+                                "user=admin&password=" + m_password);
                 System.out.println("Connected to DEVELOPMENT AWS RDS");
                 return;
             } catch(SQLException e) {
