@@ -11,43 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129232453) do
+ActiveRecord::Schema.define(version: 20150207212218) do
 
-  create_table "assignment_descriptions", force: true do |t|
-    t.string   "name"
-    t.string   "markdown"
-    t.string   "brief_markdown"
-    t.string   "jarPath"
-    t.datetime "dueDate"
-    t.datetime "open_date"
+  create_table "anvil_runs", force: true do |t|
+    t.integer  "user_id"
+    t.string   "calling_ip"
+    t.integer  "awarded_points"
+    t.integer  "blaze_call_count"
+    t.binary   "calling_code"
+    t.binary   "api_calls"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "anvil_runs", ["user_id"], name: "index_anvil_runs_on_user_id"
+
+# Could not dump table "assignment_descriptions" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "level_descriptions", force: true do |t|
     t.integer  "assignment_description_id"
     t.string   "name"
     t.integer  "levelNumber"
     t.integer  "points"
-    t.integer  "extra_credit"
     t.string   "markdown"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "extra_credit"
   end
 
-  add_index "level_descriptions", ["assignment_description_id"], name: "index_level_descriptions_on_assignment_description_id", using: :btree
-
-  create_table "minecraft_accounts", force: true do |t|
-    t.string   "username"
-    t.string   "password"
-    t.string   "access_token"
-    t.string   "uuid"
-    t.string   "user_type"
-    t.string   "state"
-    t.integer  "allocated_user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "minecraft_accounts" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "user_assignments", force: true do |t|
     t.integer  "user_id"
@@ -57,31 +51,23 @@ ActiveRecord::Schema.define(version: 20141129232453) do
     t.datetime "updated_at"
   end
 
-  add_index "user_assignments", ["assignment_description_id"], name: "index_user_assignments_on_assignment_description_id", using: :btree
-  add_index "user_assignments", ["user_id"], name: "index_user_assignments_on_user_id", using: :btree
+  add_index "user_assignments", ["assignment_description_id"], name: "index_user_assignments_on_assignment_description_id"
+  add_index "user_assignments", ["authToken"], name: "authToken_index"
+  add_index "user_assignments", ["user_id"], name: "index_user_assignments_on_user_id"
 
   create_table "user_levels", force: true do |t|
     t.integer  "user_assignment_id"
     t.integer  "level_description_id"
     t.integer  "points",               default: 0
-    t.integer  "extra_credit",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "extra_credit",         default: 0, null: false
   end
 
-  add_index "user_levels", ["level_description_id"], name: "index_user_levels_on_level_description_id", using: :btree
-  add_index "user_levels", ["user_assignment_id"], name: "index_user_levels_on_user_assignment_id", using: :btree
+  add_index "user_levels", ["level_description_id"], name: "index_user_levels_on_level_description_id"
+  add_index "user_levels", ["user_assignment_id"], name: "index_user_levels_on_user_assignment_id"
 
-  create_table "users", force: true do |t|
-    t.string   "username"
-    t.string   "firstName"
-    t.string   "lastName"
-    t.string   "studentID"
-    t.string   "password"
-    t.string   "guid"
-    t.string   "permissions"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

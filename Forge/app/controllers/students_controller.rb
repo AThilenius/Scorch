@@ -63,6 +63,11 @@ class StudentsController < ApplicationController
       didPass = false
     end
 
+    if params[:arenaLocation].nil? or params[:arenaLocation].empty?
+      failureString += 'Zero length Arena Location. '
+      didPass = false
+    end
+
     # Check existence
     if didPass
       user = User.create(username: params[:username],
@@ -70,10 +75,12 @@ class StudentsController < ApplicationController
                         lastName: params[:lastName],
                         studentID: params[:studentID],
                         permissions: 'student',
-                        password: SecureRandom.uuid.split('-')[4])
+                        password: SecureRandom.uuid.split('-')[4],
+                        guid: SecureRandom.uuid,
+                        arenaLocation: params[:arenaLocation])
 
       flash[:notice] = "Account #{user.username} Created Successfully."
-      redirect_to students_list_path
+      redirect_to students_new_path
     end
 
     if not didPass

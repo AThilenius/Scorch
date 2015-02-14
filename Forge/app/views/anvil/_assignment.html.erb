@@ -1,27 +1,32 @@
-<div style='position:relative;'>
+<div class="btn-group">
 
-  <button class="btn btn-default" style="min-width: 150px; position:absolute;left:0;top:0" data-async-href="<%=anvil_assignment_list_path%>">
+  <!-- Back -->
+  <button class="btn btn-default" style="min-width: 75px;" data-async-href="<%=anvil_assignment_list_path%>">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    All Assignments
   </button>
 
+  <!-- Refresh -->
+  <button class="btn btn-default" style="min-width: 75px;" data-async-href="<%= "anvil/#{@assignment.id}/assignment" %>">
+    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+  </button>
 
-  <div style="text-align: center">
-    <h1 class="text-center"><%= @assignment.name %></h1>
-  </div>
+  <!-- Download -->
+  <button style="min-width: 150px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Download <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Python</a></li>
+    <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/proj/py_win" %>>Windows</a></li>
+    <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/proj/py_osx" %>>Mac OSX</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">C++</a></li>
+    <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/proj/VS" %>>Visual Studio</a></li>
+    <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/proj/XCode" %>>XCode</a></li>
+  </ul>
+</div>
 
-  <div style="position: absolute;right:0;top:0;">
-    <div class="btn-group">
-      <button style="min-width: 150px;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        Download <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/vs" %>>Visual Studio 2012</a></li>
-        <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/xcode" %>>XCode</a></li>
-        <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/makefile" %>>Unix Makefile</a></li>
-      </ul>
-    </div>
-  </div>
+<div style="text-align: center">
+  <h1 class="text-center"><%= @assignment.name %></h1>
 </div>
 
 
@@ -41,6 +46,8 @@
 </div>
 <br>
 <br>
+
+<hr>
 
 <div data-async-url="<%="anvil/#{@assignment.id}/assignment_description"%>">
   <div style="text-align: center;">

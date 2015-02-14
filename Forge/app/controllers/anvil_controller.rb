@@ -1,4 +1,8 @@
 class AnvilController < ApplicationController
+
+  include SessionHelper
+  include ApplicationHelper
+
   def show
     return if sessionActiveCheckFailed
   end
@@ -45,9 +49,9 @@ class AnvilController < ApplicationController
       assignmentData.possibleExtraCredit = possibleExtraCredit
       assignmentData.earnedExtraCredit = earnedExtraCredit
       assignmentData.pointsPercent = possiblePoints == 0 ?
-          '0%' : "#{(Float(earnedPoints) / Float(possiblePoints) * 100).round}%"
+          '100%' : "#{zero_divide(Float(earnedPoints), Float(possiblePoints) * 100).round}%"
       assignmentData.extraCreditPercent = possibleExtraCredit == 0 ?
-          '0%' : "#{(Float(earnedExtraCredit) / Float(possibleExtraCredit) * 100).round}%"
+          '100%' : "#{zero_divide(Float(earnedExtraCredit), Float(possibleExtraCredit) * 100).round}%"
       assignmentData.dueDateColorLabel = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color_label
       assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'green' : assignment.due_date_color
 
@@ -91,7 +95,7 @@ class AnvilController < ApplicationController
 
       percentage = 100
       if levelDescription.points != 0
-        percentage = (100 * Float(userLevel.points) / Float(levelDescription.points)).round
+        percentage = zero_divide(100 * Float(userLevel.points), Float(levelDescription.points)).round
       end
 
       case percentage
@@ -110,7 +114,7 @@ class AnvilController < ApplicationController
     @totalPoints = @earnedPoints = 0
     @levelDescriptions.each do |level| @totalPoints += level.points end
     @userLevels.each do |userLevel| @earnedPoints += userLevel.points end
-    @percentage = (100 * (Float(@earnedPoints) / Float(@totalPoints))).round
+    @percentage = (100 * zero_divide(Float(@earnedPoints), Float(@totalPoints))).round
 
     case @percentage
       when 0..59
@@ -168,7 +172,17 @@ class AnvilController < ApplicationController
             :value => levelDescription.extra_credit - userLevel.points,
             :color =>"#3366FF",
             :highlight => "#6699FF",
-            :label => "Extra Credit Level: #{levelDescription.levelNumber} - Uncompleted"
+            :label => "Extra Credit: #{levelDescription.levelNumber} - Uncompleted"
+        }
+      end
+
+      # Sample level (worth no points)
+      if levelDescription.extra_credit + levelDescription.points == 0
+        @graphData << {
+            :value => 5,
+            :color =>"#33CC33",
+            :highlight => "#00FF00",
+            :label => "Sample: #{levelDescription.levelNumber}"
         }
       end
 

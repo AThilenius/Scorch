@@ -33,9 +33,9 @@ class AssignmentsController < ApplicationController
       assignmentData.possibleExtraCredit = possibleExtraCredit
       assignmentData.earnedExtraCredit = earnedExtraCredit
       assignmentData.pointsPercent = possiblePoints == 0 ?
-          '0%' : "#{(Float(earnedPoints) / Float(possiblePoints) * 100).round}%"
+          '0%' : "#{zero_divide(Float(earnedPoints), Float(possiblePoints) * 100).round}%"
       assignmentData.extraCreditPercent = possibleExtraCredit == 0 ?
-          '0%' : "#{(Float(earnedExtraCredit) / Float(possibleExtraCredit) * 100).round}%"
+          '0%' : "#{zero_divide(Float(earnedExtraCredit), Float(possibleExtraCredit) * 100).round}%"
       assignmentData.dueDateColorLabel = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color_label
       assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'green' : assignment.due_date_color
 
@@ -72,7 +72,7 @@ class AssignmentsController < ApplicationController
 
       percentage = 100
       if levelDescription.points != 0
-        percentage = (100 * Float(userLevel.points) / Float(levelDescription.points)).round
+        percentage = zero_divide(100 * Float(userLevel.points), Float(levelDescription.points)).round
       end
 
       case percentage
@@ -91,7 +91,7 @@ class AssignmentsController < ApplicationController
     @totalPoints = @earnedPoints = 0
     @levelDescriptions.each do |level| @totalPoints += level.points end
     @userLevels.each do |userLevel| @earnedPoints += userLevel.points end
-    @percentage = (100 * (Float(@earnedPoints) / Float(@totalPoints))).round
+    @percentage = (100 * zero_divide(Float(@earnedPoints), Float(@totalPoints))).round
 
     case @percentage
       when 0..59

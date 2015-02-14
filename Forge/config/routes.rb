@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # Landing
+  get 'home_page/landing' => 'home_page#landing'
+  get 'home_page/landing_body' => 'home_page#landing_body'
+
+  # Anvil
   get 'anvil/show'
   get 'anvil/list'
   get 'anvil/overview'
@@ -26,9 +31,7 @@ Rails.application.routes.draw do
   get 'assignments/create'
   get 'assignments/createLevel'
   get 'assignments/new'
-  get 'downloads/:id/xcode' => 'downloads#xcode'
-  get 'downloads/:id/vs' => 'downloads#vs'
-  get 'downloads/:id/makefile' => 'downloads#makefile'
+  get 'downloads/:id/proj/(*path)' => 'downloads#proj'
   get 'downloads/flame' => 'downloads#flame'
   get 'login' => 'session#show'
   get 'minecraft_accounts/create'

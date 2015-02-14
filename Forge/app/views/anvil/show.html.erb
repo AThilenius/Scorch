@@ -1,47 +1,15 @@
 <% content_for :for_head do %>
-    <div id="anvilHeader">
+    <div id="flameHeader">
       <span id="dummySpan"></span>
       <div id="label">Anvil</div>
     </div>
 <% end %>
 
 <br>
-
-<ul class="nav nav-tabs nav-justified">
-  <li role="presentation" class="active">
-    <a data-toggle="tab" href="#getting_started_section">Getting Started with Anvil</a>
-  </li>
-
-  <li role="presentation">
-    <a data-toggle="tab" href="#my_anvil_section">My Anvil
-      <% assignmentsCount = pending_assignments_count %>
-      <% if assignmentsCount != 0 %>
-          <span class="badge"> <%= pending_assignments_count %></span>
-      <% end %></a></li>
-
-  <li role="presentation">
-    <a data-toggle="tab" href="#my_overview_section">My Overview</a>
-  </li>
-
-  <li role="presentation">
-    <a data-toggle="tab" href="#class_statistics_section">Class Statistics</a>
-  </li>
-</ul>
-
-<br>
 <br>
 
-<div class="tab-content">
-  <div id="getting_started_section" class="tab-pane fade in active">
-    <%= render 'getting_started' %>
-  </div>
-  <div id="my_anvil_section" class="tab-pane fade">
-    <%= render 'my_anvil' %>
-  </div>
-  <div id="my_overview_section" class="tab-pane fade">
-    <p>My Overview Stub</p>
-  </div>
-  <div id="class_statistics_section" class="tab-pane fade">
-    <p>Class Stats Stub</p>
-  </div>
+<div style="text-align: center">
+  <h2>Anvil Assignments are still being created for Python. Please be patient.</h2>
 </div>
+
+<br>

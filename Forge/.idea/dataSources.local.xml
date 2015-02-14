@@ -8,5 +8,11 @@
       <schema-pattern>forgedb.*</schema-pattern>
       <default-schemas>forgedb.*</default-schemas>
     </data-source>
+    <data-source name="Rails Forge: production" uuid="73051764-4ff6-47f1-bee5-1b00ac4ecec0">
+      <user-name>admin</user-name>
+      <user-password>dfccdfc5dfd8dfcddfcfdfcbdfcedfc7dfc3dfc4</user-password>
+      <schema-pattern>forgedb.*</schema-pattern>
+      <default-schemas>forgedb.*</default-schemas>
+    </data-source>
   </component>
 </project>

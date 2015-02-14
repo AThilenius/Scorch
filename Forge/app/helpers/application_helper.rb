@@ -2,6 +2,16 @@ module ApplicationHelper
 
   include SessionHelper
 
+  def zero_divide(top, bot)
+    return 0 if bot == 0
+    return top / bot
+  end
+
+  def one_divide(top, bot)
+    return 1.0 if bot == 0
+    return top / bot
+  end
+
   def markdown(text)
     options = {
         filter_html:      false,

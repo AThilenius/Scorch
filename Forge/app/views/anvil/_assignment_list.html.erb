@@ -2,12 +2,12 @@
     <div style="text-align: center;">
       <% assignmentsCount = pending_assignments_count %>
       <% if assignmentsCount == 0 %>
-          <h2>You have no upcoming Anvil Assignments.</h2>
+          <h2 style="color: green;">You have no upcoming Anvil Assignments.</h2>
       <% else %>
           <h2 style="color: red;">You have unfinished Anvil Assignments!</h2>
-          <br>
-          <hr>
       <% end %>
+      <br>
+      <hr>
     </div>
 
     <% @assignmentsData.each do |assignmentData| %>
@@ -46,7 +46,7 @@
 
         </div>
 
-        <%= assignmentData.assignment.brief_markdown.html_safe %>
+        <%= raw assignmentData.assignment.brief_markdown.html_safe %>
 
         <br>
         <br>

@@ -2,7 +2,12 @@ class HomePageController < ApplicationController
 
   include SessionHelper
 
-  def index
-    return if sessionActiveCheckFailed
+  def landing
+
   end
+
+  def landing_body
+    render partial: 'landing_body', :layout => false
+  end
+
 end

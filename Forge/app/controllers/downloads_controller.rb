@@ -49,7 +49,9 @@ class DownloadsController < ApplicationController
 
   end
 
-  def sendProject(projectName)
+  def proj
+    return if sessionActiveCheckFailed
+
     paramId = params[:id]
 
     # find assignment
@@ -60,34 +62,15 @@ class DownloadsController < ApplicationController
       return
     end
 
-    resourcePath = File.join(Rails.root, 'app', 'assets', 'assignments', "#{params[:id]}",  projectName)
+    resourcePath = File.join(Rails.root, 'app', 'assets', 'assignments', "#{params[:id]}",  params[:path])
     attachmentName = "#{sessionGetUser.lastName} Assignment #{params[:id]}.zip"
-    archive = File.join(Rails.root, 'tmp', 'assignments', "#{params[:id]}", "#{projectName}.zip")
+    archive = File.join(Rails.root, 'tmp', 'assignments', "#{params[:id]}", "#{params[:path]}.zip")
 
     compress(resourcePath, archive, {/AuthToken.aat/ =>
                                          { '<AuthToken>' => userAssignment.authToken }})
 
     # Send-er out!
     send_file(archive, :type => 'application/zip', :filename => attachmentName)
-  end
-
-  def xcode
-    # Note: Path is formed as: assets/assignments/:id/:platform
-    return if sessionActiveCheckFailed
-
-    sendProject 'XCode'
-  end
-
-  def vs
-    return if sessionActiveCheckFailed
-
-    sendProject 'VS'
-  end
-
-  def makefile
-    return if sessionActiveCheckFailed
-
-    sendProject 'Unix'
   end
 
   def flame
