@@ -1,6 +1,7 @@
 package Json;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import platform.GlobalExceptionHandler;
 import utilities.IOUtil;
 
 import java.io.File;
@@ -25,6 +26,7 @@ public class FlameConfig {
             encoded = IOUtil.readFile(new File("FlameConfig.json"));
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
         String jsonText = new String(encoded, Charset.defaultCharset());
 
@@ -34,6 +36,7 @@ public class FlameConfig {
             config = mapper.readValue(jsonText, FlameConfig.class);
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return config;

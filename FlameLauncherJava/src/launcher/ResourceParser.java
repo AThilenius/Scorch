@@ -2,6 +2,7 @@ package launcher;
 
 import Json.DownloadList;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import platform.GlobalExceptionHandler;
 import utilities.IOUtil;
 
 import java.io.File;
@@ -19,9 +20,14 @@ public class ResourceParser {
         // Read File
         byte[] encoded = new byte[0];
         try {
+            File downloadListFile = new File("DownloadList.json");
+            if (downloadListFile == null || !downloadListFile.exists()) {
+
+            }
             encoded = IOUtil.readFile(new File("DownloadList.json"));
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
         String jsonText = new String(encoded, Charset.defaultCharset());
 
@@ -31,6 +37,7 @@ public class ResourceParser {
             downloadList = mapper.readValue(jsonText, DownloadList.class);
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return downloadList.getDownloadTasks();
@@ -43,6 +50,7 @@ public class ResourceParser {
             encoded = IOUtil.readFile(new File("DownloadList.json"));
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
         String jsonText = new String(encoded, Charset.defaultCharset());
 
@@ -52,6 +60,7 @@ public class ResourceParser {
             downloadList = mapper.readValue(jsonText, DownloadList.class);
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return downloadList.getNativesPaths();

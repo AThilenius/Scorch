@@ -24,7 +24,7 @@ public class JumboTileEntity extends TileEntity {
     public Location2D Size;
 
     public JumboTileEntity() {
-        System.out.println("Creating Jumbrotron Tile Entity");
+
     }
 
     public void build(Location2D size) {

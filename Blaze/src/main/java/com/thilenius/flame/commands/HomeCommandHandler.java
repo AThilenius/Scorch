@@ -8,6 +8,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 /**
  * Created by Alec on 1/18/15.
  */
@@ -20,6 +22,26 @@ public class HomeCommandHandler extends CommandBase {
     @Override
     public String getCommandUsage(ICommandSender p_71518_1_) {
         return "Returns you to your player arena.";
+    }
+
+    @Override
+    public boolean canCommandSenderUseCommand(ICommandSender icommandsender) {
+        return true;
+    }
+
+    @Override
+    public List addTabCompletionOptions(ICommandSender icommandsender, String[] astring) {
+        return null;
+    }
+
+    @Override
+    public boolean isUsernameIndex(String[] astring, int i) {
+        return false;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 
     @Override

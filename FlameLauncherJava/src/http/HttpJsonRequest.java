@@ -1,5 +1,7 @@
 package http;
 
+import platform.GlobalExceptionHandler;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,6 +33,7 @@ public class HttpJsonRequest {
             return true;
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return false;
@@ -61,6 +64,7 @@ public class HttpJsonRequest {
             return returnJson;
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return null;

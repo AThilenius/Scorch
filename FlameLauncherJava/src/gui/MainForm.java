@@ -145,6 +145,7 @@ public class MainForm {
         }
         catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         if (proc != null) {

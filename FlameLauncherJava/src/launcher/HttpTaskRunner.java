@@ -1,5 +1,7 @@
 package launcher;
 
+import platform.GlobalExceptionHandler;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +57,7 @@ public class HttpTaskRunner implements Runnable {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         System.out.println();

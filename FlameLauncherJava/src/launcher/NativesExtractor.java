@@ -1,5 +1,6 @@
 package launcher;
 
+import platform.GlobalExceptionHandler;
 import utilities.ZipUtils;
 
 import javax.swing.*;
@@ -33,6 +34,7 @@ public class NativesExtractor {
             } catch (IOException e) {
                 System.out.println("Failed to extract native: " + nativesPaths + " To: " + nativesFolder);
                 e.printStackTrace();
+                GlobalExceptionHandler.errorOut(e);
             }
             if (m_progressBar != null) {
                 m_progressBar.setValue((int) ((float) i / (float) nativesPaths.size() * 100.0f));

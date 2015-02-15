@@ -5,6 +5,7 @@ import Json.MinecraftSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import http.HttpJsonRequest;
 import platform.CurrentPlatform;
+import platform.GlobalExceptionHandler;
 
 import java.io.File;
 import java.io.IOException;
@@ -162,6 +163,7 @@ public class LaunchCommandBuilder {
                     "--userType", sessionInfo.user_type };
         } catch (IOException e) {
             e.printStackTrace();
+            GlobalExceptionHandler.errorOut(e);
         }
 
         return null;
