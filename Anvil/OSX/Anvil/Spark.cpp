@@ -97,7 +97,7 @@ bool SparkMoveForward(int level, int spark) {
 
 bool SparkMoveBackward(int level, int spark) {
     BFESparkResponse response = RunCommand(g_socket, spark,
-                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_FORWARD);
+                                           BFESparkCommand_CommandType::BFESparkCommand_CommandType_MOVE_BACKWARD);
     if (!response.has_response_bool()) {
         std::cout << "Blaze returned unexpected data." << std::endl;
         exit(EXIT_FAILURE);

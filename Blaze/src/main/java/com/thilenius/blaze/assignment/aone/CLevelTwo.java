@@ -7,13 +7,25 @@ import com.thilenius.blaze.spark.BlazeSpark;
 import com.thilenius.utilities.types.Location3D;
 import net.minecraft.init.Blocks;
 
-// 5 : Load Level
-// 5 : Move Forward/Backward
-// 5 : Turn Left/Right
-public class ALevelOne extends BlazeLevel {
+// Load text file, pass it to the function from Level 2
+// 20 : Complete
+public class CLevelTwo extends BlazeLevel {
 
     private BlazeSpark m_spark;
     private Location3D m_sparkSpawn;
+    private int m_currentSequenceOffset;
+    // Backward Backward TurnRight Forward TurnLeft Forward Forward TurnLeft Backward
+    private BFEProtos.BFESparkCommand.CommandType[] m_validSequence = new BFEProtos.BFESparkCommand.CommandType[] {
+            BFEProtos.BFESparkCommand.CommandType.MOVE_BACKWARD,
+            BFEProtos.BFESparkCommand.CommandType.MOVE_BACKWARD,
+            BFEProtos.BFESparkCommand.CommandType.TURN_RIGHT,
+            BFEProtos.BFESparkCommand.CommandType.MOVE_FORWARD,
+            BFEProtos.BFESparkCommand.CommandType.TURN_LEFT,
+            BFEProtos.BFESparkCommand.CommandType.MOVE_FORWARD,
+            BFEProtos.BFESparkCommand.CommandType.MOVE_FORWARD,
+            BFEProtos.BFESparkCommand.CommandType.TURN_LEFT,
+            BFEProtos.BFESparkCommand.CommandType.MOVE_BACKWARD
+    };
 
     @Override
     public void load(AssignmentQuery assignmentQuery, int points) {
@@ -25,11 +37,11 @@ public class ALevelOne extends BlazeLevel {
 
         m_spark = new BlazeSpark(m_sparkSpawn);
 
-        // 5 points for loading the level
-        setPoints(5);
+        // Reset Sequence
+        m_currentSequenceOffset = 0;
 
         // Already done?
-        if (getPoints() == 15) {
+        if (getPoints() == 20) {
             drawBorder(1, 1, Blocks.emerald_block);
         } else {
             drawBorder(1, 1, Blocks.redstone_block);
@@ -49,8 +61,11 @@ public class ALevelOne extends BlazeLevel {
         // Spawn a new Spark
         m_spark = new BlazeSpark(m_sparkSpawn);
 
+        // Reset Sequence
+        m_currentSequenceOffset = 0;
+
         // Already done?
-        if (getPoints() == 15) {
+        if (getPoints() == 20) {
             drawBorder(1, 1, Blocks.emerald_block);
         } else {
             drawBorder(1, 1, Blocks.redstone_block);
@@ -62,27 +77,18 @@ public class ALevelOne extends BlazeLevel {
         super.grade(request);
 
         // Forward / Backward
-        if (request.getCommand() == BFEProtos.BFESparkCommand.CommandType.MOVE_FORWARD ||
-                request.getCommand() == BFEProtos.BFESparkCommand.CommandType.MOVE_BACKWARD) {
-            int currentPoints = getPoints();
-            if (currentPoints == 5) {
-                setPoints(10);
-            } else if (currentPoints == 10) {
-                setPoints(15);
-                drawBorder(1, 1, Blocks.emerald_block);
-            }
-        }
+        if (m_currentSequenceOffset >= 0 && request.getCommand() == m_validSequence[m_currentSequenceOffset]) {
 
-        // Left / Right
-        if (request.getCommand() == BFEProtos.BFESparkCommand.CommandType.TURN_LEFT ||
-                request.getCommand() == BFEProtos.BFESparkCommand.CommandType.TURN_RIGHT) {
-            int currentPoints = getPoints();
-            if (currentPoints == 5) {
-                setPoints(10);
-            } else if (currentPoints == 10) {
-                setPoints(15);
+            // Done?
+            if (m_currentSequenceOffset == 8) {
+                setPoints(20);
                 drawBorder(1, 1, Blocks.emerald_block);
             }
+
+            m_currentSequenceOffset++;
+        } else {
+            // Wrong move
+            m_currentSequenceOffset = -1;
         }
     }
 
@@ -90,6 +96,4 @@ public class ALevelOne extends BlazeLevel {
     public BlazeSpark[] getSparks() {
         return new BlazeSpark[]{m_spark};
     }
-
-
 }

@@ -10,10 +10,9 @@ import net.minecraft.init.Blocks;
  */
 public class ScorchAlphaAssignment extends BlazeAssignment {
 
-    private ALevelOne m_levelOne = new ALevelOne();
-    private BLevelTwo m_levelTwo = new BLevelTwo();
-    private CLevelThree m_levelThree = new CLevelThree();
-    private DLevelFour m_levelFour = new DLevelFour();
+    private ALevelZero m_levelZero = new ALevelZero();
+    private BLevelOne m_levelOne = new BLevelOne();
+    private CLevelTwo m_levelTwo = new CLevelTwo();
 
     @Override
     public void load(Location3D arenaLocation, String displayName) {
@@ -32,10 +31,9 @@ public class ScorchAlphaAssignment extends BlazeAssignment {
     public BlazeLevel getLevel(int number) {
         switch (number)
         {
-            case 0: return m_levelOne;
-            case 1: return m_levelTwo;
-            case 2: return m_levelThree;
-            case 3: return m_levelFour;
+            case 0: return m_levelZero;
+            case 1: return m_levelOne;
+            case 2: return m_levelTwo;
             default: return null;
         }
     }

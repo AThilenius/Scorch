@@ -29,10 +29,42 @@ int main(int argc, const char * argv[]) {
     // Alec Thilenius 1
     // Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
     
-    // John Doe 1
-    Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
+    // John Doe 1 AWS
+    //Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
     
-    Anvil::SayHello();
-    Anvil::LoadLevel(0);
+    // John Doe 2 Local
+    Config::OverrideAuthToken("5e36b753-b897-4dce-a0f7-631106661a9b");
     
+    
+//    Spark spark = Anvil::LoadLevel(0).GetSpark();
+//    spark.MoveForward();
+//    spark.TurnRight();
+    
+    // Forward Forward Backward TurnLeft TurnLeft TurnRight Forward Forward
+//    Level level = Anvil::LoadLevel(1);
+//    Spark spark = level.GetSpark();
+//    
+//    spark.MoveForward();
+//    spark.MoveForward();
+//    spark.MoveBackward();
+//    spark.TurnLeft();
+//    spark.TurnLeft();
+//    spark.TurnRight();
+//    spark.MoveForward();
+//    spark.MoveForward();
+    
+//    // Backward Backward TurnRight Forward TurnLeft Forward Forward TurnLeft Backward
+    Level level = Anvil::LoadLevel(2);
+    Spark spark = level.GetSpark();
+    
+    spark.MoveBackward();
+    spark.MoveBackward();
+    spark.TurnRight();
+    spark.MoveForward();
+    spark.TurnLeft();
+    spark.MoveForward();
+    spark.MoveForward();
+    spark.TurnLeft();
+    spark.MoveBackward();
+
 }
