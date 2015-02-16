@@ -27,4 +27,22 @@ private:
 };
     
     
+#ifdef ANVIL_EXPOSE_C_API
+    
+    
+extern "C" {
+    
+    
+bool SparkMoveForward(int level, int spark);
+bool SparkMoveBackward(int level, int spark);
+void SparkTurnLeft(int level, int spark);
+void SparkTurnRight(int level, int spark);
+    
+    
+} // extern C
+    
+    
+#endif
+    
+    
 } // namespace AnvilAPI

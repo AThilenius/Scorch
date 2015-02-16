@@ -1,0 +1,11 @@
+﻿Build started 2/16/2015 9:24:59 AM.
+     1>Project "C:\Users\Alec\Documents\Development\Scorch\Anvil\Windows\AnvilDll\AnvilDll.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug64\\" /Fd"x64\Debug64\vc110.pdb" /Gd /TP /errorReport:prompt AnvilAPI.cpp
+         AnvilAPI.cpp
+     1>AnvilAPI.cpp(12): fatal error C1083: Cannot open include file: 'Anvil.h': No such file or directory
+     1>Done Building Project "C:\Users\Alec\Documents\Development\Scorch\Anvil\Windows\AnvilDll\AnvilDll.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.05

@@ -12,6 +12,7 @@
 #include "Level.h"
 #include "Spark.h"
 
+
 namespace Socket {
 class TcpSocket;
 } // namespace Socket
@@ -23,18 +24,23 @@ class Anvil {
 public:
     static void SayHello();
     static Level LoadLevel(int levelNumber);
-    
-private:
-    static void EnsureConnected();
-    
-private:
-    static ::Socket::TcpSocket* m_socket;
-    static int m_activeLevel;
-    
-private:
-    friend class Level;
-    friend class Spark;
 };
+    
+    
+#ifdef ANVIL_EXPOSE_C_API
+    
+    
+extern "C" {
+    
+    
+void AnvilSayHello();
+int AnvilLoadLevel(int levelNumber);
+    
+    
+} // extern C
+    
+    
+#endif
     
     
 } // namespace AnvilAPI
