@@ -49,9 +49,9 @@ class AnvilController < ApplicationController
       assignmentData.possibleExtraCredit = possibleExtraCredit
       assignmentData.earnedExtraCredit = earnedExtraCredit
       assignmentData.pointsPercent = possiblePoints == 0 ?
-          '100%' : "#{zero_divide(Float(earnedPoints), Float(possiblePoints) * 100).round}%"
+          '100%' : "#{(zero_divide(Float(earnedPoints), Float(possiblePoints)) * 100).round}%"
       assignmentData.extraCreditPercent = possibleExtraCredit == 0 ?
-          '100%' : "#{zero_divide(Float(earnedExtraCredit), Float(possibleExtraCredit) * 100).round}%"
+          '100%' : "#{(zero_divide(Float(earnedExtraCredit), Float(possibleExtraCredit)) * 100).round}%"
       assignmentData.dueDateColorLabel = earnedPoints == possiblePoints ? 'success' : assignment.due_date_color_label
       assignmentData.dueDateColor = earnedPoints == possiblePoints ? 'green' : assignment.due_date_color
 
@@ -152,7 +152,7 @@ class AnvilController < ApplicationController
             :value => userLevel.points,
             :color =>"#33CC33",
             :highlight => "#00FF00",
-            :label => "Level #{levelDescription.levelNumber} - Completed"
+            :label => "Level #{levelDescription.levelNumber}, Points"
         }
       end
 
@@ -162,7 +162,7 @@ class AnvilController < ApplicationController
             :value => levelDescription.points - userLevel.points,
             :color =>"#F7464A",
             :highlight => "#FF5A5E",
-            :label => "Level: #{levelDescription.levelNumber} - Uncompleted"
+            :label => "Level: #{levelDescription.levelNumber}, Points"
         }
       end
 
@@ -172,7 +172,7 @@ class AnvilController < ApplicationController
             :value => levelDescription.extra_credit - userLevel.points,
             :color =>"#3366FF",
             :highlight => "#6699FF",
-            :label => "Extra Credit: #{levelDescription.levelNumber} - Uncompleted"
+            :label => "Level: #{levelDescription.levelNumber}, Points"
         }
       end
 
@@ -182,7 +182,7 @@ class AnvilController < ApplicationController
             :value => 5,
             :color =>"#33CC33",
             :highlight => "#00FF00",
-            :label => "Sample: #{levelDescription.levelNumber}"
+            :label => "Sample: #{levelDescription.levelNumber}, Points"
         }
       end
 
