@@ -9,11 +9,10 @@ import ctypes
 import platform
 import struct
 
-if 8 * struct.calcsize("P") != 32:
-    print("I'm sorry, but you must run Anvil with Python 32 bit on Windows. Look for the Python X86 installer instead of the X64.")
-    sys.exit(0)
-
-if "win" in platform.system().lower():
+if "windows" in platform.system().lower():
+    if 8 * struct.calcsize("P") != 32:
+        print("I'm sorry, but you must run Anvil with Python 32 bit on Windows. Look for the Python X86 installer instead of the X64.")
+        sys.exit(0)
     dir = os.path.dirname(__file__)
     libPath = os.path.join(dir, 'AnvilDll.dll')
 else:
