@@ -202,7 +202,7 @@ public class Flame {
             // Prevent starvation above 199
             if (livingHurtEvent.entity.posY >= 199 && livingHurtEvent.source == DamageSource.starve) {
                 livingHurtEvent.setCanceled(true);
-                ((EntityPlayer)livingHurtEvent.entity).getFoodStats().setFoodLevel(10);
+                ((EntityPlayer)livingHurtEvent.entity).getFoodStats().addStats(100, 1.0f);
 
             } else if (livingHurtEvent.source == DamageSource.fall &&
                     m_protectedEntities.contains(livingHurtEvent.entity) ) {

@@ -24,7 +24,7 @@ using Thilenius::BFEProtos::BFEInfoQueryResponse;
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    Config::OverrideIp("0.0.0.0");
+    //Config::OverrideIp("0.0.0.0");
     
     // Alec Thilenius 1
     // Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
@@ -33,7 +33,7 @@ int main(int argc, const char * argv[]) {
     //Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
     
     // John Doe 2 Local
-    Config::OverrideAuthToken("5e36b753-b897-4dce-a0f7-631106661a9b");
+    Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
     
     
 //    Spark spark = Anvil::LoadLevel(0).GetSpark();
@@ -41,9 +41,10 @@ int main(int argc, const char * argv[]) {
 //    spark.TurnRight();
     
     // Forward Forward Backward TurnLeft TurnLeft TurnRight Forward Forward
-//    Level level = Anvil::LoadLevel(1);
-//    Spark spark = level.GetSpark();
-//    
+    Level level = Anvil::LoadLevel(1);
+    Spark spark = level.GetSpark();
+    spark.MoveBackward();
+//
 //    spark.MoveForward();
 //    spark.MoveForward();
 //    spark.MoveBackward();
@@ -54,17 +55,5 @@ int main(int argc, const char * argv[]) {
 //    spark.MoveForward();
     
 //    // Backward Backward TurnRight Forward TurnLeft Forward Forward TurnLeft Backward
-    Level level = Anvil::LoadLevel(2);
-    Spark spark = level.GetSpark();
-    
-    spark.MoveBackward();
-    spark.MoveBackward();
-    spark.TurnRight();
-    spark.MoveForward();
-    spark.TurnLeft();
-    spark.MoveForward();
-    spark.MoveForward();
-    spark.TurnLeft();
-    spark.MoveBackward();
 
 }
