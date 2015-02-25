@@ -82,9 +82,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
     # User Faye with Redis for passenger (Note, must fix a bug, see below)
-    config.middleware.delete Rack::Lock
-    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25, :server => 'passenger',
-                          :engine => {type: Faye::Redis, host: 'localhost', port: 6379}
+    # config.middleware.delete Rack::Lock
+    # config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25, :server => 'passenger',
+    #                       :engine => {type: Faye::Redis, host: 'localhost', port: 6379}
 
     # NOTE! Must fix a FayeRails bug in Middleware.rb:
     # Change:

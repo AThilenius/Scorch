@@ -39,6 +39,6 @@ Rails.application.configure do
 
 
   # Use standard Faye with Thin
-  config.middleware.delete Rack::Lock
-  config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
+  # config.middleware.delete Rack::Lock
+  # config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
 end

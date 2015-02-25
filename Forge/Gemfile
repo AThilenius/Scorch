@@ -17,13 +17,10 @@ gem 'redis', '3.1.0'
 gem 'redcarpet'
 gem 'redis-objects'
 gem 'time_diff'
-gem 'passenger'
 gem 'mysql2'
 gem 'seed_dump'
 gem 'rubyzip'
 
-# Need to use Thin for faye
+# User Thin for Development ( Passenger for Production )
 gem 'thin',                       group: :development
-gem 'faye'
-gem 'faye-rails'
-gem 'faye-redis'
+gem 'passenger',                  group: :production

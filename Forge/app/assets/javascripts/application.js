@@ -3,7 +3,6 @@
 //= require turbolinks
 
 //= require twitter/bootstrap
-//= require faye
 //= require Chart
 //= require_tree .
 
