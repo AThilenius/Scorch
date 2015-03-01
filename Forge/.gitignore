@@ -1,6 +1,7 @@
 *.rbc
 capybara-*.html
 .rspec
+/certs
 /log
 /tmp
 /public/system
@@ -10,6 +11,8 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 config/database.yml
+*.service
+Dockerfile
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 #config/initializers/secret_token.rb

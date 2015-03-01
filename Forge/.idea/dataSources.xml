@@ -33,7 +33,7 @@
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb</jdbc-url>
+      <jdbc-url>jdbc:mysql://&lt;%= ENV['APP_DB_HOST'] %&gt;:&lt;%= ENV['APP_DB_PORT'] || &quot;3306&quot; %&gt;/&lt;%= ENV['APP_DB_DATABASE'] %&gt;</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />

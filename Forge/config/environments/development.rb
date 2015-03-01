@@ -1,4 +1,5 @@
 Rails.application.configure do
+  # config.action_controller.asset_host = "https://scorchforge.s3.amazonaws.com/forge/production"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

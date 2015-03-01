@@ -9,8 +9,8 @@
       <default-schemas>forgedb.*</default-schemas>
     </data-source>
     <data-source name="Rails Forge: production" uuid="73051764-4ff6-47f1-bee5-1b00ac4ecec0">
-      <user-name>admin</user-name>
-      <user-password>df9adf9bdf98dfc8dfc8df9adfcbdfc9dfc8df93df98dfce</user-password>
+      <user-name>&lt;%= ENV['APP_DB_USERNAME'] %&gt;</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfebdffadffadff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <schema-pattern>forgedb.*</schema-pattern>
       <default-schemas>forgedb.*</default-schemas>
     </data-source>
