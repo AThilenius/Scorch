@@ -34,6 +34,13 @@ var scrapeAsyncHref = function() {
         var contentAreaName = $this.data('content-area') == null ? 'async-content-area' : $this.data('content-area');
         var contentArea = $(document.getElementById(contentAreaName));
 
+        // Ensure SSL on Prod
+        if (location.hostname == "scorchforge.com" && url.indexOf("https") <= -1) {
+            url = url.replace("http", "https")
+        }
+
+        console.log("Getting [scrapeAsyncHref]: " + url);
+
         element.onclick = function() {
             element.disabled = true;
 
@@ -69,6 +76,13 @@ var scrapeAsyncUrl = function() {
         if (url.indexOf("http") <= -1) {
             url = getFullAddress(url);
         }
+
+        // Ensure SSL on Prod
+        if (location.hostname == "scorchforge.com" && url.indexOf("https") <= -1) {
+            url = url.replace("http", "https")
+        }
+
+        console.log("Getting [scrapeAsyncUrl]: " + url);
 
         var pollRegisterFunction = function(isPoll) {
             $.ajax({
