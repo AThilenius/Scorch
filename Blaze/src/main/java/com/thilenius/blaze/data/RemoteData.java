@@ -22,32 +22,14 @@ public class RemoteData {
             return;
         }
 
-        if (m_password == null) {
-            try {
-                String path = "./rds_password.txt";
-                FileInputStream fis = new FileInputStream(path);
-                BufferedReader in = new BufferedReader(new InputStreamReader(fis));
-                m_password = in.readLine();
-            } catch (FileNotFoundException e) {
-                System.out.println("Failed to find rds_password.txt file");
-            } catch (IOException e) {
-                System.out.println("Failed to open and read rds_password.txt file");
-            }
-        }
-
         try
         {
             // First try to connect to production.
             try {
-                if (m_password != null) {
-                    System.out.println("Trying to connect AWS RDS: MySQL");
-                    Class.forName("com.mysql.jdbc.Driver").newInstance();
-                    m_sqlInstance = DriverManager.getConnection(
-                            "jdbc:mysql://forge-dev.cfqsj371kgit.us-west-1.rds.amazonaws.com:3306/forgedb?" +
-                                    "user=admin&password=" + m_password);
-                    System.out.println("Connected to DEVELOPMENT AWS RDS");
-                    return;
-                }
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                m_sqlInstance = DriverManager.getConnection(Blaze.Args.getMySqlConnectionString());
+                System.out.println("Connected to DEVELOPMENT AWS RDS");
+                return;
             } catch(SQLException e) {
                 // Do nothing, fallback to Dev
                 System.out.println(e.getMessage());

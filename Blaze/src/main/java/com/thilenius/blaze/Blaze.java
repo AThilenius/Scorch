@@ -35,6 +35,7 @@ public class Blaze {
     public static Flame FlameInstance;
     public static BlazeFrontEnd FrontEndServer;
     public static ExecutorService ThreadPool = Executors.newFixedThreadPool(128);
+    public static BlazeArgs Args = new BlazeArgs();
 
     private static List<Runnable> m_gameLoopMarshalQueue = new LinkedList<Runnable>();
 
@@ -45,6 +46,12 @@ public class Blaze {
     }
 
     public Blaze (Flame flame) {
+        // Parse our command line args
+        com.sampullara.cli.Args.usage(Args);
+        String cargs = System.getProperty("sun.java.command");
+        System.out.println("Parsing args: " + cargs);
+        com.sampullara.cli.Args.parse(Args, System.getProperty("sun.java.command").split(" "));
+
         FlameInstance = flame;
         World = new BlazeWorld(MinecraftServer.getServer().worldServers[0]);
         FrontEndServer = new BlazeFrontEnd();

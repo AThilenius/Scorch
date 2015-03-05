@@ -122,6 +122,26 @@ public class BFESocketServer implements Runnable {
         }
     }
 
+    public void send(SocketChannel socket, byte[] data) {
+        synchronized (this.m_changeRequests) {
+            // Indicate we want the interest ops set changed
+            this.m_changeRequests.add(new ChangeRequest(socket, ChangeRequest.CHANGEOPS, SelectionKey.OP_WRITE));
+
+            // And queue the data we want written
+            synchronized (this.m_pendingData) {
+                List<byte[]> queue = this.m_pendingData.get(socket);
+                if (queue == null) {
+                    queue = new ArrayList<byte[]>();
+                    this.m_pendingData.put(socket, queue);
+                }
+                queue.add(data);
+            }
+        }
+
+        // Finally, wake up our selecting thread so it can make the required changes
+        this.m_selector.wakeup();
+    }
+
     private List<IBFERequest> getAllWaiting(ExtensionRegistry extensionRegistry, boolean block) {
         List<IBFERequest> allWaiting = new LinkedList<IBFERequest>();
         synchronized(m_receiveQueue) {
@@ -180,26 +200,6 @@ public class BFESocketServer implements Runnable {
         socketChannel.register(this.m_selector, SelectionKey.OP_READ);
 
         System.out.println("Accepting Connection");
-    }
-
-    public void send(SocketChannel socket, byte[] data) {
-        synchronized (this.m_changeRequests) {
-            // Indicate we want the interest ops set changed
-            this.m_changeRequests.add(new ChangeRequest(socket, ChangeRequest.CHANGEOPS, SelectionKey.OP_WRITE));
-
-            // And queue the data we want written
-            synchronized (this.m_pendingData) {
-                List<byte[]> queue = this.m_pendingData.get(socket);
-                if (queue == null) {
-                    queue = new ArrayList<byte[]>();
-                    this.m_pendingData.put(socket, queue);
-                }
-                queue.add(data);
-            }
-        }
-
-        // Finally, wake up our selecting thread so it can make the required changes
-        this.m_selector.wakeup();
     }
 
     private void read(SelectionKey key) throws IOException {
@@ -297,6 +297,4 @@ public class BFESocketServer implements Runnable {
         }
         return true;
     }
-
-
 }

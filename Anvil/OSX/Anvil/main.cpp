@@ -24,36 +24,16 @@ using Thilenius::BFEProtos::BFEInfoQueryResponse;
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    //Config::OverrideIp("0.0.0.0");
+    Config::OverrideIp("54.67.38.67");
     
-    // Alec Thilenius 1
-    // Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
-    
-    // John Doe 1 AWS
-    //Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
-    
-    // John Doe 2 Local
+    // Alec Thilenius 2 AWS
     Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
     
+    // John Doe 1 AWS
+    // Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
     
-//    Spark spark = Anvil::LoadLevel(0).GetSpark();
-//    spark.MoveForward();
-//    spark.TurnRight();
+    // John Doe 2 Local
+    // Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
     
-    // Forward Forward Backward TurnLeft TurnLeft TurnRight Forward Forward
-    Level level = Anvil::LoadLevel(1);
-    Spark spark = level.GetSpark();
-    spark.MoveBackward();
-//
-//    spark.MoveForward();
-//    spark.MoveForward();
-//    spark.MoveBackward();
-//    spark.TurnLeft();
-//    spark.TurnLeft();
-//    spark.TurnRight();
-//    spark.MoveForward();
-//    spark.MoveForward();
-    
-//    // Backward Backward TurnRight Forward TurnLeft Forward Forward TurnLeft Backward
-
+    Anvil::LoadLevel(0);
 }
