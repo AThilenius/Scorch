@@ -1,0 +1,31 @@
+[Unit]
+Description=Forge Web server %i etcd registration
+
+# Requirements
+Requires=etcd.service
+Requires=forge@%i.service
+
+# Dependency ordering and binding
+After=etcd.service
+After=forge@%i.service
+BindsTo=forge@%i.service
+
+
+[Service]
+EnvironmentFile=/etc/environment
+
+# Start
+## Test whether service is accessible and then register useful information
+ExecStart=/bin/bash -c '\
+  while true; do \
+     etcdctl set /services/forge/${COREOS_PRIVATE_IPV4} \'${COREOS_PRIVATE_IPV4}:4010\' --ttl 30; \
+    sleep 20; \
+  done'
+
+# Stop
+ExecStop=/usr/bin/etcdctl rm /services/forge/${COREOS_PRIVATE_IPV4}
+
+
+[X-Fleet]
+# Schedule on the same machine as the associated Forge service
+MachineOf=forge@%i.service

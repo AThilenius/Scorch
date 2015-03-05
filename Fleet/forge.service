@@ -1,0 +1,19 @@
+[Unit]
+Description=forge
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill forge
+ExecStartPre=-/usr/bin/docker rm forge
+ExecStart=/usr/bin/docker run --rm --name forge -p 80:80 -p 443:443 -v /home/core/certs:/home/core/certs \
+-e "APP_DB_HOST=$(etcdctl get /db/host)" \
+-e "APP_DB_DATABASE=$(etcdctl get /db/database)" \
+-e "APP_DB_PORT=$(etcdctl get /db/port)" \
+-e "APP_DB_USERNAME=admin" \
+-e "APP_DB_PASSWORD=012bb0acb92d" \
+athilenius/forge
+
+# Stop
+ExecStop=/usr/bin/docker kill forge
+
+[X-Fleet]
+Conflicts=forge.service

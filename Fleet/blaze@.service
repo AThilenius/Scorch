@@ -1,0 +1,38 @@
+[Unit]
+Description=Blaze Minecraft Server %i
+
+# Requirements
+Requires=etcd.service
+Requires=docker.service
+Requires=blaze-discovery@%i.service
+
+# Dependency ordering
+After=etcd.service
+After=docker.service
+Before=blaze-discovery@%i.service
+
+
+[Service]
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+
+## Directives with "=-" are allowed to fail without consequence
+ExecStartPre=-/usr/bin/docker kill blaze.%i
+ExecStartPre=-/usr/bin/docker rm blaze.%i
+ExecStartPre=/usr/bin/docker pull athilenius/blaze
+ExecStart=/bin/bash -c -l "/usr/bin/docker run --name blaze.%i -p 25565:25565 -p 5529:5529 \
+-e DB_HOST=$(etcdctl get /db/host) \
+-e DB_PORT=$(etcdctl get /db/port) \
+-e DB_DATABASE=$(etcdctl get /db/database) \
+-e DB_LOGIN=admin \
+-e DB_PASSWORD=012bb0acb92d \
+athilenius/blaze"
+
+# Stop
+ExecStop=/usr/bin/docker stop blaze.%i
+ExecStopPost=/usr/bin/docker rm blaze.%i
+
+
+[X-Fleet]
+Conflicts=blaze@*.service

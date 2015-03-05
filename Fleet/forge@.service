@@ -1,0 +1,35 @@
+[Unit]
+Description=Forge Web Server %i
+
+# Requirements
+Requires=etcd.service
+Requires=docker.service
+Requires=forge-discovery@%i.service
+
+# Dependency ordering
+After=etcd.service
+After=docker.service
+Before=forge-discovery@%i.service
+
+[Service]
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+
+ExecStartPre=-/usr/bin/docker kill forge.%i
+ExecStartPre=-/usr/bin/docker rm forge.%i
+ExecStartPre=/usr/bin/docker pull athilenius/forge
+ExecStart=/bin/bash -c -l "/usr/bin/docker run --rm --name forge.%i -p 4010:80 \
+-e APP_DB_HOST=$(etcdctl get /db/host) \
+-e APP_DB_DATABASE=$(etcdctl get /db/database) \
+-e APP_DB_PORT=$(etcdctl get /db/port) \
+-e APP_DB_USERNAME=admin \
+-e APP_DB_PASSWORD=012bb0acb92d \
+athilenius/forge"
+
+# Stop
+ExecStop=/usr/bin/docker kill forge.%i
+ExecStopPost=/usr/bin/docker rm forge.%i
+
+[X-Fleet]
+Conflicts=forge@*.service
