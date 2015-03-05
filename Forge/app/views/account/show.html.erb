@@ -1,0 +1,42 @@
+<% content_for :for_head do %>
+    <div id="flameHeader">
+      <span id="dummySpan"></span>
+      <div id="label">Account</div>
+    </div>
+<% end %>
+
+<br>
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <img height="250" width="250" src=<%=asset_path('Flame-512.png')%> />
+  </div>
+  <div class="col-md-10">
+    <br>
+    <dl class="dl-horizontal">
+      <dt>First Name:</dt>
+      <dd><%= sessionGetUser.firstName %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Last Name:</dt>
+      <dd><%= sessionGetUser.lastName %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>GUID:</dt>
+      <dd><span class="label label-default"><%= sessionGetUser.guid %></span></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Student ID:</dt>
+      <dd><%= sessionGetUser.studentID %></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Password:</dt>
+      <dd><a href="<%= password_path %>" class="btn btn-xs btn-danger">Change</a></dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Role:</dt>
+      <dd><%= sessionIsAdmin ? 'Teacher' : 'Student' %></dd>
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<h1 class="text-center white"><%= @assignment.name %></h1>
+<h4 class="text-center">
+  <span class="label label-<%= @assignment.due_date_color %>">
+    <%= @assignment.is_past_due ? 'Closed' : @assignment.due_date_countdown %>
+  </span>
+</h4>
+
+<hr>
+
+<script>
+    function testQueryInfo() {
+        var jsonText = JSON.stringify({"Thilenius.BFEProtos.BFEInfoQueryRequest.BFEInfoQueryRequest_ext": {"auth_token": "c0dba92c-6449-40a6-95da-11d2b7d28ad6"}});
+        console.log("Sending request: " + jsonText);
+//        $.ajax({
+//            type: 'POST',
+//            url: 'http://localhost:9886/json',
+//            dataType: 'jsonp',
+//            data: jsonText,
+//            success: function (data) {
+//                console.log(data);
+//            }
+//        });
+        $.post("http://localhost:9886/json",
+                jsonText,
+                function(data, textStatus, jqXHR) {
+                    console.log("Got: " + JSON.stringify(data));
+                },
+                "json").fail(function(jqXHR, textStatus, errorThrown) {
+                    console.log("Error: " + textStatus);
+                });
+    }
+</script>
+<!--<button type="button" class="btn btn-default" onclick="testQueryInfo()">Test Query Info</button>-->
+
+<ul class="nav nav-pills">
+  <li role="presentation" class=<%= 'active' if current_page?(assignment_path(@assignment.id)) %>>
+    <a href=<%= assignment_path(@assignment.id) %>>Assignment</a>
+  </li>
+  <li role="presentation"><a href="#">Class Statistics</a></li>
+  <li role="presentation" class="dropdown pull-right">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+      Download <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu data-no-turbolink" role="menu">
+      <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/vs" %>>Visual Studio 2012</a></li>
+      <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/xcode" %>>XCode</a></li>
+      <li><a class="data-no-turbolink" href=<%= "/downloads/#{@assignment.id}/makefile" %>>Unix Makefile</a></li>
+    </ul>
+  </li>
+</ul>
+
+<br>
+
+
+<div class="panel panel-<%= @panelColor %>">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Assignment Overview
+      <div class="badge pull-right"><%= "#{@earnedPoints} / #{@totalPoints}" %></div>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <p class="pull-right">Due <%= pretty_date @assignment.dueDate %></p>
+    <!--Render Assignment-->
+    <%= markdown(@assignment.markdown) %>
+  </div>
+</div>
+
+<!--Render Each Level-->
+<% @levels.each do |level| %>
+    <div class="panel panel-<%= level.panelColor %>" >
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <span class="badge"><%= level.levelDescription.levelNumber %></span> <%= level.levelDescription.name %>
+          <div class="badge pull-right"><%= "#{level.userLevel.points} / #{level.levelDescription.points}" %></div>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <%= markdown(level.levelDescription.markdown) %>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,56 @@
+<div id="async-content-area">
+  <div style="text-align: center;">
+    <% assignmentsCount = pending_assignments_count %>
+    <% if assignmentsCount == 0 %>
+        <h2 style="color: green;">You have no upcoming Anvil Assignments.</h2>
+    <% else %>
+        <h2 style="color: red;">You have unfinished Anvil Assignments!</h2>
+    <% end %>
+    <br>
+    <hr>
+  </div>
+
+  <% @assignmentsData.each do |assignmentData| %>
+      <div style='position:relative;'>
+        <h3 style="text-align: center;"><%= assignmentData.assignment.name %></h3>
+        <div style='position:absolute;right:0;top:0'>
+          <button style="display: inline;" class="btn btn-default pull-right" data-async-href="<%= "anvil/#{assignmentData.assignment.id}/assignment" %>" >Open Assignment</button>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <div class="label label-<%= assignmentData.dueDateColorLabel %>">
+          <%= assignmentData.assignment.due_date_countdown %>
+        </div>
+      </div>
+
+      <br>
+
+      <div style="text-align: center;">
+        <div>
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" style="width: <%= assignmentData.pointsPercent %>">
+              <span class="">Progress</span>
+            </div>
+          </div>
+
+          <!--<div class="progress text-center">-->
+          <!--<div class="progress-bar progress-bar-success progress-bar-striped"-->
+          <!--style="width: <%= assignmentData.extraCreditPercent %>">-->
+          <!--<span class="">Extra Credit</span>-->
+          <!--</div>-->
+          <!--</div>-->
+
+        </div>
+
+      </div>
+
+      <%= raw assignmentData.assignment.brief_markdown.html_safe %>
+      <em class="pull-right">Due <%= pretty_date assignmentData.assignment.dueDate %></em>
+
+      <br>
+      <br>
+      <hr>
+  <% end %>
+</div>

@@ -1,0 +1,43 @@
+<!-- Overview -->
+<div style="text-align: center;">
+  <h2>What is Anvil?</h2>
+  <p>Anvil is the tool used to interface with Minecraft programmatically. It is important to note that all downloads of Anvil are customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</p>
+</div>
+
+<br>
+<hr>
+
+<div style='position:relative;'>
+  <h2 style="text-align: center">Getting started with Anvil on <span id="osTypeText"></span></h2>
+  <div style='position:absolute;right:0;top:0'>
+    <div class="btn-group pull-right">
+      <button id="osDropdown" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <i><span id="ddText">Wrong Platform? </span> <span class="caret"></span></i>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a id="windowsSelect">Windows</a></li>
+        <li><a id="osxSelect">OS X</a></li>
+        <li><a id="otherSelect">Other</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Windows Tab -->
+<div id="Windows" style="text-align: center">
+  <div data-async-url="<%= anvil_win_url %>">
+    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+  </div>
+</div>
+
+<div id="OSX" style="text-align: center">
+  <div data-async-url="<%= anvil_osx_url %>">
+    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+  </div>
+</div>
+
+<div id="Other" style="text-align: center">
+  <div data-async-url="<%= anvil_other_url %>">
+    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+  </div>
+</div>

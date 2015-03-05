@@ -1,0 +1,64 @@
+<% content_for :for_head do %>
+    <div id="anvilHeader">
+      <span id="dummySpan"></span>
+      <div id="label">Anvil</div>
+    </div>
+<% end %>
+
+<br>
+
+<ul class="nav nav-pills nav-justified">
+  <li role="presentation" class="active" style="height: 10px;"><a>My Assignments
+      <% assignmentsCount = pending_assignments_count %>
+      <% if assignmentsCount != 0 %>
+          <div class="badge"><%= pending_assignments_count %></div>
+      <% end %></a></li>
+  <li role="presentation"style="height: 10px;"><a>Class Statistics</a></li>
+</ul>
+
+<br>
+
+<div style="text-align: center;">
+  <h2>What is Anvil?</h2>
+  <p>Scorch relies on a heavily modified Minecraft client and server. Flame is a custom resource-resolver and launcher for Minecraft, making setup turn-key. It is very important to note that this download of Flame is customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</p>
+</div>
+
+<br>
+
+<% @assignmentsData.each do |assignmentData| %>
+
+    <ul class="list-group">
+      <a class="list-group-item" style="background-color: rgba(0, 0, 0, 0.32);"
+            href=<%= assignment_path(assignmentData.assignment.id) %>>
+        <h4 class="white"><b><%= assignmentData.assignment.name %></b>
+          <span class=" pull-right label label-<%= assignmentData.dueDateColorLabel %>">
+            <%= assignmentData.assignment.due_date_countdown %>
+          </span>
+        </h4>
+        <hr>
+        <div class="row">
+
+          <div class="col-sm-9">
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: <%= assignmentData.pointsPercent %>">
+                <span class="">Progress</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="progress text-center">
+              <div class="progress-bar progress-bar-success progress-bar-striped"
+                   style="width: <%= assignmentData.extraCreditPercent %>">
+                <span class="">Extra Credit</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <p class="white"><%= assignmentData.assignment.brief_markdown %></p>
+        <em class="white">Due <%= pretty_date assignmentData.assignment.dueDate %></em>
+      </a>
+    </ul>
+
+<% end %>

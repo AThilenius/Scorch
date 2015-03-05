@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  markdown: MyString
+  jarPath: MyString
+
+two:
+  markdown: MyString
+  jarPath: MyString

@@ -1,0 +1,2 @@
+module FlameHelper
+end

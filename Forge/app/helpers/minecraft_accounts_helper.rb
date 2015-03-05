@@ -1,0 +1,4 @@
+module MinecraftAccountsHelper
+
+
+end

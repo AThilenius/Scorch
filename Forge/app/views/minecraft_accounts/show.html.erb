@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      Minecraft Account: <%= @mcAccount.username %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img height="250" width="250" src=<%=asset_path('MinecraftCube.png')%> />
+      </div>
+      <div class="col-md-4">
+
+        <dl class="dl-horizontal">
+          <dt>User Name:</dt>
+          <dd><%= @mcAccount.username %></dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+          <dt>Password:</dt>
+          <dd><a href=<%= password_path %>>Change</a></dd>
+        </dl>
+
+        <dl class="dl-horizontal">
+          <dt>State:</dt>
+          <dd><%= @mcAccount.state %></dd>
+        </dl>
+
+      </div>
+      <div class="col-md-4">
+        <%= link_to "Delete Account", minecraft_account_path(@mcAccount.id), :class => 'btn btn-danger autoWidth', :method => :delete %>
+      </div>
+    </div>
+
+  </div>
+</div>
