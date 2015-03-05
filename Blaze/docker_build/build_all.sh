@@ -5,5 +5,5 @@ cd ..
 cp build/libs/* docker_build/mods
 cp libs/* docker_build/mods
 cd docker_build
-docker build -t athilenius/blaze .
+/bin/bash docker_build.sh
 docker puch athilenius/blaze

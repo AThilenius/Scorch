@@ -21,10 +21,5 @@ RUN /bin/bash -c -l 'RAILS_ENV=production bundle install'
 
 ADD . pl-site
 WORKDIR pl-site
-RUN /bin/bash -c -l "export AWS_ACCESS_KEY_ID=AKIAIXBMI5CUPWETNDCQ; \
-export AWS_SECRET_ACCESS_KEY=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; \
-export FOG_DIRECTORY=scorchforge; \
-export FOG_PROVIDER=AWS; \
-RAILS_ENV=production rake assets:precompile"
 
 CMD /bin/bash -c -l 'passenger start -p80 -e production'
