@@ -1,0 +1,29 @@
+[Unit]
+Description=The Mongodb database instance %i
+
+# Requirements
+Requires=etcd.service
+Requires=docker.service
+Requires=mongodb-discovery@%i.service
+
+# Dependency ordering
+After=etcd.service
+After=docker.service
+Before=mongodb-discovery@%i.service
+
+[Service]
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+
+ExecStartPre=-/usr/bin/docker kill mongodb.%i
+ExecStartPre=-/usr/bin/docker rm mongodb.%i
+ExecStartPre=/usr/bin/docker pull athilenius/mongodb
+ExecStart=/bin/bash -c -l "/usr/bin/docker run --rm --name mongodb.%i -p 5010:27017 -p 5011:28017 athilenius/mongodb"
+
+# Stop
+ExecStop=/usr/bin/docker kill mongodb.%i
+ExecStopPost=/usr/bin/docker rm mongodb.%i
+
+[X-Fleet]
+Conflicts=mongodb@*.service

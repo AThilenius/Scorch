@@ -1,14 +1,14 @@
 [Unit]
-Description=Nginx load balancer and proxy %i etcd registration
+Description=The Mongodb database %i etcd registration
 
 # Requirements
 Requires=etcd.service
-Requires=nginx@%i.service
+Requires=mongodb@%i.service
 
 # Dependency ordering and binding
 After=etcd.service
-After=nginx@%i.service
-BindsTo=nginx@%i.service
+After=mongodb@%i.service
+BindsTo=mongodb@%i.service
 
 
 [Service]
@@ -18,14 +18,14 @@ EnvironmentFile=/etc/environment
 ## Test whether service is accessible and then register useful information
 ExecStart=/bin/bash -c '\
   while true; do \
-     etcdctl set /services/nginx/${COREOS_PRIVATE_IPV4} \'${COREOS_PRIVATE_IPV4}:443\' --ttl 30; \
+     etcdctl set /services/mongodb/${COREOS_PRIVATE_IPV4} \'${COREOS_PRIVATE_IPV4}:5010\' --ttl 30; \
     sleep 20; \
   done'
 
 # Stop
-ExecStop=/usr/bin/etcdctl rm /services/nginx/${COREOS_PRIVATE_IPV4}
+ExecStop=/usr/bin/etcdctl rm /services/mongodb/${COREOS_PRIVATE_IPV4}
 
 
 [X-Fleet]
 # Schedule on the same machine as the associated Nginx service
-MachineOf=nginx@%i.service
+MachineOf=mongodb@%i.service
