@@ -1,8 +1,9 @@
-<!-- Overview -->
-<div style="text-align: center;">
-  <h2>What is Anvil?</h2>
-  <p>Anvil is the tool used to interface with Minecraft programmatically. It is important to note that all downloads of Anvil are customized to you, <%= "#{sessionGetUser.firstName} #{sessionGetUser.lastName}" %>. Do not share it with anyone.</p>
-</div>
+<% content_for :for_head do %>
+    <div id="flameHeader">
+      <span id="dummySpan"></span>
+      <div id="label">Anvil</div>
+    </div>
+<% end %>
 
 <br>
 <hr>

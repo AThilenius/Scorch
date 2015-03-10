@@ -37,7 +37,7 @@ std::string Config::GetBlazeIP() {
         return *s_ipOverride;
     }
     
-    return "54.67.38.67";
+    return "54.67.9.61";
 }
 
 int Config::GetBlazePort() {

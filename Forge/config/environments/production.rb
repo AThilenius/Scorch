@@ -1,8 +1,8 @@
 Rails.application.configure do
-  config.action_controller.asset_host = "https://scorchforge.s3.amazonaws.com"
+  #config.action_controller.asset_host = "https://scorchforge.s3.amazonaws.com"
+  config.action_controller.asset_host = "https://s3-us-west-1.amazonaws.com/scorchforge"
   config.assets.enabled = true
   config.assets.digest = true
-
 
   # Code is not reloaded between requests.
   config.cache_classes = true

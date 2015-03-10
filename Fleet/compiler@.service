@@ -1,0 +1,29 @@
+[Unit]
+Description=The compiler service %i
+
+# Requirements
+Requires=etcd.service
+Requires=docker.service
+Requires=compiler-discovery@%i.service
+
+# Dependency ordering
+After=etcd.service
+After=docker.service
+Before=compiler-discovery@%i.service
+
+[Service]
+TimeoutStartSec=0
+KillMode=none
+EnvironmentFile=/etc/environment
+
+ExecStartPre=-/usr/bin/docker kill compiler.%i
+ExecStartPre=-/usr/bin/docker rm compiler.%i
+ExecStartPre=/usr/bin/docker pull athilenius/compiler
+ExecStart=/bin/bash -c -l "/usr/bin/docker run --rm --name compiler.%i -p 6010:80 athilenius/compiler"
+
+# Stop
+ExecStop=/usr/bin/docker kill compiler.%i
+ExecStopPost=/usr/bin/docker rm compiler.%i
+
+[X-Fleet]
+Conflicts=compiler@*.service

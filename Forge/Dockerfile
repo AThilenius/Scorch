@@ -19,6 +19,15 @@ ADD ./Gemfile Gemfile
 ADD ./Gemfile.lock Gemfile.lock
 RUN /bin/bash -c -l 'RAILS_ENV=production bundle install'
 
+# ADD app pl-site/app
+# ADD bin pl-site/bin
+# ADD config pl-site/config
+# ADD db pl-site/db
+# ADD lib pl-site/lib
+# ADD vendor pl-site/vendor
+# ADD config.ru pl-site/
+# ADD Rakefile pl-site/
+
 ADD . pl-site
 WORKDIR pl-site
 

@@ -1,3 +1,9 @@
+upstream compiler_pool {
+{{ range getvs "/services/compiler/*" }}
+    server {{ . }};
+{{ end }}
+}
+
 upstream forge_pool {
 {{ range getvs "/services/forge/*" }}
     server {{ . }};
@@ -20,6 +26,15 @@ server {
 
     location / {
         proxy_pass  http://forge_pool;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+        proxy_redirect off;
+        proxy_set_header        Host            $host;
+        proxy_set_header        X-Real-IP       $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location /services/compiler/ {
+        proxy_pass  http://compiler_pool/;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect off;
         proxy_set_header        Host            $host;

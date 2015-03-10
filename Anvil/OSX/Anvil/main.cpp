@@ -24,7 +24,7 @@ using Thilenius::BFEProtos::BFEInfoQueryResponse;
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    Config::OverrideIp("54.67.38.67");
+    //Config::OverrideIp("54.67.38.67");
     
     // Alec Thilenius 2 AWS
     Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
