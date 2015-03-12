@@ -1,10 +1,8 @@
 package com.thilenius.flame.spark;
 
-import com.thilenius.utilities.types.CountdownTimer;
-import com.thilenius.utilities.types.Location3D;
-import com.thilenius.utilities.types.LocationF3D;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import com.thilenius.flame.utilities.types.CountdownTimer;
+import com.thilenius.flame.utilities.types.Location3D;
+import com.thilenius.flame.utilities.types.LocationF3D;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;

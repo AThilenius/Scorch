@@ -1,13 +1,8 @@
 package com.thilenius.flame.jumbotron;
 
-import com.thilenius.flame.spark.ModelSparkSmall;
-import com.thilenius.flame.spark.SparkTileEntity;
-import com.thilenius.utilities.types.LocationF3D;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 /**

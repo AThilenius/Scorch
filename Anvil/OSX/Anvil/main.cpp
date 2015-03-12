@@ -24,10 +24,10 @@ using Thilenius::BFEProtos::BFEInfoQueryResponse;
 using namespace AnvilAPI;
 
 int main(int argc, const char * argv[]) {
-    //Config::OverrideIp("54.67.38.67");
+    Config::OverrideIp("127.0.0.1");
     
     // Alec Thilenius 2 AWS
-    Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
+    Config::OverrideAuthToken("bbd3ec28-27a5-4080-b8c3-61803e714817");
     
     // John Doe 1 AWS
     // Config::OverrideAuthToken("3440552a-0791-4565-beb0-74ae48c5a17b");
@@ -35,5 +35,5 @@ int main(int argc, const char * argv[]) {
     // John Doe 2 Local
     // Config::OverrideAuthToken("ca527581-3319-4aa8-8a6b-4de8cccd118e");
     
-    Anvil::LoadLevel(0);
+    Anvil::LoadLevel(2).GetSpark().TurnLeft();
 }

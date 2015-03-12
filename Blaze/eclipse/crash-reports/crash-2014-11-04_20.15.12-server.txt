@@ -8,7 +8,7 @@ java.lang.NumberFormatException: For input string: " 0"
 	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
 	at java.lang.Integer.parseInt(Integer.java:481)
 	at java.lang.Integer.parseInt(Integer.java:527)
-	at com.thilenius.utilities.types.Location2D.<init>(Location2D.java:31)
+	at com.thilenius.flame.utilities.types.Location2D.<init>(Location2D.java:31)
 	at com.thilenius.blaze.player.PlayerArena.<init>(PlayerArena.java:25)
 	at com.thilenius.blaze.BlazeWorld.<init>(BlazeWorld.java:26)
 	at com.thilenius.blaze.Blaze.<init>(Blaze.java:28)

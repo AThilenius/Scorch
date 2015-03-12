@@ -1,7 +1,6 @@
 package com.thilenius.flame.spark;
 
-import com.thilenius.utilities.types.LocationF3D;
-import net.minecraft.client.gui.FontRenderer;
+import com.thilenius.flame.utilities.types.LocationF3D;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;

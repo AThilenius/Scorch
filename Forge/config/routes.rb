@@ -51,5 +51,5 @@ Rails.application.routes.draw do
   resources :students, :only => [:show, :destroy]
   resources :assignments, :only => [:show, :destroy]
 
-  root 'anvil#getting_started'
+  root 'anvil#show'
 end

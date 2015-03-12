@@ -1,12 +1,14 @@
 package com.thilenius.flame;
 
-import com.thilenius.blaze.Blaze;
 import com.thilenius.flame.commands.BlazeCommandHandler;
 import com.thilenius.flame.commands.HomeCommandHandler;
+import com.thilenius.flame.http.RestHttpServer;
 import com.thilenius.flame.jumbotron.JumboBlock;
 import com.thilenius.flame.jumbotron.JumboTileEntity;
 import com.thilenius.flame.spark.SparkBlock;
 import com.thilenius.flame.spark.SparkTileEntity;
+import com.thilenius.flame.transaction.Statement;
+import com.thilenius.flame.transaction.Transaction;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -31,6 +33,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -49,8 +52,6 @@ import java.util.HashSet;
 @Mod(modid = "flame", name = "Flame", version = "0.0.1")
 public class Flame {
 
-    public static Blaze BlazeInstance;
-
 	// Notes:
 	// Getting access to a world: MinecraftServer.getServer().worldServers[0].
 
@@ -63,6 +64,9 @@ public class Flame {
 	public static Block sparkBlock;
     public static Block jumboBlock;
 	public static Item spark;
+
+    public static World World;
+    public static RestHttpServer RestServer;
 
     private static HashSet<Entity> m_protectedEntities = new HashSet<Entity>();
     private static boolean m_hasStartTickBeenSent;
@@ -93,6 +97,7 @@ public class Flame {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+
 	}
 
     @EventHandler
@@ -106,25 +111,27 @@ public class Flame {
 
     @EventHandler
     public void serverStarted(FMLServerStartedEvent event) {
-        BlazeInstance = new Blaze(this);
     }
 
-    // Fuck this piece of shit Minecraft code!!!
     @SubscribeEvent
     public void entityJoinEvent(EntityJoinWorldEvent event) {
-//        if ((Object)event.entity instanceof SparkTileEntity) {
-//            event.setCanceled(true);
-//        }
     }
 
 	@SubscribeEvent
 	public void onServerTick(ServerTickEvent event) {
-        if (!m_hasStartTickBeenSent && BlazeInstance != null) {
+        if (!m_hasStartTickBeenSent) {
             m_hasStartTickBeenSent = true;
-            BlazeInstance.onStart();
+            this.World = MinecraftServer.getServer().worldServers[0];
+            this.RestServer = new RestHttpServer();
+            new Thread(this.RestServer).start();
         }
 
-		Blaze.onTick();
+        for (Transaction transaction : RestServer.getAllWaiting(false)) {
+            for (Statement statement : transaction.Statements) {
+                Statement childStatement = Statement.getSubclass(statement);
+                childStatement.Execute();
+            }
+        }
 	}
 
     @SubscribeEvent
@@ -133,25 +140,17 @@ public class Flame {
 
     @SubscribeEvent
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        // On Player Join
-        if (BlazeInstance != null) {
-            BlazeInstance.onPlayerJoin(event);
-        }
+
     }
 
     @SubscribeEvent
     public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
-        // On Player Leave
-        if (BlazeInstance != null) {
-            BlazeInstance.onPlayerLeave(event);
-        }
+
     }
 
     @SubscribeEvent
     public void onNameFormat(net.minecraftforge.event.entity.player.PlayerEvent.NameFormat event) {
-        if (BlazeInstance != null) {
-            event.displayname = BlazeInstance.onFormatName(event.username);
-        }
+
     }
 
 	@SubscribeEvent
@@ -174,13 +173,6 @@ public class Flame {
             m_protectedEntities.add(livingFallEvent.entity);
         }
     }
-
-//    @SubscribeEvent
-//    public void onEntitySpawn (LivingSpawnEvent livingSpawnEvent) {
-//        if (livingSpawnEvent.y >= 200 && !(livingSpawnEvent.entity instanceof EntityPlayer)) {
-//            livingSpawnEvent.setResult(Event.Result.DENY);
-//        }
-//    }
 
     @SubscribeEvent
     public void onEntitySpawn (LivingSpawnEvent.CheckSpawn checkSpawnEvent) {

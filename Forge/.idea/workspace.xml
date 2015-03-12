@@ -2,37 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4cbbfa5-3f93-41c0-a7f7-99942608c2af" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/OtherOS/LinuxIcon.png" afterPath="$PROJECT_DIR$/app/assets/images/LinuxIcon.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/VisualStudio/SolutionExplorerClosed.png" afterPath="$PROJECT_DIR$/app/assets/images/VisualStudio/VSSolutionExplorerClosed.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/VisualStudio/SolutionExplorerOpen.png" afterPath="$PROJECT_DIR$/app/assets/images/VisualStudio/VSSolutionExplorerOpen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/VisualStudio/StartDebugging.png" afterPath="$PROJECT_DIR$/app/assets/images/VisualStudio/VSStartDebugging.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/XCode/PaneControls.png" afterPath="$PROJECT_DIR$/app/assets/images/XCode/XCodePaneControls.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/XCode/ProjectExplorerClosed.png" afterPath="$PROJECT_DIR$/app/assets/images/XCode/XCodeProjectExplorerClosed.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/XCode/ProjectExplorerOpen.png" afterPath="$PROJECT_DIR$/app/assets/images/XCode/XCodeProjectExplorerOpen.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/images/XCode/RunStopButton.png" afterPath="$PROJECT_DIR$/app/assets/images/XCode/XCodeRunStopButton.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/anvil/_getting_started.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/getting_started.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/py_osx/lib/libAnvilDyn.dylib" afterPath="$PROJECT_DIR$/app/assets/assignments/1/py_osx/lib/libAnvilDyn.dylib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/2/py_osx/lib/libAnvilDyn.dylib" afterPath="$PROJECT_DIR$/app/assets/assignments/2/py_osx/lib/libAnvilDyn.dylib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/XCode/lib/libAnvilLib.a" afterPath="$PROJECT_DIR$/app/assets/assignments/1/XCode/lib/libAnvilLib.a" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/1/py_osx/lib/libAnvilLib.a" afterPath="$PROJECT_DIR$/app/assets/assignments/1/py_osx/lib/libAnvilLib.a" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/2/XCode/lib/libAnvilLib.a" afterPath="$PROJECT_DIR$/app/assets/assignments/2/XCode/lib/libAnvilLib.a" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/assignments/2/py_osx/lib/libAnvilLib.a" afterPath="$PROJECT_DIR$/app/assets/assignments/2/py_osx/lib/libAnvilLib.a" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/OSX/Anvil/Config.cpp" afterPath="$PROJECT_DIR$/../Anvil/OSX/Anvil/Config.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/anvil/_assignment.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/_assignment.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/anvil/_gs_osx.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/_gs_osx.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/anvil/_gs_other.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/_gs_other.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/anvil/_gs_win.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/_gs_win.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/http/RestHttpServer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/transaction/SetBlockRangeStatement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/transaction/Statement.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/transaction/Transaction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/transaction/TransactionForest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/types/Tuple.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/libs/mysql-connector-java-5.1.14-bin.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/libs/protobuf-java-2.4.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/libs/protobuf-java-format-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/libs/sqlite-jdbc-3.8.7.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/Blaze.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/BlazeArgs.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/BlazeWorld.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/AssignmentLoader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/BlazeAssignment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/BlazeLevel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/LoadState.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/aone/ALevelZero.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/aone/BLevelOne.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/aone/CLevelTwo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/aone/ScorchAlphaAssignment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/blank/BlankAssignment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/blank/BlankLevel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/FourMaze.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/HelloWorldAssignment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/OneLoadLevel.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/ThreeTurnSpark.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/demo/TwoMoveForward.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/sample/ALevelOne.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/sample/BLevelTwo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/sample/CLevelThree.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/sample/DLevelFour.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/assignment/sample/SampleAssignment.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/AssignmentQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/IUpdateable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/InfoQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/PointsQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/Queryable.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/RemoteData.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/UserQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/data/UsersQuery.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BFEInternalRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/BlazeFrontEnd.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/IBFERequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/IBFERequestHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/http/BFEHttpJsonRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/http/BFEHttpProtoRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/http/BFEHttpServer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/BFEProtos.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/handlers/BFEAssignmentHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/handlers/BFECodeSubmitHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/handlers/BFEInfoQueryHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/handlers/BFEProtoHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/protos/handlers/BFESparkHandler.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/tcp/BFESocketServer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/tcp/BFETcpRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/frontend/tcp/ChangeRequest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/player/BlazePlayer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/player/PlayerArena.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/blaze/spark/BlazeSpark.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/utilities/StringUtils.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/StringUtils.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/utilities/types/CountdownTimer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/types/CountdownTimer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/utilities/types/Location2D.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/types/Location2D.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/utilities/types/Location3D.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/types/Location3D.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/utilities/types/LocationF3D.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/utilities/types/LocationF3D.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/views/anvil/getting_started.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/_getting_started.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/playerdata/2dcf48b8-df85-3250-9187-6a58eb513360.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/playerdata/2dcf48b8-df85-3250-9187-6a58eb513360.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/Mineshaft.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/Mineshaft.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/level.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/level.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/level.dat_old" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/level.dat_old" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat_old" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/level.dat_old" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.-1.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.-1.-1.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.-1.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.-1.0.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.-1.0.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.0.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.-1.0.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.0.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.0.-1.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.-1.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.-1.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.0.0.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/region/r.0.0.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.0.mca" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/region/r.0.0.mca" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/session.lock" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/session.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/session.lock" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/session.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/Overflow/data/villages.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM-1/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM-1/data/villages.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM1/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/DIM1/data/villages.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/villages.dat" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/data/villages.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/stats/2dcf48b8-df85-3250-9187-6a58eb513360.json" afterPath="$PROJECT_DIR$/../Blaze/eclipse/saves/DevWorld/stats/2dcf48b8-df85-3250-9187-6a58eb513360.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/OSX/Anvil/Anvil.cpp" afterPath="$PROJECT_DIR$/../Anvil/OSX/Anvil/Anvil.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/Python/lib/AnvilApi.py" afterPath="$PROJECT_DIR$/../Anvil/Python/lib/AnvilApi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/commands/BlazeCommandHandler.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/commands/BlazeCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/Flame.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/Flame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/commands/HomeCommandHandler.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/commands/HomeCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboBlock.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboBlock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboRenderer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboTileEntity.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/jumbotron/JumboTileEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkRenderer.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkRenderer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkTileEntity.java" afterPath="$PROJECT_DIR$/../Blaze/src/main/java/com/thilenius/flame/spark/SparkTileEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/anvil_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/anvil_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CloudCompiler/routes/compile.js" afterPath="$PROJECT_DIR$/../CloudCompiler/routes/compile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/crash-reports/crash-2014-11-04_20.15.12-server.txt" afterPath="$PROJECT_DIR$/../Blaze/eclipse/crash-reports/crash-2014-11-04_20.15.12-server.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/crash-reports/crash-2014-11-19_17.14.26-server.txt" afterPath="$PROJECT_DIR$/../Blaze/eclipse/crash-reports/crash-2014-11-19_17.14.26-server.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Anvil/OSX/Anvil/main.cpp" afterPath="$PROJECT_DIR$/../Anvil/OSX/Anvil/main.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Fleet/mongodb-discovery@.service" afterPath="$PROJECT_DIR$/../Fleet/mongodb-discovery@.service" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Nginx/nginx.tmpl" afterPath="$PROJECT_DIR$/../Nginx/nginx.tmpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Nginx/nginx.toml" afterPath="$PROJECT_DIR$/../Nginx/nginx.toml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Blaze/eclipse/server.properties" afterPath="$PROJECT_DIR$/../Blaze/eclipse/server.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/anvil/show.html.erb" afterPath="$PROJECT_DIR$/app/views/anvil/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FlameLauncherJava/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../FlameLauncherJava/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Forge.iws" />
@@ -49,7 +124,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Forge@Production__Forge.coverage" NAME="Production: Forge Coverage Results" MODIFIED="1425200657892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@routes__Forge.coverage" NAME="routes: Forge Coverage Results" MODIFIED="1417047294663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
-    <SUITE FILE_PATH="coverage/Forge@Development__Forge.coverage" NAME="Development: Forge Coverage Results" MODIFIED="1425759486629" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
+    <SUITE FILE_PATH="coverage/Forge@Development__Forge.coverage" NAME="Development: Forge Coverage Results" MODIFIED="1426131328027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@db_migrate__Forge.coverage" NAME="db:migrate: Forge Coverage Results" MODIFIED="1423344472053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@assets_precompile__Forge.coverage" NAME="assets:precompile: Forge Coverage Results" MODIFIED="1421204053614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
     <SUITE FILE_PATH="coverage/Forge@db_rollback__Forge.coverage" NAME="db:rollback: Forge Coverage Results" MODIFIED="1417306117429" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Forge" />
@@ -107,11 +182,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.443686" vertical-offset="0" max-vertical-offset="1710">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1710">
+              <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/anvil/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="345">
+              <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="forgedb.user_assignments" pinned="false" current-in-tab="true">
+        <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..user_assignments">
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="anvil_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/anvil_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3225">
+              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="915">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,11 +238,9 @@
       <file leaf-file-name="_gs_other.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_other.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="465">
+            <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="465">
               <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -132,12 +248,9 @@
       <file leaf-file-name="_gs_osx.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_osx.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="735">
+            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="735">
               <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
-              <folding>
-                <element signature="n#style#0;n#img#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#2;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -145,7 +258,7 @@
       <file leaf-file-name="_gs_win.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_win.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="750">
+            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="750">
               <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
               <folding />
             </state>
@@ -204,16 +317,16 @@
         <option value="$PROJECT_DIR$/config/initializers/asset_sync.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/anvil/_assignment.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/anvil/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/anvil/_getting_started.html.erb" />
         <option value="$PROJECT_DIR$/app/views/anvil/getting_started.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/anvil_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/anvil/_gs_osx.html.erb" />
         <option value="$PROJECT_DIR$/app/views/anvil/_gs_win.html.erb" />
         <option value="$PROJECT_DIR$/app/views/anvil/_gs_other.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/anvil_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/views/anvil/show.html.erb" />
       </list>
     </option>
   </component>
@@ -255,7 +368,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,87 +526,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Forge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisualStudio" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -836,30 +875,30 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="997" extended-state="7" />
+    <frame x="0" y="23" width="1680" height="997" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5048335" sideWeight="0.49909583" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22061484" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33834586" sideWeight="0.49936062" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5048335" sideWeight="0.50030136" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22061484" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19590114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6466165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19590114" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5048335" sideWeight="0.50030136" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.4987913" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33834586" sideWeight="0.49936062" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6466165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -905,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="525">
           <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -913,7 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="315">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,7 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="903">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,78 +1135,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..assignment_descriptions">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..user_assignments">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..user_levels">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48469388" vertical-offset="0" max-vertical-offset="588">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/e266bf2b/a1d69094-6c1f-4630-a52f-928115b4c9a5/..users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/anvil/_assignment.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="915">
           <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,7 +1176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.017064847" vertical-offset="0" max-vertical-offset="879">
           <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1187,15 +1183,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3820598" vertical-offset="240" max-vertical-offset="2070">
           <caret line="41" column="57" selection-start-line="41" selection-start-column="57" selection-end-line="41" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/anvil_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3225">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,15 +1190,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="903">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/anvil/getting_started.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/anvil/_getting_started.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15358362" vertical-offset="0" max-vertical-offset="879">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,15 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4651163" vertical-offset="0" max-vertical-offset="903">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48172757" vertical-offset="0" max-vertical-offset="915">
-          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1235,15 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06644518" vertical-offset="0" max-vertical-offset="1530">
           <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/anvil/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.085324235" vertical-offset="0" max-vertical-offset="879">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1251,24 +1218,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35836178" vertical-offset="0" max-vertical-offset="879">
           <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_osx.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75" vertical-offset="0" max-vertical-offset="735">
+        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="735">
           <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#img#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#2;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_win.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="750">
+        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="750">
           <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
           <folding />
         </state>
@@ -1276,20 +1239,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/anvil/_gs_other.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="465">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="465">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..users">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..user_levels">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.443686" vertical-offset="0" max-vertical-offset="1710">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1710">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/anvil_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3225">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="915">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/anvil/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="345">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/e266bf2b/81470f4e-992b-48ca-be37-e6a2354e257f/forgedb..user_assignments">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

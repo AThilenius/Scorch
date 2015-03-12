@@ -1,6 +1,5 @@
 package com.thilenius.flame.jumbotron;
 
-import com.thilenius.blaze.Blaze;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;

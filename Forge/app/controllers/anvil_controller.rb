@@ -17,7 +17,7 @@ class AnvilController < ApplicationController
 
   # Partials
   def getting_started
-    #render partial: 'getting_started', :layout => false
+    render partial: 'getting_started', :layout => false
   end
 
   def assignment_list

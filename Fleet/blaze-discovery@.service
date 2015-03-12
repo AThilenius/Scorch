@@ -18,7 +18,7 @@ EnvironmentFile=/etc/environment
 ## Test whether service is accessible and then register useful information
 ExecStart=/bin/bash -c '\
   while true; do \
-     etcdctl set /services/blaze/${COREOS_PRIVATE_IPV4} \'${COREOS_PRIVATE_IPV4}:5529\' --ttl 30; \
+     etcdctl set /services/blaze/${COREOS_PRIVATE_IPV4} \'${COREOS_PRIVATE_IPV4}:7010\' --ttl 30; \
     sleep 20; \
   done'
 

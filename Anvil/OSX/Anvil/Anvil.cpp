@@ -114,8 +114,8 @@ void AnvilEnsureConnected() {
         }
     }
 }
-    
-    
+
+
 void AnvilSayHello() {
     std::string authToken = Config::GetAuthToken();
     Util::Log::Info("Saying hello to blaze with the token: [" + authToken + "]");

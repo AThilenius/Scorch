@@ -1,7 +1,5 @@
 package com.thilenius.flame.commands;
 
-import com.thilenius.blaze.Blaze;
-import com.thilenius.blaze.data.UserQuery;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,7 +27,7 @@ public class BlazeCommandHandler extends CommandBase {
     @Override
     public void processCommand(ICommandSender sender, String[] args) {
         if (sender instanceof MinecraftServer) {
-            Blaze.handleCommand(args);
+            // STUB
         } else if (sender instanceof EntityPlayer) {
             final EntityPlayer player = (EntityPlayer) sender;
             ChatStyle errorStyle = new ChatStyle();
