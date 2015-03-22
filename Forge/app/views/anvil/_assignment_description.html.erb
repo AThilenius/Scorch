@@ -1,25 +1,22 @@
-
-
-<!--Render Each Level-->
 <% @levels.each do |level| %>
-    <div style="text-align: center;">
-      <br>
-      <br>
-      <h3><%= level.levelDescription.name %></h3>
-      <h4>Level: <%= level.levelDescription.levelNumber %> | Points: <%= "#{level.userLevel.points} / #{level.levelDescription.points}" %></h4>
-      <br>
-    </div>
-    <%= raw level.levelDescription.markdown %>
-    <br>
-    <br>
-    <br>
-    <hr>
-<% end %>
+    <div style="margin-top: 30px; margin-left: 15px; margin-right: 15px;">
+      <div style='margin-left: 10px; margin-right: 10px;'>
 
-<br>
-<br>
-<div style="text-align: center;">
-  <img height="500" width="500" src=<%=asset_path('DoEpicShit.jpg')%> />
-</div>
-<br>
-<br>
+        <a href="#">
+          <h4><b><%= level.levelDescription.name %></b></h4>
+          <p style='color: red;'>Points: <%= "#{level.userLevel.points} / #{level.levelDescription.points}" %></p>
+        </a>
+
+        <div style='margin-left: 20px; background-color:#000000;'>
+          <a href="#" style='margin-left: 10px; color:white;'>Python</a>
+        </div>
+        <div style='margin-left: 20px;'>
+          <a href="#" style='margin-left: 10px;'>C++</a>
+        </div>
+        <div style='margin-left: 20px;'>
+          <a href="#" style='margin-left: 10px;'>C#</a>
+        </div>
+      </div>
+      <hr>
+    </div>
+<% end %>

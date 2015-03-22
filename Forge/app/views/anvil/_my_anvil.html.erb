@@ -1,5 +1,44 @@
-<div data-async-url="<%= anvil_assignment_list_url %>">
-  <div style="text-align: center">
-    <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+<!-- Top -->
+<div style="position: absolute; top: 0px; left: 0px; right: 0px; height: 80px; background-color: orange; overflow: scroll; border-bottom: 1px solid white;">
+    <button id="run_button" class="btn btn-default">Run</button>
+</div>
+
+<!-- Left -->
+<div style="position: absolute; top: 80px; left: 0px; bottom: 0px; width: 250px; overflow: scroll; border-right: 1px solid white;">
+  <div data-async-url=<%="anvil/2/assignment_description"%> >
+    <div style="text-align: center">
+      <img style="max-width: 100px; margin-top: 100px; margin-bottom: 100px;" alt="Loading" src=<%= asset_path('Loading.gif') %> />
+    </div>
   </div>
+</div>
+
+<!-- Right -->
+<div style="position: absolute; top: 80px; left: 250px; right: 0px; bottom: 200px; background-color: blue; overflow: scroll;">
+
+  <div id="editor" style='width: 100%; height: 100%;'>from AnvilApi import *
+Anvil.sayHello()</div>
+
+  <script>
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/python");
+  </script>
+
+</div>
+
+<!-- Bottom -->
+<div style="position: absolute; left: 250px; right: 0px; bottom: 0px; height: 200px; overflow: scroll; border-top: 1px solid white;">
+
+  <div id="terminal" style='width: 100%; height: 100%;'>Welcome to Blaze, Alec Thilenius!
+    Some other text!</div>
+
+  <script>
+      var terminal = ace.edit("terminal");
+      terminal.setTheme("ace/theme/terminal");
+      terminal.setReadOnly(true);
+      terminal.setHighlightActiveLine(false);
+      terminal.renderer.setShowGutter(false);
+
+  </script>
+
 </div>

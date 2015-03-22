@@ -25,6 +25,17 @@ function getFullAddress (href) {
     return getBaseURL() + href;
 }
 
+String.prototype.escapeSpecialChars = function() {
+    return this.replace(/\\n/g, "\\n")
+        .replace(/\\'/g, "\\'")
+        .replace(/\\"/g, '\\"')
+        .replace(/\\&/g, "\\&")
+        .replace(/\\r/g, "\\r")
+        .replace(/\\t/g, "\\t")
+        .replace(/\\b/g, "\\b")
+        .replace(/\\f/g, "\\f");
+};
+
 var scrapeAsyncHref = function() {
     // Scan all elements for 'async-href' and add an onClick function
     $('[data-async-href]').each(function () {

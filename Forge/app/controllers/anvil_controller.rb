@@ -5,6 +5,7 @@ class AnvilController < ApplicationController
 
   def show
     return if sessionActiveCheckFailed
+    render 'show', :layout => false
   end
 
   def list
