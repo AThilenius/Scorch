@@ -3,6 +3,7 @@ var fs = require('fs');
 var router = express.Router();
 
 router.post('/', function(req, res) {
+    console.log("Handling request: " + JSON.stringify(req.body));
     console.log("Running: " + req.body.code);
     var stdoutStr = "";
     var erroutStr = "";

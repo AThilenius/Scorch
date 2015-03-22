@@ -33,6 +33,9 @@ server {
     ssl_certificate_key     /home/core/certs/www_scorchforge_com.key;
 
     location / {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
         proxy_pass  http://forge_pool;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect off;
@@ -42,6 +45,9 @@ server {
     }
 
     location /services/compiler/ {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
         proxy_pass  http://compiler_pool/;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect off;
@@ -51,6 +57,9 @@ server {
     }
 
     location /services/blaze/ {
+        add_header 'Access-Control-Allow-Origin' '*';
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
         proxy_pass  http://blaze_pool/;
         proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
         proxy_redirect off;
