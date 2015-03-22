@@ -1,5 +1,7 @@
 package com.thilenius.flame.transaction;
 
+import com.thilenius.flame.statement.StatementBase;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,41 +11,41 @@ import java.util.List;
  */
 public class TransactionForest {
 
-    private HashMap<String, List<Statement>> m_activeChains = new HashMap<String, List<Statement>>();
+    private HashMap<String, List<StatementBase>> m_activeChains = new HashMap<String, List<StatementBase>>();
 
     public void Handle (Transaction transaction) {
-        if (transaction.Statements == null  || transaction.Statements.size() == 0) {
+        if (transaction.statementBases == null  || transaction.statementBases.size() == 0) {
             System.out.println("No Statements were provided with the transaction. Terminating.");
             return;
         }
 
         // Check if the root of the chain is already loaded
-        String rootPath = transaction.Statements.get(0).TPath.trim();
-        List<Statement> statementChain = m_activeChains.get(rootPath);
-        if (statementChain == null) {
-            statementChain = new ArrayList<Statement>();
-            m_activeChains.put(rootPath, statementChain);
+        String rootPath = transaction.statementBases.get(0).TPath.trim();
+        List<StatementBase> statementBaseChain = m_activeChains.get(rootPath);
+        if (statementBaseChain == null) {
+            statementBaseChain = new ArrayList<StatementBase>();
+            m_activeChains.put(rootPath, statementBaseChain);
 
             // Activate the first node
-            Statement rootStatement = Statement.getSubclass(transaction.Statements.get(0));
-            if (rootStatement == null) {
+            StatementBase rootStatementBase = StatementBase.getSubclass(transaction.statementBases.get(0));
+            if (rootStatementBase == null) {
                 System.out.println("Failed to parse transaction statement: " + rootPath + "! Terminating.");
                 return;
             }
-            statementChain.add(rootStatement);
-            rootStatement.Execute();
+            statementBaseChain.add(rootStatementBase);
+            rootStatementBase.Execute();
         }
 
         // For each child node after the root
-        for (int i = 1; i < transaction.Statements.size(); i++) {
-            Statement childStatement = transaction.Statements.get(i);
+        for (int i = 1; i < transaction.statementBases.size(); i++) {
+            StatementBase childStatementBase = transaction.statementBases.get(i);
 
             // At the end of the chain? Load it without any unloads
-            if (statementChain.size() <= i) {
+            if (statementBaseChain.size() <= i) {
 
             }
 
-            if (statementChain.size() <= i || !statementChain.get(i).TPath.equals(childStatement.TPath)) {
+            if (statementBaseChain.size() <= i || !statementBaseChain.get(i).TPath.equals(childStatementBase.TPath)) {
 
             }
         }

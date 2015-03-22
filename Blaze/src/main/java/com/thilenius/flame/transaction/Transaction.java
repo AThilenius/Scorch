@@ -3,11 +3,9 @@ package com.thilenius.flame.transaction;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.thilenius.flame.utilities.types.Tuple;
+import com.thilenius.flame.statement.StatementBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -15,7 +13,7 @@ import java.util.List;
 public class Transaction {
 
     @JsonProperty("statements")
-    @JsonSerialize(as = Statement.class)
-    public List<Statement> Statements;
+    @JsonSerialize(as = StatementBase.class)
+    public List<StatementBase> statementBases;
 
 }

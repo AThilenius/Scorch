@@ -1,5 +1,7 @@
 package com.thilenius.flame.spark;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.thilenius.flame.statement.IBlockMessageHandler;
 import com.thilenius.flame.utilities.types.CountdownTimer;
 import com.thilenius.flame.utilities.types.Location3D;
 import com.thilenius.flame.utilities.types.LocationF3D;
@@ -9,9 +11,21 @@ import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 
-public class SparkTileEntity extends TileEntity {
+public class SparkTileEntity extends TileEntity implements IBlockMessageHandler {
 
     public final static float ANIMATION_TIME = 0.5f;
+
+    @Override
+    public boolean Handle(JsonNode message) {
+        String commandType = message.get("command_type").asText();
+        if (commandType == null || commandType.isEmpty()) {
+            return false;
+        }
+
+
+
+        return true;
+    }
 
     public enum FaceDirections {
         North,
@@ -42,6 +56,7 @@ public class SparkTileEntity extends TileEntity {
     }
 	
 	public SparkTileEntity() {
+
 	}
 
     public Location3D getBlockFromAction(AnimationTypes animation) {

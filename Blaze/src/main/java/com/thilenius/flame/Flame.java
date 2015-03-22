@@ -7,7 +7,7 @@ import com.thilenius.flame.jumbotron.JumboBlock;
 import com.thilenius.flame.jumbotron.JumboTileEntity;
 import com.thilenius.flame.spark.SparkBlock;
 import com.thilenius.flame.spark.SparkTileEntity;
-import com.thilenius.flame.transaction.Statement;
+import com.thilenius.flame.statement.StatementBase;
 import com.thilenius.flame.transaction.Transaction;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -21,16 +21,16 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -39,11 +39,9 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
-import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.event.world.WorldEvent;
-import org.lwjgl.Sys;
 
 import java.util.HashSet;
 
@@ -63,7 +61,6 @@ public class Flame {
 
 	public static Block sparkBlock;
     public static Block jumboBlock;
-	public static Item spark;
 
     public static World World;
     public static RestHttpServer RestServer;
@@ -77,6 +74,7 @@ public class Flame {
 		sparkBlock = new SparkBlock();
 		GameRegistry.registerBlock(sparkBlock, "sparkBlock");
 		GameRegistry.registerTileEntity(SparkTileEntity.class, "SparkTileEntity");
+        LanguageRegistry.addName(sparkBlock, "Spark Block");
 
         jumboBlock = new JumboBlock(Material.ground);
         GameRegistry.registerBlock(jumboBlock, "jumboBlock");
@@ -88,6 +86,16 @@ public class Flame {
 
 		// Register Rendered
 		proxy.registerRenderers();
+
+        // Spark Recipe
+        GameRegistry.addRecipe(new ItemStack(sparkBlock), new Object[]{
+                "BAB",
+                "AAA",
+                "BAB",
+                'A', Blocks.cobblestone, 'B', Blocks.dirt
+        });
+
+        //GameRegistry.addSmelting(new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 11), 0.1F);
 	}
 
 	@EventHandler
@@ -127,9 +135,9 @@ public class Flame {
         }
 
         for (Transaction transaction : RestServer.getAllWaiting(false)) {
-            for (Statement statement : transaction.Statements) {
-                Statement childStatement = Statement.getSubclass(statement);
-                childStatement.Execute();
+            for (StatementBase statementBase : transaction.statementBases) {
+                StatementBase childStatementBase = StatementBase.getSubclass(statementBase);
+                childStatementBase.Execute();
             }
         }
 	}

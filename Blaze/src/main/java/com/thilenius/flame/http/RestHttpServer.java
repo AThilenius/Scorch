@@ -2,7 +2,6 @@ package com.thilenius.flame.http;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,11 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import com.thilenius.flame.transaction.SetBlockRangeStatement;
-import com.thilenius.flame.transaction.Statement;
 import com.thilenius.flame.transaction.Transaction;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.compress.utils.IOUtils;
 
 /**
  * Created by Alec on 11/19/14.

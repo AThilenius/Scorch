@@ -3,22 +3,27 @@ package com.thilenius.flame.spark;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class SparkBlock extends BlockContainer {
 	public SparkBlock () {
         super(Material.ground);
-        this.setBlockBounds(-10.2F, -10.0F, -10.2F, 20.8F, 20.8F, 20.8F);
+        setHardness(2.0F);
+        setResistance(5.0F);
+        setBlockName("spark");
+        setBlockTextureName("flame:sparkItem");
+        this.setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
         this.setCreativeTab(CreativeTabs.tabMisc);
-	}
+    }
 
-//	@Override
-//	public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
-//    {
-//		System.out.println("==== onBlockPlaced: " + x + ", " + y + ", " + z);
-//		return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
-//    }
+	@Override
+	public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
+    {
+		System.out.println("==== onBlockPlaced: " + x + ", " + y + ", " + z);
+		return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
+    }
 
 	@Override
 	public boolean isOpaqueCube() {

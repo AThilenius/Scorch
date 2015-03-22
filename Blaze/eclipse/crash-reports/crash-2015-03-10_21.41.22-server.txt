@@ -5,7 +5,7 @@ Time: 3/10/15 9:41 PM
 Description: Exception in server tick loop
 
 java.lang.NullPointerException: Exception in server tick loop
-	at com.thilenius.flame.transaction.Statement.getSubclass(Statement.java:27)
+	at com.thilenius.flame.statement.Statement.getSubclass(Statement.java:27)
 	at com.thilenius.flame.Flame.onServerTick(Flame.java:131)
 	at cpw.mods.fml.common.eventhandler.ASMEventHandler_7_Flame_onServerTick_ServerTickEvent.invoke(.dynamic)
 	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
