@@ -1,17 +1,59 @@
 package com.thilenius.flame.spark;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.thilenius.flame.entity.*;
 import com.thilenius.flame.statement.IBlockMessageHandler;
 import com.thilenius.flame.utilities.types.CountdownTimer;
 import com.thilenius.flame.utilities.types.Location3D;
 import com.thilenius.flame.utilities.types.LocationF3D;
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
-public class SparkTileEntity extends TileEntity implements IBlockMessageHandler {
+@FlameEntityDefinition(name = "Spark", blockTextureName = "flame:sparkItem")
+public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHandler {
+
+    private static ModelSparkSmall s_model = new ModelSparkSmall();
+
+    @FlameEntityInitializer
+    public static void entityInitialize(Block block) {
+        GameRegistry.addRecipe(new ItemStack(block), new Object[]{
+                "BAB",
+                "AAA",
+                "BAB",
+                'A', Blocks.cobblestone, 'B', Blocks.dirt
+        });
+    }
+
+    @FlameCustomRenderer
+    public static void render (FlameSupportRenderer renderer, FlameTileEntity tileEntity, LocationF3D location) {
+        SparkTileEntity spark = (SparkTileEntity) tileEntity;
+        float rotation = spark.getRotation();
+        LocationF3D offset = spark.getOffset();
+
+        GL11.glPushMatrix();
+        GL11.glTranslatef((float) location.X + 0.5f + offset.X,
+                          (float) location.Y + 0.35f + offset.Y,
+                          (float) location.Z + 0.6f + offset.Z);
+        GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+        GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
+        ResourceLocation textures = (new ResourceLocation("flame:textures/model/Spark.png"));
+        renderer.bindTexture(textures);
+        s_model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        GL11.glPopMatrix();
+    }
 
     public final static float ANIMATION_TIME = 0.5f;
 
@@ -50,14 +92,14 @@ public class SparkTileEntity extends TileEntity implements IBlockMessageHandler 
 
     // Used only by client
     private CountdownTimer m_animationTimer = null;
-	
-	static {
+
+    static {
         addMapping(SparkTileEntity.class, "Spark");
     }
-	
-	public SparkTileEntity() {
 
-	}
+    public SparkTileEntity() {
+
+    }
 
     public Location3D getBlockFromAction(AnimationTypes animation) {
         // Moving forward backward

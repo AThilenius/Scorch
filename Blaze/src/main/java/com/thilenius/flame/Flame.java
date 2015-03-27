@@ -2,10 +2,10 @@ package com.thilenius.flame;
 
 import com.thilenius.flame.commands.BlazeCommandHandler;
 import com.thilenius.flame.commands.HomeCommandHandler;
+import com.thilenius.flame.entity.FlameTileEntity;
 import com.thilenius.flame.http.RestHttpServer;
 import com.thilenius.flame.jumbotron.JumboBlock;
 import com.thilenius.flame.jumbotron.JumboTileEntity;
-import com.thilenius.flame.spark.SparkBlock;
 import com.thilenius.flame.spark.SparkTileEntity;
 import com.thilenius.flame.statement.StatementBase;
 import com.thilenius.flame.transaction.Transaction;
@@ -50,17 +50,13 @@ import java.util.HashSet;
 @Mod(modid = "flame", name = "Flame", version = "0.0.1")
 public class Flame {
 
-	// Notes:
-	// Getting access to a world: MinecraftServer.getServer().worldServers[0].
-
 	@Instance(value = "flame")
 	public static Flame instance;
 
-	@SidedProxy(clientSide = "com.thilenius.flame.client.ClientProxy", serverSide = "com.thilenius.flame.CommonProxy")
+	@SidedProxy(clientSide = "com.thilenius.flame.ClientProxy", serverSide = "com.thilenius.flame.CommonProxy")
 	public static CommonProxy proxy;
 
-	public static Block sparkBlock;
-    public static Block jumboBlock;
+    public static GlobalData Globals = new GlobalData();
 
     public static World World;
     public static RestHttpServer RestServer;
@@ -70,32 +66,12 @@ public class Flame {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		// Register Blocks
-		sparkBlock = new SparkBlock();
-		GameRegistry.registerBlock(sparkBlock, "sparkBlock");
-		GameRegistry.registerTileEntity(SparkTileEntity.class, "SparkTileEntity");
-        LanguageRegistry.addName(sparkBlock, "Spark Block");
-
-        jumboBlock = new JumboBlock(Material.ground);
-        GameRegistry.registerBlock(jumboBlock, "jumboBlock");
-        GameRegistry.registerTileEntity(JumboTileEntity.class, "jumboTileEntity");
-
 		// Register Events
 		MinecraftForge.EVENT_BUS.register(this);
 		FMLCommonHandler.instance().bus().register(this);
 
 		// Register Rendered
 		proxy.registerRenderers();
-
-        // Spark Recipe
-        GameRegistry.addRecipe(new ItemStack(sparkBlock), new Object[]{
-                "BAB",
-                "AAA",
-                "BAB",
-                'A', Blocks.cobblestone, 'B', Blocks.dirt
-        });
-
-        //GameRegistry.addSmelting(new ItemStack(Items.dye, 1, 1), new ItemStack(Items.dye, 1, 11), 0.1F);
 	}
 
 	@EventHandler
@@ -105,7 +81,7 @@ public class Flame {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-
+        FlameTileEntity.setup(SparkTileEntity.class);
 	}
 
     @EventHandler
