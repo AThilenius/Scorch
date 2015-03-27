@@ -8,7 +8,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -16,6 +19,7 @@ import java.util.Set;
 
 public class FlameTileEntity extends TileEntity {
 
+    // Refection based setup method for subclasses of FlameTileEntity
     public static void setup(Class<? extends FlameTileEntity> entityClass) {
         Method customRenderer = null;
 
@@ -54,8 +58,6 @@ public class FlameTileEntity extends TileEntity {
                     new FlameSupportRenderer(customRenderer));
         }
 
-        // TODO: Register each instance of @FlameActionPath with a REST server
-
         // Finally invoke it's initializer
         for (final Method method : entityClass.getDeclaredMethods()) {
             if (method.isAnnotationPresent(FlameEntityInitializer.class)) {
@@ -66,6 +68,24 @@ public class FlameTileEntity extends TileEntity {
                 break;
             }
         }
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbtTagCompound) {
+        super.readFromNBT(nbtTagCompound);
+        registerEntityWithRestService();
+    }
+
+    protected void onBlockAdded(World world, int x, int y, int z) {
+        registerEntityWithRestService();
+    }
+
+    protected void registerEntityWithRestService() {
+
+    }
+
+    protected void unregisterEntityWithRestService() {
+
     }
 
 }

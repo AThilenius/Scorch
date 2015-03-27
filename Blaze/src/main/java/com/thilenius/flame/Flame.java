@@ -2,6 +2,7 @@ package com.thilenius.flame;
 
 import com.thilenius.flame.commands.BlazeCommandHandler;
 import com.thilenius.flame.commands.HomeCommandHandler;
+import com.thilenius.flame.entity.FlameSupportGuiHandler;
 import com.thilenius.flame.entity.FlameTileEntity;
 import com.thilenius.flame.http.RestHttpServer;
 import com.thilenius.flame.jumbotron.JumboBlock;
@@ -20,6 +21,7 @@ import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
@@ -82,6 +84,7 @@ public class Flame {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
         FlameTileEntity.setup(SparkTileEntity.class);
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, new FlameSupportGuiHandler());
 	}
 
     @EventHandler

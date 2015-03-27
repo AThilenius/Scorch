@@ -41,4 +41,8 @@ public class FlameSupportRenderer extends TileEntitySpecialRenderer {
     public void bindTexture(ResourceLocation resourceLocation) {
         super.bindTexture(resourceLocation);
     }
+
+    public void drawLabel(String label, LocationF3D entityLocation) {
+        // TODO
+    }
 }
