@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
+            url = "rest://files.minecraftforge.net/maven"
         }
         maven {
             name = "sonatype"
@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0"
-group= "com.thilenius" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group= "com.thilenius" // rest://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Blaze"
 
 minecraft {
@@ -37,8 +37,8 @@ dependencies {
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
 
     // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    // rest://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // rest://www.gradle.org/docs/current/userguide/dependency_management.html
 
 }
 

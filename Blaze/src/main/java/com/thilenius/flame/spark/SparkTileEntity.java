@@ -1,16 +1,16 @@
 package com.thilenius.flame.spark;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.thilenius.flame.Flame;
 import com.thilenius.flame.entity.*;
+import com.thilenius.flame.rest.StatementDispatch;
 import com.thilenius.flame.statement.IBlockMessageHandler;
 import com.thilenius.flame.utilities.types.CountdownTimer;
 import com.thilenius.flame.utilities.types.Location3D;
 import com.thilenius.flame.utilities.types.LocationF3D;
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -18,8 +18,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 @FlameEntityDefinition(name = "Spark", blockTextureName = "flame:sparkItem")
@@ -55,6 +55,35 @@ public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHan
         GL11.glPopMatrix();
     }
 
+    @Override
+    protected void onBlockAdded(World world, int x, int y, int z) {
+        FlameSupportGuiHandler.ActiveEntity = this;
+        FlameSupportGuiHandler.ActiveLocation = new Location3D(x, y, z);
+        Minecraft.getMinecraft().thePlayer.openGui(Flame.instance, 0, world, x, y, z);
+    }
+
+    @Override
+    public void postNamedInit() {
+        super.postNamedInit();
+        System.out.println("Port Named Init with name " + getName());
+    }
+
+    // DEBUG
+    @FlameActionPath("test_one")
+    public String SomeMethod(JsonNode message) {
+        System.out.println("test_one invoked! Handling message: " + message.toString());
+        return "Hello from Flame!";
+    }
+    @FlameActionPath("test_two")
+    public String SomeMethodTwo(JsonNode message) {
+        return null;
+    }
+
+
+
+
+
+
     public final static float ANIMATION_TIME = 0.5f;
 
     @Override
@@ -63,8 +92,6 @@ public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHan
         if (commandType == null || commandType.isEmpty()) {
             return false;
         }
-
-
 
         return true;
     }

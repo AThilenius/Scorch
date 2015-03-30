@@ -28,7 +28,7 @@ public class SendBlockMessage extends StatementBase {
 
     @Override
     public void Execute() {
-        TileEntity tileEntity = Flame.World.getTileEntity(m_blockLocation.X, m_blockLocation.Y, m_blockLocation.Z);
+        TileEntity tileEntity = Flame.Globals.World.getTileEntity(m_blockLocation.X, m_blockLocation.Y, m_blockLocation.Z);
         if (tileEntity != null && tileEntity instanceof IBlockMessageHandler) {
             IBlockMessageHandler handler = (IBlockMessageHandler) tileEntity;
             if (!handler.Handle(m_message)) {

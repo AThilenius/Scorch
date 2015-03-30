@@ -4,9 +4,8 @@ import com.thilenius.flame.commands.BlazeCommandHandler;
 import com.thilenius.flame.commands.HomeCommandHandler;
 import com.thilenius.flame.entity.FlameSupportGuiHandler;
 import com.thilenius.flame.entity.FlameTileEntity;
-import com.thilenius.flame.http.RestHttpServer;
-import com.thilenius.flame.jumbotron.JumboBlock;
-import com.thilenius.flame.jumbotron.JumboTileEntity;
+import com.thilenius.flame.rest.RestHttpServer;
+import com.thilenius.flame.rest.RestServer;
 import com.thilenius.flame.spark.SparkTileEntity;
 import com.thilenius.flame.statement.StatementBase;
 import com.thilenius.flame.transaction.Transaction;
@@ -22,17 +21,11 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -59,9 +52,6 @@ public class Flame {
 	public static CommonProxy proxy;
 
     public static GlobalData Globals = new GlobalData();
-
-    public static World World;
-    public static RestHttpServer RestServer;
 
     private static HashSet<Entity> m_protectedEntities = new HashSet<Entity>();
     private static boolean m_hasStartTickBeenSent;
@@ -108,17 +98,11 @@ public class Flame {
 	public void onServerTick(ServerTickEvent event) {
         if (!m_hasStartTickBeenSent) {
             m_hasStartTickBeenSent = true;
-            this.World = MinecraftServer.getServer().worldServers[0];
-            this.RestServer = new RestHttpServer();
-            new Thread(this.RestServer).start();
+            Flame.Globals.World = MinecraftServer.getServer().worldServers[0];
+            Flame.Globals.RestServer = new RestServer();
         }
 
-        for (Transaction transaction : RestServer.getAllWaiting(false)) {
-            for (StatementBase statementBase : transaction.statementBases) {
-                StatementBase childStatementBase = StatementBase.getSubclass(statementBase);
-                childStatementBase.Execute();
-            }
-        }
+        Flame.Globals.RestServer.onGameTick();
 	}
 
     @SubscribeEvent

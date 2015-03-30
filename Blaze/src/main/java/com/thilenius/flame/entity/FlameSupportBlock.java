@@ -1,14 +1,11 @@
 package com.thilenius.flame.entity;
 
-import com.thilenius.flame.Flame;
-import com.thilenius.flame.spark.SparkTileEntity;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,13 +24,6 @@ public class FlameSupportBlock  extends Block implements ITileEntityProvider
 
         m_tileEntityType = tileEntityType;
         m_useCustomRenderer = useCustomRenderer;
-    }
-
-    @Override
-    public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
-    {
-        // Pre-Place event
-        return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
     }
 
     @Override
@@ -72,6 +62,14 @@ public class FlameSupportBlock  extends Block implements ITileEntityProvider
         return !m_useCustomRenderer;
     }
 
+    // Called before the block is added to the world
+    @Override
+    public int onBlockPlaced(World world, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_)
+    {
+        return super.onBlockPlaced(world, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
+    }
+
+    @Override
     public void onBlockAdded(World world, int x, int y, int z)
     {
         TileEntity tileEntity = world.getTileEntity(x, y, z);
@@ -101,8 +99,27 @@ public class FlameSupportBlock  extends Block implements ITileEntityProvider
         if (tileEntity == null || player.isSneaking()) {
             return false;
         }
-        //code to open gui explained later
-        player.openGui(Flame.instance, 0, world, x, y, z);
+
+        // TODO: Activate the other GIU
+        // player.openGui(Flame.instance, 0, world, x, y, z);
         return true;
+    }
+
+    @Override
+    public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        if (tileEntity != null && tileEntity instanceof FlameTileEntity) {
+            ((FlameTileEntity) tileEntity).onBlockDestroyedByPlayer();
+        }
+        super.onBlockDestroyedByPlayer(world, x, y, z, metadata);
+    }
+
+    @Override
+    public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion) {
+        TileEntity tileEntity = world.getTileEntity(x, y, z);
+        if (tileEntity != null && tileEntity instanceof FlameTileEntity) {
+            ((FlameTileEntity) tileEntity).onBlockDestroyedByExplosion();
+        }
+        super.onBlockDestroyedByExplosion(world, x, y, z, explosion);
     }
 }

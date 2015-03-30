@@ -5,7 +5,7 @@ Time: 11/19/14 5:14 PM
 Description: Exception in server tick loop
 
 java.lang.NullPointerException: Exception in server tick loop
-	at com.thilenius.flame.http.BFEHttpServer.onTick(BFEHttpServer.java:46)
+	at com.thilenius.flame.rest.BFEHttpServer.onTick(BFEHttpServer.java:46)
 	at com.thilenius.blaze.frontend.BFEServer.onTick(BFEServer.java:29)
 	at com.thilenius.blaze.Blaze.onTick(Blaze.java:48)
 	at onServerTick(Flame.java:80)

@@ -60,9 +60,9 @@ public class SetBlockRangeStatementBase extends StatementBase {
         for (int x = 0; x < m_size.X; x++) {
             for (int y = 0; y < m_size.Y; y++) {
                 for (int z = 0; z < m_size.Z; z++) {
-                    if (Flame.World.getBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z).getMaterial() !=
+                    if (Flame.Globals.World.getBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z).getMaterial() !=
                             m_blockType.getMaterial()) {
-                        Flame.World.setBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z, m_blockType);
+                        Flame.Globals.World.setBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z, m_blockType);
                     }
                 }
             }
@@ -75,9 +75,9 @@ public class SetBlockRangeStatementBase extends StatementBase {
         for (int x = 0; x < m_size.X; x++) {
             for (int y = 0; y < m_size.Y; y++) {
                 for (int z = 0; z < m_size.Z; z++) {
-                    if (Flame.World.getBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z).getMaterial() !=
+                    if (Flame.Globals.World.getBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z).getMaterial() !=
                             m_oldBlockTypes[x][y][z].getMaterial()) {
-                        Flame.World.setBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z,
+                        Flame.Globals.World.setBlock(m_absStart.X + x, m_absStart.Y + y, m_absStart.Z + z,
                                 m_oldBlockTypes[x][y][z]);
                     }
                 }
@@ -92,7 +92,7 @@ public class SetBlockRangeStatementBase extends StatementBase {
             for (int y = 0; y < m_size.Y; y++) {
                 m_oldBlockTypes[x][y] = new Block[m_size.Z];
                 for (int z = 0; z < m_size.Z; z++) {
-                    m_oldBlockTypes[x][y][z] = Flame.World.getBlock(m_absStart.X + x, m_absStart.Y + y,
+                    m_oldBlockTypes[x][y][z] = Flame.Globals.World.getBlock(m_absStart.X + x, m_absStart.Y + y,
                             m_absStart.Z + z);
                 }
             }
