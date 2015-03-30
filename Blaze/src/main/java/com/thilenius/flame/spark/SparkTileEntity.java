@@ -3,8 +3,7 @@ package com.thilenius.flame.spark;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.thilenius.flame.Flame;
 import com.thilenius.flame.entity.*;
-import com.thilenius.flame.rest.StatementDispatch;
-import com.thilenius.flame.statement.IBlockMessageHandler;
+import com.thilenius.flame.utilities.MathUtils;
 import com.thilenius.flame.utilities.types.CountdownTimer;
 import com.thilenius.flame.utilities.types.Location3D;
 import com.thilenius.flame.utilities.types.LocationF3D;
@@ -23,12 +22,37 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 @FlameEntityDefinition(name = "Spark", blockTextureName = "flame:sparkItem")
-public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHandler {
+public class SparkTileEntity extends FlameTileEntity {
 
+    public enum FaceDirections {
+        North,
+        East,
+        South,
+        West
+    }
+    public enum AnimationTypes {
+        Idle,
+        TurnLeft,
+        TurnRight,
+        Forward,
+        Backward,
+        Up,
+        Down
+    }
+
+    public final static float ANIMATION_TIME = 0.5f;
     private static ModelSparkSmall s_model = new ModelSparkSmall();
+    private static Block s_sparkBlock;
 
+    private FaceDirections m_currentFaceDir = FaceDirections.North;
+    private AnimationTypes m_currentAnimation = AnimationTypes.Idle;
+    private CountdownTimer m_animationTimer;
+
+
+    // ======   FlameTileEntity Overrides   ============================================================================
     @FlameEntityInitializer
     public static void entityInitialize(Block block) {
+        s_sparkBlock = block;
         GameRegistry.addRecipe(new ItemStack(block), new Object[]{
                 "BAB",
                 "AAA",
@@ -40,9 +64,45 @@ public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHan
     @FlameCustomRenderer
     public static void render (FlameSupportRenderer renderer, FlameTileEntity tileEntity, LocationF3D location) {
         SparkTileEntity spark = (SparkTileEntity) tileEntity;
-        float rotation = spark.getRotation();
-        LocationF3D offset = spark.getOffset();
+        float fractionTime = spark.m_animationTimer != null ? spark.m_animationTimer.getRemainingRatio() : -1.0f;
 
+        // Compute Rotation
+        float rotation = 0.0f;
+        switch (spark.m_currentFaceDir) {
+            case North: rotation = 0.0f; break;
+            case East: rotation = 90.0f; break;
+            case South: rotation = 180.0f; break;
+            case West: rotation = 270.0f; break;
+        }
+
+        if (fractionTime > 0.0f) {
+            switch (spark.m_currentAnimation) {
+                case TurnLeft: rotation += MathUtils.lerp(0.0f, 90.0f, fractionTime); break;
+                case TurnRight: rotation += MathUtils.lerp(0.0f, -90.0f, fractionTime); break;
+            }
+        }
+
+        // Compute Offset
+        LocationF3D offset = new LocationF3D();
+        if (fractionTime > 0.0f) {
+            // Moving forward backward
+            if (spark.m_currentAnimation == AnimationTypes.Forward ||
+                    spark.m_currentAnimation == AnimationTypes.Backward) {
+                LocationF3D facingDirection = spark.getRotationVector();
+                // Reverse the rotation vector, because we are animating backward
+                facingDirection = facingDirection.scale(-1.0f);
+                if (spark.m_currentAnimation == AnimationTypes.Backward) {
+                    facingDirection = facingDirection.scale(-1.0f);
+                }
+                offset = facingDirection.scale(fractionTime);
+            } else if (spark.m_currentAnimation == AnimationTypes.Up ||
+                    spark.m_currentAnimation == AnimationTypes.Down) {
+                float up = spark.m_currentAnimation == AnimationTypes.Up ? -1.0f : 1.0f;
+                offset = new LocationF3D(0.0f, up, 0.0f).scale(fractionTime);
+            }
+        }
+
+        // Draw
         GL11.glPushMatrix();
         GL11.glTranslatef((float) location.X + 0.5f + offset.X,
                           (float) location.Y + 0.35f + offset.Y,
@@ -68,67 +128,123 @@ public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHan
         System.out.println("Port Named Init with name " + getName());
     }
 
-    // DEBUG
-    @FlameActionPath("test_one")
-    public String SomeMethod(JsonNode message) {
-        System.out.println("test_one invoked! Handling message: " + message.toString());
-        return "Hello from Flame!";
-    }
-    @FlameActionPath("test_two")
-    public String SomeMethodTwo(JsonNode message) {
-        return null;
+    @Override
+    public double getMaxRenderDistanceSquared() {
+        return 16384.0D;
     }
 
 
+    // ======   Network / Disk IO Handling   ===========================================================================
+    @Override
+    public void writeToNBT(NBTTagCompound nbt)
+    {
+        super.writeToNBT(nbt);
 
-
-
-
-    public final static float ANIMATION_TIME = 0.5f;
+        nbt.setString("faceDir", m_currentFaceDir.name());
+        nbt.setString("animation", m_currentAnimation.name());
+    }
 
     @Override
-    public boolean Handle(JsonNode message) {
-        String commandType = message.get("command_type").asText();
-        if (commandType == null || commandType.isEmpty()) {
-            return false;
+    public void readFromNBT(NBTTagCompound nbt)
+    {
+        super.readFromNBT(nbt);
+
+        m_currentFaceDir = FaceDirections.valueOf(nbt.getString("faceDir"));
+        m_currentAnimation = AnimationTypes.valueOf(nbt.getString("animation"));
+        m_animationTimer = new CountdownTimer(ANIMATION_TIME);
+    }
+
+    @Override
+    public Packet getDescriptionPacket() {
+        NBTTagCompound nbt = new NBTTagCompound();
+        writeToNBT(nbt);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbt);
+    }
+
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        super.onDataPacket(net, pkt);
+        this.readFromNBT(pkt.func_148857_g());
+    }
+
+
+    // ======   Action Path Handlers   =================================================================================
+    @FlameActionPath("move")
+    public boolean moveAction(JsonNode message) throws FlameActionException {
+        AnimationTypes animationType = AnimationTypes.valueOf(message.get("direction").asText());
+        if (animationType == null ||
+               (animationType != AnimationTypes.Forward &&
+                animationType != AnimationTypes.Backward &&
+                animationType != AnimationTypes.Up &&
+                animationType != AnimationTypes.Down)) {
+            throw new FlameActionException("Invalid or missing field [direction]");
         }
 
-        return true;
+        Location3D newLocation = getBlockFromAction(animationType);
+
+        // Check if we can move to the new spot
+        if (Flame.Globals.World.isAirBlock(newLocation.X, newLocation.Y, newLocation.Z)) {
+            Flame.Globals.World.setBlock(newLocation.X, newLocation.Y, newLocation.Z, s_sparkBlock);
+            SparkTileEntity sparkTileEntity = (SparkTileEntity) Flame.Globals.World.getTileEntity(newLocation.X,
+                    newLocation.Y, newLocation.Z);
+            sparkTileEntity.copyFrom(this);
+            sparkTileEntity.animateServerAndSendToClients(animationType);
+            Flame.Globals.World.setBlockToAir(xCoord, yCoord, zCoord);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public enum FaceDirections {
-        North,
-        East,
-        South,
-        West
-    }
-
-    public enum AnimationTypes {
-        Idle,
-        TurnLeft,
-        TurnRight,
-        Forward,
-        Backward,
-        Up,
-        Down
-    }
-
-    // Saved by NBT
-    private FaceDirections m_currentFaceDir = FaceDirections.North;
-    private AnimationTypes m_currenAnimation = AnimationTypes.Idle;
-
-    // Used only by client
-    private CountdownTimer m_animationTimer = null;
-
-    static {
-        addMapping(SparkTileEntity.class, "Spark");
-    }
-
-    public SparkTileEntity() {
+    @FlameActionPath("rotate")
+    public void rotateAction(JsonNode message) {
 
     }
 
-    public Location3D getBlockFromAction(AnimationTypes animation) {
+
+    // ======   Helpers   ==============================================================================================
+    private void animateServerAndSendToClients(AnimationTypes animationType) {
+        m_currentAnimation = animationType;
+        m_currentFaceDir = getNewFaceDirByAnimation(animationType);
+        m_animationTimer = new CountdownTimer(ANIMATION_TIME);
+
+        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    private LocationF3D getRotationVector() {
+        LocationF3D facingDirection = new LocationF3D();
+        switch (m_currentFaceDir) {
+            case North: facingDirection = new LocationF3D(0.0f, 0.0f, -1.0f); break;
+            case East: facingDirection = new LocationF3D(1.0f, 0.0f, 0.0f); break;
+            case South: facingDirection = new LocationF3D(0.0f, 0.0f, 1.0f); break;
+            case West: facingDirection = new LocationF3D(-1.0f, 0.0f, 0.0f); break;
+        }
+        return facingDirection;
+    }
+
+    private FaceDirections getNewFaceDirByAnimation(AnimationTypes animation) {
+        switch (animation) {
+            case TurnLeft:
+                switch (m_currentFaceDir) {
+                    case North: return FaceDirections.West;
+                    case East: return FaceDirections.North;
+                    case South: return FaceDirections.East;
+                    case West: return FaceDirections.South;
+                }
+                break;
+            case TurnRight:
+                switch (m_currentFaceDir) {
+                    case North: return FaceDirections.East;
+                    case East: return FaceDirections.South;
+                    case South: return FaceDirections.West;
+                    case West: return FaceDirections.North;
+                }
+                break;
+        }
+        return m_currentFaceDir;
+    }
+
+    private Location3D getBlockFromAction(AnimationTypes animation) {
         // Moving forward backward
         if (animation == AnimationTypes.Forward || animation == AnimationTypes.Backward) {
             // Construct faceDir vector
@@ -148,182 +264,17 @@ public class SparkTileEntity extends FlameTileEntity implements IBlockMessageHan
         }
     }
 
-    public float getRotation() {
-        float faceOffself = 0.0f;
-        switch (m_currentFaceDir) {
-            case North:
-                faceOffself = 0.0f;
-                break;
-            case East:
-                faceOffself = 90.0f;
-                break;
-            case South:
-                faceOffself = 180.0f;
-                break;
-            case West:
-                faceOffself = 270.0f;
-                break;
+    @Override
+    public void copyFrom(Object obj) {
+        super.copyFrom(obj);
+        SparkTileEntity sparkTileEntity = (SparkTileEntity) obj;
+        if (sparkTileEntity == null) {
+            return;
         }
 
-        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
-
-        if (fractionTime < 0.0f) {
-            return faceOffself;
-        }
-
-        switch (m_currenAnimation) {
-            case TurnLeft:
-                faceOffself += lerp(0.0f, 90.0f, fractionTime);
-                break;
-            case TurnRight:
-                faceOffself += lerp(0.0f, -90.0f, fractionTime);
-                break;
-        }
-
-        // Let getOffset handle the m_isAnimating flag
-        return faceOffself;
-    }
-
-    public void animateClients(AnimationTypes animationType) {
-        m_currenAnimation = animationType;
-
-        // Still need to handle rotation on the server side
-        rotateByAnimation(animationType);
-
-        // Also need to track timer for knowing when spark is ready for another command
-        m_animationTimer = new CountdownTimer(ANIMATION_TIME);
-
-        this.worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-    }
-
-    public LocationF3D getOffset() {
-        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
-
-        if (fractionTime < 0.0f) {
-            return new LocationF3D();
-        }
-
-        // Moving forward backward
-        if (m_currenAnimation == AnimationTypes.Forward || m_currenAnimation == AnimationTypes.Backward) {
-            LocationF3D facingDirection = getRotationVector();
-            // Reverse the rotation vector, because we are animating backward
-            facingDirection = facingDirection.scale(-1.0f);
-            if (m_currenAnimation == AnimationTypes.Backward) {
-                facingDirection = facingDirection.scale(-1.0f);
-            }
-
-            // Multiple each component by fractionTime
-            return facingDirection.scale(fractionTime);
-        } else if (m_currenAnimation == AnimationTypes.Up || m_currenAnimation == AnimationTypes.Down) {
-            float up = m_currenAnimation == AnimationTypes.Up ? -1.0f : 1.0f;
-            return new LocationF3D(0.0f, up, 0.0f).scale(fractionTime);
-        } else {
-            return new LocationF3D();
-        }
-    }
-
-    public LocationF3D getRotationVector() {
-        LocationF3D facingDirection = new LocationF3D();
-        switch (m_currentFaceDir) {
-            case North:
-                facingDirection = new LocationF3D(0.0f, 0.0f, -1.0f);
-                break;
-            case East:
-                facingDirection = new LocationF3D(1.0f, 0.0f, 0.0f);
-                break;
-            case South:
-                facingDirection = new LocationF3D(0.0f, 0.0f, 1.0f);
-                break;
-            case West:
-                facingDirection = new LocationF3D(-1.0f, 0.0f, 0.0f);
-                break;
-        }
-        return facingDirection;
-    }
-
-    public void copyFrom(SparkTileEntity sparkTileEntity) {
-        // Copy things that should persist AFTER the spark has been moved.
-        // Aka. don't, copy things like location
         m_currentFaceDir = sparkTileEntity.m_currentFaceDir;
-    }
-
-    public boolean isAnimating() {
-        float fractionTime = m_animationTimer != null ? m_animationTimer.getRemainingRatio() : -1.0f;
-        return fractionTime >= 0.0f;
-    }
-
-    @Override
-    public void writeToNBT(NBTTagCompound nbt)
-    {
-        super.writeToNBT(nbt);
-
-        nbt.setString("faceDir", m_currentFaceDir.name());
-        nbt.setString("animation", m_currenAnimation.name());
-    }
-
-    @Override
-    public void readFromNBT(NBTTagCompound nbt)
-    {
-        super.readFromNBT(nbt);
-
-        m_currentFaceDir = FaceDirections.valueOf(nbt.getString("faceDir"));
-        animate(AnimationTypes.valueOf(nbt.getString("animation")), ANIMATION_TIME);
-    }
-
-    @Override
-    public Packet getDescriptionPacket()
-    {
-        NBTTagCompound nbt = new NBTTagCompound();
-        writeToNBT(nbt);
-        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbt);
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt)
-    {
-        this.readFromNBT(pkt.func_148857_g());
-    }
-
-    private void animate(AnimationTypes animation, float duration) {
-        m_currenAnimation = animation;
-        m_animationTimer = new CountdownTimer(duration);
-    }
-
-    private void rotateByAnimation(AnimationTypes animation) {
-        // If rotating, change face dir first
-        switch (animation) {
-            case TurnLeft:
-                switch (m_currentFaceDir) {
-                    case North: m_currentFaceDir = FaceDirections.West; break;
-                    case East: m_currentFaceDir = FaceDirections.North; break;
-                    case South: m_currentFaceDir = FaceDirections.East; break;
-                    case West: m_currentFaceDir = FaceDirections.South; break;
-                }
-                break;
-            case TurnRight:
-                switch (m_currentFaceDir) {
-                    case North: m_currentFaceDir = FaceDirections.East; break;
-                    case East: m_currentFaceDir = FaceDirections.South; break;
-                    case South: m_currentFaceDir = FaceDirections.West; break;
-                    case West: m_currentFaceDir = FaceDirections.North; break;
-                }
-                break;
-        }
-    }
-
-    private float lerp(float a, float b, float f)
-    {
-        return a + f * (b - a);
-    }
-
-    private float nanoToSeconds(long nano) {
-        return (float)((double)nano / 1000000000.0);
-    }
-
-    @Override
-    public double getMaxRenderDistanceSquared()
-    {
-        return 16384.0D;
+        m_currentAnimation = sparkTileEntity.m_currentAnimation;
+        m_animationTimer = sparkTileEntity.m_animationTimer;
     }
 
 }

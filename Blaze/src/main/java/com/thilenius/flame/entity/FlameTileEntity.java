@@ -2,7 +2,7 @@ package com.thilenius.flame.entity;
 
 import com.thilenius.flame.Flame;
 import com.thilenius.flame.rest.StatementDispatch;
-import com.thilenius.flame.utilities.types.CoolDownTimer;
+import com.thilenius.flame.utilities.types.CountdownTimer;
 import com.thilenius.flame.utilities.types.Location3D;
 import com.thilenius.flame.utilities.types.LocationF3D;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -23,7 +23,7 @@ import java.util.Set;
 
 public class FlameTileEntity extends TileEntity {
 
-    protected CoolDownTimer m_coolDown;
+    protected CountdownTimer m_coolDownTimer;
 
     private String m_name;
     private String m_playerName;
@@ -74,13 +74,23 @@ public class FlameTileEntity extends TileEntity {
                     method.invoke(null, flameBlock);
                 } catch (IllegalAccessException e) {
                 } catch (InvocationTargetException e) { }
-                break;
             }
         }
     }
 
     public void postNamedInit() {
         registerEntityWithRestServer();
+    }
+
+    public void copyFrom(Object obj) {
+        FlameTileEntity flameTileEntity = (FlameTileEntity) obj;
+        if (flameTileEntity == null) {
+            return;
+        }
+
+        m_name = flameTileEntity.m_name;
+        m_playerName = flameTileEntity.m_playerName;
+        m_coolDownTimer = flameTileEntity.m_coolDownTimer;
     }
 
     // Called when writing to disk or network socket
@@ -121,15 +131,15 @@ public class FlameTileEntity extends TileEntity {
     }
 
     public void coolDown(float seconds) {
-        m_coolDown = new CoolDownTimer(seconds);
+        m_coolDownTimer = new CountdownTimer(seconds);
     }
 
     public Boolean isOnCoolDown() {
-        if (m_coolDown == null) {
+        if (m_coolDownTimer == null) {
             return false;
         }
 
-        return m_coolDown.isOnCoolDown();
+        return !m_coolDownTimer.hasElapsed();
     }
 
     // Called by the Block class

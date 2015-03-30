@@ -3,6 +3,7 @@ package com.thilenius.flame.rest;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.thilenius.flame.entity.FlameActionException;
 import com.thilenius.flame.entity.FlameActionPath;
 import com.thilenius.flame.entity.FlameTileEntity;
 import com.thilenius.flame.utilities.types.Location3D;
@@ -60,21 +61,33 @@ public class StatementDispatch {
 
                 // Invoke Action Path
                 Object returnValue = actionTarget.TargetMethod.invoke(actionTarget.TargetTileEntity, statement.Message);
-                if (returnValue == null) {
-                    System.out.println("Failed to invoke TargetMethod for FlameAction");
-                    response.FailureMessage = "Failed to invoke TargetMethod for FlameAction.";
-                    request.respond(response);
-                    continue;
+
+                // Non-Void return types
+                if (returnType != void.class) {
+                    if (returnValue == null) {
+                        System.out.println("Failed to invoke TargetMethod for FlameAction");
+                        response.FailureMessage = "Failed to invoke TargetMethod for FlameAction.";
+                        request.respond(response);
+                        continue;
+                    }
+
+                    response.setReturnValueFromObject(returnValue);
                 }
 
-                response.setReturnValueFromObject(returnValue);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
                 response.FailureMessage = "A fatal error was caught in Flame: " + e.getMessage() + ".";
                 request.respond(response);
             } catch (InvocationTargetException e) {
-                e.printStackTrace();
-                response.FailureMessage = "A fatal error was caught in Flame: " + e.getMessage() + ".";
+                FlameActionException actionException = (FlameActionException) e.getTargetException();
+
+                if (actionException != null) {
+                    System.out.println("The flame Action threw an exception: " + e.getMessage());
+                    response.FailureMessage = actionException.getMessage();
+                } else {
+                    e.printStackTrace();
+                    response.FailureMessage = "A fatal error was caught in Flame: " + e.getMessage() + ".";
+                }
                 request.respond(response);
             }
 

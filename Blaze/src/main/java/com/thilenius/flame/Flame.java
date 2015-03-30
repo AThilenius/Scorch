@@ -7,8 +7,6 @@ import com.thilenius.flame.entity.FlameTileEntity;
 import com.thilenius.flame.rest.RestHttpServer;
 import com.thilenius.flame.rest.RestServer;
 import com.thilenius.flame.spark.SparkTileEntity;
-import com.thilenius.flame.statement.StatementBase;
-import com.thilenius.flame.transaction.Transaction;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;

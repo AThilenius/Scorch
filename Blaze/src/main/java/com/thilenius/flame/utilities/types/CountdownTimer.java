@@ -35,4 +35,8 @@ public class CountdownTimer {
         return (float)((double)(deltaNs - elapsedNs) / (double)deltaNs);
     }
 
+    public boolean hasElapsed() {
+        return System.nanoTime() >= m_endTime;
+    }
+
 }

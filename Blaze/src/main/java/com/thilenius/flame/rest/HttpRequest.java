@@ -1,16 +1,12 @@
 package com.thilenius.flame.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.sun.net.httpserver.HttpExchange;
 import com.thilenius.flame.Flame;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-/**
- * Created by Alec on 3/30/15.
- */
 public class HttpRequest {
     private Statement m_requestStatement;
     private HttpExchange m_httpExchange;
