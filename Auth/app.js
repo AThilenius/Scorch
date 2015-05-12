@@ -4,13 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var utils = require('utils');
 
 // Database
 var mongo = require('mongoskin');
 var db = mongo.db("mongodb://localhost:27017/auth", {native_parser:true});
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
+var authenticate = require('./routes/authenticate');
 
 var app = express();
 
@@ -32,38 +33,45 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/user', user);
+app.use('/authenticate', authenticate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  //var err = new Error('Not Found');
+  //err.status = 404;
+  //next(err);
+  res.json({
+    did_pass : false,
+    failure_message : "Route Not Found",
+    error_code : 404
+  });
 });
 
 // error handlers
 
-// development error handler
-// will print stacktrace
+// Developemnt error handler that includes the stack trace and prints to console
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
+    // Render JSON response
+    res.json(utils.error(err.message, err.status, err.stack));
+    console.log("Error: " + err.status);
+    console.log("Message: " + err.message);
+    console.log("Stack Trace:");
+    console.log(err.stack);
+    console.log();
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    // Render JSON response without stack trace
+    res.json({
+      did_pass : false,
+      failure_message : err.message,
+      error_code : err.status
+    });
 });
 
 
