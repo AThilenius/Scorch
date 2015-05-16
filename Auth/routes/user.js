@@ -23,59 +23,87 @@ router.post('/create', function(req, res) {
 
   var db = req.db.collection('users');
 
-  db.find({ email_address : emailAddress })
-    .toArray(function (err, items) {
-      if (utils.errorCheck(res, err)) {
+  db.find({ email_address : emailAddress }) .toArray(function (err, items) {
+    if (utils.errorCheck(res, err)) { return; }
+    if (items.length !== 0) {
+      // User already exists.
+      res.json(utils.error("A user with the email address already exists." +
+            req.body.email_address + " already exists.", 403, null));
+      return;
+    } else { 
+      // User doesn't already exist, create it
+      var user = {
+        email_address : emailAddress,
+        password : password,
+        first_name : firstName,
+        last_name : lastName 
+      };
+      db.insert(user, function(err, records){
+        if (utils.errorCheck(res, err)) { return; }
+        res.json({ did_pass : true });
+        console.log("New account created: " +
+            JSON.stringify(user, null, 2));
         return;
-      }
-
-      if (items.length !== 0) {
-        // User already exists.
-        res.json(utils.error("A user with the email address already exists." +
-              req.body.email_address + " already exists.", 403, null));
-        return;
-      } else { 
-        // User doesn't already exist, create it
-        var user = {
-          email_address : emailAddress,
-          password : password,
-          first_name : firstName,
-          last_name : lastName 
-        };
-        db.insert(user, function(err, records){
-          if (utils.errorCheck(res, err)) {
-            return;
-          } else {
-            res.json({ did_pass : true });
-            console.log("New account created: " + JSON.stringify(user, null, 2));
-            return;
-          }
-        });
-      }
-    });
+      });
+    }
+  });
 });
 
 // Post: user/read
 router.post('/read', function(req, res) {
-  if (!utils.fieldCheck(req, res, "token", "target_email_address")) {
-    return;
-  }
-  res.json( { hello : "read" } );
+  var sendFullData = function(userEntry) {
+    res.json({
+      email_address : userEntry.email_address,
+      first_name : userEntry.first_name,
+      last_name : userEntry.last_name,
+      permissions : userEntry.permissions
+    });
+  };
+  var sendPartialData = function(userEntry) {
+    res.json({
+      first_name : userEntry.first_name,
+      last_name : userEntry.last_name
+    });
+  };
+  utils.authenticateStdAuth(req, res, function (pLevel, message, callingUser) {
+    // Check for self query
+    if (callingUser &&
+        callingUser.email_address === message.target_email_address) {
+      sendFullData(callingUser);
+      return;
+    }
+    // Asked to query different user
+    var usersDb = req.db.collection('users');
+    usersDb.find({ email_address : message.target_email_address })
+      .toArray(function (err, u_items) {
+        if (utils.errorCheck(res, err)) { return; }
+        if (u_items.length === 0) {
+          res.json(utils.error("Failed to find target email address.", 404,
+                null));
+          return;
+        }
+        if (pLevel <= utils.PLevels.PUser) {
+          sendPartialData(u_items[0]);
+        }
+        // If the calling user superseeds the query user, allow full data
+        if (pLevel > u_items[0].permissions) {
+          sendFullData(u_items[0]);
+        } else {
+          sendPartialData(u_items[0]);
+        }
+      });
+  });
 });
 
 // Post: user/update
 router.post('/update', function(req, res) {
-  if (!utils.fieldCheck(req, res, "token", "target_email_address")) {
-    return;
-  }
+  if (!utils.fieldCheck(req, res, "token", "target_email_address")) { return; }
   res.json( { hello : "update" } );
 });
 
 // Post: user/delete
 router.post('/delete', function(req, res) {
-  if (!utils.fieldCheck(req, res, "token", "target_email_address")) {
-    return;
-  }
+  if (!utils.fieldCheck(req, res, "token", "target_email_address")) { return; }
   res.json( { hello : "delete" } );
 });
 
