@@ -66,8 +66,8 @@ router.post('/read', function(req, res) {
     });
   };
   utils.authenticateStdAuth(req, res, function (pLevel, message, callingUser) {
-    // Check for self query
-    if (callingUser &&
+    // Check for self query for PUser and up
+    if (pLevel >= utils.PLevels.PUser && callingUser &&
         callingUser.email_address === message.target_email_address) {
       sendFullData(callingUser);
       return;
@@ -85,7 +85,7 @@ router.post('/read', function(req, res) {
         if (pLevel <= utils.PLevels.PUser) {
           sendPartialData(u_items[0]);
         }
-        // If the calling user superseeds the query user, allow full data
+        // If the calling user supersedes the query user, allow full data
         if (pLevel > u_items[0].permissions) {
           sendFullData(u_items[0]);
         } else {
