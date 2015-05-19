@@ -23,7 +23,7 @@ router.post('/create', function(req, res) {
 
   var db = req.db.collection('users');
 
-  db.find({ email_address : emailAddress }) .toArray(function (err, items) {
+  db.find({ email_address : emailAddress }).toArray(function (err, items) {
     if (utils.errorCheck(res, err)) { return; }
     if (items.length !== 0) {
       // User already exists.
