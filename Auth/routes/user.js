@@ -4,8 +4,8 @@ var utils = require('utils');
 
 // Post: user/create
 router.post('/create', function(req, res) {
-  if (!utils.fieldCheck(req, res, "email_address", "password", "first_name",
-        "last_name")) {
+  if (!utils.fieldCheck(req, res, "string email_address", "string password",
+        "string first_name", "string last_name")) {
     return;
   }
 
@@ -65,6 +65,7 @@ router.post('/read', function(req, res) {
       last_name : userEntry.last_name
     });
   };
+
   utils.authenticateStdAuth(req, res, function (pLevel, message, callingUser) {
     // Check for self query for PUser and up
     if (pLevel >= utils.PLevels.PUser && callingUser &&
@@ -97,13 +98,15 @@ router.post('/read', function(req, res) {
 
 // Post: user/update
 router.post('/update', function(req, res) {
-  if (!utils.fieldCheck(req, res, "token", "target_email_address")) { return; }
+  if (!utils.fieldCheck(req, res, "string token",
+        "string target_email_address")) { return; }
   res.json( { hello : "update" } );
 });
 
 // Post: user/delete
 router.post('/delete', function(req, res) {
-  if (!utils.fieldCheck(req, res, "token", "target_email_address")) { return; }
+  if (!utils.fieldCheck(req, res, "string token",
+        "string target_email_address")) { return; }
   res.json( { hello : "delete" } );
 });
 
