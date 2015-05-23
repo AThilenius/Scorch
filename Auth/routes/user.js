@@ -1,6 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var crypto = require('crypto');
 var utils = require('utils');
+
+var PLevels = {
+  PSuper: 5,
+  PAdmin: 4, 
+  PUser: 3,
+  PSecondary : 2,
+  PUnvalidated: 1
+};
 
 // Post: user/create
 router.post('/create', function(req, res) {
@@ -51,63 +60,72 @@ router.post('/create', function(req, res) {
 
 // Post: user/read
 router.post('/read', function(req, res) {
-  var sendFullData = function(userEntry) {
-    res.json({
-      email_address : userEntry.email_address,
-      first_name : userEntry.first_name,
-      last_name : userEntry.last_name,
-      permissions : userEntry.permissions
-    });
-  };
-  var sendPartialData = function(userEntry) {
-    res.json({
-      first_name : userEntry.first_name,
-      last_name : userEntry.last_name
-    });
-  };
-
-  utils.authenticateStdAuth(req, res, function (pLevel, message, callingUser) {
-    // Check for self query for PUser and up
-    if (pLevel >= utils.PLevels.PUser && callingUser &&
-        callingUser.email_address === message.target_email_address) {
-      sendFullData(callingUser);
-      return;
-    }
-    // Asked to query different user
-    var usersDb = req.db.collection('users');
-    usersDb.find({ email_address : message.target_email_address })
-      .toArray(function (err, u_items) {
+  if (!utils.fieldCheck(req, res, "string token")) { return; }
+  var usersDb = req.db.collection("users");
+  usersDb.findOne(
+      {
+        $or: [
+        { primary_token : req.body.token },
+        { secondary_tokens : req.body.token }, ]
+      }, function (err, user) {
         if (utils.errorCheck(res, err)) { return; }
-        if (u_items.length === 0) {
-          res.json(utils.error("Failed to find target email address.", 404,
-                null));
-          return;
-        }
-        if (pLevel <= utils.PLevels.PUser) {
-          sendPartialData(u_items[0]);
-        }
-        // If the calling user supersedes the query user, allow full data
-        if (pLevel > u_items[0].permissions) {
-          sendFullData(u_items[0]);
+        if (user) {
+          var permissionsLevel = (user.primary_token !== req.body.token) ?
+            PLevels.PSecondary : user.permissions;
+          res.json({
+            email_address : user.email_address,
+            permissions : permissionsLevel 
+          });
         } else {
-          sendPartialData(u_items[0]);
+          res.json(utils.error("Invalid token.", 403, null));
         }
       });
+});
+
+// Post: /user/create_ptoken
+router.post('/create_ptoken', function(req, res) {
+  // Require email_address, password
+  if (!utils.fieldCheck(req, res, "string email_address",
+        "string password")){ return; }
+  // Normalize fields
+  var emailAddress = req.body.email_address.replace(/ /g, '').toLowerCase();
+  // Generate a crypto safe 48 byte token
+  crypto.randomBytes(48, function(ex, buf) {
+    var newToken = buf.toString('hex');
+    var usersDb = req.db.collection('users');
+    usersDb.update(
+        { email_address : emailAddress, password : req.body.password },
+        { $set : { primary_token : newToken } },
+        function(err, count, stat) {
+          if (utils.errorCheck(res, err)) { return; }
+          if (count === 0) {
+            res.json(utils.error("Invalid username or password.", 403, null));
+          } else {
+            res.json({ did_pass : true, message : { token : newToken } });
+          }
+        });
   });
 });
 
-// Post: user/update
-router.post('/update', function(req, res) {
-  if (!utils.fieldCheck(req, res, "string token",
-        "string target_email_address")) { return; }
-  res.json( { hello : "update" } );
-});
-
-// Post: user/delete
-router.post('/delete', function(req, res) {
-  if (!utils.fieldCheck(req, res, "string token",
-        "string target_email_address")) { return; }
-  res.json( { hello : "delete" } );
+// Post: /user/create_stoken
+router.post('/create_stoken', function(req, res) {
+  // Require primary token
+  if (!utils.fieldCheck(req, res, "string token")){ return; }
+  crypto.randomBytes(48, function(ex, buf) {
+    var newToken = buf.toString('hex');
+    var usersDb = req.db.collection('users');
+    usersDb.update(
+        { primary_token : req.body.token },
+        { $addToSet : { secondary_tokens : newToken } },
+        function(err, count, stat) {
+          if (utils.errorCheck(res, err)) { return; }
+          if (count === 0) {
+            res.json(utils.error("Invalid TPrimary token", 403, null));
+          } else {
+            res.json({ did_pass : true, message : { token : newToken } });
+          }
+        });
+  });
 });
 
 module.exports = router;
