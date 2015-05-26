@@ -13,6 +13,7 @@ var db = mongo.db("mongodb://localhost:27017/auth", {native_parser:true});
 
 // Routes
 var user = require('./routes/user');
+var user_data = require('./routes/user_data');
 
 flags.parse();
 var app = express();
@@ -33,6 +34,7 @@ app.use(function(req,res,next){
 });
 
 app.use('/user', user);
+app.use('/user_data', user_data);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

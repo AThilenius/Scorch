@@ -6,4 +6,4 @@ cp build/libs/* docker_build/mods
 cp libs/* docker_build/mods
 cd docker_build
 /bin/bash docker_build.sh
-docker puch athilenius/blaze
+docker push athilenius/blaze
