@@ -8,8 +8,8 @@ var flags = require('flags');
 var utils = require('utils');
 
 // Database
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/auth", {native_parser:true});
+var mongodb = require('db-mongo');
+var db = mongodb.getDbByName('auth');
 
 // Routes
 var user = require('./routes/user');
@@ -23,14 +23,16 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Make our db accessible to our router
-app.use(function(req,res,next){
-    req.db = db;
-    next();
+app.use(function(req, res, next) {
+  req.db = db;
+  next();
 });
 
 app.use('/user', user);
@@ -42,9 +44,9 @@ app.use(function(req, res, next) {
   //err.status = 404;
   //next(err);
   res.json({
-    did_pass : false,
-    failure_message : "Route Not Found",
-    error_code : 404
+    did_pass: false,
+    failure_message: "Route Not Found",
+    error_code: 404
   });
 });
 
@@ -65,12 +67,12 @@ if (app.get('env') === 'development') {
 
 // production error handler
 app.use(function(err, req, res, next) {
-    // Render JSON response without stack trace
-    res.json({
-      did_pass : false,
-      failure_message : err.message,
-      error_code : err.status
-    });
+  // Render JSON response without stack trace
+  res.json({
+    did_pass: false,
+    failure_message: err.message,
+    error_code: err.status
+  });
 });
 
 module.exports = app;

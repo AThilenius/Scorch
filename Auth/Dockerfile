@@ -1,29 +1,35 @@
+#===============================================================================
+#===  AUTH =====================================================================
+#===============================================================================
 FROM ubuntu:14.04
 
-# Python (needed for NodeJS)
+#===  PYTHON / NODEJS  =========================================================
 RUN apt-get update -qq && apt-get install -y python python-pip python-dev
-
-# Node.js
 RUN /bin/bash -c -l 'apt-get install -qy nodejs'
 RUN /bin/bash -c -l 'apt-get install -qy npm'
 RUN /bin/bash -c -l 'npm update -g express'
 RUN update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-# Supervisor
-RUN apt-get install -qy supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+#===  NODE PROJECT SETUP  ======================================================
+ADD app.js /home/core/node/
+ADD bin /home/core/node/bin
+ADD package.json /home/core/node/
+ADD public /home/core/node/public
+ADD routes /home/core/node/routes
+ADD ../node_modules /home/core/node/node_modules
+RUN cd /home/core/node && npm install
 
-# Node JS
-ADD app.js node/
-ADD bin node/bin
-ADD package.json node/
-ADD public node/public
-ADD routes node/routes
-# Also need to add the master node_modules
-ADD ../node_modules node/node_modules
+#===  ETCD  ====================================================================
+ADD register_etcd.sh /home/core/node/
+RUN chmod +x /home/core/node/register_etcd.sh
 
-# Finally, install all modules
-RUN cd node && npm install
 
-WORKDIR /node
-CMD /bin/bash -c -l 'NODE_ENV=production PORT=80 npm start'
+#===  MISX  ====================================================================
+WORKDIR /home/core/node
+CMD /bin/bash -c '\
+  (\
+    /home/core/node/register_etcd.sh services/http/auth $COREOS_PUBLIC_IPV4 6060\
+      2> etcd.log &\
+  ) && (\
+    NODE_ENV=production PORT=80 npm start\
+  )'
