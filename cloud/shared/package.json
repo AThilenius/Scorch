@@ -1,0 +1,10 @@
+{
+  "name": "shared",
+  "version": "0.0.0",
+  "dependencies": {
+    "mongodb": "1.4",
+    "mongoskin": "1.4.13", 
+    "flags": "*",
+    "restler": "*"
+  }
+}
