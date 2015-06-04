@@ -33,13 +33,13 @@ ADD shared_js_libs /home/core/node/node_modules
 WORKDIR /home/core/node
 CMD /bin/bash -c '\
   DB_IP=$(node -pe "JSON.parse(JSON.parse(process.argv[1]).node.value).ip"\
-  "$(curl -s -L http://172.17.42.1:4001/v2/keys/databases/mongodb)");\
+    "$(curl -s -L http://172.17.42.1:4001/v2/keys/databases/mongodb)");\
   DB_PORT=$(node -pe "JSON.parse(JSON.parse(process.argv[1]).node.value).port"\
-  "$(curl -s -L http://172.17.42.1:4001/v2/keys/databases/mongodb)");\
-  echo "Using DB: $DB_IP:$DB_PORT";\
+    "$(curl -s -L http://172.17.42.1:4001/v2/keys/databases/mongodb)");\
   (\
     /home/core/node/register_etcd.sh services/http/auth/1 $COREOS_PUBLIC_IPV4\
       6060 &> /dev/null &\
   ) && (\
-    NODE_ENV=production PORT=80 MONGO_IP="$DB_IP" MONGO_PORT="$DB_PORT" npm start\
+    NODE_ENV=production PORT=80 MONGO_IP="$DB_IP" MONGO_PORT="$DB_PORT" npm\
+      start\
   )'
