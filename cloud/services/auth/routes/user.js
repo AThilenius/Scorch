@@ -119,7 +119,7 @@ router.post('/delete', function(req, res) {
 // Post: /user/create_ptoken
 router.post('/create_ptoken', function(req, res) {
   // require email_address, password
-  if (!utils.fieldcheck(req, res, "string email_address",
+  if (!utils.fieldCheck(req, res, "string email_address",
       "string password")) {
     return;
   }
@@ -159,12 +159,12 @@ router.post('/create_ptoken', function(req, res) {
 // Post: /user/create_stoken
 router.post('/create_stoken', function(req, res) {
   // require primary token
-  if (!utils.fieldcheck(req, res, "string token")) {
+  if (!utils.fieldCheck(req, res, "string token")) {
     return;
   }
-  crypto.randombytes(48, function(ex, buf) {
-    var newtoken = buf.tostring('hex');
-    var usersdb = req.db.collection('users');
+  crypto.randomBytes(48, function(ex, buf) {
+    var newToken = buf.toString('hex');
+    var usersDb = req.db.collection('users');
     usersDb.update({
         primary_token: req.body.token
       }, {
