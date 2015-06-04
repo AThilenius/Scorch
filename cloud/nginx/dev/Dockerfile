@@ -34,7 +34,8 @@ RUN chmod +x /usr/local/bin/register_etcd.sh
 # Define default command.
 CMD /bin/bash -c '\
   (\
-    /usr/local/bin/register_etcd.sh proxies/http/nginx/1 $COREOS_PUBLIC_IPV4 80 &\
+    /usr/local/bin/register_etcd.sh proxies/http/nginx/1 $COREOS_PUBLIC_IPV4 80\
+    &> /dev/null &\
   ) && (\
     /usr/local/bin/confd-watch\
   )'

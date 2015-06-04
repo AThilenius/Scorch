@@ -14,12 +14,12 @@ server {
   listen 80;
 
   {{range $dir := lsdir "/services/http"}}
-  location /services/{{base $dir}} {
+  location /services/{{base $dir}}/ {
     add_header 'Access-Control-Allow-Origin' '*';
     add_header 'Access-Control-Allow-Credentials' 'true';
     add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
 
-    proxy_pass http://{{base $dir}};
+    proxy_pass http://{{base $dir}}/;
 
     proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
     proxy_redirect off;
